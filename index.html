@@ -469,6 +469,37 @@
       margin-top: 1.5rem;
     }
 
+    /* ── CARD PHOTO CAPS ── */
+    .doc-card { overflow: hidden; }
+    .card-photo {
+      margin: -2rem -1.75rem 1.5rem;
+      height: 135px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .card-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(28,38,59,0.10) 0%, rgba(28,38,59,0.55) 100%);
+    }
+    .floor-card { overflow: hidden; }
+    .floor-photo {
+      margin: -1.5rem -1.5rem 1rem;
+      height: 110px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .floor-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(28,38,59,0.10) 0%, rgba(28,38,59,0.50) 100%);
+    }
+    .jeff-avatar { object-fit: cover; }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -508,7 +539,7 @@
 
   <!-- ═══════════════════════════════════════
        RESOURCE LIBRARY — leads the page
-  ═════════════════════════════════════════ -->
+  ════════════════════════════════════════ -->
   <section class="resources">
     <div class="container">
 
@@ -523,6 +554,7 @@
 
         <!-- Brochure -->
         <div class="doc-card">
+          <div class="card-photo" style="background-image:url('https://static.wixstatic.com/media/f42cd3_3f70dd0c1d674c3aabab8df8931e09f0~mv2.png')"></div>
           <svg class="doc-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M10 4h14l8 8v24a2 2 0 01-2 2H10a2 2 0 01-2-2V6a2 2 0 012-2z" fill="rgba(196,154,60,0.08)" stroke="currentColor" stroke-width="2"/>
             <path d="M24 4v8h8" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
@@ -542,6 +574,7 @@
 
         <!-- Site Map -->
         <div class="doc-card">
+          <div class="card-photo" style="background-image:url('https://static.wixstatic.com/media/f42cd3_1e0660e42076445d9b77e5bc9fd3e653~mv2.png')"></div>
           <svg class="doc-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="5" y="7" width="30" height="26" rx="2" fill="rgba(196,154,60,0.08)" stroke="currentColor" stroke-width="2"/>
             <line x1="5" y1="15" x2="35" y2="15" stroke="currentColor" stroke-width="1.6"/>
@@ -562,6 +595,7 @@
 
         <!-- Feature Sheet -->
         <div class="doc-card">
+          <div class="card-photo" style="background-image:url('https://static.wixstatic.com/media/f42cd3_733bb14c9c8742d1a682cfaeb6d02d5c~mv2.png')"></div>
           <svg class="doc-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="7" y="4" width="26" height="32" rx="2" fill="rgba(196,154,60,0.08)" stroke="currentColor" stroke-width="2"/>
             <circle cx="12" cy="14" r="2" fill="currentColor"/>
@@ -588,6 +622,7 @@
       <div class="floor-grid">
 
         <div class="floor-card">
+          <div class="floor-photo" style="background-image:url('https://static.wixstatic.com/media/f42cd3_0716274c8af04842b56269e2779f1b63~mv2.png')"></div>
           <span class="floor-type-badge">Detached Singles</span>
           <div class="floor-name">30&apos; Lots</div>
           <p class="floor-detail">Efficient layouts on narrower lots. A great entry point into the Tanglewood community.</p>
@@ -597,6 +632,7 @@
         </div>
 
         <div class="floor-card">
+          <div class="floor-photo" style="background-image:url('https://static.wixstatic.com/media/f42cd3_7e614012fceb40c3a17436cf62ee74bc~mv2.png')"></div>
           <span class="floor-type-badge">Detached Singles</span>
           <div class="floor-name">36&apos; Lots</div>
           <p class="floor-detail">The most popular lot size. Extra width opens up more layout options and family configurations.</p>
@@ -606,6 +642,7 @@
         </div>
 
         <div class="floor-card">
+          <div class="floor-photo" style="background-image:url('https://static.wixstatic.com/media/f42cd3_bf694d216f564e95954c30a4bc4ed530~mv2.png')"></div>
           <span class="floor-type-badge">Detached Singles</span>
           <div class="floor-name">40&apos; Lots</div>
           <p class="floor-detail">Larger lots with more spacious designs. Ideal for buyers who want room to grow.</p>
@@ -615,6 +652,7 @@
         </div>
 
         <div class="floor-card">
+          <div class="floor-photo" style="background-image:url('https://static.wixstatic.com/media/f42cd3_fff9a77666704fb086509bca52289fb0~mv2.png')"></div>
           <span class="floor-type-badge">Executive Towns</span>
           <div class="floor-name">Townhomes</div>
           <p class="floor-detail">Terrace homes and executive towns with the same Tanglewood quality and craftsmanship.</p>
@@ -677,7 +715,7 @@
   <section class="jeff-section">
     <div class="container">
       <div class="jeff-inner">
-        <div class="jeff-avatar">JV</div>
+        <img class="jeff-avatar" src="assets/headshot.jpg" alt="Jeff Villeneuve">
         <div>
           <div class="jeff-name">Jeff Villeneuve</div>
           <div class="jeff-role">Smarter Real Estate &middot; Meta Realty Inc., Brokerage</div>
@@ -689,12 +727,12 @@
               </svg>
               (647) 409-7653
             </a>
-            <a class="jeff-contact" href="mailto:soldbyjeffreyv@gmail.com">
+            <a class="jeff-contact" href="mailto:info@smarterrealestate.ca">
               <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" xmlns="http://www.w3.org/2000/svg">
                 <rect x="1.5" y="3.5" width="13" height="9" rx="1.5" stroke-linejoin="round"/>
                 <path d="M1.5 5l6.5 4.5L14.5 5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
-              soldbyjeffreyv@gmail.com
+              info@smarterrealestate.ca
             </a>
             <a class="jeff-contact" href="https://www.smarterrealestate.ca" target="_blank" rel="noopener">
               <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" xmlns="http://www.w3.org/2000/svg">
