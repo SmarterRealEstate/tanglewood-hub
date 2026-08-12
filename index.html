@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tanglewood Oshawa — Phase 2 | Smarter Real Estate</title>
-  <meta name="description" content="Tanglewood Phase 2 in Oshawa is coming. Exclusive Singles, Terrace Homes & Executive Townhomes by Medallion Developments. Register for VIP Platinum access.">
+  <title>Tanglewood Oshawa — Resource Centre | Smarter Real Estate</title>
+  <meta name="description" content="Your complete Tanglewood resource hub. Floor plans, brochures, site maps, and Phase 2 updates for Medallion Developments' Tanglewood community in Oshawa.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -16,32 +16,32 @@
   <script src="//js.hsforms.net/forms/embed/v2.js" charset="utf-8"></script>
   <style>
     :root {
-      --dark:      #1E1912;
-      --dark2:     #150F08;
-      --gold:      #C49A3C;
-      --gold-dk:   #A8832A;
-      --gold-lt:   #D4AE5A;
-      --warm:      #E8C97A;
-      --light:     #FAF7F3;
-      --border:    #E5DDD4;
-      --text:      #333333;
-      --text-lt:   #6B6258;
-      --white:     #FFFFFF;
-      --section-gap: 5.5rem;
+      --navy:    #1C263B; /* Jeff nav/footer */
+      --dark:    #1E1912; /* Tanglewood dark */
+      --dark2:   #150F08;
+      --gold:    #C49A3C;
+      --gold-dk: #A8832A;
+      --gold-lt: #D4AE5A;
+      --warm:    #E8C97A;
+      --light:   #FAF7F3;
+      --border:  #E5DDD4;
+      --text:    #3A3530;
+      --text-lt: #6B6258;
+      --white:   #FFFFFF;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: 'Inter', sans-serif;
-      font-weight: 400;
       color: var(--text);
       background: var(--white);
+      line-height: 1.6;
     }
 
-    /* ── STICKY NAV ── */
+    /* ── NAV ── */
     .nav {
-      background: var(--dark);
+      background: var(--navy);
       padding: 0 2.5rem;
       display: flex;
       align-items: center;
@@ -50,636 +50,441 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      box-shadow: 0 2px 12px rgba(30,25,18,0.45);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.35);
     }
-    .nav-logo { height: 44px; width: auto; }
+    .nav-logo { height: 42px; width: auto; }
     .nav-cta {
-      display: inline-block;
       background: var(--gold);
       color: var(--white);
       text-decoration: none;
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       font-weight: 800;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      padding: 0.65rem 1.5rem;
+      padding: 0.6rem 1.4rem;
       border-radius: 2px;
       transition: background 0.2s;
+      white-space: nowrap;
     }
     .nav-cta:hover { background: var(--gold-dk); }
 
-    /* ── SECTION UTILITY ── */
-    .section-eyebrow {
-      display: block;
-      font-size: 0.66rem;
-      font-weight: 700;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1rem;
-    }
-    .section-eyebrow.light { color: var(--gold-lt); }
-
     /* ── HERO ── */
     .hero {
+      background: url('https://static.wixstatic.com/media/f42cd3_622afd9fa523421caa9289d0254a487df000.jpg') center/cover no-repeat;
       position: relative;
-      min-height: 90vh;
+      min-height: 460px;
       display: flex;
       align-items: center;
-      background: url('https://static.wixstatic.com/media/f42cd3_622afd9fa523421caa9289d0254a487df000.jpg') center/cover no-repeat;
+      justify-content: center;
+      text-align: center;
+      padding: 5rem 2rem;
     }
-    .hero-overlay {
+    .hero::after {
+      content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(105deg, rgba(30,25,18,0.94) 0%, rgba(30,25,18,0.74) 55%, rgba(30,25,18,0.30) 100%);
+      background: linear-gradient(to bottom, rgba(21,15,8,0.72) 0%, rgba(21,15,8,0.80) 100%);
     }
     .hero-content {
       position: relative;
-      z-index: 1;
-      max-width: 660px;
-      padding: 4rem 3rem;
+      z-index: 2;
+      max-width: 680px;
     }
     .hero-eyebrow {
-      display: inline-block;
-      font-size: 0.68rem;
+      display: block;
+      font-size: 0.65rem;
       font-weight: 700;
-      letter-spacing: 0.22em;
+      letter-spacing: 0.25em;
       text-transform: uppercase;
-      color: var(--gold-lt);
+      color: var(--warm);
       margin-bottom: 1.4rem;
     }
     .hero-logo {
-      width: 320px;
-      max-width: 100%;
-      margin-bottom: 2rem;
+      height: 62px;
+      width: auto;
       display: block;
+      margin: 0 auto 1.6rem;
+      filter: brightness(0) invert(1);
     }
-    .hero-tagline {
-      font-size: clamp(1.8rem, 3.4vw, 2.6rem);
-      font-weight: 300;
+    .hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.75rem);
+      font-weight: 800;
       color: var(--white);
-      line-height: 1.25;
-      letter-spacing: -0.01em;
+      line-height: 1.15;
       margin-bottom: 1rem;
     }
-    .hero-tagline strong { font-weight: 800; color: var(--gold-lt); }
     .hero-sub {
       font-size: 1rem;
-      color: rgba(255,255,255,0.80);
-      margin-bottom: 2.4rem;
-      font-weight: 300;
-      line-height: 1.65;
-    }
-    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn-primary {
-      display: inline-block;
-      background: var(--gold);
-      color: var(--white);
-      text-decoration: none;
-      font-size: 0.74rem;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 0.9rem 2.2rem;
-      border-radius: 2px;
-      transition: background 0.2s;
-    }
-    .btn-primary:hover { background: var(--gold-dk); }
-    .btn-outline {
-      display: inline-block;
-      border: 2px solid rgba(255,255,255,0.45);
-      color: var(--white);
-      text-decoration: none;
-      font-size: 0.74rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 0.85rem 2rem;
-      border-radius: 2px;
-      transition: border-color 0.2s, background 0.2s;
-    }
-    .btn-outline:hover { border-color: var(--gold-lt); background: rgba(196,154,60,0.12); }
-
-    /* ── GOLD BAR ── */
-    .gold-bar {
-      background: var(--gold);
-      color: var(--white);
-      text-align: center;
-      padding: 0.8rem 1rem;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-    .gold-bar strong { font-weight: 800; }
-
-    /* ── ABOUT ── */
-    .about {
-      max-width: 900px;
+      color: rgba(255,255,255,0.72);
+      font-weight: 400;
+      max-width: 480px;
       margin: 0 auto;
-      padding: var(--section-gap) 2rem;
-      text-align: center;
-    }
-    .about h2 {
-      font-size: clamp(1.7rem, 3vw, 2.4rem);
-      font-weight: 300;
-      color: var(--dark);
-      line-height: 1.3;
-      margin-bottom: 1.6rem;
-      letter-spacing: -0.01em;
-    }
-    .about h2 strong { font-weight: 800; }
-    .about p {
-      font-size: 1.05rem;
-      color: var(--text);
-      line-height: 1.8;
-      max-width: 740px;
-      margin: 0 auto 1.2rem;
-    }
-    .phase-badge {
-      display: inline-block;
-      background: var(--dark);
-      color: var(--gold-lt);
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      padding: 0.5rem 1.2rem;
-      border-radius: 2px;
-      margin-top: 1.2rem;
     }
 
-    /* ── HOME TYPES ── */
-    .home-types {
-      background: var(--light);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: var(--section-gap) 2rem;
+    /* ── SHARED UTILITIES ── */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
     }
-    .home-types-inner { max-width: 1100px; margin: 0 auto; }
-    .section-header {
-      text-align: center;
-      margin-bottom: 3.5rem;
+    .eyebrow {
+      display: block;
+      font-size: 0.63rem;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
     }
-    .section-header h2 {
-      font-size: clamp(1.5rem, 2.8vw, 2.2rem);
-      font-weight: 300;
+    .section-heading {
+      font-size: clamp(1.5rem, 3vw, 2.1rem);
+      font-weight: 800;
       color: var(--dark);
-      letter-spacing: -0.01em;
-      line-height: 1.3;
+      line-height: 1.2;
+      margin-bottom: 0.65rem;
     }
-    .section-header h2 strong { font-weight: 800; }
-    .section-header p {
+    .section-lead {
       font-size: 1rem;
       color: var(--text-lt);
-      margin-top: 0.8rem;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .types-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
-    .type-card {
-      background: var(--white);
-      border-top: 4px solid var(--gold);
-      padding: 2rem 1.8rem;
-    }
-    .type-icon { font-size: 2rem; margin-bottom: 1rem; }
-    .type-card h3 {
-      font-size: 1.15rem;
-      font-weight: 800;
-      color: var(--dark);
-      margin-bottom: 0.4rem;
-      letter-spacing: 0.01em;
-    }
-    .type-lots {
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1rem;
-    }
-    .type-card p { font-size: 0.92rem; color: var(--text); line-height: 1.7; margin-bottom: 1rem; }
-    .type-note {
-      font-size: 0.78rem;
-      color: var(--text-lt);
-      font-style: italic;
-      border-top: 1px solid var(--border);
-      padding-top: 0.8rem;
-      margin-top: 0.5rem;
+      max-width: 560px;
     }
 
-    /* ── NEIGHBOURHOOD ── */
-    .neighbourhood {
-      padding: var(--section-gap) 2rem;
-      max-width: 1100px;
-      margin: 0 auto;
+    /* ── RESOURCE LIBRARY ── */
+    .resources {
+      background: var(--light);
+      padding: 5.5rem 0 6rem;
+      border-top: 3px solid var(--border);
     }
-    .neighbourhood-grid {
+    .resources-header { margin-bottom: 3rem; }
+
+    /* Primary document cards */
+    .doc-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      margin-top: 3rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
     }
-    @media (max-width: 768px) {
-      .neighbourhood-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .doc-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--gold);
+      border-radius: 4px;
+      padding: 2rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      transition: box-shadow 0.2s, transform 0.2s;
     }
-    .neigh-block h3 {
+    .doc-card:hover {
+      box-shadow: 0 8px 28px rgba(30,25,18,0.11);
+      transform: translateY(-2px);
+    }
+    .doc-icon {
+      width: 38px;
+      height: 38px;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+    .doc-title {
       font-size: 1.05rem;
       font-weight: 700;
       color: var(--dark);
-      margin-bottom: 0.8rem;
-      padding-bottom: 0.6rem;
-      border-bottom: 2px solid var(--gold);
     }
-    .neigh-block ul {
-      list-style: none;
-      padding: 0;
+    .doc-desc {
+      font-size: 0.875rem;
+      color: var(--text-lt);
+      line-height: 1.6;
+      flex: 1;
     }
-    .neigh-block ul li {
-      font-size: 0.93rem;
-      color: var(--text);
-      line-height: 1.65;
-      padding: 0.35rem 0;
-      padding-left: 1.1rem;
-      position: relative;
-    }
-    .neigh-block ul li::before {
-      content: '—';
-      position: absolute;
-      left: 0;
-      color: var(--gold);
-      font-weight: 700;
-    }
-    .growth-story {
-      background: var(--dark);
-      padding: 3rem 2rem;
-      margin-top: 3.5rem;
-      max-width: 1100px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .growth-story h3 {
-      font-size: 1.3rem;
-      font-weight: 300;
-      color: var(--white);
-      margin-bottom: 1rem;
-      letter-spacing: -0.01em;
-    }
-    .growth-story h3 strong { font-weight: 800; color: var(--gold-lt); }
-    .growth-story p {
-      font-size: 0.97rem;
-      color: rgba(255,255,255,0.82);
-      line-height: 1.8;
-      max-width: 780px;
-    }
-
-    /* ── REGISTER EARLY ── */
-    .register-section {
-      padding: var(--section-gap) 2rem;
-      background: var(--light);
-      border-top: 1px solid var(--border);
-    }
-    .register-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: start;
-    }
-    @media (max-width: 900px) {
-      .register-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-    }
-    .register-reasons h2 {
-      font-size: clamp(1.5rem, 2.5vw, 2.1rem);
-      font-weight: 300;
-      color: var(--dark);
-      margin-bottom: 2rem;
-      letter-spacing: -0.01em;
-    }
-    .register-reasons h2 strong { font-weight: 800; }
-    .reason-item {
-      display: flex;
-      gap: 1rem;
-      margin-bottom: 1.4rem;
-      align-items: flex-start;
-    }
-    .reason-num {
-      flex-shrink: 0;
-      width: 32px;
-      height: 32px;
+    .doc-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
       background: var(--gold);
       color: var(--white);
-      font-size: 0.78rem;
+      text-decoration: none;
+      font-size: 0.68rem;
       font-weight: 800;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.55rem 1.1rem;
       border-radius: 2px;
+      margin-top: 0.5rem;
+      align-self: flex-start;
+      transition: background 0.2s;
     }
-    .reason-text strong {
-      display: block;
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--dark);
-      margin-bottom: 0.2rem;
-    }
-    .reason-text span { font-size: 0.88rem; color: var(--text-lt); line-height: 1.6; }
-    .register-form-col h3 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--dark);
-      margin-bottom: 0.3rem;
-    }
-    .register-form-col p {
-      font-size: 0.88rem;
-      color: var(--text-lt);
-      margin-bottom: 1.5rem;
-    }
-    .vip-link-box {
-      background: var(--dark);
-      padding: 2rem;
-      border-top: 4px solid var(--gold);
-      text-align: center;
-    }
-    .vip-link-box p {
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.80);
-      margin-bottom: 1.2rem;
-      line-height: 1.65;
-    }
+    .doc-btn:hover { background: var(--gold-dk); }
+    .doc-btn svg { width: 11px; height: 11px; flex-shrink: 0; }
 
-    /* ── JEFF'S CORNER ── */
-    .jeffs-corner {
-      padding: var(--section-gap) 2rem;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .jeff-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-top: 4px solid var(--gold);
-      padding: 3rem;
-      display: grid;
-      grid-template-columns: 160px 1fr;
-      gap: 2.5rem;
-      align-items: start;
-    }
-    @media (max-width: 640px) {
-      .jeff-card { grid-template-columns: 1fr; }
-      .jeff-photo { width: 100px; }
-    }
-    .jeff-photo {
-      width: 100%;
-      aspect-ratio: 1;
-      object-fit: cover;
-      border-radius: 2px;
-      background: var(--border);
-    }
-    .jeff-photo-placeholder {
-      width: 100%;
-      aspect-ratio: 1;
-      background: var(--light);
-      border: 1px dashed var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.75rem;
-      color: var(--text-lt);
-      text-align: center;
-      padding: 1rem;
-      border-radius: 2px;
-    }
-    .jeff-bio-eyebrow {
-      font-size: 0.66rem;
+    /* Floor Plans sub-section */
+    .floor-label {
+      font-size: 0.63rem;
       font-weight: 700;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--gold);
-      display: block;
-      margin-bottom: 0.6rem;
-    }
-    .jeff-bio h2 {
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: var(--dark);
-      margin-bottom: 0.3rem;
-    }
-    .jeff-bio .jeff-title {
-      font-size: 0.88rem;
-      color: var(--text-lt);
-      margin-bottom: 1.5rem;
-    }
-    .jeff-quote {
-      font-size: 1rem;
-      color: var(--text);
-      line-height: 1.8;
-      font-weight: 300;
-      font-style: italic;
-      margin-bottom: 1.8rem;
-      position: relative;
-      padding-left: 1.2rem;
-      border-left: 3px solid var(--gold);
-    }
-    .jeff-contact {
+      margin-bottom: 1.25rem;
       display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
+      align-items: center;
+      gap: 0.85rem;
     }
-    .jeff-contact a {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--dark);
-      text-decoration: none;
-      padding: 0.5rem 1rem;
-      border: 1px solid var(--border);
-      border-radius: 2px;
-      transition: border-color 0.2s, color 0.2s;
+    .floor-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
     }
-    .jeff-contact a:hover { border-color: var(--gold); color: var(--gold-dk); }
-
-    /* ── TANGLEWOOD INSIDER ── */
-    .insider {
-      background: var(--dark);
-      padding: var(--section-gap) 2rem;
-    }
-    .insider-inner {
-      max-width: 900px;
-      margin: 0 auto;
+    .floor-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: start;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
     }
-    @media (max-width: 800px) {
-      .insider-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-    }
-    .insider-copy h2 {
-      font-size: clamp(1.5rem, 2.5vw, 2rem);
-      font-weight: 300;
-      color: var(--white);
-      margin-bottom: 1rem;
-      letter-spacing: -0.01em;
-    }
-    .insider-copy h2 strong { font-weight: 800; color: var(--gold-lt); }
-    .insider-copy p {
-      font-size: 0.95rem;
-      color: rgba(255,255,255,0.78);
-      line-height: 1.8;
-      margin-bottom: 1rem;
-    }
-    .insider-bullets {
-      list-style: none;
-      padding: 0;
-      margin-top: 1.2rem;
-    }
-    .insider-bullets li {
-      font-size: 0.88rem;
-      color: rgba(255,255,255,0.70);
-      padding: 0.3rem 0;
-      padding-left: 1.1rem;
-      position: relative;
-    }
-    .insider-bullets li::before {
-      content: '✦';
-      position: absolute;
-      left: 0;
-      color: var(--gold);
-      font-size: 0.6rem;
-      top: 0.45rem;
-    }
-    .insider-form-col h3 {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 0.4rem;
-    }
-    .insider-form-col p {
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.60);
-      margin-bottom: 1.5rem;
-    }
-
-    /* ── LATEST UPDATES ── */
-    .updates {
-      padding: var(--section-gap) 2rem;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .updates-placeholder {
-      background: var(--light);
-      border: 1px dashed var(--border);
-      padding: 3rem 2rem;
-      text-align: center;
-      border-radius: 2px;
-      margin-top: 2.5rem;
-    }
-    .updates-placeholder p {
-      font-size: 0.95rem;
-      color: var(--text-lt);
-      line-height: 1.7;
-    }
-    .updates-placeholder strong { color: var(--dark); }
-
-    /* ── PHASE 1 OWNER ARCHIVE ── */
-    .archive {
-      background: var(--light);
-      border-top: 1px solid var(--border);
-      padding: var(--section-gap) 2rem;
-    }
-    .archive-inner { max-width: 900px; margin: 0 auto; }
-    .archive-inner h2 {
-      font-size: clamp(1.4rem, 2.5vw, 2rem);
-      font-weight: 300;
-      color: var(--dark);
-      margin-bottom: 0.6rem;
-      letter-spacing: -0.01em;
-    }
-    .archive-inner h2 strong { font-weight: 800; }
-    .archive-inner .archive-sub {
-      font-size: 1rem;
-      color: var(--text-lt);
-      margin-bottom: 2.5rem;
-      line-height: 1.65;
-    }
-    .archive-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
-    .archive-item {
+    .floor-card {
       background: var(--white);
       border: 1px solid var(--border);
-      padding: 1.4rem 1.2rem;
+      border-radius: 4px;
+      padding: 1.5rem 1.5rem 1.75rem;
       display: flex;
-      gap: 0.8rem;
-      align-items: center;
+      flex-direction: column;
+      gap: 0.5rem;
+      transition: box-shadow 0.2s, transform 0.2s;
     }
-    .archive-icon { font-size: 1.4rem; flex-shrink: 0; }
-    .archive-item-text strong {
-      display: block;
-      font-size: 0.9rem;
+    .floor-card:hover {
+      box-shadow: 0 6px 20px rgba(30,25,18,0.09);
+      transform: translateY(-2px);
+    }
+    .floor-type-badge {
+      font-size: 0.6rem;
       font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .floor-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--dark);
+    }
+    .floor-detail {
+      font-size: 0.84rem;
+      color: var(--text-lt);
+      line-height: 1.55;
+      flex: 1;
+    }
+    .floor-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      color: var(--gold-dk);
+      text-decoration: none;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 0.85rem;
+      align-self: flex-start;
+      border-bottom: 1px solid var(--gold-lt);
+      padding-bottom: 1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .floor-btn:hover { color: var(--dark); border-color: var(--dark); }
+
+    /* ── ABOUT TANGLEWOOD ── */
+    .about {
+      padding: 5.5rem 0;
+      background: var(--white);
+      border-top: 1px solid var(--border);
+    }
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 5rem;
+      align-items: start;
+    }
+    .about-body .section-heading { margin-bottom: 1.5rem; }
+    .about-body p {
+      font-size: 0.97rem;
+      color: var(--text-lt);
+      margin-bottom: 1rem;
+      line-height: 1.7;
+    }
+    .about-body p:last-child { margin-bottom: 0; }
+
+    .about-facts {
+      background: var(--light);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--gold);
+      border-radius: 4px;
+      padding: 1.75rem 2rem;
+    }
+    .fact {
+      padding: 0.85rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+    .fact:first-child { padding-top: 0; }
+    .fact:last-child { border-bottom: none; padding-bottom: 0; }
+    .fact-label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .fact-value {
+      font-size: 0.93rem;
+      font-weight: 600;
+      color: var(--dark);
+      line-height: 1.4;
+    }
+
+    /* ── JEFF'S CORNER ── */
+    .jeff-section {
+      background: var(--light);
+      padding: 5rem 0;
+      border-top: 1px solid var(--border);
+    }
+    .jeff-inner {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 3rem;
+      align-items: center;
+      max-width: 820px;
+    }
+    .jeff-avatar {
+      width: 108px;
+      height: 108px;
+      border-radius: 50%;
+      border: 3px solid var(--gold);
+      background: var(--dark);
+      color: var(--gold);
+      font-size: 2.4rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      letter-spacing: -0.02em;
+    }
+    .jeff-name {
+      font-size: 1.4rem;
+      font-weight: 800;
       color: var(--dark);
       margin-bottom: 0.2rem;
     }
-    .archive-item-text span { font-size: 0.8rem; color: var(--text-lt); }
-    .archive-note {
-      background: rgba(196,154,60,0.1);
-      border-left: 3px solid var(--gold);
-      padding: 1rem 1.2rem;
-      font-size: 0.88rem;
-      color: var(--text);
+    .jeff-role {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.9rem;
+    }
+    .jeff-bio {
+      font-size: 0.95rem;
+      color: var(--text-lt);
       line-height: 1.65;
+      margin-bottom: 1.25rem;
+    }
+    .jeff-contacts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 1.5rem;
+    }
+    .jeff-contact {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--dark);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .jeff-contact:hover { color: var(--gold-dk); }
+    .jeff-contact svg {
+      width: 15px;
+      height: 15px;
+      color: var(--gold);
+      flex-shrink: 0;
     }
 
+    /* ── INSIDER NEWSLETTER ── */
+    .insider {
+      background: var(--dark);
+      padding: 5.5rem 0;
+      border-top: 3px solid var(--gold);
+    }
+    .insider-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .insider-left .eyebrow { color: var(--warm); }
+    .insider h2 {
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .insider-desc {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.62);
+      line-height: 1.65;
+    }
+    #insider-form { min-height: 120px; }
+
     /* ── FOOTER ── */
-    footer {
-      background: var(--dark2);
-      padding: 3rem 2rem 2rem;
+    .footer {
+      background: var(--navy);
+      padding: 3rem 0 2rem;
       text-align: center;
     }
     .footer-logo {
       height: 36px;
       width: auto;
-      margin-bottom: 1.2rem;
+      display: block;
+      margin: 0 auto 1.1rem;
+      filter: brightness(0) invert(1);
       opacity: 0.85;
     }
-    footer p {
-      font-size: 0.76rem;
-      color: rgba(255,255,255,0.40);
-      line-height: 1.7;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-    footer .footer-contact {
+    .footer-text {
       font-size: 0.82rem;
-      color: rgba(255,255,255,0.60);
-      margin-bottom: 1.2rem;
+      color: rgba(255,255,255,0.48);
+      margin-bottom: 0.35rem;
     }
-    footer .footer-contact a {
-      color: var(--gold-lt);
+    .footer-text a {
+      color: rgba(255,255,255,0.68);
       text-decoration: none;
+      transition: color 0.2s;
     }
-
-    /* ── HubSpot form theming ── */
-    .hs-form-container { margin-top: 0; }
-
-    /* ── SCROLL TARGET ── */
-    .scroll-target { scroll-margin-top: 80px; }
+    .footer-text a:hover { color: var(--gold); }
+    .footer-copy {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.28);
+      margin-top: 1.5rem;
+    }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 600px) {
-      .nav { padding: 0 1.2rem; }
-      .hero-content { padding: 3rem 1.5rem; }
-      .jeff-card { padding: 2rem 1.5rem; }
-      .growth-story { padding: 2rem 1.5rem; }
+    @media (max-width: 900px) {
+      .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-facts { max-width: 520px; }
+      .insider-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .floor-grid { grid-template-columns: repeat(2, 1fr); }
+      .doc-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .nav { padding: 0 1.25rem; }
+      .nav-logo { height: 36px; }
+      .jeff-inner { grid-template-columns: 1fr; text-align: center; }
+      .jeff-avatar { margin: 0 auto; }
+      .jeff-contacts { justify-content: center; }
+      .floor-grid { grid-template-columns: 1fr; }
+      .hero { min-height: 380px; padding: 3.5rem 1.25rem; }
     }
   </style>
 </head>
@@ -691,292 +496,246 @@
     <a class="nav-cta" href="https://www.smarterrealestate.ca/preconstruction/tanglewood">Register for VIP Access</a>
   </nav>
 
-  <!-- SECTION 1: HERO -->
+  <!-- HERO -->
   <section class="hero">
-    <div class="hero-overlay"></div>
     <div class="hero-content">
-      <span class="hero-eyebrow">Medallion Developments · Oshawa, ON</span>
+      <span class="hero-eyebrow">Medallion Developments &middot; Oshawa, ON</span>
       <img class="hero-logo" src="https://static.wixstatic.com/media/f42cd3_f7acd68bc30b43b994e8343169c9f54e~mv2.png" alt="Tanglewood">
-      <h1 class="hero-tagline">A Brighter Way to<br><strong>Live in Oshawa.</strong></h1>
-      <p class="hero-sub">Phase 1 sold out. Phase 2 is the next chapter — Exclusive Singles, Terrace Homes & Executive Townhomes in one of Oshawa's most desirable communities.</p>
-      <div class="hero-btns">
-        <a class="btn-primary" href="#register">Explore Phase 2</a>
-        <a class="btn-outline" href="https://www.smarterrealestate.ca/preconstruction/tanglewood">Register for VIP Access</a>
-      </div>
+      <h1>Your Complete Tanglewood<br>Resource Centre</h1>
+      <p class="hero-sub">Phase 1 is sold out and thriving. Phase 2 is on the horizon. Everything you need is right here.</p>
     </div>
   </section>
 
-  <!-- GOLD BAR -->
-  <div class="gold-bar">
-    <strong>Phase 1 is sold out.</strong> &nbsp;VIP Platinum registrations for Phase 2 are now open — register before the public launch.
-  </div>
+  <!-- ═══════════════════════════════════════
+       RESOURCE LIBRARY — leads the page
+  ═════════════════════════════════════════ -->
+  <section class="resources">
+    <div class="container">
 
-  <!-- SECTION 2: ABOUT -->
-  <section class="about scroll-target" id="about">
-    <span class="section-eyebrow">About Tanglewood</span>
-    <h2>Where <strong>Oshawa Meets<br>Elevated Living.</strong></h2>
-    <p>Tanglewood is a master-planned community by Medallion Developments — one of the GTA's most respected builders. Thoughtfully designed streetscapes, flexible home layouts, and a genuine sense of neighbourhood set Tanglewood apart from the typical new-home experience.</p>
-    <p>Phase 1 is sold out and thriving. Families have moved in, the community has taken shape, and the Tanglewood vision is now a reality you can see, walk through, and experience. Phase 2 picks up exactly where Phase 1 left off — with an expanded selection of home types built for the way people actually live.</p>
-    <span class="phase-badge">Phase 2 · Pre-Launch 2026</span>
-  </section>
-
-  <!-- SECTION 3: HOME TYPES -->
-  <section class="home-types scroll-target" id="homes">
-    <div class="home-types-inner">
-      <div class="section-header">
-        <span class="section-eyebrow">Phase 2 Home Types</span>
-        <h2>Three Home Types.<br><strong>One Exceptional Community.</strong></h2>
-        <p>Phase 2 introduces an expanded lineup — something for growing families, downsizers, and savvy investors alike.</p>
+      <div class="resources-header">
+        <span class="eyebrow">Resource Library</span>
+        <h2 class="section-heading">All the Details, All in One Place</h2>
+        <p class="section-lead">Phase 1 documents are publicly available. Browse, download, and share freely.</p>
       </div>
-      <div class="types-grid">
 
-        <div class="type-card">
-          <div class="type-icon">🏡</div>
-          <h3>Exclusive Singles</h3>
-          <div class="type-lots">30ft · 36ft · 40ft Lots</div>
-          <p>Thoughtfully designed detached homes with flexible layouts for growing families. Three lot configurations mean you can find the size and footprint that fits your life — without paying for space you don't need.</p>
-          <p>Expect open-concept main floors, 4-bedroom configurations, generous natural light, and options for secondary suites to offset your mortgage or house extended family.</p>
-          <div class="type-note">Floor plans coming soon — register for early access before the public release.</div>
+      <!-- Primary Documents -->
+      <div class="doc-grid">
+
+        <!-- Brochure -->
+        <div class="doc-card">
+          <svg class="doc-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 4h14l8 8v24a2 2 0 01-2 2H10a2 2 0 01-2-2V6a2 2 0 012-2z" fill="rgba(196,154,60,0.08)" stroke="currentColor" stroke-width="2"/>
+            <path d="M24 4v8h8" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <line x1="13" y1="21" x2="27" y2="21" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <line x1="13" y1="26" x2="27" y2="26" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <line x1="13" y1="31" x2="21" y2="31" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          <div class="doc-title">Phase 1 Brochure</div>
+          <p class="doc-desc">The full community brochure featuring home types, the Tanglewood vision, builder profile, and neighbourhood highlights.</p>
+          <a class="doc-btn" href="https://drive.google.com/file/d/1_OnBEkp5mCPHuJHCJeOLMwLPICd6Kfnq/view?usp=sharing" target="_blank" rel="noopener">
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 1v7M3 6l3 3 3-3M1.5 10.5h9" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            View &amp; Download
+          </a>
         </div>
 
-        <div class="type-card">
-          <div class="type-icon">🏘️</div>
-          <h3>Terrace Homes</h3>
-          <div class="type-lots">A Smarter Alternative</div>
-          <p>Architecturally distinct and often mistaken for semis, Terrace Homes deliver the privacy and streetscape appeal of a detached home — at a price point that makes the math work.</p>
-          <p>Ideal for first-time buyers, couples, or anyone who wants low-maintenance living without sacrificing space, design quality, or the feeling of owning something that feels truly like home.</p>
-          <div class="type-note">Floor plans coming soon — register for early access before the public release.</div>
+        <!-- Site Map -->
+        <div class="doc-card">
+          <svg class="doc-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="5" y="7" width="30" height="26" rx="2" fill="rgba(196,154,60,0.08)" stroke="currentColor" stroke-width="2"/>
+            <line x1="5" y1="15" x2="35" y2="15" stroke="currentColor" stroke-width="1.6"/>
+            <line x1="19" y1="7" x2="19" y2="33" stroke="currentColor" stroke-width="1.6"/>
+            <rect x="21" y="17" width="9" height="7" rx="1" fill="rgba(196,154,60,0.15)" stroke="currentColor" stroke-width="1.2"/>
+            <rect x="8" y="17" width="8" height="5" rx="1" fill="rgba(196,154,60,0.1)" stroke="currentColor" stroke-width="1.2"/>
+            <rect x="21" y="26" width="6" height="5" rx="1" fill="rgba(196,154,60,0.1)" stroke="currentColor" stroke-width="1.2"/>
+          </svg>
+          <div class="doc-title">Phase 1 Site Map</div>
+          <p class="doc-desc">The complete lot and street layout for Phase 1. See how the community is organized, lot positions, and what backs onto parks or green space.</p>
+          <a class="doc-btn" href="https://drive.google.com/file/d/1itcewX7tXGDufbOpa3CDL-WSaXtIz-KQ/view?usp=sharing" target="_blank" rel="noopener">
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 1v7M3 6l3 3 3-3M1.5 10.5h9" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            View &amp; Download
+          </a>
         </div>
 
-        <div class="type-card">
-          <div class="type-icon">🏙️</div>
-          <h3>Executive Townhomes</h3>
-          <div class="type-lots">Premium Finishes · Generous Sq Ft</div>
-          <p>Multi-storey townhome living with the finish level and square footage you'd expect from something much more expensive. These are not starter townhomes — they're a serious upgrade for buyers who want more.</p>
-          <p>A rare opportunity to own a new-build townhome in a master-planned Oshawa community at a price point that simply doesn't exist in the 416 or western GTA.</p>
-          <div class="type-note">Floor plans coming soon — register for early access before the public release.</div>
+        <!-- Feature Sheet -->
+        <div class="doc-card">
+          <svg class="doc-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="7" y="4" width="26" height="32" rx="2" fill="rgba(196,154,60,0.08)" stroke="currentColor" stroke-width="2"/>
+            <circle cx="12" cy="14" r="2" fill="currentColor"/>
+            <circle cx="12" cy="21" r="2" fill="currentColor"/>
+            <circle cx="12" cy="28" r="2" fill="currentColor"/>
+            <line x1="17" y1="14" x2="29" y2="14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <line x1="17" y1="21" x2="29" y2="21" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <line x1="17" y1="28" x2="24" y2="28" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          <div class="doc-title">Feature Sheet</div>
+          <p class="doc-desc">Standard inclusions, finishes, and specifications for Phase 1 homes. What comes with every Tanglewood home right from the start.</p>
+          <a class="doc-btn" href="https://drive.google.com/file/d/13ZHARfEHOyj4F-SP7iCbZ61QagrS4d84/view?usp=sharing" target="_blank" rel="noopener">
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 1v7M3 6l3 3 3-3M1.5 10.5h9" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            View &amp; Download
+          </a>
         </div>
 
-      </div>
+      </div><!-- /doc-grid -->
+
+      <!-- Floor Plans -->
+      <div class="floor-label">Floor Plans by Home Type</div>
+      <div class="floor-grid">
+
+        <div class="floor-card">
+          <span class="floor-type-badge">Detached Singles</span>
+          <div class="floor-name">30&apos; Lots</div>
+          <p class="floor-detail">Efficient layouts on narrower lots. A great entry point into the Tanglewood community.</p>
+          <a class="floor-btn" href="https://drive.google.com/drive/folders/1uXsQaY3fzE7spXZaXWsKcw_vjuAz4v6O?usp=sharing" target="_blank" rel="noopener">
+            Browse Floor Plans &rarr;
+          </a>
+        </div>
+
+        <div class="floor-card">
+          <span class="floor-type-badge">Detached Singles</span>
+          <div class="floor-name">36&apos; Lots</div>
+          <p class="floor-detail">The most popular lot size. Extra width opens up more layout options and family configurations.</p>
+          <a class="floor-btn" href="https://drive.google.com/drive/folders/19_bxEGe3lmLXugEqRksFnClRH-t96lA-?usp=sharing" target="_blank" rel="noopener">
+            Browse Floor Plans &rarr;
+          </a>
+        </div>
+
+        <div class="floor-card">
+          <span class="floor-type-badge">Detached Singles</span>
+          <div class="floor-name">40&apos; Lots</div>
+          <p class="floor-detail">Larger lots with more spacious designs. Ideal for buyers who want room to grow.</p>
+          <a class="floor-btn" href="https://drive.google.com/drive/folders/1kmMy0A3NSxs1Kk2LgFH8Euj7NHnwjaXk?usp=sharing" target="_blank" rel="noopener">
+            Browse Floor Plans &rarr;
+          </a>
+        </div>
+
+        <div class="floor-card">
+          <span class="floor-type-badge">Executive Towns</span>
+          <div class="floor-name">Townhomes</div>
+          <p class="floor-detail">Terrace homes and executive towns with the same Tanglewood quality and craftsmanship.</p>
+          <a class="floor-btn" href="https://drive.google.com/drive/folders/105qGJRTJfNNpyDFidHhnd7YUCnrvlNvh?usp=sharing" target="_blank" rel="noopener">
+            Browse Floor Plans &rarr;
+          </a>
+        </div>
+
+      </div><!-- /floor-grid -->
+
     </div>
   </section>
 
-  <!-- SECTION 4: NEIGHBOURHOOD -->
-  <section class="scroll-target" id="neighbourhood">
-    <div class="neighbourhood">
-      <div class="section-header">
-        <span class="section-eyebrow">The Neighbourhood</span>
-        <h2>Everything You Need.<br><strong>Closer Than You Think.</strong></h2>
-        <p>Tanglewood sits in one of Oshawa's most connected and convenient pockets — with highway access, transit, waterfront, and amenities all within easy reach.</p>
-      </div>
-      <div class="neighbourhood-grid">
-        <div class="neigh-block">
-          <h3>Transit & Connectivity</h3>
-          <ul>
-            <li>Hwy 401 & Hwy 407 — minutes away</li>
-            <li>Oshawa GO Station (Lakeshore East Line)</li>
-            <li>Direct GO train to Union Station — approx. 60–75 min</li>
-            <li>VIA Rail Oshawa Station</li>
-            <li>Durham Region Transit throughout</li>
-            <li>Easy access to all major Durham arterials</li>
-          </ul>
+  <!-- ABOUT TANGLEWOOD -->
+  <section class="about">
+    <div class="container">
+      <div class="about-inner">
+        <div class="about-body">
+          <span class="eyebrow">About the Community</span>
+          <h2 class="section-heading">Built for the Way Families Actually Live</h2>
+          <p>Tanglewood is a master-planned community by Medallion Developments, located in North Oshawa near Highway 401 and 407, with quick access to GO Transit and VIA Rail. Phase 1 is fully sold out and occupied. Families have moved in, neighbours have met each other, and the community is exactly what was promised.</p>
+          <p>Phase 2 is coming. It picks up where Phase 1 left off: thoughtfully designed streetscapes, flexible home layouts, and a genuine neighbourhood feel that is rare in new developments. Details are still being finalized, but the foundation is solid and the demand is there.</p>
+          <p>This page is your permanent Tanglewood resource hub. As Phase 2 details become available, this is where you will find them first.</p>
         </div>
-        <div class="neigh-block">
-          <h3>Amenities & Lifestyle</h3>
-          <ul>
-            <li>Lake Ontario waterfront & Lakeshore parks</li>
-            <li>Oshawa Centre — major retail destination</li>
-            <li>Ontario Tech University & Durham College</li>
-            <li>Costco, big-box retail, and restaurant corridors</li>
-            <li>Proximity to Whitby and Ajax for additional options</li>
-            <li>Schools, parks, and recreation within the community</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="growth-story">
-      <div style="max-width:1100px;margin:0 auto;">
-        <h3>The <strong>Oshawa Growth Story</strong></h3>
-        <p>Oshawa is one of the fastest-growing cities in the GTA — and one of the last places where a family can still buy a detached home at a reasonable price. Infrastructure investment, a growing post-secondary population (Ontario Tech and Durham College together enroll tens of thousands of students), and a downtown core undergoing real revitalization all point in the same direction.</p>
-        <p style="margin-top:1rem;">For buyers who got into Phase 1 of Tanglewood, the story has already played out well. For Phase 2, the fundamentals are the same — but the window is shorter. Oshawa's affordability advantage relative to Toronto, Mississauga, and even Whitby is narrowing. Tanglewood Phase 2 is an opportunity to get in before the gap closes.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION 5: REGISTER EARLY -->
-  <section class="register-section scroll-target" id="register">
-    <div class="register-inner">
-      <div class="register-reasons">
-        <span class="section-eyebrow">Why Register Early</span>
-        <h2>Phase 2 Won't<br><strong>Wait for You.</strong></h2>
-        <div class="reason-item">
-          <div class="reason-num">1</div>
-          <div class="reason-text">
-            <strong>Phase Pricing Advantage</strong>
-            <span>Phase 1 buyers got in first and saw strong value as the community came to life. VIP registrants typically receive better pricing than the public launch.</span>
+        <div class="about-facts">
+          <div class="fact">
+            <span class="fact-label">Builder</span>
+            <span class="fact-value">Medallion Developments</span>
+          </div>
+          <div class="fact">
+            <span class="fact-label">Location</span>
+            <span class="fact-value">North Oshawa, ON</span>
+          </div>
+          <div class="fact">
+            <span class="fact-label">Access</span>
+            <span class="fact-value">Hwy 401, 407 &middot; GO Transit &middot; VIA Rail</span>
+          </div>
+          <div class="fact">
+            <span class="fact-label">Home Types</span>
+            <span class="fact-value">Detached Singles (30&apos;, 36&apos;, 40&apos;) &amp; Executive Towns</span>
+          </div>
+          <div class="fact">
+            <span class="fact-label">Phase 1 Status</span>
+            <span class="fact-value">Sold Out &amp; Occupied</span>
+          </div>
+          <div class="fact">
+            <span class="fact-label">Phase 2 Status</span>
+            <span class="fact-value">Pre-Launch</span>
+          </div>
+          <div class="fact">
+            <span class="fact-label">Phase 1 Pricing (reference)</span>
+            <span class="fact-value">Starting from the mid $600s</span>
           </div>
         </div>
-        <div class="reason-item">
-          <div class="reason-num">2</div>
-          <div class="reason-text">
-            <strong>First Access to Floor Plans</strong>
-            <span>Floor plans and lot maps are released to registered buyers before anyone else. The best lots go fast — street-facing, pie-shaped, corner positions.</span>
-          </div>
-        </div>
-        <div class="reason-item">
-          <div class="reason-num">3</div>
-          <div class="reason-text">
-            <strong>Priority Before Public Launch</strong>
-            <span>VIP registrants choose their home before the project opens to the general public. No lineups, no scramble, no settling.</span>
-          </div>
-        </div>
-        <div class="reason-item">
-          <div class="reason-num">4</div>
-          <div class="reason-text">
-            <strong>No Obligation to Purchase</strong>
-            <span>Registration is completely free and comes with zero commitment. You're simply getting in position to make an informed decision.</span>
-          </div>
-        </div>
       </div>
-      <div class="register-form-col">
-        <span class="section-eyebrow">Register Now</span>
-        <h3>Secure Your VIP Platinum Access</h3>
-        <p>Be among the first to receive Phase 2 pricing, floor plans, and launch details.</p>
-        <div class="vip-link-box">
-          <p>Complete your VIP Platinum registration to receive priority access to Phase 2 floor plans, pricing, and launch details — before the public.</p>
-          <a class="btn-primary" href="https://www.smarterrealestate.ca/preconstruction/tanglewood" target="_blank">Register for VIP Platinum Access →</a>
-          <p style="margin-top:1rem;font-size:0.78rem;color:rgba(255,255,255,0.45);">Free. No obligation. Unsubscribe anytime.</p>
+    </div>
+  </section>
+
+  <!-- JEFF'S CORNER -->
+  <section class="jeff-section">
+    <div class="container">
+      <div class="jeff-inner">
+        <div class="jeff-avatar">JV</div>
+        <div>
+          <div class="jeff-name">Jeff Villeneuve</div>
+          <div class="jeff-role">Smarter Real Estate &middot; Meta Realty Inc., Brokerage</div>
+          <p class="jeff-bio">Have a question about Tanglewood, want a second opinion on a Phase 1 resale opportunity, or looking to get ahead of the Phase 2 release? Reach out directly. No pressure, just good information from someone who knows this community well.</p>
+          <div class="jeff-contacts">
+            <a class="jeff-contact" href="tel:6474097653">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.5 3A1.5 1.5 0 014 1.5h2.5l1 3L6 6a9 9 0 004 4l1.5-1.5 3 1v2.5A1.5 1.5 0 0113 13.5 11 11 0 012.5 3z" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              (647) 409-7653
+            </a>
+            <a class="jeff-contact" href="mailto:soldbyjeffreyv@gmail.com">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" xmlns="http://www.w3.org/2000/svg">
+                <rect x="1.5" y="3.5" width="13" height="9" rx="1.5" stroke-linejoin="round"/>
+                <path d="M1.5 5l6.5 4.5L14.5 5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              soldbyjeffreyv@gmail.com
+            </a>
+            <a class="jeff-contact" href="https://www.smarterrealestate.ca" target="_blank" rel="noopener">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="8" cy="8" r="6.5"/>
+                <path d="M8 1.5C6 4 6 12 8 14.5M8 1.5c2 2.5 2 10.5 0 13" stroke-linecap="round"/>
+                <line x1="1.5" y1="6" x2="14.5" y2="6" stroke-linecap="round"/>
+                <line x1="1.5" y1="10" x2="14.5" y2="10" stroke-linecap="round"/>
+              </svg>
+              smarterrealestate.ca
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SECTION 6: JEFF'S CORNER -->
-  <section class="jeffs-corner scroll-target" id="jeff">
-    <div class="section-header">
-      <span class="section-eyebrow">Your Tanglewood Agent</span>
-      <h2>Meet <strong>Jeff Villeneuve.</strong></h2>
-    </div>
-    <div class="jeff-card">
-      <div class="jeff-photo-placeholder">📷<br><br>Jeff's photo<br>coming soon</div>
-      <div class="jeff-bio">
-        <span class="jeff-bio-eyebrow">Smarter Real Estate · Meta Realty Inc.</span>
-        <h2>Jeff Villeneuve</h2>
-        <p class="jeff-title">RECO-Licensed Real Estate Broker · Durham Region Specialist</p>
-        <blockquote class="jeff-quote">
-          "I was the agent for Phase 1 at Tanglewood. I saw the community take shape from the ground up, met the families who moved in, and watched the neighbourhood come to life. Phase 2 is something I'm genuinely excited about — the home designs, the lot sizes, and what Medallion is planning make it one of the strongest opportunities I've seen in this market.
-          <br><br>
-          I'm not just here to take your registration. I'm here to help you understand whether Tanglewood is the right fit for you — and if it is, to make sure you don't miss your chance. Feel free to reach out directly."
-        </blockquote>
-        <div class="jeff-contact">
-          <a href="tel:6474097653">📞 (647) 409-7653</a>
-          <a href="mailto:soldbyjeffreyv@gmail.com">✉ soldbyjeffreyv@gmail.com</a>
-          <a href="https://www.smarterrealestate.ca/contact">Contact Page →</a>
+  <!-- INSIDER NEWSLETTER -->
+  <section class="insider">
+    <div class="container">
+      <div class="insider-inner">
+        <div class="insider-left">
+          <span class="eyebrow">Tanglewood Insider</span>
+          <h2>Be First to Know When Phase 2 Launches</h2>
+          <p class="insider-desc">Join the Insider list for Phase 2 updates, pricing previews, and early access opportunities. No spam, no pressure. Just useful information when it matters.</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION 7: TANGLEWOOD INSIDER -->
-  <section class="insider scroll-target" id="insider">
-    <div class="insider-inner">
-      <div class="insider-copy">
-        <span class="section-eyebrow light">Monthly Newsletter</span>
-        <h2>The <strong>Tanglewood Insider.</strong></h2>
-        <p>Stay ahead of the Phase 2 launch with monthly updates from Jeff — written for people who are seriously considering Tanglewood, already registered, or just want to understand what's happening in the Oshawa new-home market.</p>
-        <ul class="insider-bullets">
-          <li>Phase 2 progress updates as we know them</li>
-          <li>Neighbourhood spotlights — what's opening, what's changing</li>
-          <li>Oshawa/Durham market pulse — 2-3 sentences, no noise</li>
-          <li>Early looks at floor plans before public release</li>
-          <li>Jeff's take on what buyers are asking and what matters</li>
-        </ul>
-        <p style="margin-top:1.5rem;font-size:0.82rem;color:rgba(255,255,255,0.45);">Sent the first Tuesday of each month. Unsubscribe anytime.</p>
-      </div>
-      <div class="insider-form-col">
-        <h3>Join the Insider List</h3>
-        <p>First name and email only. No spam, no sales pressure.</p>
         <div id="insider-form"></div>
       </div>
     </div>
   </section>
 
-  <!-- SECTION 8: LATEST UPDATES -->
-  <section class="updates scroll-target" id="updates">
-    <div class="section-header">
-      <span class="section-eyebrow">Tanglewood Insider</span>
-      <h2>Latest <strong>Updates.</strong></h2>
-    </div>
-    <div class="updates-placeholder">
-      <p style="font-size:1.5rem;margin-bottom:0.8rem;">🎬</p>
-      <p><strong>Updates and video content will appear here at Phase 2 launch.</strong><br>
-      Register for the Tanglewood Insider above to be notified the moment new content drops — floor plans, pricing previews, neighbourhood tours, and Jeff's monthly market notes.</p>
-    </div>
-  </section>
-
-  <!-- SECTION 9: PHASE 1 OWNER ARCHIVE -->
-  <section class="archive scroll-target" id="owners">
-    <div class="archive-inner">
-      <span class="section-eyebrow">For Phase 1 Homeowners</span>
-      <h2>Phase 1 <strong>Homeowner Resources.</strong></h2>
-      <p class="archive-sub">You made Tanglewood happen. This section is for Phase 1 purchasers looking for community documents, floor plans, and Phase 2 updates. More resources are being added — reach out to Jeff directly if you need something specific.</p>
-      <div class="archive-grid">
-        <div class="archive-item">
-          <div class="archive-icon">📍</div>
-          <div class="archive-item-text">
-            <strong>Phase 1 Site Plan</strong>
-            <span>Community lot map — coming soon</span>
-          </div>
-        </div>
-        <div class="archive-item">
-          <div class="archive-icon">📐</div>
-          <div class="archive-item-text">
-            <strong>Phase 1 Floor Plans</strong>
-            <span>By model name — coming soon</span>
-          </div>
-        </div>
-        <div class="archive-item">
-          <div class="archive-icon">📋</div>
-          <div class="archive-item-text">
-            <strong>Community Documents</strong>
-            <span>HOA info & key details — coming soon</span>
-          </div>
-        </div>
-        <div class="archive-item">
-          <div class="archive-icon">🏗️</div>
-          <div class="archive-item-text">
-            <strong>Phase 2 Preview</strong>
-            <span>Your new neighbours are coming</span>
-          </div>
-        </div>
-      </div>
-      <div class="archive-note">
-        <strong>Need something now?</strong> Call or email Jeff directly — <a href="tel:6474097653" style="color:var(--gold-dk);font-weight:600;">(647) 409-7653</a> or <a href="mailto:soldbyjeffreyv@gmail.com" style="color:var(--gold-dk);font-weight:600;">soldbyjeffreyv@gmail.com</a>. He was your agent for Phase 1 and he's here for Phase 2 too.
-      </div>
-    </div>
-  </section>
-
   <!-- FOOTER -->
-  <footer>
-    <img class="footer-logo" src="https://static.wixstatic.com/media/f42cd3_f7acd68bc30b43b994e8343169c9f54e~mv2.png" alt="Tanglewood">
-    <p class="footer-contact">
-      <a href="tel:6474097653">(647) 409-7653</a> &nbsp;·&nbsp;
-      <a href="mailto:soldbyjeffreyv@gmail.com">soldbyjeffreyv@gmail.com</a> &nbsp;·&nbsp;
-      <a href="https://www.smarterrealestate.ca">smarterrealestate.ca</a>
-    </p>
-    <p>We do not represent the builder directly. We represent you. Renderings are artist's imagination only. All information, prices, specifications, floor plans, and incentives are subject to change at any time without notice. E. &amp; O.E. | Jeffrey Villeneuve | Meta Realty Inc. | info@smarterrealestate.ca | (647) 409-7653</p>
+  <footer class="footer">
+    <div class="container">
+      <img class="footer-logo" src="https://static.wixstatic.com/media/f42cd3_f7acd68bc30b43b994e8343169c9f54e~mv2.png" alt="Tanglewood">
+      <p class="footer-text">Presented by <a href="https://www.smarterrealestate.ca" target="_blank" rel="noopener">Smarter Real Estate</a> &middot; Meta Realty Inc., Brokerage</p>
+      <p class="footer-text">All documents are provided for informational purposes and are subject to change without notice.</p>
+      <p class="footer-copy">&copy; 2026 Smarter Real Estate. All rights reserved.</p>
+    </div>
   </footer>
 
   <script>
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        const t = document.querySelector(a.getAttribute('href'));
-        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
-      });
-    });
-
-    // HubSpot Insider form (placeholder — GUID to be filled in after form is created)
     hbspt.forms.create({
       region: "na1",
       portalId: "39925421",
