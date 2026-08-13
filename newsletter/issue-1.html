@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Tanglewood Insider — Issue No. 1 | August 2026</title>
+  <meta name="description" content="Your monthly real estate intelligence briefing for Tanglewood Phase 1 homeowners in north Oshawa. Real sold data, rental income, market trends, and community updates.">
+  <meta property="og:title" content="The Tanglewood Insider — August 2026">
+  <meta property="og:description" content="3 Tanglewood homes sold, rental income data, and what's coming in Phase 2. Real numbers. No fluff.">
+  <meta property="og:image" content="https://static.wixstatic.com/media/f42cd3_622afd9fa523421caa9289d0254a487df000.jpg">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ── RESET ── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    img { display: block; max-width: 100%; border: 0; }
+    a { color: inherit; }
+
+    /* ── BASE ── */
+    :root {
+      --navy: #1C263B;
+      --navy-deep: #141C2C;
+      --gold: #C49A3C;
+      --gold-light: #D4AE5A;
+      --gold-dark: #A8832A;
+      --cream: #F8F5EF;
+      --warm-white: #FDFCFA;
+      --mid-grey: #6B7280;
+      --text: #1a1a2e;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      font-family: 'Inter', system-ui, sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    /* ── SHARE BAR ── */
+    .share-bar {
+      background: var(--navy-deep);
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .share-bar-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+    .share-buttons {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      transition: opacity 0.2s;
+      cursor: pointer;
+    }
+    .share-btn:hover { opacity: 0.85; }
+    .share-btn.fb { background: #1877F2; color: #fff; }
+    .share-btn.x  { background: #000; color: #fff; }
+    .share-btn.wa { background: #25D366; color: #fff; }
+    .share-btn.copy { background: var(--gold); color: #fff; }
+    .share-btn svg { width: 14px; height: 14px; fill: currentColor; }
+
+    /* ── MASTHEAD ── */
+    .masthead {
+      background: var(--navy);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .masthead-gold-bar {
+      height: 4px;
+      background: linear-gradient(90deg, var(--gold-dark) 0%, var(--gold-light) 50%, var(--gold-dark) 100%);
+    }
+    .masthead-hero {
+      background: url('https://static.wixstatic.com/media/f42cd3_622afd9fa523421caa9289d0254a487df000.jpg') center / cover no-repeat;
+      position: relative;
+      min-height: 420px;
+      display: flex;
+      align-items: center;
+    }
+    .masthead-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(28,38,59,0.92) 0%, rgba(28,38,59,0.7) 60%, rgba(28,38,59,0.4) 100%);
+    }
+    .masthead-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 32px 56px;
+      width: 100%;
+    }
+    .masthead-eyebrow {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .masthead-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 32px;
+      height: 1px;
+      background: var(--gold);
+    }
+    .masthead-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(42px, 7vw, 72px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .masthead-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(16px, 2.5vw, 22px);
+      font-weight: 600;
+      font-style: italic;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 28px;
+    }
+    .masthead-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .masthead-meta-item {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+    }
+    .masthead-meta-item span {
+      color: rgba(255,255,255,0.9);
+    }
+
+    /* ── SECTION SHELL ── */
+    .section { padding: 72px 24px; }
+    .section-inner { max-width: 900px; margin: 0 auto; }
+    .section-dark { background: var(--navy); color: #fff; }
+    .section-cream { background: var(--cream); }
+    .section-white { background: var(--warm-white); }
+    .section-charcoal { background: #1a1a2e; color: #fff; }
+
+    .section-label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .section-dark .section-label,
+    .section-charcoal .section-label { color: var(--gold); }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      margin-bottom: 24px;
+    }
+    .section-dark h2,
+    .section-charcoal h2 { color: #fff; }
+
+    h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .section-dark h3,
+    .section-charcoal h3 { color: #fff; }
+
+    p {
+      font-size: 16px;
+      line-height: 1.75;
+      color: #3d3d3d;
+      margin-bottom: 18px;
+    }
+    .section-dark p,
+    .section-charcoal p { color: rgba(255,255,255,0.8); }
+
+    .lead {
+      font-size: 18px;
+      line-height: 1.7;
+      font-weight: 400;
+      color: #4a4a5a;
+    }
+
+    /* ── GOLD DIVIDER ── */
+    .gold-rule {
+      width: 48px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold-light));
+      margin-bottom: 32px;
+      border: none;
+    }
+
+    /* ── INTRO ── */
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 220px;
+      gap: 48px;
+      align-items: start;
+    }
+    .jeff-card {
+      background: var(--navy);
+      border-radius: 8px;
+      overflow: hidden;
+      text-align: center;
+    }
+    .jeff-card img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: top;
+    }
+    .jeff-card-info {
+      padding: 20px 16px;
+    }
+    .jeff-card-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+    .jeff-card-title {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .jeff-card-contact {
+      margin-top: 12px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.6);
+    }
+    .jeff-card-contact a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    /* ── MARKET SNAPSHOT ── */
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin: 32px 0;
+    }
+    .stat-card {
+      background: rgba(255,255,255,0.06);
+      padding: 28px 20px;
+      text-align: center;
+    }
+    .stat-card:first-child { border-radius: 8px 0 0 8px; }
+    .stat-card:last-child { border-radius: 0 8px 8px 0; }
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 40px;
+      font-weight: 800;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.4;
+    }
+    .stat-sub {
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+      margin-top: 4px;
+    }
+
+    .market-table-wrap {
+      overflow-x: auto;
+      margin: 32px 0;
+      border-radius: 8px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    thead th {
+      background: rgba(255,255,255,0.1);
+      color: var(--gold);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 14px 16px;
+      text-align: left;
+      white-space: nowrap;
+    }
+    .section-white thead th,
+    .section-cream thead th {
+      background: var(--navy);
+      color: var(--gold);
+    }
+    tbody tr { border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .section-white tbody tr,
+    .section-cream tbody tr { border-bottom: 1px solid rgba(28,38,59,0.08); }
+    tbody td {
+      padding: 14px 16px;
+      color: rgba(255,255,255,0.85);
+      vertical-align: top;
+    }
+    .section-white tbody td,
+    .section-cream tbody td { color: #3d3d3d; }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: rgba(255,255,255,0.03); }
+    .section-white tbody tr:hover,
+    .section-cream tbody tr:hover { background: rgba(28,38,59,0.03); }
+    td.gold-num {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      color: var(--gold) !important;
+      font-size: 16px;
+    }
+    td.highlight {
+      font-weight: 700;
+      color: #fff !important;
+    }
+    td.muted {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5) !important;
+    }
+    .section-white td.muted,
+    .section-cream td.muted { color: rgba(28,38,59,0.4) !important; }
+    td.tag {
+      white-space: nowrap;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .pill-gold { background: rgba(196,154,60,0.2); color: var(--gold); }
+    .pill-red { background: rgba(220,53,69,0.15); color: #e05c6a; }
+    .pill-green { background: rgba(34,197,94,0.15); color: #22c55e; }
+    .pill-grey { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.6); }
+
+    /* ── SOLD DETAIL CARDS ── */
+    .sold-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 32px 0;
+    }
+    .sold-card {
+      background: var(--warm-white);
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(28,38,59,0.1);
+    }
+    .sold-card-header {
+      background: var(--navy);
+      padding: 16px 18px;
+    }
+    .sold-card-address {
+      font-family: 'Playfair Display', serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .sold-card-type {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .sold-card-body {
+      padding: 18px;
+    }
+    .sold-card-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .sold-card-vs-list {
+      font-size: 12px;
+      font-weight: 600;
+      color: #e05c6a;
+      margin-bottom: 16px;
+    }
+    .sold-card-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .sold-stat {
+      background: var(--cream);
+      border-radius: 6px;
+      padding: 10px 12px;
+      text-align: center;
+    }
+    .sold-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1;
+    }
+    .sold-stat-label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mid-grey);
+      margin-top: 4px;
+    }
+    .sold-stat-true .sold-stat-num { color: var(--gold-dark); }
+    .sold-stat-note {
+      font-size: 11px;
+      color: var(--mid-grey);
+      margin-top: 12px;
+      line-height: 1.5;
+    }
+
+    /* ── PULL QUOTE ── */
+    .pull-quote {
+      border-left: 4px solid var(--gold);
+      padding: 20px 28px;
+      margin: 32px 0;
+      background: rgba(196,154,60,0.06);
+      border-radius: 0 8px 8px 0;
+    }
+    .pull-quote blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(18px, 2.5vw, 24px);
+      font-weight: 600;
+      font-style: italic;
+      color: var(--navy);
+      line-height: 1.4;
+    }
+    .section-dark .pull-quote blockquote { color: rgba(255,255,255,0.9); }
+    .section-dark .pull-quote { background: rgba(196,154,60,0.08); }
+    .pull-quote cite {
+      display: block;
+      margin-top: 10px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-style: normal;
+    }
+
+    /* ── DOM EXPLAINER BOX ── */
+    .explainer-box {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(196,154,60,0.3);
+      border-radius: 8px;
+      padding: 24px 28px;
+      margin: 28px 0;
+    }
+    .section-white .explainer-box,
+    .section-cream .explainer-box {
+      background: rgba(28,38,59,0.04);
+      border-color: rgba(196,154,60,0.4);
+    }
+    .explainer-box-label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .explainer-box p { margin-bottom: 0; font-size: 14px; }
+
+    /* ── RENTAL INCOME ── */
+    .rental-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin: 32px 0;
+    }
+    .rental-group h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .rental-group-sub {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--mid-grey);
+      margin-bottom: 16px;
+    }
+    .rental-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(28,38,59,0.08);
+    }
+    .rental-row:last-child { border-bottom: none; }
+    .rental-row-label {
+      font-size: 14px;
+      color: #4a4a5a;
+    }
+    .rental-row-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--gold-dark);
+    }
+    .rental-row-sub {
+      font-size: 11px;
+      color: var(--mid-grey);
+      margin-top: 1px;
+    }
+
+    /* ── EXPIRED CALLOUT ── */
+    .expired-box {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px;
+      padding: 28px 32px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+      margin: 32px 0;
+    }
+    .expired-box-stat {
+      text-align: center;
+      min-width: 100px;
+    }
+    .expired-box-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 52px;
+      font-weight: 800;
+      color: #e05c6a;
+      line-height: 1;
+    }
+    .expired-box-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-top: 4px;
+    }
+    .expired-box-address {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .expired-box p { margin-bottom: 0; }
+
+    /* ── PRE-CON RADAR ── */
+    .precon-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin: 32px 0;
+    }
+    .precon-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 24px 22px;
+      transition: background 0.2s;
+    }
+    .precon-card:hover { background: rgba(255,255,255,0.09); }
+    .precon-card-label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .precon-card h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+    .precon-card p {
+      font-size: 13px;
+      margin-bottom: 16px;
+    }
+    .precon-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+    }
+    .precon-cta:hover { color: var(--gold-light); }
+    .precon-cta::after { content: '→'; }
+
+    /* ── HST CALLOUT ── */
+    .hst-box {
+      background: rgba(196,154,60,0.12);
+      border: 1px solid rgba(196,154,60,0.35);
+      border-radius: 10px;
+      padding: 28px 32px;
+      margin: 32px 0;
+    }
+    .hst-box h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+    .section-charcoal .hst-box h3 { color: #fff; }
+    .hst-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .hst-item {
+      text-align: center;
+    }
+    .hst-item-price {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 4px;
+    }
+    .hst-item-rebate {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--gold);
+    }
+    .hst-item-label {
+      font-size: 11px;
+      color: rgba(255,255,255,0.5);
+      margin-top: 2px;
+    }
+    .section-white .hst-item-price,
+    .section-cream .hst-item-price { color: var(--mid-grey); }
+    .section-white .hst-item-label,
+    .section-cream .hst-item-label { color: var(--mid-grey); }
+
+    /* ── JEFF'S CORNER ── */
+    .jeffs-corner-grid {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .jeffs-avatar {
+      width: 160px;
+      height: 200px;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: 8px;
+      border: 3px solid rgba(196,154,60,0.4);
+    }
+    .jeffs-signature {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-style: italic;
+      color: var(--gold);
+      margin-top: 16px;
+    }
+    .jeffs-credentials {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.45);
+      margin-top: 4px;
+    }
+
+    /* ── COMMUNITY EVENTS ── */
+    .event-list { margin: 28px 0; }
+    .event-row {
+      display: grid;
+      grid-template-columns: 72px 1fr auto;
+      gap: 20px;
+      align-items: start;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(28,38,59,0.08);
+    }
+    .event-row:last-child { border-bottom: none; }
+    .event-date-box {
+      background: var(--navy);
+      border-radius: 8px;
+      text-align: center;
+      padding: 10px 8px;
+    }
+    .event-date-month {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .event-date-day {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1;
+    }
+    .event-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .event-desc {
+      font-size: 13px;
+      color: var(--mid-grey);
+      line-height: 1.5;
+      margin-bottom: 0;
+    }
+    .event-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      text-decoration: none;
+      white-space: nowrap;
+      padding-top: 4px;
+    }
+    .event-link:hover { color: var(--gold); }
+    .event-link::after { content: '↗'; font-size: 13px; }
+
+    /* ── CTA BLOCK ── */
+    .cta-block {
+      background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold) 50%, var(--gold-light) 100%);
+      border-radius: 10px;
+      padding: 40px 36px;
+      text-align: center;
+      margin: 40px 0;
+    }
+    .cta-block h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+    .cta-block p {
+      color: rgba(20,28,44,0.8);
+      font-size: 15px;
+      margin-bottom: 24px;
+    }
+    .cta-block a {
+      display: inline-block;
+      background: var(--navy);
+      color: #fff;
+      padding: 14px 36px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .cta-block a:hover { background: #243050; }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: var(--navy-deep);
+      color: rgba(255,255,255,0.5);
+      padding: 48px 24px 36px;
+    }
+    .footer-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 32px;
+      margin-bottom: 40px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .footer-tagline {
+      font-size: 12px;
+      color: var(--gold);
+      font-style: italic;
+    }
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 12px;
+    }
+    .footer-links a {
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+    }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-contact {
+      font-size: 13px;
+      line-height: 1.8;
+    }
+    .footer-contact a { color: var(--gold); text-decoration: none; }
+    .footer-contact a:hover { color: var(--gold-light); }
+    .footer-legal {
+      font-size: 11px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.3);
+    }
+    .footer-legal a { color: rgba(255,255,255,0.45); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      .intro-grid { grid-template-columns: 1fr; }
+      .jeff-card { display: none; }
+      .stat-grid { grid-template-columns: 1fr; gap: 1px; }
+      .stat-card:first-child { border-radius: 8px 8px 0 0; }
+      .stat-card:last-child { border-radius: 0 0 8px 8px; }
+      .sold-cards { grid-template-columns: 1fr; }
+      .rental-grid { grid-template-columns: 1fr; }
+      .jeffs-corner-grid { grid-template-columns: 1fr; }
+      .jeffs-avatar { width: 120px; height: 150px; }
+      .event-row { grid-template-columns: 60px 1fr; }
+      .event-link { display: none; }
+      .hst-grid { grid-template-columns: 1fr; }
+      .expired-box { grid-template-columns: 1fr; }
+      .expired-box-stat { text-align: left; display: flex; gap: 12px; align-items: baseline; }
+      .footer-top { flex-direction: column; }
+    }
+
+    @media (max-width: 500px) {
+      .section { padding: 52px 20px; }
+      .masthead-content { padding: 44px 20px 40px; }
+      .share-bar { padding: 8px 16px; }
+      .share-btn { padding: 5px 10px; font-size: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- SHARE BAR -->
+<div class="share-bar">
+  <span class="share-bar-label">Share this issue</span>
+  <div class="share-buttons">
+    <a class="share-btn fb" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsmarterealestate.github.io%2Ftanglewood-hub%2Fnewsletter%2Fissue-1.html" target="_blank" rel="noopener" aria-label="Share on Facebook">
+      <svg viewBox="0 0 24 24"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073c0 6.028 4.388 11.024 10.125 11.927v-8.437H7.078v-3.49h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953h-1.514c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.097 24 18.1 24 12.073z"/></svg>
+      Facebook
+    </a>
+    <a class="share-btn x" href="https://twitter.com/intent/tweet?text=The%20Tanglewood%20Insider%20%E2%80%94%20Issue%201%3A%20Real%20market%20data%20for%20north%20Oshawa%20homeowners&url=https%3A%2F%2Fsmarterealestate.github.io%2Ftanglewood-hub%2Fnewsletter%2Fissue-1.html" target="_blank" rel="noopener" aria-label="Share on X">
+      <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      Post
+    </a>
+    <a class="share-btn wa" href="https://wa.me/?text=Check%20out%20The%20Tanglewood%20Insider%20%E2%80%94%20real%20market%20data%20for%20our%20community%3A%20https%3A%2F%2Fsmarterealestate.github.io%2Ftanglewood-hub%2Fnewsletter%2Fissue-1.html" target="_blank" rel="noopener" aria-label="Share on WhatsApp">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp
+    </a>
+    <button class="share-btn copy" onclick="navigator.clipboard.writeText(window.location.href).then(()=>{this.textContent='Copied!';setTimeout(()=>{this.innerHTML='Copy Link'},1500)})" aria-label="Copy link">
+      Copy Link
+    </button>
+  </div>
+</div>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="masthead-gold-bar"></div>
+  <div class="masthead-hero">
+    <div class="masthead-content">
+      <div class="masthead-eyebrow">The Tanglewood Insider</div>
+      <h1 class="masthead-title">Your Community.<br>Your Numbers.</h1>
+      <p class="masthead-subtitle">Real market intelligence for Tanglewood Phase 1 homeowners</p>
+      <div class="masthead-meta">
+        <div class="masthead-meta-item">Issue <span>#1</span></div>
+        <div class="masthead-meta-item"><span>August 2026</span></div>
+        <div class="masthead-meta-item">Tanglewood <span>Phase 1</span> &middot; North Oshawa</div>
+        <div class="masthead-meta-item">Data through <span>Aug 13, 2026</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- INTRO -->
+<section class="section section-white">
+  <div class="section-inner">
+    <div class="intro-grid">
+      <div>
+        <div class="section-label">A Note From Jeff</div>
+        <h2>Monthly intel you can actually use</h2>
+        <hr class="gold-rule">
+        <p class="lead">Every month I get the same questions from homeowners in this community: What is my home worth right now? What are homes renting for? Who else has sold, and for how much?</p>
+        <p>Rather than answer it one conversation at a time, I put this together. The Tanglewood Insider is a straight look at what is happening in our market, with real addresses, real numbers, and honest context. No hype, no guesswork.</p>
+        <p>Issue one covers the three resale transactions that have closed in Tanglewood so far in 2026, what the rental market looks like for both basement units and full homes, how our community compares to the broader Oshawa new-home market, and what is happening on the pre-construction side with Phase 2 on the horizon.</p>
+        <p>If you have a question that is not answered here, reach out directly. That is what I am here for.</p>
+        <p style="font-family:'Playfair Display',serif; font-style:italic; font-size:18px; color:var(--navy); margin-bottom:4px;">Jeff Villeneuve</p>
+        <p style="font-size:12px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--mid-grey); margin-bottom:0;">Broker &middot; 647-692-1888</p>
+      </div>
+      <div class="jeff-card">
+        <img src="https://smarterrealestate.github.io/tanglewood-hub/assets/headshot.jpg" alt="Jeff Villeneuve, Broker">
+        <div class="jeff-card-info">
+          <div class="jeff-card-name">Jeff Villeneuve</div>
+          <div class="jeff-card-title">Broker</div>
+          <div class="jeff-card-contact">
+            <a href="tel:6476921888">647-692-1888</a><br>
+            <a href="mailto:soldbyjeffreyv@gmail.com">soldbyjeffreyv@gmail.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OSHAWA MARKET SNAPSHOT -->
+<section class="section section-dark">
+  <div class="section-inner">
+    <div class="section-label">Market Snapshot</div>
+    <h2>Oshawa Detached Market<br>Jan &ndash; Aug 2026</h2>
+    <p>New-construction and near-new detached homes (0&ndash;5 years old) sold across Oshawa. This is the benchmark your home is measured against.</p>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-number">19</div>
+        <div class="stat-label">Double-Car Garage<br>Homes Sold</div>
+        <div class="stat-sub">36'+ lots &middot; Oshawa-wide</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">$1.09M</div>
+        <div class="stat-label">Average Sold Price<br>Double-Car Garage</div>
+        <div class="stat-sub">Range: $915K &ndash; $1.375M</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">44</div>
+        <div class="stat-label">Average Days<br>on Market</div>
+        <div class="stat-sub">Listed DOM &middot; Oshawa-wide</div>
+      </div>
+    </div>
+
+    <div class="market-table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th># Sales</th>
+            <th>Price Range</th>
+            <th>Avg Sold</th>
+            <th>Avg DOM</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong style="color:#fff;">Double-Car Garage Detached</strong><br><span style="font-size:12px;color:rgba(255,255,255,0.45);">36'+ lots &middot; 0&ndash;5 yrs &middot; Oshawa</span></td>
+            <td class="gold-num">19</td>
+            <td>$915K &ndash; $1.375M</td>
+            <td class="gold-num">$1,089K</td>
+            <td>44 days</td>
+          </tr>
+          <tr>
+            <td><strong style="color:#fff;">Single-Car Garage Detached</strong><br><span style="font-size:12px;color:rgba(255,255,255,0.45);">30&ndash;32' lots &middot; 0&ndash;5 yrs &middot; Oshawa</span></td>
+            <td class="gold-num">5</td>
+            <td>$860K &ndash; $950K</td>
+            <td class="gold-num">$912K</td>
+            <td>40 days</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="pull-quote">
+      <blockquote>"Homes priced to reflect today's buyer expectations are finding offers. The ones sitting past 90 days have consistently required price adjustments to close."</blockquote>
+      <cite>Jeff Villeneuve &middot; Broker, Meta Realty Inc.</cite>
+    </div>
+
+    <p>The data covers January 1 to August 13, 2026. Source: PropTx MLS via TRREB. These are freehold detached homes, 0&ndash;5 years old, sold across all Oshawa communities.</p>
+  </div>
+</section>
+
+<!-- TANGLEWOOD SOLD SPOTLIGHT -->
+<section class="section section-cream">
+  <div class="section-inner">
+    <div class="section-label">Tanglewood Resale</div>
+    <h2>What Sold in Your Community</h2>
+    <hr class="gold-rule">
+    <p class="lead">Three homes have sold on the resale market in the Tanglewood Phase 1 community since January 1, 2026. Here is the full picture, including the <strong>True DOM</strong> figure that the MLS listing alone does not tell you.</p>
+
+    <div class="explainer-box">
+      <div class="explainer-box-label">What is True DOM?</div>
+      <p style="color:#3d3d3d;">The <strong>Listed DOM</strong> on MLS counts only the days on the most recent listing. When a seller terminates a listing and re-lists later, the clock resets to zero. <strong>True DOM</strong> adds up every active listing period for the property, giving you the full picture of how long a home has actually been trying to sell.</p>
+    </div>
+
+    <div class="sold-cards">
+
+      <!-- 1144 Wilmington -->
+      <div class="sold-card">
+        <div class="sold-card-header">
+          <div class="sold-card-address">1144 Wilmington Ave</div>
+          <div class="sold-card-type">30' Lot &middot; Single Car &middot; 4+2 Bed &middot; [Model TBD]</div>
+        </div>
+        <div class="sold-card-body">
+          <div class="sold-card-price">$940,000</div>
+          <div class="sold-card-vs-list">-14.4% below original list of $1,098,000</div>
+          <div class="sold-card-stats">
+            <div class="sold-stat">
+              <div class="sold-stat-num">23</div>
+              <div class="sold-stat-label">Listed DOM</div>
+            </div>
+            <div class="sold-stat sold-stat-true">
+              <div class="sold-stat-num">23</div>
+              <div class="sold-stat-label">True DOM</div>
+            </div>
+          </div>
+          <div class="sold-stat-note">Listed once, sold in 23 days. Price reduced once (to $998K) before closing at $940K. Legal basement apartment with separate entrance. Built 2025.</div>
+        </div>
+      </div>
+
+      <!-- 2143 Hallandale -->
+      <div class="sold-card">
+        <div class="sold-card-header">
+          <div class="sold-card-address">2143 Hallandale St</div>
+          <div class="sold-card-type">36' Lot &middot; Double Car &middot; 5 Bed &middot; [Model TBD]</div>
+        </div>
+        <div class="sold-card-body">
+          <div class="sold-card-price">$1,050,000</div>
+          <div class="sold-card-vs-list">-4.5% below list of $1,099,000</div>
+          <div class="sold-card-stats">
+            <div class="sold-stat">
+              <div class="sold-stat-num">14</div>
+              <div class="sold-stat-label">Listed DOM</div>
+            </div>
+            <div class="sold-stat sold-stat-true">
+              <div class="sold-stat-num">37</div>
+              <div class="sold-stat-label">True DOM</div>
+            </div>
+          </div>
+          <div class="sold-stat-note">Listed at $1,225K in Sept 2025 (23 days, terminated). Re-listed at $1,099K in June 2026 and sold in 14 days. Built 2024. 2,700 sq ft above grade.</div>
+        </div>
+      </div>
+
+      <!-- 1190 Plymouth -->
+      <div class="sold-card">
+        <div class="sold-card-header">
+          <div class="sold-card-address">1190 Plymouth Dr</div>
+          <div class="sold-card-type">36' Lot &middot; Double Car &middot; 4 Bed &middot; [Model TBD]</div>
+        </div>
+        <div class="sold-card-body">
+          <div class="sold-card-price">$1,100,000</div>
+          <div class="sold-card-vs-list">-20.3% below original list of $1,380,000</div>
+          <div class="sold-card-stats">
+            <div class="sold-stat">
+              <div class="sold-stat-num">78</div>
+              <div class="sold-stat-label">Listed DOM</div>
+            </div>
+            <div class="sold-stat sold-stat-true">
+              <div class="sold-stat-num">78</div>
+              <div class="sold-stat-label">True DOM</div>
+            </div>
+          </div>
+          <div class="sold-stat-note">Listed April 7 at $1,380K. Three price reductions over 78 days before selling at $1,100K on June 24. Built 2023. 2,887 sq ft above grade.</div>
+        </div>
+      </div>
+
+    </div><!-- end sold-cards -->
+
+    <div class="pull-quote">
+      <blockquote>"The home that sold closest to its asking price was the one priced for today's market from day one."</blockquote>
+    </div>
+
+    <p><strong>Averages across these three Tanglewood resales:</strong> Avg sold price $1,030,000 &middot; Avg Listed DOM 38 days &middot; Avg True DOM 46 days. Model names will be confirmed and updated in the next issue. Data source: TRREB / PropTx, January 1 &ndash; August 13, 2026.</p>
+  </div>
+</section>
+
+<!-- RENTAL INCOME -->
+<section class="section section-white">
+  <div class="section-inner">
+    <div class="section-label">Rental Market</div>
+    <h2>What Tanglewood Homes Rent For</h2>
+    <hr class="gold-rule">
+    <p class="lead">Since January 2026, six rental transactions have closed in the Tanglewood and adjacent Kedron community. Here is what landlords are collecting.</p>
+
+    <div class="rental-grid">
+      <div class="rental-group">
+        <h3>Basement Apartments</h3>
+        <div class="rental-group-sub">Leased since Jan 1, 2026</div>
+        <div class="rental-row">
+          <div>
+            <div class="rental-row-label">1-Bedroom Basement</div>
+            <div class="rental-row-sub">All utilities included</div>
+          </div>
+          <div>
+            <div class="rental-row-price">$1,500</div>
+            <div class="rental-row-sub" style="text-align:right">/mo</div>
+          </div>
+        </div>
+        <div class="rental-row">
+          <div>
+            <div class="rental-row-label">2-Bedroom Basement</div>
+            <div class="rental-row-sub">Tenant pays 30% utilities</div>
+          </div>
+          <div>
+            <div class="rental-row-price">$1,750</div>
+            <div class="rental-row-sub" style="text-align:right">/mo</div>
+          </div>
+        </div>
+        <div class="rental-row">
+          <div>
+            <div class="rental-row-label">2+1 Bedroom Walkout</div>
+            <div class="rental-row-sub">Separate entrance &middot; 40' lot</div>
+          </div>
+          <div>
+            <div class="rental-row-price">$1,999</div>
+            <div class="rental-row-sub" style="text-align:right">/mo</div>
+          </div>
+        </div>
+        <div class="rental-row">
+          <div>
+            <div class="rental-row-label">Legal basement (certified)</div>
+            <div class="rental-row-sub">Estimated rental value</div>
+          </div>
+          <div>
+            <div class="rental-row-price">~$2,000</div>
+            <div class="rental-row-sub" style="text-align:right">/mo</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rental-group">
+        <h3>Full Home Leases</h3>
+        <div class="rental-group-sub">Entire property &middot; since Jan 1, 2026</div>
+        <div class="rental-row">
+          <div>
+            <div class="rental-row-label">4-Bed Townhome</div>
+            <div class="rental-row-sub">25' lot &middot; 1,500&ndash;2,000 sq ft</div>
+          </div>
+          <div>
+            <div class="rental-row-price">$2,900</div>
+            <div class="rental-row-sub" style="text-align:right">/mo</div>
+          </div>
+        </div>
+        <div class="rental-row">
+          <div>
+            <div class="rental-row-label">4-Bed Townhome</div>
+            <div class="rental-row-sub">25' lot &middot; leased above ask</div>
+          </div>
+          <div>
+            <div class="rental-row-price">$2,950</div>
+            <div class="rental-row-sub" style="text-align:right">/mo</div>
+          </div>
+        </div>
+        <div class="rental-row">
+          <div>
+            <div class="rental-row-label">4-Bed Detached</div>
+            <div class="rental-row-sub">Main + upper floors</div>
+          </div>
+          <div>
+            <div class="rental-row-price">$2,900</div>
+            <div class="rental-row-sub" style="text-align:right">/mo</div>
+          </div>
+        </div>
+        <div class="rental-row">
+          <div>
+            <div class="rental-row-label">4-Bed Detached</div>
+            <div class="rental-row-sub">Entire home</div>
+          </div>
+          <div>
+            <div class="rental-row-price">$3,000+</div>
+            <div class="rental-row-sub" style="text-align:right">/mo</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="explainer-box">
+      <div class="explainer-box-label">What this means for your home</div>
+      <p style="color:#3d3d3d;">A 30' home with a legal basement suite carries <strong>two income streams</strong>: the full home rents for approximately $2,900&ndash;$3,000/mo, while the basement adds another $1,500&ndash;$2,000/mo. Whether you are considering a move and want to hold the property, or exploring investment options elsewhere, these are the numbers that matter. Reach out if you want to run the math on your specific home.</p>
+    </div>
+
+    <p>Data source: TRREB / PropTx leased transactions, Tanglewood and adjacent Kedron community, January 1 &ndash; August 13, 2026.</p>
+  </div>
+</section>
+
+<!-- EXPIRED -->
+<section class="section section-dark">
+  <div class="section-inner">
+    <div class="section-label">What Did Not Sell</div>
+    <h2>The Listing That Expired</h2>
+    <p>One home in the community has come off the market unsold this year. This is worth understanding, because it tells you as much about pricing strategy as the sold data does.</p>
+
+    <div class="expired-box">
+      <div>
+        <div class="expired-box-address">873 Rexton Dr</div>
+        <p>Listed at <strong style="color:#fff;">$1,028,000</strong> on a 36 x 98 foot lot (4 bedrooms, 3 bathrooms). The listing expired after 166 days on market without a sale. That is nearly five and a half months. In the same period, Tanglewood's other 36' homes that did sell closed at $1,050,000 and $1,100,000 &mdash; but both of those sellers went through significant price adjustments to get there. The lesson: the market is transacting, but the gap between where sellers want to be and where buyers are willing to go is real, and it costs time.</p>
+      </div>
+      <div class="expired-box-stat">
+        <div class="expired-box-num">166</div>
+        <div class="expired-box-label">Days on<br>Market</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRE-CON RADAR -->
+<section class="section section-charcoal">
+  <div class="section-inner">
+    <div class="section-label">Pre-Construction Radar</div>
+    <h2>What Is Coming to North Oshawa</h2>
+    <p>For Phase 1 owners, the new-construction landscape matters in two directions: it affects resale demand in the area, and it creates opportunities for those looking to add to their portfolio or upsize.</p>
+
+    <div class="precon-cards">
+      <div class="precon-card">
+        <div class="precon-card-label">Phase 2 Launch</div>
+        <h3>Tanglewood Phase 2</h3>
+        <p>Mattamy Homes is preparing to release Phase 2 of Tanglewood. Detached 30', 36', and 40'+ lots are anticipated, along with townhome product. As a Phase 1 owner, you live in an already-established community &mdash; that is a meaningful advantage over buying into a construction site. VIP access is available for those who want to be first in line.</p>
+        <a class="precon-cta" href="https://smarterrealestate.github.io/tanglewood-hub/" target="_blank" rel="noopener">Get VIP Access</a>
+      </div>
+      <div class="precon-card">
+        <div class="precon-card-label">North Oshawa / Kedron</div>
+        <h3>New Projects in the Area</h3>
+        <p>Multiple builders are active in the Kedron and Taunton communities that surround Tanglewood. New phases and new projects continue to attract buyers to north Oshawa, supporting the long-term profile of the area. If you are looking for platinum access to upcoming releases, reach out before registration opens to the public.</p>
+        <a class="precon-cta" href="mailto:soldbyjeffreyv@gmail.com?subject=VIP%20Pre-Con%20Access%20Request">Request Access</a>
+      </div>
+      <div class="precon-card">
+        <div class="precon-card-label">Know Before You Buy</div>
+        <h3>HST Rebate on New Construction</h3>
+        <p>Buyers of brand-new homes may be eligible for HST rebates that are often missed or miscalculated. The rebate structure changes significantly at the $1M price point. See the breakdown below, and talk to your accountant or reach out to discuss how it applies to your situation.</p>
+        <a class="precon-cta" href="mailto:soldbyjeffreyv@gmail.com?subject=HST%20Rebate%20Question">Ask Jeff</a>
+      </div>
+    </div>
+
+    <div class="hst-box">
+      <h3>New Home HST Rebate Snapshot</h3>
+      <p style="color:rgba(255,255,255,0.7);font-size:14px;margin-bottom:0;">Approximate Ontario new housing rebate amounts (owner-occupied). Confirm with your accountant.</p>
+      <div class="hst-grid">
+        <div class="hst-item">
+          <div class="hst-item-price">$800,000 Home</div>
+          <div class="hst-item-rebate">~$104K</div>
+          <div class="hst-item-label">HST rebate</div>
+        </div>
+        <div class="hst-item">
+          <div class="hst-item-price">$960,000 Home</div>
+          <div class="hst-item-rebate">~$124.8K</div>
+          <div class="hst-item-label">HST rebate</div>
+        </div>
+        <div class="hst-item">
+          <div class="hst-item-price">$1M+ Home</div>
+          <div class="hst-item-rebate">$130K</div>
+          <div class="hst-item-label">Max rebate (capped)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JEFF'S CORNER -->
+<section class="section section-dark">
+  <div class="section-inner">
+    <div class="section-label">Jeff's Corner</div>
+    <div class="jeffs-corner-grid">
+      <div>
+        <img class="jeffs-avatar" src="https://smarterrealestate.github.io/tanglewood-hub/assets/headshot.jpg" alt="Jeff Villeneuve">
+        <div class="jeffs-signature">Jeff V.</div>
+        <div class="jeffs-credentials">Broker &middot; Meta Realty Inc., Brokerage</div>
+      </div>
+      <div>
+        <h2>A straight take on where things stand</h2>
+        <p>I will be honest about what the data is showing. The three homes that sold in Tanglewood this year all sold below their original list prices. Two of them sold at meaningful discounts. The one that sold with the least drama &mdash; 2143 Hallandale at -4.5% off its final list &mdash; was the one that came back to market at a price that reflected where buyers were actually prepared to transact.</p>
+        <p>This is not unique to Tanglewood. It reflects a broader reset across the GTA new-home market from the peak of 2022. What it means for you depends entirely on your situation: your timeline, your mortgage, your goals, and whether you are looking at your home as a place to live, a property to hold, or an asset to eventually leverage into something else.</p>
+        <p>I am not here to tell you what to do. I am here to make sure you have the right information to make that call yourself. If you want to talk through what your home is worth in this market, what it would realistically sell for versus what you paid, or whether holding and renting makes more sense than selling &mdash; that is a conversation I am happy to have. No pressure, no pitch.</p>
+
+        <div class="pull-quote">
+          <blockquote>"My job is to give you the full picture. What you do with it is your call."</blockquote>
+          <cite>Jeff Villeneuve &middot; Broker</cite>
+        </div>
+
+        <p>You can reach me directly at <a href="tel:6476921888" style="color:var(--gold);">647-692-1888</a> or <a href="mailto:soldbyjeffreyv@gmail.com" style="color:var(--gold);">soldbyjeffreyv@gmail.com</a>. If you know a neighbour who would find this useful, forward it along or share it using the links at the top of the page.</p>
+
+        <div class="cta-block">
+          <h3>What is your home worth right now?</h3>
+          <p>A real conversation, no obligation, no automated valuation. Just the honest numbers based on what is actually selling.</p>
+          <a href="tel:6476921888">Call Jeff &mdash; 647-692-1888</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY EVENTS -->
+<section class="section section-cream">
+  <div class="section-inner">
+    <div class="section-label">Community Corner</div>
+    <h2>What's On This Fall</h2>
+    <hr class="gold-rule">
+    <p>North Oshawa and the surrounding Durham community have a full calendar heading into fall. A few worth knowing about:</p>
+
+    <div class="event-list">
+      <div class="event-row">
+        <div class="event-date-box">
+          <div class="event-date-month">Sept</div>
+          <div class="event-date-day">12</div>
+        </div>
+        <div>
+          <div class="event-title">Mayor's Community Cleanup</div>
+          <p class="event-desc">City of Oshawa's annual community cleanup day. Volunteer to help keep north Oshawa looking its best heading into fall. Supplies provided, all neighbourhoods welcome.</p>
+        </div>
+        <a class="event-link" href="https://www.oshawa.ca" target="_blank" rel="noopener">oshawa.ca</a>
+      </div>
+
+      <div class="event-row">
+        <div class="event-date-box">
+          <div class="event-date-month">Sept</div>
+          <div class="event-date-day">18</div>
+        </div>
+        <div>
+          <div class="event-title">Culture Days</div>
+          <p class="event-desc">September 18 &ndash; October 4. Canada's largest celebration of arts and culture, with events across Oshawa and Durham Region. Free activities, workshops, and cultural experiences throughout the region.</p>
+        </div>
+        <a class="event-link" href="https://www.culturedays.ca" target="_blank" rel="noopener">culturedays.ca</a>
+      </div>
+
+      <div class="event-row">
+        <div class="event-date-box">
+          <div class="event-date-month">Sept</div>
+          <div class="event-date-day">19</div>
+        </div>
+        <div>
+          <div class="event-title">Convergence Music &amp; Art Festival</div>
+          <p class="event-desc">September 19&ndash;20. Durham Region's music and arts festival returns, bringing live performances, local artists, and community energy to the area. A great way to connect with the broader Oshawa community.</p>
+        </div>
+        <a class="event-link" href="https://www.oshawa.ca" target="_blank" rel="noopener">Details</a>
+      </div>
+
+      <div class="event-row">
+        <div class="event-date-box">
+          <div class="event-date-month">Open</div>
+          <div class="event-date-day" style="font-size:20px;padding:4px 0;">Now</div>
+        </div>
+        <div>
+          <div class="event-title">Harmony Creek Community Centre</div>
+          <p class="event-desc">The Harmony Creek Community Centre serves north Oshawa with recreational programming, fitness facilities, and community space. Close to Tanglewood and worth checking out if you have not been in yet.</p>
+        </div>
+        <a class="event-link" href="https://www.oshawa.ca/residents/recreation.asp" target="_blank" rel="noopener">Programs</a>
+      </div>
+    </div>
+
+    <div class="explainer-box">
+      <div class="explainer-box-label">Have a business or event to share?</div>
+      <p style="color:#3d3d3d;">If you run a business or are organizing a community event and would like a mention in a future issue of The Tanglewood Insider, reach out at <a href="mailto:soldbyjeffreyv@gmail.com" style="color:var(--gold-dark);">soldbyjeffreyv@gmail.com</a>. This is your community newsletter &mdash; happy to give local businesses and events a shoutout.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">The Tanglewood Insider</div>
+        <div class="footer-tagline">Monthly real estate intelligence for Phase 1 homeowners</div>
+      </div>
+      <div class="footer-links">
+        <a href="https://smarterrealestate.github.io/tanglewood-hub/" target="_blank" rel="noopener">Tanglewood Hub</a>
+        <a href="https://smarterrealestate.github.io/tanglewood-hub/newsletter/issue-1.html">Issue #1 (this page)</a>
+        <a href="mailto:soldbyjeffreyv@gmail.com?subject=Unsubscribe%20from%20Tanglewood%20Insider">Unsubscribe</a>
+      </div>
+      <div class="footer-contact">
+        <strong style="color:#fff;">Jeff Villeneuve, Broker</strong><br>
+        <a href="tel:6476921888">647-692-1888</a><br>
+        <a href="mailto:soldbyjeffreyv@gmail.com">soldbyjeffreyv@gmail.com</a>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <p>All sold prices and addresses referenced in this newsletter are publicly available in Ontario under the Real Estate and Business Brokers Act and Ontario Bill 55 (2017). Parties to transactions are not identified. This newsletter is for informational purposes only and does not constitute financial, legal, or investment advice. Market statistics are sourced from TRREB / PropTx MLS data for the period January 1 &ndash; August 13, 2026. PropTx Innovations Inc. assumes no responsibility for accuracy. Copyright 2026.</p>
+      <br>
+      <p>Jeff Villeneuve, Broker &middot; Meta Realty Inc., Brokerage &middot; 8300 Woodbine Ave Unit 411, Markham ON L3R 9Y7 &middot; 647-692-1888</p>
+      <br>
+      <p>You are receiving this newsletter because you are a registered purchaser in the Tanglewood Phase 1 community and provided your contact information during registration. To unsubscribe, <a href="mailto:soldbyjeffreyv@gmail.com?subject=Unsubscribe%20from%20Tanglewood%20Insider">click here</a>.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
