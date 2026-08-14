@@ -986,6 +986,7 @@
 
       <!-- Card 1 -->
       <div class="sold-card">
+        <div class="sold-ribbon">SOLD</div>
         <div class="sold-card-top">
           <div class="sold-addr">1144 Wilmington Ave</div>
           <div class="sold-type">Pinewood (30-3) A &nbsp;|&nbsp; 30' Lot &nbsp;|&nbsp; 4+2 Bed &nbsp;|&nbsp; Built 2025</div>
@@ -1009,6 +1010,7 @@
 
       <!-- Card 2 -->
       <div class="sold-card">
+        <div class="sold-ribbon">SOLD</div>
         <div class="sold-card-top">
           <div class="sold-addr">2143 Hallandale St</div>
           <div class="sold-type">Honeywood (36-6) A &nbsp;|&nbsp; 36' Lot &nbsp;|&nbsp; 5 Bed &nbsp;|&nbsp; Built 2024</div>
@@ -1032,6 +1034,7 @@
 
       <!-- Card 3 -->
       <div class="sold-card">
+        <div class="sold-ribbon">SOLD</div>
         <div class="sold-card-top">
           <div class="sold-addr">1190 Plymouth Dr</div>
           <div class="sold-type">Lakewood (36-7) C &nbsp;|&nbsp; 36' Lot &nbsp;|&nbsp; 4 Bed &nbsp;|&nbsp; Built 2023</div>
@@ -1404,5 +1407,10 @@
   </div>
 </footer>
 
+
+<style>
+.sold-card { position: relative; overflow: hidden; }
+.sold-ribbon { position: absolute; top: 22px; left: -32px; width: 128px; background: rgba(165,28,28,0.82); color: #fff; text-align: center; padding: 6px 0; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; transform: rotate(-45deg); z-index: 10; box-shadow: 0 2px 6px rgba(0,0,0,0.25); pointer-events: none; }
+</style>
 </body>
 </html>
