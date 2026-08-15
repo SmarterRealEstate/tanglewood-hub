@@ -79,9 +79,8 @@
     .share-btn:hover { opacity: 0.82; }
     .share-btn svg { width: 12px; height: 12px; fill: currentColor; flex-shrink: 0; }
     .sb-fb { background: #1877F2; color: #fff; }
-    .sb-x  { background: #000; color: #fff; }
     .sb-wa { background: #25D366; color: #fff; }
-    .sb-cp { background: var(--gold); color: #fff; }
+    .sb-cp { background: linear-gradient(135deg,#A8832A,#C49A3C,#D4AE5A); color: #1C263B; font-weight:800; }
 
     /* ── HERO ── */
     .hero {
@@ -170,7 +169,7 @@
     }
 
     /* ── LAYOUT SHELL ── */
-    .section { padding: 72px 24px; }
+    .section { padding: 48px 24px; }
     .inner { max-width: 900px; margin: 0 auto; }
     .bg-cream { background: var(--cream); }
     .bg-white { background: var(--white); }
@@ -600,13 +599,15 @@
     }
     .article-body p { font-size: 15px; }
     .article-cta {
-      background: var(--cream);
-      border: 1px solid rgba(196,154,60,0.3);
+      background: linear-gradient(135deg, rgba(168,131,42,0.09) 0%, rgba(212,174,90,0.13) 100%);
+      border: 1px solid rgba(196,154,60,0.5);
+      border-left: 4px solid #C49A3C;
       border-radius: 6px;
       padding: 18px 22px;
       margin-top: 24px;
       font-size: 15px;
       color: #3e3e50;
+      font-weight: 500;
     }
 
     /* ── PRECON THUMBNAILS ── */
@@ -851,11 +852,7 @@
   <div class="share-buttons">
     <a class="share-btn sb-fb" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsmarterrealestate.github.io%2Ftanglewood-hub%2Fnewsletter%2Fissue-1.html" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>Share
-    </a>
-    <a class="share-btn sb-x" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fsmarterrealestate.github.io%2Ftanglewood-hub%2Fnewsletter%2Fissue-1.html&text=The+Tanglewood+Insider+%E2%80%94+August+2026" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>Post
-    </a>
-    <a class="share-btn sb-wa" href="https://wa.me/?text=The+Tanglewood+Insider+%2B%E2%80%94%2BAugust%2B2026%2Bhttps%3A%2F%2Fsmarterrealestate.github.io%2Ftanglewood-hub%2Fnewsletter%2Fissue-1.html" target="_blank" rel="noopener">
+    </a>    <a class="share-btn sb-wa" href="https://wa.me/?text=The+Tanglewood+Insider+%2B%E2%80%94%2BAugust%2B2026%2Bhttps%3A%2F%2Fsmarterrealestate.github.io%2Ftanglewood-hub%2Fnewsletter%2Fissue-1.html" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>Share
     </a>
     <button class="share-btn sb-cp" onclick="navigator.clipboard.writeText(window.location.href).then(()=>{this.textContent='Copied!';setTimeout(()=>{this.innerHTML='<svg viewBox=&quot;0 0 24 24&quot; style=&quot;width:12px;height:12px;fill:currentColor;margin-right:5px&quot;><rect x=&quot;9&quot; y=&quot;9&quot; width=&quot;13&quot; height=&quot;13&quot; rx=&quot;2&quot; ry=&quot;2&quot;/><path d=&quot;M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1&quot;/></svg>Copy Link';},2000)})">
@@ -917,8 +914,8 @@
 <section class="section market-hero bg-deep">
   <div class="inner">
     <div class="eyebrow"><span class="eyebrow-text">Market Snapshot</span></div>
-    <h2>Oshawa — 2026 Year to Date</h2>
-    <p>Oshawa-wide: New freehold detached homes, 0 to 5 years old, January 1 to August 13, 2026.</p>
+    <h2>Tanglewood — 2026 Market Snapshot</h2>
+    <p>Your community at a glance: freehold detached homes, January 1 to August 13, 2026. North Oshawa-wide context by lot type is in the table below.</p>
 
     <div class="stat-grid">
       <div class="stat-card">
@@ -966,6 +963,27 @@
           </tr>
         </tbody>
       </table>
+    </div>
+
+    <div style="margin-top:28px;padding:20px 22px;background:rgba(196,154,60,0.08);border:1px solid rgba(196,154,60,0.25);border-radius:6px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-lt);margin-bottom:12px;">North Oshawa Context (Kedron &amp; Taunton) — August 2026</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:8px;">Active Listings</div>
+          <div style="font-size:22px;font-weight:700;color:#fff;margin-bottom:2px;">76</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.55);">Active listings (59 detached, 12 towns, 4 semis)</div>
+          <div style="margin-top:10px;font-size:22px;font-weight:700;color:#fff;margin-bottom:2px;">$953K</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.55);">Avg list price | 45 avg days on market</div>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:8px;">Recent Sales (Jan–Aug 2026)</div>
+          <div style="font-size:22px;font-weight:700;color:#fff;margin-bottom:2px;">$1.263M</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.55);">Avg sold price | 19 sales, all detached</div>
+          <div style="margin-top:10px;font-size:22px;font-weight:700;color:#fff;margin-bottom:2px;">101%</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.55);">Avg sale-to-list ratio: selling over asking</div>
+        </div>
+      </div>
+      <p style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:14px;font-style:italic;">Note: The sold data above reflects larger premium detached homes primarily in the Taunton area. These are not direct comps for Tanglewood but provide useful North Oshawa context.</p>
     </div>
 
     <div class="pull-quote">
@@ -1072,7 +1090,7 @@
   <div class="inner">
     <div class="eyebrow"><span class="eyebrow-text">On the Market Now</span></div>
     <hr class="gold-rule">
-    <h2>Currently Listed Near Tanglewood</h2>
+    <h2>Current Listings in Tanglewood</h2>
     <p>Two Tanglewood-area homes are actively listed for sale as of this issue. Here is where each one stands.</p>
     <div class="sold-grid">
       <div class="sold-card">
@@ -1094,7 +1112,7 @@
         </div>
       </div>
     </div>
-    <div class="true-dom-box" style="margin-top:32px;"><div class="tdb-title">What These Listings Tell You</div><p class="tdb-body">Both active listings are priced above where the three 2026 Tanglewood sales landed, averaging $1,030,000. The gap between asking and market is still present. Buyers have the sold data and they are using it. If you are thinking about listing, these are the homes your buyer will benchmark against before writing an offer.</p></div>
+    <div class="true-dom-box" style="margin-top:32px;"><div class="tdb-title">What These Listings Tell You</div><p class="tdb-body">Neither listing is priced above the $1,030,000 Tanglewood average. 1186 Rexton (a 30-foot Pinewood detached at 2,400 sqft) is priced $50,000 above the most comparable 2026 Tanglewood sale (1144 Wilmington, similar lot and model, sold at $940,000). That gap matters: it is asking a small premium over a recent comp, which is a defensible but not easy position in this market. 1195 Rexton is a townhome, and no Tanglewood townhome has sold in 2026, so there is no direct benchmark. Buyers looking at either home will pull up those three sold prices before writing. If you are thinking about listing, these are the homes they will compare yours against.</p></div>
   </div>
 </section>
 
@@ -1102,9 +1120,9 @@
 <section style="background:var(--navy);padding:52px 0;border-top:3px solid var(--gold);border-bottom:3px solid var(--gold);">
   <div class="inner" style="text-align:center;max-width:640px;">
     <div class="eyebrow"><span class="eyebrow-text">Coming Soon</span></div>
-    <h2 style="color:#fff;font-size:28px;margin:12px 0 16px;font-family:'Playfair Display',serif;">Tanglewood Phase 2: VIP Registration is Open</h2>
-    <p style="color:rgba(255,255,255,0.75);font-size:16px;line-height:1.7;margin-bottom:28px;">Phase 1 sold out. Phase 2 is in pre-launch. If you know someone who missed Phase 1 (a neighbour, a family member, or a colleague), now is the time to register. VIP access means first look at pricing and floor plans before public release.</p>
-    <a href="https://smarterrealestate.github.io/tanglewood/" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#A8832A,#C49A3C,#D4AE5A);color:#1C263B;font-weight:700;font-size:14px;letter-spacing:0.06em;padding:15px 36px;border-radius:4px;text-decoration:none;text-transform:uppercase;">Register for VIP Access</a>
+    <h2 style="color:#fff;font-size:28px;margin:12px 0 16px;font-family:'Playfair Display',serif;">Tanglewood Phase 2: Coming Soon</h2>
+    <p style="color:rgba(255,255,255,0.75);font-size:16px;line-height:1.7;margin-bottom:28px;">Phase 1 sold out. Phase 2 is in pre-launch and has not been publicly released yet. If you know someone who missed Phase 1 (a neighbour, a family member, or a colleague), now is the time to get on the list. Early registrants get first look at pricing and floor plans before the public.</p>
+    <a href="https://smarterrealestate.github.io/tanglewood/" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#A8832A,#C49A3C,#D4AE5A);color:#1C263B;font-weight:700;font-size:14px;letter-spacing:0.06em;padding:15px 36px;border-radius:4px;text-decoration:none;text-transform:uppercase;">Get Early Updates</a>
     <p style="color:rgba(255,255,255,0.4);font-size:12px;margin-top:18px;">Share this with anyone thinking about Tanglewood: <a href="https://smarterrealestate.github.io/tanglewood/" style="color:rgba(212,174,90,0.7);">smarterrealestate.github.io/tanglewood</a></p>
   </div>
 </section>
@@ -1156,6 +1174,7 @@
     </div>
 
     <p style="font-size:14px;color:var(--grey);margin-top:8px;">If you have a basement suite and want to know what it should rent for, or if you are thinking about renting your home, call me directly. The numbers above are from actual registered leases in the community this year.</p>
+    <p style="font-size:13px;color:var(--grey);margin-top:10px;font-style:italic;">Note: These figures are based on leases formally reported through TRREB in 2026. Many Tanglewood homes rent for more, particularly those with premium finishes, larger layouts, or additional income suites. The numbers above reflect what was reported. They are not the ceiling of what your home could achieve.</p>
   </div>
 </section>
 
@@ -1197,7 +1216,7 @@
   <div class="inner">
     <div class="article-header">
       <div class="article-kicker">New Home Market Report</div>
-      <div class="article-title">North Oshawa New Home Market: Current Pricing</div>
+      <div class="article-title">North Oshawa New PreCon Home Market: Current Pricing</div>
       <p class="article-deck">Builder list pricing, before HST. As of August 2026.</p>
     </div>
 
@@ -1217,8 +1236,13 @@
       <p>The premium tier in the area. Communities actively selling on 40' lots or larger include Heartwood Village by Laurelcrest, Homeward Hills by Sorbara, Dreamscape by Fieldgate (on 42' lots), and The Views by Jeffery Homes. Pricing currently ranges from $1,080,000 to just under $1,400,000 before HST, with most homes in the 2,500 to 3,150 sq ft above grade range.</p>
     </div>
 
-    <div class="article-cta">
-      Want pricing, a brochure, or VIP access for any of the communities above? I represent buyers in all of these projects. Reach out directly and I will get you the information you need.
+    <div style="margin-top:28px;padding:20px 22px;background:linear-gradient(135deg,rgba(168,131,42,0.07),rgba(212,174,90,0.11));border:1px solid rgba(196,154,60,0.35);border-left:4px solid #C49A3C;border-radius:6px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#A8832A;margin-bottom:10px;">A Note from Jeff</div>
+      <p style="font-size:15px;line-height:1.7;color:#3e3e50;">I have over 20 years in real estate, and a significant part of that has been working directly with preconstruction builder projects throughout the GTA. Deposits, closing costs, assignment clauses, development levies: preconstruction has layers that most buyers do not see coming. If you are thinking about buying precon, do not do it alone. My representation costs you nothing and can save you significantly.</p>
+    </div>
+
+    <div class="article-cta" style="margin-top:16px;">
+      Want pricing, a brochure, or VIP access for any of the communities above? I represent buyers in all of these projects at no cost to you. Reach out directly and I will get you everything you need.
     </div>
   </div>
 </section>
