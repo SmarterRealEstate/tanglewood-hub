@@ -813,5 +813,11 @@
     });
   </script>
 
+
+<script>
+function _ihReport(){window.parent.postMessage({type:'iframeHeight',height:document.body.scrollHeight},'*');}
+window.addEventListener('load',function(){_ihReport();setTimeout(_ihReport,500);setTimeout(_ihReport,2000);});
+window.addEventListener('resize',_ihReport);
+</script>
 </body>
 </html>
