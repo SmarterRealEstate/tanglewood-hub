@@ -244,14 +244,16 @@
     .stat-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 2px;
+      gap: 14px;
       margin-bottom: 40px;
-      border: 1px solid rgba(255,255,255,0.06);
     }
     .stat-card {
       text-align: center;
       padding: 36px 16px;
-      background: rgba(255,255,255,0.035);
+      border-radius: 4px;
+      background: linear-gradient(rgba(255,255,255,0.05), rgba(255,255,255,0.05)) padding-box,
+                  linear-gradient(135deg, rgba(196,154,60,0.6), rgba(212,174,90,0.25), rgba(196,154,60,0.05)) border-box;
+      border: 1px solid transparent;
     }
     .stat-num {
       font-family: 'Playfair Display', serif;
@@ -945,15 +947,15 @@
 <section class="section market-hero bg-deep" style="background-image:linear-gradient(rgba(17,24,39,0.78),rgba(17,24,39,0.78)),url('https://smarterrealestate.github.io/tanglewood-hub/assets/newsletter/market-bg.jpg');background-size:cover;background-position:center;">
   <div class="inner">
     <div class="eyebrow"><span class="eyebrow-text" style="color:var(--gold);">Market Snapshot</span><span class="gold-rule"></span></div>
-    <h2 class="section-h2 light" style="margin-bottom:6px;">North Oshawa at a glance</h2>
-    <p style="font-style:italic;font-size:15px;color:rgba(255,255,255,0.55);margin-bottom:28px;font-family:'Playfair Display',Georgia,serif;">What is selling, what is sitting, and what buyers are paying</p>
 
-    <!-- intro + map row -->
-    <div style="display:flex;gap:36px;align-items:flex-start;margin-bottom:36px;">
+    <!-- intro + map row — title/subtitle inside left column so map centers against full left content -->
+    <div style="display:flex;gap:36px;align-items:center;margin-bottom:36px;">
       <div style="flex:1;">
+        <h2 class="section-h2 light" style="margin-bottom:6px;">North Oshawa at a glance</h2>
+        <p style="font-style:italic;font-size:15px;color:rgba(255,255,255,0.55);margin-bottom:24px;font-family:'Playfair Display',Georgia,serif;">What is selling, what is sitting, and what buyers are paying</p>
         <p style="color:rgba(255,255,255,0.85);font-size:15px;line-height:1.8;margin:0;">You asked for more. Issue No. 1 focused tightly on Tanglewood. This issue expands the lens to cover all new construction across the four North Oshawa communities that surround it: Kedron, Taunton, Windfields, and Samac. The numbers below show the full picture of what the market is doing around you.</p>
       </div>
-      <div style="flex:0 0 38%;">
+      <div style="flex:0 0 38%;display:flex;align-items:center;">
         <img src="https://smarterrealestate.github.io/tanglewood-hub/assets/newsletter/north-oshawa-market-area.jpg" alt="North Oshawa Market Area — Kedron, Taunton, Windfields, Samac" style="width:100%;border-radius:8px;display:block;">
       </div>
     </div>
