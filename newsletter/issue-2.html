@@ -200,7 +200,11 @@
       display: grid;
       grid-template-columns: 2fr 1fr;
       gap: 48px;
-      align-items: start;
+      align-items: stretch;
+    }
+    .intro-right {
+      display: flex;
+      flex-direction: column;
     }
     .intro-body { font-size: 16px; line-height: 1.78; color: #374151; }
     .intro-body p + p { margin-top: 16px; }
@@ -423,21 +427,22 @@
 
     /* EXPLAINER */
     .true-dom-box {
-      background: var(--cream);
-      border: 1px solid rgba(196,154,60,0.25);
+      background: var(--navy);
       border-radius: 6px;
-      padding: 18px 22px;
+      padding: 22px 24px;
       margin-top: 24px;
+      flex: 1;
     }
     .tdb-title {
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 1.5px;
       text-transform: uppercase;
-      color: var(--gold-dk);
-      margin-bottom: 6px;
+      color: var(--gold-lt);
+      margin-bottom: 10px;
     }
-    .tdb-body { font-size: 14px; color: #374151; line-height: 1.65; }
+    .tdb-body { font-size: 14px; color: rgba(255,255,255,0.88); line-height: 1.82; }
+    .tdb-rule { margin-top: 20px; height: 2px; background: linear-gradient(to right, var(--gold), transparent); border: none; }
 
     /* EXPIRED BOX */
     .expired-box {
@@ -900,14 +905,17 @@
     <div class="intro-grid">
       <div>
         <div class="eyebrow"><span class="eyebrow-text">Welcome to Issue No. 2</span><span class="gold-rule"></span></div>
-        <h2 class="section-h2" style="margin-bottom:20px;">Three months in. The market kept moving.</h2>
+        <h2 class="section-h2" style="margin-bottom:20px;font-size:31px;">Tariffs, Trade &amp; the Real Story in Your Neighbourhood</h2>
         <div class="intro-body">
-          <p>Issue No. 1 gave you the full sold report on every Tanglewood home that changed hands in 2026. Issue No. 2 is about what is happening right now. Two of your neighbours are actively trying to sell. One more home is technically listed but almost impossible for buyers to find. A property we first featured 10 months ago just came off the market for the second time. And trade war headlines are reshaping how buyers and sellers are approaching their decisions.</p>
-          <p>Inside: full updates on every listing we have been watching, fresh rental comps, trade war context, a note on a listing error that is hurting a seller, and Phase 2 news. If there is something you want covered next month, reply directly. I read every one.</p>
-          <p style="margin-top:20px;"><strong>Jeffrey Villeneuve,</strong> Broker</p>
+          <p>One home in this issue has been on and off the market since January of last year. It started at $1,599,999. You will find it today at $999,900.</p>
+          <p>That is what this issue is about: the gap between where sellers think the market is and where buyers are actually willing to go. Two Tanglewood homes are actively listed. The rental market is telling a different story than the for-sale numbers show.</p>
+          <p>The tariff conversation is real and it is not going away. I share my honest take on what it could mean for buyers and sellers in this market.</p>
+          <p>If you missed Issue No. 1, <a href="https://smarterrealestate.github.io/tanglewood-hub/newsletter/issue-1.html" style="color:var(--gold);font-weight:600;">it is right here</a>. This picks up where it left off.</p>
+          <p style="margin-top:20px;">Something you want me to dig into? Reply directly. It comes straight to me.</p>
+          <p style="margin-top:16px;font-weight:600;color:var(--navy);">Jeff</p>
         </div>
       </div>
-      <div>
+      <div class="intro-right">
         <div class="jeff-card">
           <img src="https://smarterrealestate.github.io/tanglewood-hub/assets/headshot.jpg" alt="Jeffrey Villeneuve, Broker" class="jeff-card-photo">
           <div>
@@ -920,8 +928,13 @@
           </div>
         </div>
         <div class="true-dom-box">
-          <div class="tdb-title">What is True DOM?</div>
-          <div class="tdb-body">Listed DOM resets every time a home is terminated and re-listed. True DOM adds up every listing period to show how long a home has really been on the market. Several properties in this issue have very different listed vs. true DOM. <a href="https://smarterrealestate.github.io/tanglewood-hub/newsletter/issue-1.html" style="color:var(--gold);">Issue No. 1</a> has the full explainer.</div>
+          <div class="tdb-title">True Days on Market</div>
+          <div class="tdb-body">
+            <p style="margin:0 0 12px;">Every time a listing expires and relists, the MLS clock resets to zero. A home that has been sitting unsold for 14 months can show up in your search looking like it listed yesterday.</p>
+            <p style="margin:0 0 12px;">True DOM adds every listing period together. It shows you how long a home has actually been trying to sell, not just how long the current listing has been running.</p>
+            <p style="margin:0;">Behind every long DOM number is the same short story. The price was wrong, the marketing missed, or both. Get those two things right from day one and the clock barely moves.</p>
+          </div>
+          <hr class="tdb-rule">
         </div>
       </div>
     </div>
@@ -933,18 +946,28 @@
   <div class="inner">
     <div class="eyebrow"><span class="eyebrow-text" style="color:var(--gold);">Market Snapshot</span><span class="gold-rule"></span></div>
     <h2 class="section-h2 light" style="margin-bottom:6px;">North Oshawa at a glance</h2>
-    <p class="lead light">Kedron, Taunton, Windfields, Samac. New construction, Jan 1 to Aug 28, 2026.</p>
-    <img src="https://smarterrealestate.github.io/tanglewood-hub/assets/newsletter/north-oshawa-market-area.jpg" alt="North Oshawa Market Area — Kedron, Taunton, Windfields, Samac" style="width:100%;border-radius:8px;margin-bottom:32px;display:block;">
+    <p style="font-style:italic;font-size:15px;color:rgba(255,255,255,0.55);margin-bottom:28px;font-family:'Playfair Display',Georgia,serif;">What is selling, what is sitting, and what buyers are paying</p>
+
+    <!-- intro + map row -->
+    <div style="display:flex;gap:36px;align-items:flex-start;margin-bottom:36px;">
+      <div style="flex:1;">
+        <p style="color:rgba(255,255,255,0.85);font-size:15px;line-height:1.8;margin:0;">You asked for more. Issue No. 1 focused tightly on Tanglewood. This issue expands the lens to cover all new construction across the four North Oshawa communities that surround it: Kedron, Taunton, Windfields, and Samac. The numbers below show the full picture of what the market is doing around you.</p>
+      </div>
+      <div style="flex:0 0 38%;">
+        <img src="https://smarterrealestate.github.io/tanglewood-hub/assets/newsletter/north-oshawa-market-area.jpg" alt="North Oshawa Market Area — Kedron, Taunton, Windfields, Samac" style="width:100%;border-radius:8px;display:block;">
+      </div>
+    </div>
+
     <div class="stat-grid">
       <div class="stat-card">
-        <span class="stat-num">$1.03M</span>
-        <span class="stat-lbl">Avg Tanglewood Sold Price</span>
-        <span class="stat-sub">3 sales, Jan to Aug 2026</span>
+        <span class="stat-num">30</span>
+        <span class="stat-lbl">Sales YTD</span>
+        <span class="stat-sub">All types, Jan to Aug 2026</span>
       </div>
       <div class="stat-card">
-        <span class="stat-num">3</span>
-        <span class="stat-lbl">Active TW Listings</span>
-        <span class="stat-sub">As of September 2, 2026</span>
+        <span class="stat-num">$885K</span>
+        <span class="stat-lbl">Avg Sold Price</span>
+        <span class="stat-sub">All types combined</span>
       </div>
       <div class="stat-card">
         <span class="stat-num">99%</span>
