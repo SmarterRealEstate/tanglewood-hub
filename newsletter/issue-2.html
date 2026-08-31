@@ -1044,9 +1044,9 @@
       </div>
     </div>
 
-    <!-- comp zone stat grid -->
-    <div style="background:var(--navy);border-radius:8px;padding:32px 32px 20px;margin-bottom:40px;">
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:16px;">
+    <!-- comp zone stat grid + table -->
+    <div style="background:var(--navy);border-radius:8px;padding:32px 32px 24px;margin-bottom:40px;">
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:28px;">
         <div style="text-align:center;padding:28px 16px;border-radius:4px;background:rgba(255,255,255,0.05);border:1px solid rgba(196,154,60,0.45);">
           <span style="font-family:'Playfair Display',serif;font-size:48px;font-weight:700;color:var(--gold);line-height:1;margin-bottom:10px;display:block;">5</span>
           <span style="font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.5);display:block;">Sales YTD</span>
@@ -1068,7 +1068,60 @@
           <span style="font-size:11px;color:rgba(255,255,255,0.3);margin-top:5px;display:block;">Verified listing history</span>
         </div>
       </div>
-      <p style="font-size:11px;color:rgba(255,255,255,0.28);text-align:center;margin:0;">Tanglewood comp zone (Kedron, new construction 0-5 yr). Source: Realm MLS / PropTx (TRREB). Jan 1 to Aug 27, 2026. True DOM calculated from verified listing histories; one property with multi-year history prior to 2026 excluded from True DOM average.</p>
+      <div class="mkt-table-wrap">
+        <table class="mkt-table">
+          <thead>
+            <tr>
+              <th>Segment</th>
+              <th>Sales YTD</th>
+              <th>Avg Sold Price</th>
+              <th>Listed DOM</th>
+              <th>True DOM</th>
+              <th>% of List</th>
+              <th>% of Original Ask</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong style="color:rgba(255,255,255,0.95);">All types combined</strong></td>
+              <td>5</td>
+              <td class="hl">$997,700</td>
+              <td>33 days</td>
+              <td class="hl">55 days</td>
+              <td>94%</td>
+              <td class="hl">84%</td>
+            </tr>
+            <tr>
+              <td>Freehold townhouse</td>
+              <td>1</td>
+              <td class="hl">$770,000</td>
+              <td>7 days</td>
+              <td class="hl">58 days</td>
+              <td>96%</td>
+              <td class="hl">92%</td>
+            </tr>
+            <tr>
+              <td>Detached, single-car garage</td>
+              <td>1</td>
+              <td class="hl">$940,000</td>
+              <td>23 days</td>
+              <td class="hl">23 days</td>
+              <td>94%</td>
+              <td class="hl">86%</td>
+            </tr>
+            <tr>
+              <td>Detached, double-car garage</td>
+              <td>3</td>
+              <td class="hl">$1,092,833</td>
+              <td>44 days</td>
+              <td class="hl">69 days</td>
+              <td>94%</td>
+              <td class="hl">80%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:11px;color:rgba(255,255,255,0.28);margin-top:14px;margin-bottom:0;">Tanglewood comp zone. New construction 0-5 yr homes. Source: Realm MLS / PropTx (TRREB). Jan 1 to Aug 27, 2026. True DOM and % of original ask calculated from verified listing histories.</p>
     </div>
 
     <div class="sold-grid">
