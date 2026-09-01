@@ -1015,6 +1015,22 @@
   </style>
 </head>
 <body>
+<!-- READING PROGRESS BAR -->
+<div id="progress-bar" style="position:fixed;top:0;left:0;width:0%;height:3px;background:var(--gold);z-index:9999;transition:width 0.1s linear;"></div>
+<script>
+(function(){
+  function updateProgress(){
+    var el=document.getElementById('progress-bar');
+    if(!el)return;
+    var scrollTop=window.scrollY||document.documentElement.scrollTop;
+    var docH=document.documentElement.scrollHeight-window.innerHeight;
+    var pct=docH>0?Math.min(100,(scrollTop/docH)*100):0;
+    el.style.width=pct+'%';
+  }
+  window.addEventListener('scroll',updateProgress,{passive:true});
+  updateProgress();
+})();
+</script>
 
 <!-- SHARE BAR -->
 <div class="share-bar">
@@ -1055,7 +1071,7 @@
           <p>One home in this issue has been on and off the market since January of last year. It started at $1,599,999. You will find it today at $999,900.</p>
           <p>That is what this issue is about: the gap between where sellers think the market is and where buyers are actually willing to go. Three Tanglewood homes are actively listed. The rental market is telling a different story than the for-sale numbers show.</p>
           <p>The tariff conversation is real and it is not going away. I share my honest take on what it could mean for buyers and sellers in this market.</p>
-          <p>If you missed Issue No. 1, <a href="https://smarterrealestate.github.io/tanglewood-hub/newsletter/issue-1.html" style="color:var(--gold);font-weight:600;">it is right here</a>. This picks up where it left off.</p>
+          <p>If you missed Issue No. 1, <a href="https://smarterrealestate.github.io/tanglewood-hub/newsletter/issue-1.html" style="color:var(--gold);font-weight:600;" target="_blank" rel="noopener">it is right here</a>. This picks up where it left off.</p>
           <p style="margin-top:20px;">Something you want me to dig into? Reply directly. It comes straight to me.</p>
           <p style="margin-top:16px;font-weight:600;color:var(--navy);">Jeff</p>
         </div>
@@ -1931,7 +1947,6 @@
       <a href="mailto:tanglewood@smarterrealestate.ca">tanglewood@smarterrealestate.ca</a>
       <a href="https://smarterrealestate.github.io/tanglewood-hub/">Tanglewood Hub</a>
       <a href="https://smarterrealestate.github.io/tanglewood-hub/newsletter/issue-1.html">Issue No. 1</a>
-      <a href="mailto:tanglewood@smarterrealestate.ca?subject=Unsubscribe%20from%20Tanglewood%20Insider">Unsubscribe</a>
     </div>
     <div class="social-row">
       <span>Follow Jeff</span>
