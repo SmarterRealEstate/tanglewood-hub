@@ -1436,7 +1436,7 @@
 </section>
 
 <!-- SOLD SECTION -->
-<section class="section" id="sold" style="background:#1f0808;">
+<section class="section" id="sold" style="background:radial-gradient(ellipse at 22% 45%, rgba(212,30,60,0.74) 0%, rgba(165,9,30,0.74) 65%, rgba(139,0,22,0.82) 100%), url('https://smarterrealestate.github.io/tanglewood-hub/assets/newsletter/sold-section-bg.jpg') center/cover no-repeat">
   <div class="inner">
     <div class="eyebrow"><span class="eyebrow-text" style="color:var(--gold);">Recent Sales</span><span class="gold-rule"></span></div>
     <h2 class="section-h2 light">What sold in your neighbourhood</h2>
@@ -1501,216 +1501,284 @@
 
     </div><!-- end row 1 -->
 
-    <!-- ROW 2: COMP ZONE — same 3-col grid, story fills col 3 -->
-    <div class="listing-thumb-grid">
+    <!-- ROW 2 + PRICE TABLE: 3-col grid, SVG L-shaped gold border overlay -->
+    <div id="sold-row2-container" style="position:relative;margin-bottom:32px;">
 
-      <!-- 2027 HORACE DUNCAN — standard card, same as row 1 -->
-      <div class="listing-thumb-card">
-        <div class="sold-badge">Sold</div>
-        <img src="https://smarterrealestate.github.io/tanglewood-hub/assets/newsletter/listings/2027-horace-duncan-sold.jpg" alt="2027 Horace Duncan Cres" style="width:100%;height:160px;object-fit:cover;display:block;">
-        <div class="thumb-body">
-          <div class="thumb-addr">2027 Horace Duncan Cres</div>
-          <div class="thumb-sub">Freehold Townhouse &nbsp;|&nbsp; Fieldgate Homes</div>
-          <div class="thumb-price">$770,000</div>
-          <div class="thumb-stats">
-            <div class="thumb-stat"><span class="thumb-stat-n">7</span><span class="thumb-stat-l">Listed DOM</span></div>
-            <div class="thumb-stat"><span class="thumb-stat-n">58</span><span class="thumb-stat-l">True DOM</span></div>
-            <div class="thumb-stat"><span class="thumb-stat-n">92%</span><span class="thumb-stat-l">Of Original Ask</span></div>
+      <!-- SVG border injected by JS below -->
+      <div id="sold-border-svg" aria-hidden="true" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:2;"></div>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);column-gap:20px;row-gap:0;grid-template-rows:auto 20px auto;">
+
+        <!-- COL 1, ROW 1: Horace Duncan — separate card, red shows below it (row height set by taller 1219+story) -->
+        <div class="listing-thumb-card" style="grid-column:1;grid-row:1;">
+          <div class="sold-badge">Sold</div>
+          <img src="https://smarterrealestate.github.io/tanglewood-hub/assets/newsletter/listings/2027-horace-duncan-sold.jpg" alt="2027 Horace Duncan Cres" style="width:100%;height:160px;object-fit:cover;display:block;">
+          <div class="thumb-body">
+            <div class="thumb-addr">2027 Horace Duncan Cres</div>
+            <div class="thumb-sub">Freehold Townhouse &nbsp;|&nbsp; Fieldgate Homes</div>
+            <div class="thumb-price">$770,000</div>
+            <div class="thumb-stats">
+              <div class="thumb-stat"><span class="thumb-stat-n">7</span><span class="thumb-stat-l">Listed DOM</span></div>
+              <div class="thumb-stat"><span class="thumb-stat-n">58</span><span class="thumb-stat-l">True DOM</span></div>
+              <div class="thumb-stat"><span class="thumb-stat-n">92%</span><span class="thumb-stat-l">Of Original Ask</span></div>
+            </div>
+            <div style="font-size:12px;color:var(--grey);margin-top:auto;padding-top:10px;">Original ask $839,000 &nbsp;|&nbsp; Sold Jan 19, 2026 &nbsp;|&nbsp; 4 bed / 3 bath</div>
           </div>
-          <div style="font-size:12px;color:var(--grey);margin-top:auto;padding-top:10px;">Original ask $839,000 &nbsp;|&nbsp; Sold Jan 19, 2026 &nbsp;|&nbsp; 4 bed / 3 bath</div>
         </div>
-      </div>
 
-      <!-- 1219 WILMINGTON — standard card, same as row 1 -->
-      <div class="listing-thumb-card">
-        <div class="sold-badge">Sold</div>
-        <img src="https://smarterrealestate.github.io/tanglewood-hub/assets/newsletter/listings/1219-wilmington.jpg" alt="1219 Wilmington Ave" style="width:100%;height:160px;object-fit:cover;display:block;">
-        <div class="thumb-body">
-          <div class="thumb-addr">1219 Wilmington Ave</div>
-          <div class="thumb-sub">Detached &nbsp;|&nbsp; Paradise Homes &nbsp;|&nbsp; MLS: E12788630</div>
-          <div class="thumb-price">$1,128,500</div>
-          <div class="thumb-stats">
-            <div class="thumb-stat"><span class="thumb-stat-n">41</span><span class="thumb-stat-l">Listed DOM</span></div>
-            <div class="thumb-stat"><span class="thumb-stat-n">397</span><span class="thumb-stat-l">True DOM</span></div>
-            <div class="thumb-stat"><span class="thumb-stat-n">75%</span><span class="thumb-stat-l">Of Original Ask</span></div>
+        <!-- COLS 2-3, ROW 1: 1219 + Story — no CSS border (SVG handles it) -->
+        <div id="sold-story-wrapper" style="grid-column:2/4;grid-row:1/3;display:flex;overflow:hidden;border-radius:8px 8px 0 0;background:var(--navy);">
+          <div class="listing-thumb-card" style="flex:1;border-radius:0;box-shadow:none;border-right:1px solid rgba(196,154,60,0.25);align-self:flex-start;">
+            <div class="sold-badge">Sold</div>
+            <img src="https://smarterrealestate.github.io/tanglewood-hub/assets/newsletter/listings/1219-wilmington.jpg" alt="1219 Wilmington Ave" style="width:100%;height:160px;object-fit:cover;display:block;">
+            <div class="thumb-body">
+              <div class="thumb-addr">1219 Wilmington Ave</div>
+              <div class="thumb-sub">Detached &nbsp;|&nbsp; Paradise Homes</div>
+              <div class="thumb-price">$1,128,500</div>
+              <div class="thumb-stats">
+                <div class="thumb-stat"><span class="thumb-stat-n">41</span><span class="thumb-stat-l">Listed DOM</span></div>
+                <div class="thumb-stat"><span class="thumb-stat-n">397</span><span class="thumb-stat-l">True DOM</span></div>
+                <div class="thumb-stat"><span class="thumb-stat-n">75%</span><span class="thumb-stat-l">Of Original Ask</span></div>
+              </div>
+              <div style="font-size:12px;color:var(--grey);margin-top:auto;padding-top:10px;">Original ask $1,499,000 &nbsp;|&nbsp; Sold Mar 25, 2026 &nbsp;|&nbsp; 5 bed / 4 bath</div>
+            </div>
           </div>
-          <div style="font-size:12px;color:var(--grey);margin-top:auto;padding-top:10px;">Original ask $1,499,000 &nbsp;|&nbsp; Sold Mar 25, 2026</div>
+          <div style="flex:1;background:var(--navy);padding:24px 22px;display:flex;flex-direction:column;justify-content:space-between;">
+            <div>
+              <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">The Price Story</div>
+              <p style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#fff;line-height:1.38;margin-bottom:16px;">First listed at $1,499,000 in April 2023. Seven attempts. Sold March 2026 at $1,128,500.</p>
+              <p style="font-size:13px;color:rgba(255,255,255,0.72);line-height:1.7;margin-bottom:0;">The MLS showed 41 days. The true number was 397. The buyer paid 75 cents on the original dollar.</p>
+            </div>
+            <div>
+              <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">Why the first two weeks matter</div>
+              <p style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.75;margin:0;">The first 14 days are the highest-traffic window any listing will ever see. Miss it with the wrong price and you spend months chasing a number that keeps moving away from you. Every relist resets the clock. Every price cut tells buyers something you cannot take back.</p>
+              <div style="height:1px;background:rgba(192,192,192,0.28);width:82%;margin-top:18px;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- COLS 1-3, ROW 2: Price table — full width, no CSS border (SVG handles it) -->
+        <div id="sold-price-table" style="grid-column:1/4;grid-row:3;background:var(--navy);border-radius:0 0 8px 8px;padding:20px 24px;">
+          <div class="ph-table" style="margin:0;background:transparent;border-radius:0;">
+            <div class="ph-row"><span class="ph-date">Apr 2023</span><span class="ph-event">First listed (Attempt 1)</span><span class="ph-price">$1,499,000</span></div>
+            <div class="ph-row"><span class="ph-date">Jun 2023</span><span class="ph-event">Relisted (Attempt 2)</span><span class="ph-price">$1,399,000</span></div>
+            <div class="ph-row"><span class="ph-date">Jul 2023</span><span class="ph-event">Relisted, cut (Attempt 3)</span><span class="ph-price">$1,299,900</span></div>
+            <div class="ph-row"><span class="ph-date">Sep 2024</span><span class="ph-event">Back on market (Attempt 4)</span><span class="ph-price">$1,199,990</span></div>
+            <div class="ph-row"><span class="ph-date">Nov 2024</span><span class="ph-event">Relisted, raised mid-run (Attempt 5)</span><span class="ph-price">$1,550,000</span></div>
+            <div class="ph-row"><span class="ph-date">Oct 2025</span><span class="ph-event">Relisted, multiple cuts (Attempt 6)</span><span class="ph-price">$1,199,000</span></div>
+            <div class="ph-row"><span class="ph-date">Feb 2026</span><span class="ph-event">Final attempt, multiple resets (Attempt 7)</span><span class="ph-price">$1,199,900</span></div>
+            <div class="ph-row" style="background:rgba(196,154,60,0.15);font-weight:600;"><span class="ph-date">Mar 25, 2026</span><span class="ph-event">Sold</span><span class="ph-price">$1,128,500</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div><!-- end row 2 container -->
+
+    <script>
+    (function(){
+      function drawSoldBorder(){
+        var c=document.getElementById('sold-row2-container');
+        var s=document.getElementById('sold-story-wrapper');
+        var t=document.getElementById('sold-price-table');
+        var el=document.getElementById('sold-border-svg');
+        if(!c||!s||!t||!el) return;
+        var cr=c.getBoundingClientRect();
+        var sr=s.getBoundingClientRect();
+        var tr=t.getBoundingClientRect();
+        // All coords relative to container
+        var x1=sr.left-cr.left;   // col 2 left (1219+story left edge)
+        var x2=sr.right-cr.left;  // col 3 right (shared by story and price table)
+        var x3=tr.left-cr.left;   // col 1 left (price table left edge)
+        var y1=sr.top-cr.top;     // top of story wrapper
+        var y2=tr.top-cr.top;     // top of price table = bottom of row 1
+        var y3=tr.bottom-cr.top;  // bottom of price table
+        var r=8; // corner radius for outer corners
+        // L-shaped path (clockwise from top-left of story wrapper):
+        // top-left corner (rounded) → across top of story → top-right corner (rounded)
+        // → down right side (continuous, same x2 for both story and table)
+        // → bottom-right corner (rounded) → across bottom of price table
+        // → bottom-left corner (rounded) → up left side of price table to step
+        // → step right to x1 → up left side of story → back to start
+        var d=[
+          'M',x1+r,y1,
+          'L',x2-r,y1,
+          'Q',x2,y1,x2,y1+r,
+          'L',x2,y3-r,
+          'Q',x2,y3,x2-r,y3,
+          'L',x3+r,y3,
+          'Q',x3,y3,x3,y3-r,
+          'L',x3,y2,
+          'L',x1,y2,
+          'L',x1,y1+r,
+          'Q',x1,y1,x1+r,y1,
+          'Z'
+        ].join(' ');
+        el.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:visible;" aria-hidden="true"><path d="'+d+'" fill="none" stroke="#C49A3C" stroke-width="2"/></svg>';
+      }
+      if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',drawSoldBorder);}
+      else{setTimeout(drawSoldBorder,0);}
+      window.addEventListener('resize',drawSoldBorder);
+    })();
+    </script>
+
+    <!-- CTA: headshot left, copy right -->
+    <div style="background:linear-gradient(135deg,#ffffff 0%,#d8d8d8 20%,#a0a0a0 45%,#cecece 70%,#f4f4f4 100%);border-radius:10px;padding:32px 36px;box-shadow:0 0 0 2px rgba(196,154,60,0.5);display:flex;gap:32px;align-items:center;">
+      <div style="flex-shrink:0;text-align:center;min-width:110px;">
+        <img src="https://smarterrealestate.github.io/tanglewood-hub/assets/headshot.jpg" alt="Jeffrey Villeneuve" style="width:100px;height:100px;border-radius:50%;border:3px solid var(--gold);display:block;object-fit:cover;margin:0 auto;">
+        <div style="margin-top:10px;">
+          <p style="font-weight:700;color:var(--navy);font-size:13px;margin:0;line-height:1.3;">Jeffrey Villeneuve</p>
+          <p style="font-size:11px;color:#555;margin:2px 0 0;">Broker</p>
         </div>
       </div>
-
-      <!-- COL 3: THE PRICE STORY for 1219 Wilmington -->
-      <div style="background:var(--navy);border-radius:8px;padding:24px 22px;display:flex;flex-direction:column;">
-        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">The Price Story</div>
-        <p style="font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:#fff;line-height:1.35;margin-bottom:10px;">First listed at $1,499,000 in April 2023. Seven attempts. Sold March 2026 at $1,128,500.</p>
-        <p style="font-size:13px;color:rgba(255,255,255,0.72);line-height:1.65;margin-bottom:16px;">The MLS showed 41 days. The true number was 397. The buyer paid 75 cents on the original dollar.</p>
-        <div class="ph-table" style="margin:0;flex:1;">
-          <div class="ph-row"><span class="ph-date">Apr 2023</span><span class="ph-event">First listed (Attempt 1)</span><span class="ph-price">$1,499,000</span></div>
-          <div class="ph-row"><span class="ph-date">Jun 2023</span><span class="ph-event">Relisted (Attempt 2)</span><span class="ph-price">$1,399,000</span></div>
-          <div class="ph-row"><span class="ph-date">Jul 2023</span><span class="ph-event">Relisted, cut (Attempt 3)</span><span class="ph-price">$1,299,900</span></div>
-          <div class="ph-row"><span class="ph-date">Sep 2024</span><span class="ph-event">Back on market (Attempt 4)</span><span class="ph-price">$1,199,990</span></div>
-          <div class="ph-row"><span class="ph-date">Nov 2024</span><span class="ph-event">Relisted, raised mid-run (Attempt 5)</span><span class="ph-price">$1,550,000</span></div>
-          <div class="ph-row"><span class="ph-date">Oct 2025</span><span class="ph-event">Relisted, multiple cuts (Attempt 6)</span><span class="ph-price">$1,199,000</span></div>
-          <div class="ph-row"><span class="ph-date">Feb 2026</span><span class="ph-event">Final attempt, multiple resets (Attempt 7)</span><span class="ph-price">$1,199,900</span></div>
-          <div class="ph-row" style="background:rgba(196,154,60,0.15);font-weight:600;"><span class="ph-date">Mar 25, 2026</span><span class="ph-event">Sold</span><span class="ph-price">$1,128,500</span></div>
+      <div style="flex:1;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">Thinking About Selling?</div>
+        <p style="font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:12px;">Every home in this section started with a number that felt right. Getting it right from day one is the difference between a clean sale and a long one.</p>
+        <p style="font-size:13px;color:#444;line-height:1.72;margin-bottom:16px;">If you want to know where your home sits in today's market and what we do to put it in front of the right buyer, reach out directly. It comes straight to me.</p>
+        <p style="font-family:'Playfair Display',serif;font-size:20px;font-style:italic;font-weight:700;color:#d41e3c;margin-bottom:16px;line-height:1.2;">Smarter Real Estate. Proven Results.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+          <a href="mailto:jeff@smarterrealestate.ca" style="display:inline-flex;align-items:center;gap:7px;background:var(--gold);color:var(--navy);font-weight:700;font-size:12px;padding:10px 20px;border-radius:6px;text-decoration:none;min-width:130px;justify-content:center;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+            Email Jeff
+          </a>
+          <a href="https://wa.me/16474097653" style="display:inline-flex;align-items:center;gap:7px;background:#25D366;color:#fff;font-weight:700;font-size:12px;padding:10px 20px;border-radius:6px;text-decoration:none;min-width:130px;justify-content:center;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.856L0 24l6.335-1.508A11.955 11.955 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.002-1.368l-.358-.213-3.76.895.952-3.653-.234-.374A9.818 9.818 0 0 1 2.182 12C2.182 6.568 6.568 2.182 12 2.182S21.818 6.568 21.818 12 17.432 21.818 12 21.818z"/></svg>
+            WhatsApp
+          </a>
+          <a href="tel:+16474097653" style="display:inline-flex;align-items:center;gap:7px;background:var(--navy);color:#fff;font-weight:700;font-size:12px;padding:10px 20px;border-radius:6px;text-decoration:none;min-width:130px;justify-content:center;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.18 6.18l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            647-409-7653
+          </a>
         </div>
       </div>
-
-    </div><!-- end row 2 -->
+    </div>
 
   </div>
 </section>
 
-<!-- 873 REXTON -->
-<section class="section bg-navy">
+<!-- RENTAL MARKET -->
+<section class="section bg-cream" id="rental">
   <div class="inner">
-    <div class="eyebrow"><span class="eyebrow-text" style="color:var(--gold);">Still Watching</span><span class="gold-rule"></span></div>
-    <h2 class="section-h2 light" style="margin-bottom:8px;">873 Rexton Drive: The second attempt is over</h2>
-    <p class="lead light">Featured in Issue No. 1 at 166 days on market. The seller came back for another run. Here is how it ended.</p>
+    <div class="section-eyebrow">Rental Market</div>
+    <h2 class="section-h2" style="margin-bottom:8px;">What landlords are getting. What tenants are paying.</h2>
+    <p style="font-size:15px;color:var(--grey);max-width:640px;margin:0 auto 36px;text-align:center;line-height:1.7;">Three leases closed in the last 30 days across the comp zone. Here is where the numbers landed and what is still available.</p>
 
-    <div class="expired-box">
-      <div class="expired-stat">
-        <span class="expired-num">167</span>
-        <span class="expired-lbl">Days on Market<br>Second Attempt</span>
+    <!-- ROW 1: RECENT LEASES (navy cards, gold top border) -->
+    <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">Recent Leases</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:32px;">
+
+      <!-- Basement Leased -->
+      <div style="background:var(--navy);border-top:4px solid var(--gold);border-radius:8px;padding:24px;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;">Leased</div>
+        <div style="font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:#fff;line-height:1;margin-bottom:4px;">$1,300<span style="font-size:16px;font-weight:400;">/mo</span></div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.55);margin-bottom:18px;">Basement Suite &bull; 1 bed / 1 bath</div>
+        <div style="border-top:1px solid rgba(255,255,255,0.12);padding-top:16px;">
+          <div style="font-size:12px;color:rgba(255,255,255,0.55);line-height:1.7;">Horace Duncan Cres<br>Private entrance &bull; Ensuite laundry</div>
+          <div style="margin-top:12px;font-size:12px;font-weight:700;color:var(--gold);">100% of asking</div>
+        </div>
       </div>
-      <div class="expired-text">
-        <p>873 Rexton Drive returned in October 2025 at $1,197,000. Four price cuts over four months brought it to $1,028,000. The listing expired April 1, 2026, another 167 days without a buyer. That is <strong>330+ combined days on market</strong> across two serious attempts.</p>
-        <p>What made this run interesting: in December 2025, while the sale listing was still live, the seller put the home up for lease at $3,450 per month. It leased in four days. The tenant moved in, the seller made a practical decision, and the sale listing ran out without finding a deal. The home is now tenanted and has not been relisted.</p>
-        <p>When 873 Rexton comes back, it will be under very different market conditions than either of the first two attempts.</p>
+
+      <!-- Townhouse Leased -->
+      <div style="background:var(--navy);border-top:4px solid var(--gold);border-radius:8px;padding:24px;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;">Leased</div>
+        <div style="font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:#fff;line-height:1;margin-bottom:4px;">$2,950<span style="font-size:16px;font-weight:400;">/mo</span></div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.55);margin-bottom:18px;">Full Townhouse &bull; 3 bed / 3 bath</div>
+        <div style="border-top:1px solid rgba(255,255,255,0.12);padding-top:16px;">
+          <div style="font-size:12px;color:rgba(255,255,255,0.55);line-height:1.7;">Horace Duncan Cres<br>1,650 sqft &bull; Single garage</div>
+          <div style="margin-top:12px;font-size:12px;font-weight:700;color:var(--gold);">98% of asking</div>
+        </div>
       </div>
+
+      <!-- Detached Leased -->
+      <div style="background:var(--navy);border-top:4px solid var(--gold);border-radius:8px;padding:24px;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;">Leased</div>
+        <div style="font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:#fff;line-height:1;margin-bottom:4px;">$3,400<span style="font-size:16px;font-weight:400;">/mo</span></div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.55);margin-bottom:18px;">Full Detached &bull; 4 bed / 4 bath</div>
+        <div style="border-top:1px solid rgba(255,255,255,0.12);padding-top:16px;">
+          <div style="font-size:12px;color:rgba(255,255,255,0.55);line-height:1.7;">Klondike Dr &bull; 2,198 sqft<br>Heat included &bull; 13 DOM</div>
+          <div style="margin-top:12px;font-size:12px;font-weight:700;color:var(--gold);">100% of asking</div>
+        </div>
+      </div>
+
     </div>
 
-    <div class="ph-table">
-      <div class="ph-table-label">Second Attempt Price History</div>
-      <div class="ph-row">
-        <span class="ph-date">Oct 16, 2025</span>
-        <span class="ph-event">Listed for sale (MLS: E12467185)</span>
-        <span class="ph-price">$1,197,000</span>
+    <!-- ROW 2: ACTIVE ASKING (white cards, navy top border) -->
+    <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--navy);margin-bottom:16px;">Currently Available</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:40px;">
+
+      <!-- Basement Active -->
+      <div style="background:#fff;border-top:4px solid var(--navy);border-radius:8px;padding:24px;box-shadow:0 1px 4px rgba(0,0,0,0.06);">
+        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--navy);margin-bottom:14px;">Basement Suite</div>
+        <div style="font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:var(--navy);line-height:1;margin-bottom:4px;">$1,750<span style="font-size:16px;font-weight:400;color:var(--grey);">/mo</span></div>
+        <div style="font-size:12px;color:var(--grey);margin-bottom:18px;">Asking price</div>
+        <div style="border-top:1px solid rgba(0,0,0,0.08);padding-top:16px;">
+          <div style="font-size:12px;color:#555;line-height:1.7;">Plymouth Dr<br>2 bed / 1 bath &bull; Separate entrance</div>
+          <div style="margin-top:12px;font-size:11px;font-weight:700;color:var(--grey);">1 active listing</div>
+        </div>
       </div>
-      <div class="ph-row">
-        <span class="ph-date">Nov 7, 2025</span>
-        <span class="ph-event">Price cut</span>
-        <span class="ph-price">$1,149,000</span>
+
+      <!-- Townhouse Active -->
+      <div style="background:#fff;border-top:4px solid var(--navy);border-radius:8px;padding:24px;box-shadow:0 1px 4px rgba(0,0,0,0.06);">
+        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--navy);margin-bottom:14px;">Townhouse</div>
+        <div style="font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:var(--navy);line-height:1;margin-bottom:4px;">$2,975&ndash;$3,000<span style="font-size:16px;font-weight:400;color:var(--grey);">/mo</span></div>
+        <div style="font-size:12px;color:var(--grey);margin-bottom:18px;">Asking price range</div>
+        <div style="border-top:1px solid rgba(0,0,0,0.08);padding-top:16px;">
+          <div style="font-size:12px;color:#555;line-height:1.7;">Rexton Dr area<br>3-4 bed &bull; Full property</div>
+          <div style="margin-top:12px;font-size:11px;font-weight:700;color:var(--grey);">2 active listings</div>
+        </div>
       </div>
-      <div class="ph-row">
-        <span class="ph-date">Nov 24, 2025</span>
-        <span class="ph-event">Price cut</span>
-        <span class="ph-price">$1,098,000</span>
+
+      <!-- Detached Active -->
+      <div style="background:#fff;border-top:4px solid var(--navy);border-radius:8px;padding:24px;box-shadow:0 1px 4px rgba(0,0,0,0.06);">
+        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--navy);margin-bottom:14px;">Full Detached</div>
+        <div style="font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:var(--navy);line-height:1;margin-bottom:4px;">$3,400&ndash;$4,000<span style="font-size:16px;font-weight:400;color:var(--grey);">/mo</span></div>
+        <div style="font-size:12px;color:var(--grey);margin-bottom:18px;">Asking price range</div>
+        <div style="border-top:1px solid rgba(0,0,0,0.08);padding-top:16px;">
+          <div style="font-size:12px;color:#555;line-height:1.7;">Klondike, Coppermine, Plymouth<br>4-5 bed &bull; Full home</div>
+          <div style="margin-top:12px;font-size:11px;font-weight:700;color:var(--grey);">9 active listings</div>
+        </div>
       </div>
-      <div class="ph-row">
-        <span class="ph-date">Dec 1, 2025</span>
-        <span class="ph-event">Price cut</span>
-        <span class="ph-price">$1,048,000</span>
-      </div>
-      <div class="ph-row">
-        <span class="ph-date">Dec 8, 2025</span>
-        <span class="ph-event">Price cut + simultaneous lease listing ($3,450/mo)</span>
-        <span class="ph-price">$1,028,000</span>
-      </div>
-      <div class="ph-row">
-        <span class="ph-date">Dec 12, 2025</span>
-        <span class="ph-event">Leased in 4 days (MLS: E12611156)</span>
-        <span class="ph-price">$3,450/mo</span>
-      </div>
-      <div class="ph-row">
-        <span class="ph-date">Apr 1, 2026</span>
-        <span class="ph-event">Sale listing expired, 167 days on market</span>
-        <span class="ph-price">Expired</span>
-      </div>
+
     </div>
 
-    <div class="pull-quote light" style="margin-top:32px;">
-      <p>Seller expectations and buyer budgets are closer than they have been in years. Homes priced correctly are selling. Homes priced for a market that no longer exists are not.</p>
+    <!-- LANDLORD CTA STRIP -->
+    <div style="background:linear-gradient(135deg,#ffffff 0%,#d8d8d8 20%,#a0a0a0 45%,#cecece 70%,#f4f4f4 100%);border-radius:10px;padding:32px 36px;box-shadow:0 0 0 2px rgba(196,154,60,0.3);text-align:center;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">For Landlords</div>
+      <p style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--navy);line-height:1.38;margin-bottom:12px;max-width:600px;margin-left:auto;margin-right:auto;">Looking to lease your property? Renting to the WRONG Tenant can cost you thousands.</p>
+      <p style="font-size:13px;color:#444;line-height:1.72;margin-bottom:20px;max-width:520px;margin-left:auto;margin-right:auto;">Proper screening, pricing, and positioning from day one protects your investment. Reach out directly.</p>
+      <a href="mailto:jeff@smarterrealestate.ca" style="display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;font-weight:700;font-size:13px;padding:12px 28px;border-radius:6px;text-decoration:none;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+        Get in Touch
+      </a>
     </div>
+
   </div>
 </section>
 
 <!-- PHASE 2 -->
-<section class="section bg-cream">
-  <div class="inner">
-    <!-- Phase 2 Panel -->
-    <div style="background:linear-gradient(135deg,var(--navy) 0%,#243350 100%);border-radius:8px;overflow:hidden;border-left:4px solid var(--gold);">
-      <div style="background:linear-gradient(to bottom, #0e1520, #1a2540);padding:36px 40px 24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid rgba(196,154,60,0.15);">
-        <img src="https://smarterrealestate.github.io/tanglewood-hub/assets/newsletter/tanglewood-logo.png" alt="Tanglewood" style="max-height:90px;width:auto;display:block;">
-      </div>
-      <div style="padding:32px 40px;">
-        <div style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">Pre-Con Radar</div>
-        <h2 style="font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:#fff;margin-bottom:12px;line-height:1.2;">Something is taking shape.</h2>
-        <p style="font-size:16px;color:rgba(255,255,255,0.72);margin-bottom:8px;line-height:1.68;">Tanglewood Phase 2 is coming. Pricing is not public yet. Early registrants hear first on floor plans, lots, and pricing before the public release.</p>
-        <p style="font-size:15px;color:rgba(255,255,255,0.55);margin-bottom:24px;line-height:1.65;">Phase 1 buyers have held their value through one of the toughest resale stretches in recent memory. Phase 2 is the next chapter. If you know someone who missed Phase 1, now is the time to get on the list.</p>
-        <a href="https://smarterrealestate.github.io/tanglewood/" class="btn-gold">Register for VIP Access &rarr;</a>
-      </div>
-    </div>
+<section id="phase2" style="position:relative;overflow:hidden;padding:0;background:url('https://smarterrealestate.github.io/tanglewood-hub/assets/newsletter/phase2-banner.jpg') center/cover no-repeat;border-top:4px solid var(--gold);border-bottom:4px solid var(--gold);box-shadow:0 0 0 4px var(--gold) inset;">
+  <div style="position:absolute;inset:0;background:rgba(14,21,32,0.62);"></div>
+  <div style="position:relative;z-index:1;max-width:880px;margin:0 auto;padding:72px 40px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:360px;">
+    <img src="https://smarterrealestate.github.io/tanglewood-hub/assets/newsletter/tanglewood-logo.png" alt="Tanglewood" style="max-height:80px;width:auto;display:block;margin:0 auto 28px;opacity:0.97;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;">Coming Soon</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:38px;color:#fff;font-weight:700;line-height:1.28;margin-bottom:18px;">Tanglewood Phase 2.</h2>
+    <p style="font-size:16px;color:rgba(255,255,255,0.82);line-height:1.7;max-width:580px;margin:0 auto 28px;">Register now to receive VIP Platinum Access for Phase 2 before the public release.</p>
+    <a href="https://smarterrealestate.github.io/tanglewood/" style="display:inline-block;background:var(--gold);color:var(--navy);font-weight:700;font-size:14px;padding:14px 32px;border-radius:6px;text-decoration:none;letter-spacing:0.5px;">Register for VIP Platinum Access &#8594;</a>
   </div>
 </section>
 
-<!-- RENTAL INCOME -->
-<section class="section bg-white" id="rental">
-  <div class="inner">
-    <div class="eyebrow"><span class="eyebrow-text">Rental Income</span><span class="gold-rule"></span></div>
-    <h2 class="section-h2">What your neighbourhood rents for</h2>
-    <p class="lead">3 leases closed in the last 30 days in the Kedron comp zone. All leased at or near asking. Here are the numbers.</p>
-
-    <!-- RECENT LEASES -->
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:32px;">
-      <div style="background:var(--navy);border-radius:8px;padding:24px;border-top:3px solid var(--gold);">
-        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Leased | 28 DOM</div>
-        <div style="font-family:'Playfair Display',serif;font-size:32px;font-weight:700;color:#fff;line-height:1;">$1,300<span style="font-size:16px;font-weight:400;color:rgba(255,255,255,0.5)">/mo</span></div>
-        <div style="font-size:13px;color:rgba(255,255,255,0.6);margin-top:8px;">Basement Suite &nbsp;|&nbsp; 1 bed<br>2057 Horace Duncan</div>
-        <div style="font-size:11px;color:var(--gold);margin-top:8px;font-weight:600;">100% of list</div>
-      </div>
-      <div style="background:var(--navy);border-radius:8px;padding:24px;border-top:3px solid var(--gold);">
-        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Leased | 30 DOM</div>
-        <div style="font-family:'Playfair Display',serif;font-size:32px;font-weight:700;color:#fff;line-height:1;">$2,950<span style="font-size:16px;font-weight:400;color:rgba(255,255,255,0.5)">/mo</span></div>
-        <div style="font-size:13px;color:rgba(255,255,255,0.6);margin-top:8px;">Townhouse &nbsp;|&nbsp; 3 bed / 1,650 sqft<br>2038 Horace Duncan</div>
-        <div style="font-size:11px;color:var(--gold);margin-top:8px;font-weight:600;">98% of list</div>
-      </div>
-      <div style="background:var(--navy);border-radius:8px;padding:24px;border-top:3px solid var(--gold);">
-        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Leased | 13 DOM</div>
-        <div style="font-family:'Playfair Display',serif;font-size:32px;font-weight:700;color:#fff;line-height:1;">$3,400<span style="font-size:16px;font-weight:400;color:rgba(255,255,255,0.5)">/mo</span></div>
-        <div style="font-size:13px;color:rgba(255,255,255,0.6);margin-top:8px;">Detached &nbsp;|&nbsp; 4 bed / 2,198 sqft<br>1324 Klondike Dr</div>
-        <div style="font-size:11px;color:var(--gold);margin-top:8px;font-weight:600;">100% of list</div>
-      </div>
+<section class="section bg-cream" id="trade-war" style="padding-top:0;">
+  <!-- FULL-BLEED BANNER -->
+  <div style="position:relative;overflow:hidden;height:500px;background:url('https://smarterrealestate.github.io/tanglewood-hub/assets/newsletter/trade-war-banner.jpg') center/cover no-repeat;">
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom, rgba(14,21,32,0.55) 0%, rgba(14,21,32,0.72) 100%);"></div>
+    <div style="position:relative;z-index:1;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 40px;">
+      <h2 style="font-family:'Playfair Display',serif;font-size:52px;color:#fff;font-weight:900;line-height:1.18;margin-bottom:14px;max-width:860px;">What This Trade War May Mean for Our Real Estate Market</h2>
+      <div style="width:80px;height:3px;background:#CC0000;margin:0 auto 22px;"></div>
+      <p style="font-size:16px;color:rgba(255,255,255,0.82);line-height:1.7;max-width:660px;margin:0 auto;">The headlines have been loud. What matters is what is actually happening on the ground in North Oshawa, and what it means for the decision you may be thinking about.</p>
     </div>
-
-    <!-- ACTIVE RANGE SUMMARY -->
-    <div style="background:var(--cream);border:1px solid rgba(196,154,60,0.2);border-radius:8px;padding:24px 28px;">
-      <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dk);margin-bottom:16px;">Active Rental Asking Prices &nbsp;&nbsp; Aug 28, 2026 &nbsp;&nbsp; 12 listings in area</div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
-        <div>
-          <div style="font-size:12px;font-weight:700;color:var(--navy);margin-bottom:4px;">Basement Suites</div>
-          <div style="font-size:22px;font-family:'Playfair Display',serif;font-weight:700;color:var(--navy);">$1,750</div>
-          <div style="font-size:12px;color:var(--grey);">per month</div>
-        </div>
-        <div>
-          <div style="font-size:12px;font-weight:700;color:var(--navy);margin-bottom:4px;">Townhouses (3-4 bed)</div>
-          <div style="font-size:22px;font-family:'Playfair Display',serif;font-weight:700;color:var(--navy);">$2,975 - $3,000</div>
-          <div style="font-size:12px;color:var(--grey);">per month</div>
-        </div>
-        <div>
-          <div style="font-size:12px;font-weight:700;color:var(--navy);margin-bottom:4px;">Detached (2,000-2,900 sqft)</div>
-          <div style="font-size:22px;font-family:'Playfair Display',serif;font-weight:700;color:var(--navy);">$3,400 - $4,000</div>
-          <div style="font-size:12px;color:var(--grey);">per month</div>
-        </div>
-      </div>
-    </div>
-    <p style="font-size:12px;color:var(--grey);margin-top:12px;">Kedron and Taunton area, 0-5 year freehold homes, Aug 28, 2026. All sqft above grade (AG) only. Source: Realm MLS / PropTx.</p>
   </div>
-</section>
-
-<!-- TRADE WAR -->
-<section class="section bg-cream" id="trade-war">
-  <div class="inner">
-    <!-- CANVA IMAGE PLACEHOLDER -->
-    <div style="background:#d1d5db;border:2px dashed #9ca3af;border-radius:8px;height:280px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;margin-bottom:40px;">
-      <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#6b7280;">Canva Image Placeholder</div>
-      <div style="font-size:14px;color:#4b5563;font-weight:600;">Market Perspective Header Image</div>
-      <div style="font-size:12px;color:#9ca3af;">880 x 380 px | Economic/real estate theme, North Oshawa context</div>
-    </div>
-    <div class="article-header">
-      <div class="article-kicker">Market Perspective</div>
-      <h2 class="article-title">What the trade war means for your home</h2>
-      <p class="article-deck">The headlines have been loud. What matters is what is actually happening on the ground in North Oshawa, and what it means for the decision you may be thinking about.</p>
-    </div>
+  <!-- ARTICLE CONTENT -->
+  <div class="inner" style="padding-top:52px;">
+    <div class="article-kicker" style="margin-bottom:24px;">Market Perspective</div>
     <div class="article-body">
       <p><strong>On the new construction side:</strong> Tariffs on lumber, steel, and building materials are pushing input costs higher for builders across the country. Medallion and other local builders are watching their cost structures closely. Some developers are moving cautiously on new phases, which tends to constrain supply over time. Less new supply in a market that is already under-built is generally supportive of existing home values. The homes that have already been built (like yours) benefit from this dynamic.</p>
       <p><strong>On the resale side:</strong> Buyer hesitation is real. Uncertainty creates pause. But pause is not the same as retreat. In North Oshawa, 30 homes sold in the first eight months of the year at 99% of asking on average. Well-priced homes are moving. The ones sitting at 50, 100, or 150+ days are almost uniformly the ones that started too high and chased the market down instead of getting ahead of it.</p>
