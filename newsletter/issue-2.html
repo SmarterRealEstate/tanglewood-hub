@@ -1016,6 +1016,12 @@
       /* Catch all inline-styled wide grids (5-col stats, 3-col rental/precon rows) */
       div[style*="repeat(5,1fr)"] { grid-template-columns: repeat(2,1fr) !important; }
       div[style*="repeat(3,1fr)"] { grid-template-columns: 1fr !important; }
+      /* Sold stats row: wrap on mobile */
+      .sold-stats { flex-wrap: wrap; }
+      .sold-stat { min-width: 45%; }
+      /* CTA headshot+text section: stack on mobile */
+      div[style*="gap:32px;align-items:center"] { flex-direction: column !important; gap: 16px !important; }
+      div[style*="flex-shrink:0;text-align:center;min-width:110px"] { min-width: auto !important; }
     }
   </style>
 </head>
