@@ -1041,6 +1041,9 @@
       .swipe-hint { display: block; text-align: center; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-top: 8px; }
       /* Sold price table: clamp grid-column span */
       #sold-price-table { grid-column: 1 !important; grid-row: auto !important; }
+      /* Trade war banner: reduce heading and padding on small screens */
+      .trade-war-banner-inner { padding: 0 20px !important; }
+      .trade-war-h2 { font-size: 30px !important; line-height: 1.25 !important; }
     }
   </style>
 </head>
@@ -1137,7 +1140,7 @@
   <div class="inner">
     <div class="eyebrow"><span class="eyebrow-text" style="color:var(--gold);">Market Snapshot</span><span class="gold-rule"></span></div>
 
-    <!-- intro + map row — title/subtitle inside left column so map centers against full left content -->
+    <!-- intro + map row â title/subtitle inside left column so map centers against full left content -->
     <div id="market-intro-row" style="display:flex;gap:36px;align-items:center;margin-bottom:36px;">
       <div style="flex:1;">
         <h2 class="section-h2 light" style="margin-bottom:6px;">North Oshawa at a glance</h2>
@@ -1145,7 +1148,7 @@
         <p style="color:rgba(255,255,255,0.85);font-size:15px;line-height:1.8;margin:0;">You asked for more. Issue No. 1 focused tightly on Tanglewood. This issue expands the lens to cover all new construction across the four North Oshawa communities that surround it: Kedron, Taunton, Windfields, and Samac. The numbers below show the full picture of what the market is doing around you.</p>
       </div>
       <div style="flex:0 0 38%;display:flex;align-items:center;">
-        <img src="https://smarterrealestate.github.io/tanglewood-hub/assets/newsletter/north-oshawa-market-area.jpg" alt="North Oshawa Market Area — Kedron, Taunton, Windfields, Samac" style="width:100%;border-radius:8px;display:block;">
+        <img src="https://smarterrealestate.github.io/tanglewood-hub/assets/newsletter/north-oshawa-market-area.jpg" alt="North Oshawa Market Area â Kedron, Taunton, Windfields, Samac" style="width:100%;border-radius:8px;display:block;">
       </div>
     </div>
 
@@ -1231,7 +1234,7 @@
         <p class="lead" style="margin:0;">Three Tanglewood homes are actively listed right now. This section covers the full Tanglewood comp zone: the neighbouring streets close enough that any buyer or seller will use them as comparables. Five homes have sold here in 2026. Here is where the numbers land.</p>
       </div>
       <div style="flex:0 0 38%;display:flex;align-items:center;">
-        <img src="https://smarterrealestate.github.io/tanglewood-hub/assets/newsletter/neighbourhood-at-a-glance.jpg" alt="Tanglewood neighbourhood map — Rexton Dr, Hallandale St, Wilmington Ave, Klondike Dr" style="width:100%;border-radius:8px;display:block;">
+        <img src="https://smarterrealestate.github.io/tanglewood-hub/assets/newsletter/neighbourhood-at-a-glance.jpg" alt="Tanglewood neighbourhood map â Rexton Dr, Hallandale St, Wilmington Ave, Klondike Dr" style="width:100%;border-radius:8px;display:block;">
       </div>
     </div>
 
@@ -1435,7 +1438,7 @@
 
     </div>
 
-    <!-- ROW 3: 2144 HALLANDALE — FEATURED CARD + STORY -->
+    <!-- ROW 3: 2144 HALLANDALE â FEATURED CARD + STORY -->
     <div class="listing-featured-row">
 
       <!-- LEFT: CARD -->
@@ -1559,7 +1562,7 @@
 
       <div style="display:grid;grid-template-columns:repeat(3,1fr);column-gap:20px;row-gap:0;grid-template-rows:auto 20px auto;">
 
-        <!-- COL 1, ROW 1: Horace Duncan — separate card, red shows below it (row height set by taller 1219+story) -->
+        <!-- COL 1, ROW 1: Horace Duncan â separate card, red shows below it (row height set by taller 1219+story) -->
         <div class="listing-thumb-card" style="grid-column:1;grid-row:1;">
           <div class="sold-badge">Sold</div>
           <img src="https://smarterrealestate.github.io/tanglewood-hub/assets/newsletter/listings/2027-horace-duncan-sold.jpg" alt="2027 Horace Duncan Cres" style="width:100%;height:160px;object-fit:cover;display:block;">
@@ -1576,7 +1579,7 @@
           </div>
         </div>
 
-        <!-- COLS 2-3, ROW 1: 1219 + Story — no CSS border (SVG handles it) -->
+        <!-- COLS 2-3, ROW 1: 1219 + Story â no CSS border (SVG handles it) -->
         <div id="sold-story-wrapper" style="grid-column:2/4;grid-row:1/3;display:flex;overflow:hidden;border-radius:8px 8px 0 0;background:var(--navy);">
           <div class="listing-thumb-card" style="flex:1;border-radius:0;box-shadow:none;border-right:1px solid rgba(196,154,60,0.25);align-self:flex-start;">
             <div class="sold-badge">Sold</div>
@@ -1607,7 +1610,7 @@
           </div>
         </div>
 
-        <!-- COLS 1-3, ROW 2: Price table — full width, no CSS border (SVG handles it) -->
+        <!-- COLS 1-3, ROW 2: Price table â full width, no CSS border (SVG handles it) -->
         <div id="sold-price-table" style="grid-column:1/4;grid-row:3;background:var(--navy);border-radius:0 0 8px 8px;padding:20px 24px;">
           <div class="ph-table" style="margin:0;background:transparent;border-radius:0;">
             <div class="ph-row"><span class="ph-date">Apr 2023</span><span class="ph-event">First listed (Attempt 1)</span><span class="ph-price">$1,499,000</span></div>
@@ -1644,11 +1647,11 @@
         var y3=tr.bottom-cr.top;  // bottom of price table
         var r=8; // corner radius for outer corners
         // L-shaped path (clockwise from top-left of story wrapper):
-        // top-left corner (rounded) → across top of story → top-right corner (rounded)
-        // → down right side (continuous, same x2 for both story and table)
-        // → bottom-right corner (rounded) → across bottom of price table
-        // → bottom-left corner (rounded) → up left side of price table to step
-        // → step right to x1 → up left side of story → back to start
+        // top-left corner (rounded) â across top of story â top-right corner (rounded)
+        // â down right side (continuous, same x2 for both story and table)
+        // â bottom-right corner (rounded) â across bottom of price table
+        // â bottom-left corner (rounded) â up left side of price table to step
+        // â step right to x1 â up left side of story â back to start
         var d=[
           'M',x1+r,y1,
           'L',x2-r,y1,
@@ -1820,8 +1823,8 @@
   <!-- FULL-BLEED BANNER -->
   <div style="position:relative;overflow:hidden;height:500px;background:url('https://smarterrealestate.github.io/tanglewood-hub/assets/newsletter/trade-war-banner.jpg') center/cover no-repeat;">
     <div style="position:absolute;inset:0;background:linear-gradient(to bottom, rgba(14,21,32,0.55) 0%, rgba(14,21,32,0.72) 100%);"></div>
-    <div style="position:relative;z-index:1;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 40px;">
-      <h2 style="font-family:'Playfair Display',serif;font-size:52px;color:#fff;font-weight:900;line-height:1.18;margin-bottom:14px;max-width:860px;">What This Trade War May Mean for Our Real Estate Market</h2>
+    <div class="trade-war-banner-inner" style="position:relative;z-index:1;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 40px;">
+      <h2 class="trade-war-h2" style="font-family:'Playfair Display',serif;font-size:52px;color:#fff;font-weight:900;line-height:1.18;margin-bottom:14px;max-width:860px;">What This Trade War May Mean for Our Real Estate Market</h2>
       <div style="width:80px;height:3px;background:#CC0000;margin:0 auto 22px;"></div>
       <p style="font-size:16px;color:rgba(255,255,255,0.82);line-height:1.7;max-width:660px;margin:0 auto;">The headlines have been loud. What matters is what is actually happening on the ground in North Oshawa, and what it means for the decision you may be thinking about.</p>
     </div>
