@@ -1033,6 +1033,9 @@
       /* Featured listing row: stack card + story vertically */
       .listing-featured-row { flex-direction: column; }
       .listing-featured-card { flex: none !important; width: 100% !important; }
+      /* Market snapshot + Active listings intro rows: stack text above map */
+      #market-intro-row, #listings-intro-row { flex-direction: column; }
+      #market-intro-row > div:last-child, #listings-intro-row > div:last-child { flex: none !important; width: 100% !important; }
       /* Sold price table: clamp grid-column span */
       #sold-price-table { grid-column: 1 !important; grid-row: auto !important; }
     }
@@ -1132,7 +1135,7 @@
     <div class="eyebrow"><span class="eyebrow-text" style="color:var(--gold);">Market Snapshot</span><span class="gold-rule"></span></div>
 
     <!-- intro + map row — title/subtitle inside left column so map centers against full left content -->
-    <div style="display:flex;gap:36px;align-items:center;margin-bottom:36px;">
+    <div id="market-intro-row" style="display:flex;gap:36px;align-items:center;margin-bottom:36px;">
       <div style="flex:1;">
         <h2 class="section-h2 light" style="margin-bottom:6px;">North Oshawa at a glance</h2>
         <p style="font-style:italic;font-size:15px;color:rgba(255,255,255,0.55);margin-bottom:24px;font-family:'Playfair Display',Georgia,serif;">What is selling, what is sitting, and what buyers are paying</p>
@@ -1218,7 +1221,7 @@
     <div class="eyebrow"><span class="eyebrow-text">Active Listings Update</span><span class="gold-rule"></span></div>
 
     <!-- title + map row -->
-    <div style="display:flex;gap:36px;align-items:center;margin-bottom:32px;">
+    <div id="listings-intro-row" style="display:flex;gap:36px;align-items:center;margin-bottom:32px;">
       <div style="flex:1;">
         <h2 class="section-h2" style="margin-bottom:14px;">What's for sale in Tanglewood right now</h2>
         <p class="lead" style="margin:0;">Three Tanglewood homes are actively listed right now. This section covers the full Tanglewood comp zone: the neighbouring streets close enough that any buyer or seller will use them as comparables. Five homes have sold here in 2026. Here is where the numbers land.</p>
