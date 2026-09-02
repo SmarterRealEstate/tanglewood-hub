@@ -1030,6 +1030,11 @@
       .thumb-stat { min-width: 30%; }
       .sold-stats { flex-wrap: wrap; }
       .sold-stat { min-width: 45%; }
+      /* Featured listing row: stack card + story vertically */
+      .listing-featured-row { flex-direction: column; }
+      .listing-featured-card { flex: none !important; width: 100% !important; }
+      /* Sold price table: clamp grid-column span */
+      #sold-price-table { grid-column: 1 !important; grid-row: auto !important; }
     }
   </style>
 </head>
