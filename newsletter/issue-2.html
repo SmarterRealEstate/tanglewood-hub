@@ -283,6 +283,7 @@
       border-radius: 6px;
       border: 1px solid rgba(255,255,255,0.07);
     }
+    .swipe-hint { display: none; }
     table.mkt-table { width: 100%; border-collapse: collapse; font-size: 14px; }
     table.mkt-table th {
       background: rgba(0,0,0,0.25);
@@ -1036,6 +1037,8 @@
       /* Market snapshot + Active listings intro rows: stack text above map */
       #market-intro-row, #listings-intro-row { flex-direction: column; }
       #market-intro-row > div:last-child, #listings-intro-row > div:last-child { flex: none !important; width: 100% !important; }
+      /* Swipe hint for scrollable tables */
+      .swipe-hint { display: block; text-align: center; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-top: 8px; }
       /* Sold price table: clamp grid-column span */
       #sold-price-table { grid-column: 1 !important; grid-row: auto !important; }
     }
@@ -1211,6 +1214,7 @@
         </tbody>
       </table>
     </div>
+    <div class="swipe-hint">&#8592; swipe to see full table &#8594;</div>
     <p style="font-size:12px;color:rgba(255,255,255,0.3);margin-top:16px;">Kedron, Taunton, Windfields, Samac. Freehold 0-5 year homes. Source: Realm MLS / PropTx (TRREB). Jan 1 to Aug 27, 2026.</p>
   </div>
 </section>
@@ -1313,6 +1317,7 @@
           </tbody>
         </table>
       </div>
+      <div class="swipe-hint">&#8592; swipe to see full table &#8594;</div>
       <p style="font-size:11px;color:rgba(255,255,255,0.28);margin-top:14px;margin-bottom:0;">Tanglewood comp zone. New construction 0-5 yr homes. Source: Realm MLS / PropTx (TRREB). Jan 1 to Aug 27, 2026. True DOM and % of original ask calculated from verified listing histories.</p>
     </div>
 
