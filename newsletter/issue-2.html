@@ -998,12 +998,13 @@
     @media (max-width: 700px) {
       .hero-title { font-size: 42px; }
       .hero-title em { font-size: 56px; }
+      /* CSS-class grids */
       .sold-grid { grid-template-columns: 1fr; }
       .sold-card.featured { grid-column: 1; }
       .stat-grid { grid-template-columns: repeat(2, 1fr); }
       .listing-thumb-grid { grid-template-columns: 1fr; }
       .rental-grid { grid-template-columns: 1fr; }
-      .precon-grid { grid-template-columns: repeat(2, 1fr); }
+      .precon-grid { grid-template-columns: 1fr; }
       .jeffs-corner-grid { grid-template-columns: 1fr; }
       .jeffs-photo { max-width: 180px; }
       .events-grid { grid-template-columns: 1fr; }
@@ -1013,15 +1014,22 @@
       .photo-divider { height: 260px; }
       .ph-row { grid-template-columns: 1fr; gap: 2px; }
       .ph-price { text-align: left; }
-      /* Catch all inline-styled wide grids (5-col stats, 3-col rental/precon rows) */
+      /* Inline grids: 5-col and 3-col */
       div[style*="repeat(5,1fr)"] { grid-template-columns: repeat(2,1fr) !important; }
       div[style*="repeat(3,1fr)"] { grid-template-columns: 1fr !important; }
-      /* Sold stats row: wrap on mobile */
+      /* Sold row 2 complex layout: collapse to single column */
+      #sold-row2-container > div { grid-template-columns: 1fr !important; grid-template-rows: auto !important; }
+      #sold-row2-container .listing-thumb-card { grid-column: 1 !important; grid-row: auto !important; }
+      #sold-story-wrapper { flex-direction: column !important; grid-column: 1 !important; grid-row: auto !important; border-radius: 8px !important; }
+      /* Thumb stats row: wrap when tight */
+      .thumb-stats { flex-wrap: wrap; }
+      .thumb-stat { min-width: 30%; }
+      /* Sold stats row: wrap */
       .sold-stats { flex-wrap: wrap; }
       .sold-stat { min-width: 45%; }
-      /* CTA headshot+text section: stack on mobile */
+      /* CTA headshot+text: stack vertically */
       div[style*="gap:32px;align-items:center"] { flex-direction: column !important; gap: 16px !important; }
-      div[style*="flex-shrink:0;text-align:center;min-width:110px"] { min-width: auto !important; }
+      div[style*="flex-shrink:0;text-align:center;min-width:110px"] { min-width: auto !important; width: 100% !important; }
     }
   </style>
 </head>
