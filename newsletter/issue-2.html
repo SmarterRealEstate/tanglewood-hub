@@ -1013,6 +1013,9 @@
       .photo-divider { height: 260px; }
       .ph-row { grid-template-columns: 1fr; gap: 2px; }
       .ph-price { text-align: left; }
+      /* Catch all inline-styled wide grids (5-col stats, 3-col rental/precon rows) */
+      div[style*="repeat(5,1fr)"] { grid-template-columns: repeat(2,1fr) !important; }
+      div[style*="repeat(3,1fr)"] { grid-template-columns: 1fr !important; }
     }
   </style>
 </head>
