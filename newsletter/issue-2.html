@@ -30,7 +30,7 @@
       --text: #2a2a3a;
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
 
     body {
       background: var(--cream);
@@ -1014,22 +1014,22 @@
       .photo-divider { height: 260px; }
       .ph-row { grid-template-columns: 1fr; gap: 2px; }
       .ph-price { text-align: left; }
-      /* Inline grids: 5-col and 3-col */
-      div[style*="repeat(5,1fr)"] { grid-template-columns: repeat(2,1fr) !important; }
-      div[style*="repeat(3,1fr)"] { grid-template-columns: 1fr !important; }
-      /* Sold row 2 complex layout: collapse to single column */
+      /* 5-col comp zone stats: 2 columns by ID */
+      #cz-stats-grid { grid-template-columns: repeat(2,1fr) !important; }
+      /* Sold row 2: collapse complex grid to single column */
       #sold-row2-container > div { grid-template-columns: 1fr !important; grid-template-rows: auto !important; }
       #sold-row2-container .listing-thumb-card { grid-column: 1 !important; grid-row: auto !important; }
       #sold-story-wrapper { flex-direction: column !important; grid-column: 1 !important; grid-row: auto !important; border-radius: 8px !important; }
-      /* Thumb stats row: wrap when tight */
+      /* CTA block: stack vertically by ID */
+      #sold-cta-block { flex-direction: column !important; gap: 16px !important; padding: 24px 20px !important; }
+      #sold-cta-block > div:first-child { min-width: auto !important; width: 100% !important; }
+      /* Rental and precon inline 3-col grids */
+      div[style*="repeat(3,1fr)"] { grid-template-columns: 1fr !important; }
+      /* Thumb and sold stats: wrap on mobile */
       .thumb-stats { flex-wrap: wrap; }
       .thumb-stat { min-width: 30%; }
-      /* Sold stats row: wrap */
       .sold-stats { flex-wrap: wrap; }
       .sold-stat { min-width: 45%; }
-      /* CTA headshot+text: stack vertically */
-      div[style*="gap:32px;align-items:center"] { flex-direction: column !important; gap: 16px !important; }
-      div[style*="flex-shrink:0;text-align:center;min-width:110px"] { min-width: auto !important; width: 100% !important; }
     }
   </style>
 </head>
@@ -1225,7 +1225,7 @@
 
     <!-- comp zone stat grid + table -->
     <div style="background:var(--navy);border-radius:8px;padding:32px 32px 24px;margin-bottom:40px;">
-      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:28px;">
+      <div id="cz-stats-grid" style="display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:28px;">
         <div style="text-align:center;padding:28px 16px;border-radius:4px;background:rgba(255,255,255,0.05);border:1px solid rgba(196,154,60,0.45);">
           <span style="font-family:'Playfair Display',serif;font-size:48px;font-weight:700;color:var(--gold);line-height:1;margin-bottom:10px;display:block;">5</span>
           <span style="font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.5);display:block;">Sales YTD</span>
@@ -1659,7 +1659,7 @@
     </script>
 
     <!-- CTA: headshot left, copy right -->
-    <div style="background:linear-gradient(135deg,#ffffff 0%,#d8d8d8 20%,#a0a0a0 45%,#cecece 70%,#f4f4f4 100%);border-radius:10px;padding:32px 36px;box-shadow:0 0 0 2px rgba(196,154,60,0.5);display:flex;gap:32px;align-items:center;">
+    <div id="sold-cta-block" style="background:linear-gradient(135deg,#ffffff 0%,#d8d8d8 20%,#a0a0a0 45%,#cecece 70%,#f4f4f4 100%);border-radius:10px;padding:32px 36px;box-shadow:0 0 0 2px rgba(196,154,60,0.5);display:flex;gap:32px;align-items:center;">
       <div style="flex-shrink:0;text-align:center;min-width:110px;">
         <img src="https://smarterrealestate.github.io/tanglewood-hub/assets/headshot.jpg" alt="Jeffrey Villeneuve" style="width:100px;height:100px;border-radius:50%;border:3px solid var(--gold);display:block;object-fit:cover;margin:0 auto;">
         <div style="margin-top:10px;">
