@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tanglewood Phase 2: Competitive Update | September 2026</title>
+<style>
+  :root {
+    --navy:      #162d4a;
+    --navy-mid:  #1e4a7a;
+    --navy-light:#2a5a9a;
+    --dark:      #12181f;
+    --gold:      #C4922A;
+    --gold-light:#e8c547;
+    --gold-deep: #8a6010;
+    --text:      #1a1a2e;
+    --muted:     #4a5570;
+    --light-bg:  #f0f6ff;
+    --green:     #2e7d32;
+    --red:       #c62828;
+    --border:    #b8cce0;
+    --amber-bg:  #fff8e1;
+    --green-bg:  #e8f5e9;
+    --red-bg:    #fbe9e7;
+    --navy-bg:   #e8eef5;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Georgia', serif; background: #fff; color: var(--text); font-size: 15px; line-height: 1.75; }
+  .cover { background: var(--dark); color: #fff; padding: 52px 60px 44px; display: flex; flex-direction: column; min-height: 100vh; position: relative; overflow: hidden; }
+  .cover::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, var(--gold), #e8c547, var(--gold)); }
+  .cover-logo { margin-bottom: 40px; }
+  .cover-logo img { height: 110px; display: block; }
+  .cover-eyebrow { font-family: Arial, sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+  .cover h1 { font-size: 40px; font-weight: normal; line-height: 1.2; margin-bottom: 14px; max-width: 640px; }
+  .cover h1 span { color: var(--gold); }
+  .cover-sub { font-size: 17px; color: #aaa; font-style: italic; margin-bottom: 20px; max-width: 560px; }
+  .cover-desc { font-size: 14.5px; color: #bbb; max-width: 600px; line-height: 1.65; }
+  .cover-meta { display: flex; gap: 44px; margin-top: auto; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.15); }
+  .cover-meta div { font-size: 11px; color: #999; letter-spacing: 1px; text-transform: uppercase; }
+  .cover-meta strong { display: block; color: #fff; font-size: 14px; margin-top: 4px; letter-spacing: 0; text-transform: none; }
+  .container { max-width: 960px; margin: 0 auto; padding: 0 48px; }
+  .section { padding: 52px 0 44px; border-bottom: 2px solid var(--navy); }
+  .section:last-of-type { border-bottom: none; }
+  .section-label { font-family: Arial, sans-serif; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+  h2 { font-size: 26px; font-weight: normal; color: var(--navy); margin-bottom: 20px; line-height: 1.25; }
+  h3 { font-size: 18px; font-weight: normal; color: var(--navy); margin: 32px 0 12px; border-left: 3px solid var(--gold); padding-left: 12px; }
+  p { margin-bottom: 14px; }
+  strong { font-weight: bold; }
+  .callout { background: var(--light-bg); border-left: 4px solid var(--gold); padding: 18px 24px; margin: 22px 0; border-radius: 0 4px 4px 0; }
+  .callout p:last-child { margin-bottom: 0; }
+  .callout-green { background: var(--green-bg); border-left-color: var(--green); }
+  .callout-amber { background: var(--amber-bg); border-left-color: #e65100; }
+  .callout-navy { background: var(--navy-bg); border-left-color: var(--navy); }
+  table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 13.5px; }
+  th { background: var(--navy); color: #fff; padding: 10px 14px; text-align: left; font-family: Arial, sans-serif; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; font-weight: normal; }
+  td { padding: 9px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: #f7fafd; }
+  .num { text-align: right; }
+  .green { color: var(--green); font-weight: bold; }
+  .red { color: var(--red); }
+  .gold-text { color: var(--gold-deep); font-weight: bold; }
+  .idea-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 24px 0; }
+  .idea-card { border: 1px solid var(--border); border-top: 3px solid var(--navy); border-radius: 0 0 4px 4px; padding: 18px 20px; }
+  .idea-card .idea-num { font-family: Arial, sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-deep); margin-bottom: 6px; }
+  .idea-card h4 { font-size: 14.5px; color: var(--navy); margin: 0 0 8px; font-weight: bold; line-height: 1.3; }
+  .idea-card p { font-size: 13px; color: var(--muted); margin: 0 0 8px; line-height: 1.6; }
+  .idea-card .tag { display: inline-block; background: var(--navy-bg); color: var(--navy); font-family: Arial, sans-serif; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; padding: 3px 8px; border-radius: 2px; margin-top: 4px; margin-right: 4px; }
+  .idea-card.priority-high { border-top-color: var(--gold); }
+  .idea-card.priority-highest { border-top-color: var(--green); }
+  .builder-row { display: flex; gap: 24px; align-items: flex-start; padding: 20px 0; border-bottom: 1px solid var(--border); }
+  .builder-row:last-child { border-bottom: none; }
+  .builder-name { min-width: 190px; font-weight: bold; color: var(--navy); font-size: 14px; padding-top: 2px; }
+  .builder-name a { display: block; font-family: Arial, sans-serif; font-size: 10px; letter-spacing: 1px; font-weight: normal; color: var(--gold-deep); text-decoration: none; margin-top: 4px; }
+  .builder-detail { flex: 1; }
+  .builder-status { font-family: Arial, sans-serif; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; padding: 3px 10px; border-radius: 12px; white-space: nowrap; display: inline-block; margin-bottom: 8px; }
+  .status-stable { background: var(--green-bg); color: var(--green); }
+  .status-up { background: var(--amber-bg); color: #e65100; }
+  .status-sold { background: #f3e5f5; color: #6a1b9a; }
+  .status-new { background: var(--navy-bg); color: var(--navy); }
+</style>
+</head>
+<body>
+<div class="cover">
+  <div class="cover-logo"><img src="Tanglewood logo transparent.png" alt="Tanglewood by Medallion Developments"></div>
+  <div class="cover-eyebrow">Phase 2 Competitive Update</div>
+  <h1>North Oshawa New Home Market<br><span>September 2026</span></h1>
+  <p class="cover-sub">What has changed, where the gaps sit today, and where Phase 2 is positioned.</p>
+  <p class="cover-desc">This report follows the August 2026 Phase 2 Pre-Launch Briefing and Phase 2 Differentiation Strategy memo. Since those were prepared, Fieldgate has moved prices at Dreamscape, a new Minto townhome community has entered the market, and several models across the comp set have sold out. This update reassesses the competitive landscape and revisits the pricing and product ideas put forward in August.</p>
+  <div class="cover-meta">
+    <div>Prepared by<strong>Jeff &amp; Lorraine, Tanglewood</strong></div>
+    <div>Date<strong>September 2026</strong></div>
+    <div>Distribution<strong>Brian, Larry &amp; Shimon</strong></div>
+    <div>Follows<strong>August 2026 Briefing + Strategy Memo</strong></div>
+  </div>
+</div>
+<div class="container">
+<div class="section">
+  <div class="section-label">Section A</div>
+  <h2>What Has Changed Since August</h2>
+  <p>When we prepared the August briefing, the North Oshawa comp set was largely static. Prices had been holding across the board and there was little movement. That has started to shift. The most significant development is Fieldgate, which raised prices across the Dreamscape 30' and 36' collections in August, the first meaningful move by any builder in this market in several months. Everything else held steady, but there are also a handful of sold-out signals across the comp set that are worth knowing.</p>
+  <h3>The Fieldgate Price Move</h3>
+  <p>Fieldgate increased pricing across Dreamscape's 30' and 36' collections effective August 2026. Every 30' model went up $20,000 gross, which translates to <strong>$17,699 net</strong> for the buyer after the rebate calculation. The 36' Astro and Mariner collections saw a $15,000 gross increase, or roughly <strong>$13,274 net</strong>. The 36' Polar and Terra models that cross the $1 million threshold saw a slightly smaller net impact due to the rebate cap phasing out at that price point. The 42' collection held Elevation A prices flat, with minor premium increases on select Elevation B and C configurations.</p>
+  <p>These increases matter for two reasons. First, they confirm that Fieldgate sees enough demand at Dreamscape to push pricing higher rather than hold the line. Second, they narrow the gap between Dreamscape's current market prices and the suggested Phase 2 price range we put forward in August. We go into that gap analysis in detail in Section B.</p>
+  <div class="callout callout-amber"><p><strong>Incentives also evolved alongside the price increases.</strong> Fieldgate updated their package: 30' buyers now receive a $10,000 Decor credit plus central air and 5 appliances included. The 36' and 42' packages carry a $15,000 Decor credit with the same inclusions. This softens the gross price move for buyers but does not change the underlying direction of pricing.</p></div>
+  <h3>Sold-Out Signals</h3>
+  <p>A few models have gone quiet across the comp set since August. At The Willows, the Moss A model no longer appears on the active price list, consistent with a sell-out. At Winchester Estates, two models that were present on the previous list are no longer showing: the Berkshire from the Fairway (20' traditional town) collection and the Carlyle from the Heritage front-split collection. Whether those are fully sold through or simply delisted is worth monitoring, but the Menkes site has been moving steadily.</p>
+  <h3>New Entry: Minto HOH Urban Towns</h3>
+  <p>Minto has launched a townhome product at their Heights of Harmony site under the name HOH Urban Towns. These are smaller-format 2-bedroom, 2-bathroom stacked towns ranging from approximately 1,090 to 1,295 square feet, priced from $409,933 net. They are a different buyer profile from Tanglewood, but they are worth tracking as they add an affordable entry point to the North Oshawa new home pipeline and may attract buyers who would otherwise consider resale townhomes in the area.</p>
+  <h3>The Rest of the Market</h3>
+  <p>Prices at Heights of Harmony, Heartwood Village, Homeward Hills, Winchester Estates, The Views, The Willows, and Creekstone are all unchanged from the July and August price lists we had on file. No builder outside of Fieldgate moved in either direction. The market overall is holding, and Fieldgate's decision to move is the clearest signal we have seen in several months that the underlying demand is there.</p>
+</div>
+<div class="section">
+  <div class="section-label">Section B</div>
+  <h2>Updated Dreamscape Gap Analysis</h2>
+  <p>The August briefing established Dreamscape as the primary comparable for Tanglewood Phase 2 given the overlap in product type, lot size, and general corridor. What follows is an updated look at where Dreamscape's August 2026 prices sit relative to the suggested Phase 2 pricing we put forward. These remain our advisory suggestions and are subject to Medallion's final determination based on construction cost and margin targets.</p>
+  <h3>30' Collection</h3>
+  <p>Dreamscape's 30' lineup now runs from $640,699 (Dawn, entry model) to $799,991 (Solar, their largest 30' plan). After the August increase, Fieldgate has moved the top of their 30' range very close to our suggested Phase 2 entry price of $790,000. The gap has narrowed substantially and it validates the direction we pointed to in August: positioning Tanglewood's 30' entry at or around $790K sits at par with Dreamscape's best 30' product, which is where it should be given what Tanglewood brings to the table in terms of product features and community quality.</p>
+  <table>
+    <thead><tr><th>Dreamscape Model</th><th>Dreamscape Net (Aug 2026)</th><th>Suggested TW Phase 2 Range</th><th>Position vs Dreamscape</th></tr></thead>
+    <tbody>
+      <tr><td>Dawn (30' Entry)</td><td class="num">$640,699</td><td class="num">$790,000 to $870,000</td><td class="num red">TW entry is +$149K above DS entry</td></tr>
+      <tr><td>Fermi</td><td class="num">$684,947</td><td class="num">$790,000 to $870,000</td><td class="num red">+$105K above DS</td></tr>
+      <tr><td>Gateway</td><td class="num">$711,496</td><td class="num">$790,000 to $870,000</td><td class="num red">+$79K above DS</td></tr>
+      <tr><td>Helios</td><td class="num">$746,894</td><td class="num">$790,000 to $870,000</td><td class="num red">+$43K above DS</td></tr>
+      <tr><td>Magellan</td><td class="num">$773,442</td><td class="num">$790,000 to $870,000</td><td class="num gold-text">+$17K above DS</td></tr>
+      <tr><td>Rosetta</td><td class="num">$795,566</td><td class="num">$790,000 to $870,000</td><td class="num green">At par with DS top range</td></tr>
+      <tr><td>Solar (30' Top)</td><td class="num">$799,991</td><td class="num">$790,000 to $870,000</td><td class="num green">At par with DS top range</td></tr>
+    </tbody>
+  </table>
+  <div class="callout callout-green"><p><strong>The August increase narrowed the 30' gap by $17,699 at every tier.</strong> Before the move, Dreamscape's Solar was sitting at approximately $782,292 net, comfortably below our entry suggestion of $790K. It now sits at $799,991, essentially at par with our Phase 2 entry price. Fieldgate moving to that number gives us market support for the 30' range we put forward.</p></div>
+  <h3>36' Collection</h3>
+  <p>The August increase added approximately $13,274 net to Dreamscape's Astro and Mariner models. Our suggested Phase 2 range for the 36' collection is $960,000 to $1,170,000, positioning Tanglewood as a clear premium to Dreamscape's 36' product. That premium is appropriate given the product differentiation available at the 36' width: notably the secondary suite inclusion and the opportunity to push square footage beyond what Dreamscape offers on the same lot. Dreamscape's 36' prices moved toward our range in August, which reinforces the logic of our suggested numbers rather than calling them into question.</p>
+  <h3>42' / 40' Collection</h3>
+  <p>Dreamscape's 42' collection held Elevation A prices flat. Their 42' is the most direct read on where the wide-lot detached market sits in North Oshawa right now. Our suggested Phase 2 range for the 40' collection is $1,085,000 to $1,190,000. Dreamscape's 42' Elevation A pricing is consistent with that band, and the unchanged pricing suggests the top of the market is holding rather than running higher at this moment. For Phase 2, the suggested range remains appropriate given the product features available on the 40' width.</p>
+  <div class="callout callout-navy"><p>The August Fieldgate increases are a meaningful signal. Dreamscape is the highest-volume new home community in North Oshawa right now, and Fieldgate does not move prices unless the pace of sales supports it. The fact that they pushed the 30' collection up nearly $18,000 net tells you buyers are there at those levels. For Phase 2, the pricing range we put forward in August holds. If anything, the market is inching toward that range from below rather than pushing back against it. Softening the suggested range would be the wrong read of what the comp set is showing.</p></div>
+</div>
+<div class="section">
+  <div class="section-label">Section C</div>
+  <h2>North Oshawa Comp Set: Current Status</h2>
+  <p>Below is the current standing of each community in the comp set as of September 2026. All data has been cross-referenced against the most recent price lists from builder portals. The Drive links go directly to the floor plans and price lists we have on file, which are more useful for product and pricing comparison than anything on a builder's public website.</p>
+  <div class="builder-row">
+    <div class="builder-name">Dreamscape<br><span style="font-weight:normal;font-size:12.5px;color:var(--muted);">Fieldgate Homes</span><a href="https://drive.google.com/drive/folders/1ribZA1l32o9Sv0t_snUxhNpS6tSJbpL8" target="_blank">Floor Plans + Price Lists on Drive</a></div>
+    <div class="builder-detail"><span class="builder-status status-up">Prices Increased Aug 2026</span><p>The most directly comparable product to Tanglewood Phase 2. Offers 30', 36', 42' detached singles and a towns collection on the Taunton Road corridor. <strong>30' collection: all models up $17,699 net in August.</strong> 36' Astro/Mariner: up $13,274 net. 42' Elevation A: unchanged. Current 30' net range is $640,699 to $799,991. 36' collection starts above $900K. 42' entry is in the $1.1M range. Incentives: 30' = $10K Decor credit, central air, 5 appliances; 36'/42' = $15K Decor credit, central air, 5 appliances. Deposits: 30' = $90K total, 36' = $100K total, 42' = $110K total.</p></div>
+  </div>
+  <div class="builder-row">
+    <div class="builder-name">Heights of Harmony<br><span style="font-weight:normal;font-size:12.5px;color:var(--muted);">Minto Communities</span><a href="https://drive.google.com/drive/folders/1U8hbmQgvL3bhMdJUfuZOvXufWd4Nkuzc" target="_blank">Floor Plans + Price Lists on Drive</a></div>
+    <div class="builder-detail"><span class="builder-status status-stable">Prices Stable (July 2026)</span><p>30' Langley, 32' Fairview, and 36' Wentworth single detached. No price changes since the July 2026 list. Deposit: 30'/32' = $100K total in 6 installments; 36' = $120K total. Incentive: $0 capped development charges. Tentative occupancy Fall 2027. Also now launching the HOH Urban Towns townhome product on the same site.</p></div>
+  </div>
+  <div class="builder-row">
+    <div class="builder-name">HOH Urban Towns<br><span style="font-weight:normal;font-size:12.5px;color:var(--muted);">Minto Communities</span><a href="https://drive.google.com/drive/folders/1U8hbmQgvL3bhMdJUfuZOvXufWd4Nkuzc" target="_blank">Floor Plans on Drive</a></div>
+    <div class="builder-detail"><span class="builder-status status-new">New to Market (May 2026)</span><p>Stacked 2 bed / 2 bath urban towns from $409,933 net. Models run approximately 1,090 to 1,295 sq ft. Deposit: $45K total. Occupancy late 2027. These are a different buyer than the Tanglewood single detached purchaser, but they add volume to the North Oshawa pipeline and give first-time buyers an entry point at the Minto HOH site.</p></div>
+  </div>
+  <div class="builder-row">
+    <div class="builder-name">Heartwood Village<br><span style="font-weight:normal;font-size:12.5px;color:var(--muted);">Laurelcrest Homes</span><a href="https://drive.google.com/drive/folders/1U8hbmQgvL3bhMdJUfuZOvXufWd4Nkuzc" target="_blank">Floor Plans + Price Lists on Drive</a></div>
+    <div class="builder-detail"><span class="builder-status status-stable">Prices Stable (May 2026)</span><p>30', 36', and 40' detached singles. No changes since the May 9, 2026 price list. Closings October to December 2027. Deposits: 30' = $100K, 36' = $120K, 40' = $140K. Sales: Jacqueline Goodlet (289-200-5883). A relevant read for the 36' and 40' product given the matching lot widths to Phase 2.</p></div>
+  </div>
+  <div class="builder-row">
+    <div class="builder-name">Winchester Estates<br><span style="font-weight:normal;font-size:12.5px;color:var(--muted);">Menkes Developments</span><a href="https://drive.google.com/drive/folders/1vUt80UdNZKtdaedlvIVEx2EDeR6fQsaP" target="_blank">Floor Plans + Price Lists on Drive</a></div>
+    <div class="builder-detail"><span class="builder-status status-sold">2 Models Likely Sold Through</span><p>20' traditional towns (Fairway collection), 20' front-split towns (Heritage collection), and 30' Classic and Lot-Specific singles. The Berkshire (Fairway) and Carlyle Heritage are no longer on the active list. First tentative closing Q3 2027. Deposit: $25K signing + $25K at 60 days + $25K at 180 days + balance to 10% at 280 days.</p></div>
+  </div>
+  <div class="builder-row">
+    <div class="builder-name">Homeward Hills<br><span style="font-weight:normal;font-size:12.5px;color:var(--muted);">Sorbara Group</span><a href="https://drive.google.com/drive/folders/1U8hbmQgvL3bhMdJUfuZOvXufWd4Nkuzc" target="_blank">Floor Plans + Price Lists on Drive</a></div>
+    <div class="builder-detail"><span class="builder-status status-stable">Prices Stable (July 2026)</span><p>20' towns, 32', 36', and 40' detached singles. No changes since the July 7, 2026 list. Standard inclusions: 9-foot ceilings on main and second floor, Energy Star certified, A/C and appliances included. Sorbara Series upgrade options (Chef's Kitchen, Spa Bath packages) available for 32' and 40' collections. Deposits: 20' = $85K, 32'/36' = $110K, 40' = $135K. Note: September 30, 2026 is a fixed installment date across all collections.</p></div>
+  </div>
+  <div class="builder-row">
+    <div class="builder-name">The Views<br><span style="font-weight:normal;font-size:12.5px;color:var(--muted);">Jeffrey Homes</span><a href="https://drive.google.com/drive/folders/1PyGIgnpALTIjkOin59Os8s68jh5fI33O" target="_blank">Floor Plans + Price Lists on Drive</a></div>
+    <div class="builder-detail"><span class="builder-status status-stable">Prices Stable (Aug 25, 2026)</span><p>36' and 40' detached singles only. Price list updated August 25, 2026 with no price changes. Incentives: 36' = $10K free Decor upgrades; walkout basements an additional $50K on Phase 2 lots; optional walk-up stairs $30K on Phase 1. The 40' collection includes $20K free Decor upgrades plus an ultra-energy efficient package. The Horizon model comes standard with 4 ensuites on Elevations A and B.</p></div>
+  </div>
+  <div class="builder-row">
+    <div class="builder-name">The Willows<br><span style="font-weight:normal;font-size:12.5px;color:var(--muted);">Marlin Spring (Brooklin)</span><a href="https://drive.google.com/drive/folders/1U8hbmQgvL3bhMdJUfuZOvXufWd4Nkuzc" target="_blank">Floor Plans + Price Lists on Drive</a></div>
+    <div class="builder-detail"><span class="builder-status status-sold">Moss A Sold Out</span><p>32' detached, 37' detached, and 30' semi-detached in Brooklin. No price changes since May/April 2026 price lists. The Moss A model has been removed from the active list. Tracked primarily for context on the 32' and 37' detached market, relevant for Phase 2 buyers who may also be considering the Brooklin area.</p></div>
+  </div>
+  <div class="builder-row">
+    <div class="builder-name">Creekstone<br><span style="font-weight:normal;font-size:12.5px;color:var(--muted);">Minto Communities (Courtice)</span><a href="https://drive.google.com/drive/folders/1U8hbmQgvL3bhMdJUfuZOvXufWd4Nkuzc" target="_blank">Floor Plans + Price Lists on Drive</a></div>
+    <div class="builder-detail"><span class="builder-status status-stable">Prices Stable (July 2026)</span><p>30' Langley, 32' Fairview, 36' Wentworth singles, and 20' Marlowe towns in Courtice. Included as broader Durham context. Pricing here runs notably lower than the North Oshawa comp set. Incentive: $25K Design Centre credit or finished basement, $0 capped DCs, 5 appliances. Deposit: $70K total. Not a primary Phase 2 comp but useful for understanding where the wider market floor sits.</p></div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-label">Section D</div>
+  <h2>Phase 2 Product Strategy: Ideas Worth Carrying Forward</h2>
+  <p>In August we put together a detailed strategy memo outlining eight ideas for Phase 2 that we believe represent genuine opportunities to differentiate from the comp set. We are recapping them here because the September comp sweep reinforces the case for most of them. The comp set continues to offer relatively undifferentiated product at the 30' and 36' widths, and several of these ideas remain wide open in North Oshawa. The full memo with floor plan analysis, lot-by-lot detail, and research is in Google Drive and was distributed alongside the August briefing.</p>
+  <div class="idea-grid">
+    <div class="idea-card priority-highest">
+      <div class="idea-num">Idea 01 / All Lots / Highest Priority</div>
+      <h4>Legal Secondary Suite: Included Basement Apartment</h4>
+      <p>A fully legal, Oshawa-zoning-compliant basement apartment included as standard across all lot widths. No comp in North Oshawa is doing this. At current market rents ($1,750 to $2,200 per month for a legal basement in this area), the financial case for buyers is immediate and significant. This is the single feature with the most potential to separate Tanglewood Phase 2 from every other competing product in the market.</p>
+      <span class="tag">All Lots</span><span class="tag" style="background:#e8f5e9;color:var(--green);">Highest Priority</span>
+    </div>
+    <div class="idea-card priority-highest">
+      <div class="idea-num">Idea 02 / 36' and 40' Lots / High Priority</div>
+      <h4>Multi-Generational Suite on the Main Floor</h4>
+      <p>A separate main-floor bedroom suite with private entrance designed for extended-family households. Durham Region has one of the highest concentrations of multi-generational households in the GTA and no builder in the North Oshawa comp set is addressing it at the product design level. At 36' and 40' widths there is sufficient footprint to do this properly.</p>
+      <span class="tag">36' + 40' Lots</span><span class="tag" style="background:#e8f5e9;color:var(--green);">High Priority</span>
+    </div>
+    <div class="idea-card priority-high">
+      <div class="idea-num">Idea 03 / 36' Lots / High Priority</div>
+      <h4>Break the 2,500 Sq Ft Ceiling on the 36' Lot</h4>
+      <p>Dreamscape's largest 36' model stops at approximately 2,475 square feet. Heartwood Village and Heights of Harmony are in a similar range. A Tanglewood 36' plan that pushes to 2,700 or 2,800 square feet sits in a clear gap in this market with no direct competitor. Buyers who want more than 2,500 square feet on a 36' lot have nowhere to go in North Oshawa right now.</p>
+      <span class="tag">36' Lots</span><span class="tag" style="background:var(--amber-bg);color:#e65100;">High Priority</span>
+    </div>
+    <div class="idea-card priority-high">
+      <div class="idea-num">Idea 04 / 40' Lots / High Priority</div>
+      <h4>Build the Largest Home in the North Oshawa Market on a 40' Lot</h4>
+      <p>The current ceiling on a 40' or 42' lot in this market is around 3,200 to 3,400 square feet. A Tanglewood 40' plan pushing toward 3,600 or more would stand completely alone. There is still room to be the definitive "largest home on the widest lot" story in North Oshawa for buyers who want exactly that.</p>
+      <span class="tag">40' Lots</span><span class="tag" style="background:var(--amber-bg);color:#e65100;">High Priority</span>
+    </div>
+    <div class="idea-card">
+      <div class="idea-num">Idea 05 / All Lot Widths / Medium-High Priority</div>
+      <h4>Loft or Bonus Third Level</h4>
+      <p>A finished loft or bonus room above the second floor adds square footage without increasing the footprint and creates a genuinely different living experience. This works across lot widths and has strong appeal for buyers who work from home, have teenagers, or want a media and flex space that does not eat into bedroom count. No builder in the current North Oshawa comp set is offering this as a standard option.</p>
+      <span class="tag">All Lot Widths</span><span class="tag">Medium-High Priority</span>
+    </div>
+    <div class="idea-card">
+      <div class="idea-num">Idea 06 / 40' Lots Only / Medium Priority</div>
+      <h4>3-Car Tandem Garage on 40' Lots</h4>
+      <p>A tandem third car space within the garage gives families real storage capacity without requiring a detached structure or wider footprint. This is exclusively a 40' lot idea. For a buyer segment increasingly dealing with multiple vehicles, EVs, or recreational equipment, it is a practical feature that adds perceived value without a significant construction cost premium. No comp currently offers it.</p>
+      <span class="tag">40' Lots Only</span><span class="tag">Medium Priority</span>
+    </div>
+    <div class="idea-card">
+      <div class="idea-num">Idea 07 / Eligible Lots / Medium Priority</div>
+      <h4>Walkout Basement Included Where Grading Allows</h4>
+      <p>On lots where the grading supports a rear walkout, include it as standard rather than as a premium option. The Views charges $50,000 for a walkout on Phase 2 lots. Making it standard on eligible Tanglewood lots removes a friction point. Combined with the secondary suite idea, a walkout basement apartment is an even more compelling story for buyers thinking about rental income.</p>
+      <span class="tag">Eligible Lots</span><span class="tag">Medium Priority</span>
+    </div>
+    <div class="idea-card">
+      <div class="idea-num">Idea 08 / All Lots / Medium Priority</div>
+      <h4>Rear Elevation: Full-Width Glass and Outdoor Connection</h4>
+      <p>A rear elevation designed with a full-width sliding or folding glass door system opening to the backyard creates a genuinely different indoor-outdoor living experience than what any current comp offers. Buyers spending $1M and above on a new home have elevated expectations for how the home lives, and this is where most of their daily life will happen.</p>
+      <span class="tag">All Lots</span><span class="tag">Medium Priority</span>
+    </div>
+  </div>
+  <div class="callout callout-navy"><p>The September comp sweep did not change our read on any of these ideas. The continued pricing stability across the comp set, combined with Fieldgate's decision to raise prices, reinforces that the North Oshawa market has room for a well-differentiated Phase 2 product at the range we suggested. The full strategy memo with lot-by-lot analysis and floor plan research is the supporting document for any of these ideas that warrant a deeper look.</p></div>
+</div>
+<div class="section">
+  <div class="section-label">Section E</div>
+  <h2>Reference Materials</h2>
+  <p>All floor plans, price lists, and competitor materials referenced in this update are organized in the Tanglewood Google Drive. The links below go directly to the relevant folders.</p>
+  <table>
+    <thead><tr><th>Document</th><th>Description</th><th>Drive Access</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Aug 2026 Phase 2 Pre-Launch Briefing</strong></td><td>Full comp set analysis, market positioning, and pricing rationale</td><td><a href="https://drive.google.com/drive/folders/1UXapG5bwvthed-LbwPVTPw8Rv_YeCp-_" target="_blank" style="color:var(--gold-deep);">Reports Folder</a></td></tr>
+      <tr><td><strong>Aug 2026 Phase 2 Differentiation Strategy</strong></td><td>Full 8-idea product strategy memo with floor plan diagrams and competitive gap research</td><td><a href="https://drive.google.com/drive/folders/1UXapG5bwvthed-LbwPVTPw8Rv_YeCp-_" target="_blank" style="color:var(--gold-deep);">Reports Folder</a></td></tr>
+      <tr><td><strong>Dreamscape Floor Plans + Price Lists</strong></td><td>30', 36', 42' floor plans and August 2026 updated price lists</td><td><a href="https://drive.google.com/drive/folders/1ribZA1l32o9Sv0t_snUxhNpS6tSJbpL8" target="_blank" style="color:var(--gold-deep);">Dreamscape Folder</a></td></tr>
+      <tr><td><strong>Larger 40'/42' Comp Floor Plans</strong></td><td>Research collection: competitor 40' and 42' floor plans</td><td><a href="https://drive.google.com/drive/folders/1gEY8_UJ_-6vfBSkU2rpHaEACtGH5nzxu" target="_blank" style="color:var(--gold-deep);">Larger 40' Folder</a></td></tr>
+      <tr><td><strong>Multi-Generational Floor Plans</strong></td><td>Research folder for Idea 02 (main-floor suite)</td><td><a href="https://drive.google.com/drive/folders/1-7SdPIioMdGGrglmQa11-BF1wM5WAI_z" target="_blank" style="color:var(--gold-deep);">Multi-Gen Folder</a></td></tr>
+      <tr><td><strong>Larger 36' Comp Floor Plans</strong></td><td>Research folder for 36' product comparison</td><td><a href="https://drive.google.com/drive/folders/1fMB3dCsf0cpAlI6gz8_B4QiMSNRO9bdy" target="_blank" style="color:var(--gold-deep);">Larger 36' Folder</a></td></tr>
+      <tr><td><strong>Larger 30' Comp Floor Plans</strong></td><td>Research folder for 30' product comparison</td><td><a href="https://drive.google.com/drive/folders/1EjKqyPrcqsfRChcGivLxPSHcdPf1EaVj" target="_blank" style="color:var(--gold-deep);">Larger 30' Folder</a></td></tr>
+      <tr><td><strong>Winchester Estates (Menkes)</strong></td><td>Floor plans and price lists on file</td><td><a href="https://drive.google.com/drive/folders/1vUt80UdNZKtdaedlvIVEx2EDeR6fQsaP" target="_blank" style="color:var(--gold-deep);">Winchester Folder</a></td></tr>
+      <tr><td><strong>The Views (Jeffrey Homes)</strong></td><td>Floor plans and price lists on file</td><td><a href="https://drive.google.com/drive/folders/1PyGIgnpALTIjkOin59Os8s68jh5fI33O" target="_blank" style="color:var(--gold-deep);">The Views Folder</a></td></tr>
+      <tr><td><strong>Full Competitive Intelligence Tracker</strong></td><td>Live Excel tracker covering all communities, models, pricing, deposits, and incentives</td><td><a href="https://drive.google.com/drive/folders/1OyyQ135A92FI-EDgw6KqpRrqiQN-OK9z" target="_blank" style="color:var(--gold-deep);">Trackers Folder</a></td></tr>
+    </tbody>
+  </table>
+</div>
+</div>
+</body>
+</html>
