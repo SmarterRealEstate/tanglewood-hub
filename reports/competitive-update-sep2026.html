@@ -456,6 +456,107 @@ tr:nth-child(even) td{background:#f7fafd;}
     <p><strong>40' Positioning:</strong> Full brick at Elevation B, finished recreation room included standard. Homeward Hills and Heartwood both open above our benchmark models on absolute price. Jeffery Homes is the only other 40' builder in this market; their lineup opens higher and climbs well above ours, reflecting 10' main floor, 9' second floor, and 9' basement ceilings standard throughout, on unfinished basements. Dreamscape by Fieldgate's 42' product enters below our range and carries a lower above-grade PPSF across every model; their lots are wider (42' vs. 40') and their basements are unfinished, with the finished recreation room as Tanglewood's meaningful differentiator. Where two of our models are similar in square footage but carry different price points, ceiling height is the only variable and the price structure makes that relationship transparent to buyers.</p>
   </div>
 </div>
+
+
+<div class="section">
+  <div class="section-label">Price &amp; PPSF Analysis</div>
+  <h2>Price &amp; PPSF Comparison by Lot Width</h2>
+
+  <div class="callout" style="border-left:4px solid #8a6010;background:#fff8e1;padding:20px 24px;border-radius:4px;margin-bottom:24px;">
+    <p><strong>A word on market conditions and pricing.</strong></p>
+    <p style="margin-top:10px;">Six active sites are competing for the same buyer pool within a small geographic footprint in North Oshawa. Today's buyer is not walking into the first community they see and signing. They are visiting every site, tracking promotions, and running their own comparisons before they commit to anything. Every builder in this report is offering something to close the gap: decor credits, finished basements with washrooms, capped development charges, appliance packages. Those incentives blur what used to be clean product differentiators, including Tanglewood's finished recreation room.</p>
+    <p style="margin-top:10px;">Against the established builders, our suggested prices are well positioned. Homeward Hills, Heartwood, Minto and Winchester all price at or above our range across every lot width. Jeffery Homes prices above us at every model, a premium buyers can attribute to their ceiling heights across all three levels. In that context our pricing holds up and gives us a clear story to tell.</p>
+    <p style="margin-top:10px;">Dreamscape by Fieldgate is the more complicated reality. Their site directly abuts Tanglewood's property. A buyer registering with us can and will walk next door. Across 30', 36' and 42' product, Dreamscape raised prices in August 2026, narrowing the gap with our suggested range. The finished recreation room remains a genuine advantage, though the dollar spread will vary by model. The charts that follow lay out the full picture model by model.</p>
+    <p style="margin-top:10px;">These suggested prices reflect our honest read of where Tanglewood should open to be competitive with the established market. Whether some models should move closer to the Dreamscape range is a conversation for your team to have before the price list is finalized.</p>
+  </div>
+
+  <p style="font-family:Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#555;margin-bottom:4px;">Competitive Positioning &mdash; All Models vs. Tanglewood</p>
+  <p class="fn" style="margin-bottom:24px;">Bars = Price (Elev B, net) on left axis. Dots = PPSF (above-grade sqft) on right axis. Each group = one Tanglewood model with its specific comps. Winchester sqft includes a basement landing only (noted in Section B).</p>
+
+  <div style="background:#f7f1e6;border-radius:8px;padding:20px 24px;margin-bottom:16px;">
+    <p style="font-family:Arial,sans-serif;font-size:11px;font-weight:bold;letter-spacing:1.5px;text-transform:uppercase;color:#333;margin-bottom:16px;">TOWNS &mdash; 20' FREEHOLD</p>
+    <div style="position:relative;height:310px;"><canvas id="chartTowns"></canvas></div>
+  </div>
+  <div style="background:#eeeeea;border-radius:8px;padding:20px 24px;margin-bottom:16px;">
+    <p style="font-family:Arial,sans-serif;font-size:11px;font-weight:bold;letter-spacing:1.5px;text-transform:uppercase;color:#333;margin-bottom:16px;">30' SINGLE DETACHED</p>
+    <div style="position:relative;height:330px;"><canvas id="chart30"></canvas></div>
+  </div>
+  <div style="background:#eeeeea;border-radius:8px;padding:20px 24px;margin-bottom:16px;">
+    <p style="font-family:Arial,sans-serif;font-size:11px;font-weight:bold;letter-spacing:1.5px;text-transform:uppercase;color:#333;margin-bottom:16px;">36' SINGLE DETACHED &mdash; BALSAWOOD TO EASTWOOD</p>
+    <div style="position:relative;height:350px;"><canvas id="chart36a"></canvas></div>
+  </div>
+  <div style="background:#eeeeea;border-radius:8px;padding:20px 24px;margin-bottom:16px;">
+    <p style="font-family:Arial,sans-serif;font-size:11px;font-weight:bold;letter-spacing:1.5px;text-transform:uppercase;color:#333;margin-bottom:16px;">36' SINGLE DETACHED &mdash; GREENWOOD TO LAKEWOOD</p>
+    <div style="position:relative;height:310px;"><canvas id="chart36b"></canvas></div>
+  </div>
+  <div style="background:#eeeeea;border-radius:8px;padding:20px 24px;margin-bottom:16px;">
+    <p style="font-family:Arial,sans-serif;font-size:11px;font-weight:bold;letter-spacing:1.5px;text-transform:uppercase;color:#333;margin-bottom:16px;">40' SINGLE DETACHED</p>
+    <div style="position:relative;height:360px;"><canvas id="chart40"></canvas></div>
+  </div>
+
+  <div class="callout callout-navy">
+    <p><strong>Suggested lot premiums:</strong> Walkout +$30,000 | Walk-up +$20,000 | Corner +$25,000. These are our suggestions based on current market conditions and are offered for your consideration.</p>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script>
+  (function(){
+    const C={tw:'#162d4a',hh:'#C06040',win:'#7355A0',hw:'#D47030',jh:'#4a9975',minto:'#5b82c7',drmsc:'#9e8060'};
+    function sp(n,...kv){const a=new Array(n).fill(null);for(let i=0;i<kv.length;i+=2)a[kv[i]]=kv[i+1];return a;}
+    function fmt(v){if(!v)return'';return v>=1e6?'$'+(v/1e6).toFixed(2).replace(/\.?0+$/,'')+'M':'$'+Math.round(v/1e3)+'K';}
+    function mkChart(id,labels,bars,dots){
+      const el=document.getElementById(id);if(!el)return;
+      const ds=[];
+      bars.forEach(b=>ds.push({type:'bar',label:b[0],data:b[1],backgroundColor:b[2],yAxisID:'y',categoryPercentage:0.88,barPercentage:0.82}));
+      dots.forEach(d=>ds.push({type:'line',label:d[0]+' ppsf',data:d[1],yAxisID:'y2',showLine:false,pointRadius:d[3]?6:5,pointStyle:'circle',pointBackgroundColor:d[3]?d[2]:'transparent',pointBorderColor:d[2],pointBorderWidth:2}));
+      const prices=bars.flatMap(b=>b[1].filter(v=>v!=null));
+      const ppsfs=dots.flatMap(d=>d[1].filter(v=>v!=null));
+      const yMin=Math.floor((Math.min(...prices)-60000)/10000)*10000;
+      const yMax=Math.ceil((Math.max(...prices)+Math.max(...prices)*0.1)/10000)*10000;
+      const ppMin=Math.floor(Math.min(...ppsfs)-25);
+      const ppMax=Math.ceil(Math.max(...ppsfs)+50);
+      new Chart(el,{type:'bar',data:{labels,datasets:ds},
+        plugins:[{id:'twlbl',afterDatasetsDraw(chart){
+          const cx=chart.ctx;
+          chart.data.datasets.forEach((d,di)=>{
+            const meta=chart.getDatasetMeta(di);
+            if(d.type==='bar'){meta.data.forEach((bar,i)=>{const v=d.data[i];if(!v)return;cx.save();cx.font='bold 9px Arial';cx.fillStyle='#1a1a1a';cx.textAlign='center';cx.fillText(fmt(v),bar.x,bar.y-3);cx.restore();});}
+            else if(d.label.includes('Tanglewood')){meta.data.forEach((pt,i)=>{const v=d.data[i];if(!v)return;cx.save();cx.font='bold 9px Arial';cx.fillStyle='#162d4a';cx.textAlign='center';cx.fillText('$'+v,pt.x,pt.y-9);cx.restore();});}
+          });
+        }}],
+        options:{responsive:true,maintainAspectRatio:false,
+          plugins:{
+            legend:{position:'top',labels:{font:{size:10},filter:(item,data)=>data.datasets[item.datasetIndex].type==='bar',boxWidth:10,padding:8}},
+            tooltip:{callbacks:{label(c){return c.dataset.yAxisID==='y2'?c.dataset.label.replace(' ppsf','')+': $'+c.raw+'/sf':c.dataset.label+': '+fmt(c.raw);}}}
+          },
+          scales:{x:{ticks:{font:{size:8.5},maxRotation:50,minRotation:35}},y:{min:yMin,max:yMax,ticks:{callback:v=>fmt(v),font:{size:9}}},y2:{position:'right',min:ppMin,max:ppMax,grid:{drawOnChartArea:false},ticks:{callback:v=>'$'+v,font:{size:9}}}}
+        }
+      });
+    }
+    mkChart('chartTowns',
+      ['APPLEWOOD','HH 1,447sf','Win 1,813sf','BLACKWOOD','HH 1,629sf','Win 1,908sf','COTTONWOOD','HH 1,736sf','Win 2,013sf','ROSEWOOD','HH 1,736sf','Win 2,140sf','SILVERWOOD','HH 1,736sf','Win 2,140sf'],
+      [['Tanglewood',sp(15,0,699990,3,719990,6,749990,9,779990,12,789990),C.tw],['Homeward Hills',sp(15,1,733619,4,748664,7,761938,10,761938,13,761938),C.hh],['Winchester',sp(15,2,699900,5,714900,8,749900,11,769900,14,769900),C.win]],
+      [['Tanglewood',sp(15,0,473,3,451,6,428,9,421,12,419),C.tw,true],['Homeward Hills',sp(15,1,507,4,460,7,439,10,439,13,439),C.hh,false],['Winchester',sp(15,2,386,5,375,8,373,11,360,14,360),C.win,false]]);
+    mkChart('chart30',
+      ['ASHWOOD','Win 1,991sf','HW 1,901sf','Minto 1,710sf','Drmsc 2,117sf','ELMWOOD','Win 2,179sf','HW 1,901sf','Minto 1,710sf','Drmsc 1,979sf','PINEWOOD','Win 2,393sf','HW 2,008sf','HW 2,102sf','HW 2,205sf','Drmsc 2,117sf','REDWOOD','Win 2,115sf','Win 2,393sf','HW 2,205sf','Drmsc 2,117sf'],
+      [['Tanglewood',sp(21,0,789990,5,799990,10,839990,16,869990),C.tw],['Winchester',sp(21,1,835900,6,899900,11,959900,17,889900,18,959900),C.win],['Heartwood',sp(21,2,857513,7,857513,12,870787,13,884061,14,901761,19,901761),C.hw],['Minto',sp(21,3,879558,8,879558),C.minto],['Dreamscape',sp(21,4,813265,9,817690,15,813265,20,813265),C.drmsc]],
+      [['Tanglewood',sp(21,0,480,5,426,10,419,16,407),C.tw,true],['Winchester',sp(21,1,420,6,413,11,401,17,421,18,401),C.win,false],['Heartwood',sp(21,2,451,7,451,12,434,13,421,14,409,19,409),C.hw,false],['Minto',sp(21,3,514,8,514),C.minto,false],['Dreamscape',sp(21,4,384,9,413,15,384,20,384),C.drmsc,false]]);
+    mkChart('chart36a',
+      ['BALSAWOOD','HH 1,964sf','HW 2,152sf','JH 1,969sf','Minto 2,307sf','Drmsc 2,032sf','CEDARWOOD','HH 2,277sf','HW 2,262sf','JH 2,154sf','Minto 2,307sf','Drmsc 2,243sf','CREEKWOOD','HH 2,473sf','HW 2,384sf','JH 2,398sf','Minto 2,307sf','Drmsc 2,243sf','EASTWOOD','HH 2,473sf','HW 2,384sf','JH 2,589sf','Minto 2,556sf','Drmsc 2,243sf'],
+      [['Tanglewood',sp(24,0,959990,6,999990,12,1039990,18,1049990),C.tw],['Homeward Hills',sp(24,1,1003531,7,1039814,13,1062823,19,1062823),C.hh],['Heartwood',sp(24,2,972557,8,990256,14,1003990,20,1003990),C.hw],['Jeffery Homes',sp(24,3,906186,9,968133,15,1053990,21,1108990),C.jh],['Minto',sp(24,4,1053900,10,1053900,16,1053900,22,1143900),C.minto],['Dreamscape',sp(24,5,848664,11,892911,17,892911,23,892911),C.drmsc]],
+      [['Tanglewood',sp(24,0,494,6,476,12,451,18,438),C.tw,true],['Homeward Hills',sp(24,1,511,7,457,13,430,19,430),C.hh,false],['Heartwood',sp(24,2,452,8,438,14,421,20,421),C.hw,false],['Jeffery Homes',sp(24,3,460,9,449,15,440,21,428),C.jh,false],['Minto',sp(24,4,457,10,457,16,457,22,448),C.minto,false],['Dreamscape',sp(24,5,418,11,398,17,398,23,398),C.drmsc,false]]);
+    mkChart('chart36b',
+      ['GREENWOOD','HH 2,568sf','HW 2,548sf','JH 2,589sf','Minto 2,556sf','HONEYWOOD','HH 2,568sf','HW 2,680sf','JH 2,862sf','Minto 2,556sf','LAKEWOOD','HH 2,568sf','HW 2,764sf','JH 2,862sf','Minto 2,843sf'],
+      [['Tanglewood',sp(15,0,1079990,5,1064990,10,1169990),C.tw],['Homeward Hills',sp(15,1,1074327,6,1074327,11,1074327),C.hh],['Heartwood',sp(15,2,1023990,7,1048990,12,1063990),C.hw],['Jeffery Homes',sp(15,3,1108990,8,1193990,13,1193990),C.jh],['Minto',sp(15,4,1143900,9,1143900,14,1233900),C.minto]],
+      [['Tanglewood',sp(15,0,422,5,397,10,404),C.tw,true],['Homeward Hills',sp(15,1,418,6,418,11,418),C.hh,false],['Heartwood',sp(15,2,402,7,391,12,385),C.hw,false],['Jeffery Homes',sp(15,3,428,8,417,13,417),C.jh,false],['Minto',sp(15,4,448,9,448,14,434),C.minto,false]]);
+    mkChart('chart40',
+      ['BIRCHWOOD','HH 2,516sf','HW 2,595sf','JH 2,646sf','Drmsc 2,547sf','CHERRYWOOD','HH 2,516sf','HW 2,705sf','JH 2,646sf','Drmsc 3,012sf','MAPLEWOOD','HH 3,044sf','HW 2,839sf','JH 2,646sf','Drmsc 3,126sf','NOBLEWOOD','HH 3,044sf','HW 2,839sf','HW 3,018sf','JH 2,813sf','Drmsc 2,864sf','OAKWOOD','HH 3,128sf','HW 3,018sf','HW 3,126sf','JH 3,039sf','Drmsc 3,126sf'],
+      [['Tanglewood',sp(27,0,1084990,5,1109990,10,1139990,15,1124990,21,1189990),C.tw],['Homeward Hills',sp(27,1,1115920,6,1115920,11,1162823,16,1162823,22,1180522),C.hh],['Heartwood',sp(27,2,1118990,7,1138990,12,1165990,17,1165990,18,1196990,23,1196990,24,1218990),C.hw],['Jeffery Homes',sp(27,3,1243990,8,1243990,13,1243990,19,1293990,25,1373990),C.jh],['Dreamscape',sp(27,4,978990,9,1078990,14,1093990,20,1043990,26,1093990),C.drmsc]],
+      [['Tanglewood',sp(27,0,433,5,412,10,411,15,390,21,379),C.tw,true],['Homeward Hills',sp(27,1,443,6,443,11,382,16,382,22,377),C.hh,false],['Heartwood',sp(27,2,431,7,421,12,411,17,411,18,396,23,397,24,390),C.hw,false],['Jeffery Homes',sp(27,3,470,8,470,13,470,19,460,25,452),C.jh,false],['Dreamscape',sp(27,4,384,9,358,14,350,20,365,26,350),C.drmsc,false]]);
+  })();
+  </script>
+</div>
+
   <div class="section-label">Section C</div>
   <h2>North Oshawa Comp Set: Current Status</h2>
 
