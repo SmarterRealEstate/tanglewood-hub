@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tanglewood Phase 2: Competitive Update | September 2026</title>
+<style>
+:root{--navy:#162d4a;--dark:#12181f;--gold:#C4922A;--gold-deep:#8a6010;--text:#1a1a2e;--muted:#4a5570;--light-bg:#f0f6ff;--green:#2e7d32;--red:#c62828;--border:#b8cce0;--amber-bg:#fff8e1;--green-bg:#e8f5e9;--navy-bg:#e8eef5;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Georgia',serif;background:#fff;color:var(--text);font-size:15px;line-height:1.75;}
+.cover{background:var(--dark);color:#fff;padding:52px 60px 44px;display:flex;flex-direction:column;min-height:100vh;position:relative;overflow:hidden;}
+.cover::after{content:'';position:absolute;bottom:0;left:0;right:0;height:6px;background:linear-gradient(90deg,var(--gold),#e8c547,var(--gold));}
+.cover-logo{margin-bottom:40px;}
+.cover-logo img{height:110px;display:block;}
+.cover-eyebrow{font-family:Arial,sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
+.cover h1{font-size:40px;font-weight:normal;line-height:1.2;margin-bottom:14px;max-width:640px;}
+.cover h1 span{color:var(--gold);}
+.cover-sub{font-size:17px;color:#aaa;font-style:italic;margin-bottom:20px;max-width:560px;}
+.cover-desc{font-size:14.5px;color:#bbb;max-width:600px;line-height:1.65;}
+.cover-meta{display:flex;gap:44px;margin-top:auto;padding-top:32px;border-top:1px solid rgba(255,255,255,0.15);}
+.cover-meta div{font-size:11px;color:#999;letter-spacing:1px;text-transform:uppercase;}
+.cover-meta strong{display:block;color:#fff;font-size:14px;margin-top:4px;letter-spacing:0;text-transform:none;}
+.lead-band{background:var(--navy);border-bottom:4px solid var(--gold);padding:32px 48px;}
+.lead-band p{font-family:'Georgia',serif;font-size:15.5px;line-height:1.85;color:#dce6f0;max-width:880px;margin:0 auto;}
+.container{max-width:960px;margin:0 auto;padding:0 48px;}
+.section{padding:52px 0 44px;border-bottom:2px solid var(--navy);}
+.section:last-of-type{border-bottom:none;}
+.section-label{font-family:Arial,sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+h2{font-size:26px;font-weight:normal;color:var(--navy);margin-bottom:20px;line-height:1.25;}
+h3{font-size:18px;font-weight:normal;color:var(--navy);margin:32px 0 12px;border-left:3px solid var(--gold);padding-left:12px;}
+p{margin-bottom:14px;}
+strong{font-weight:bold;}
+.callout{background:var(--light-bg);border-left:4px solid var(--gold);padding:18px 24px;margin:22px 0;border-radius:0 4px 4px 0;}
+.callout p:last-child{margin-bottom:0;}
+.callout-green{background:var(--green-bg);border-left-color:var(--green);}
+.callout-amber{background:var(--amber-bg);border-left-color:#e65100;}
+.callout-navy{background:var(--navy-bg);border-left-color:var(--navy);}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13.5px;}
+th{background:var(--navy);color:#fff;padding:10px 14px;text-align:left;font-family:Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;font-weight:normal;}
+td{padding:9px 14px;border-bottom:1px solid var(--border);vertical-align:top;}
+tr:last-child td{border-bottom:none;}
+tr:nth-child(even) td{background:#f7fafd;}
+.num{text-align:right;font-variant-numeric:tabular-nums;}
+.green{color:var(--green);font-weight:bold;}
+.red{color:var(--red);}
+.gold-text{color:var(--gold-deep);font-weight:bold;}
+.muted{color:var(--muted);font-size:12.5px;}
+.tw-row{background:#f0f4f8 !important;}
+.tw-row td{font-weight:bold;}
+.tw-row td.num{color:var(--navy);}
+.elev-b{background:#162d4a !important;color:#fff !important;font-weight:bold;}
+.comp-label{font-family:Arial,sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-deep);display:block;margin-bottom:2px;}
+.comp-table{margin:0 0 8px;}
+.comp-table th{background:#2a3f55;font-size:10px;padding:8px 12px;}
+.comp-table td{font-size:12.5px;padding:7px 12px;}
+.comp-table tr:nth-child(even) td{background:#f4f7fb;}
+.comp-section-header{font-family:Arial,sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#fff;background:#2a3f55;padding:8px 14px;margin:18px 0 0;border-radius:3px 3px 0 0;display:block;}
+.comp-section-header + table{margin-top:0;border-top:none;}
+.comp-section-header + table th{border-radius:0;}
+.fn{font-family:Arial,sans-serif;font-size:11px;color:var(--muted);font-style:italic;margin:6px 0 20px;line-height:1.5;}
+.builder-summary-table td{vertical-align:middle;}
+.builder-summary-table td:first-child{font-weight:bold;color:var(--navy);}
+.s-up{color:#e65100;font-weight:bold;font-family:Arial,sans-serif;font-size:11px;}
+.s-stable{color:var(--green);font-family:Arial,sans-serif;font-size:11px;}
+.s-watch{color:#6a1b9a;font-family:Arial,sans-serif;font-size:11px;}
+.builder-note{font-size:12.5px;color:var(--muted);margin-top:4px;display:block;}
+@media print{.cover{min-height:auto;page-break-after:always;}.section{break-inside:avoid;}}
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="cover-logo"><img src="https://smarterrealestate.github.io/tanglewood-hub/assets/tanglewood-logo-transparent.png" alt="Tanglewood by Medallion Developments"></div>
+  <div class="cover-eyebrow">Phase 2 Competitive Update</div>
+  <h1>North Oshawa New Home Market<br><span>September 2026</span></h1>
+  <p class="cover-sub">Where the market stands, what has changed, and where Phase 2 is positioned to win.</p>
+  <p class="cover-desc">Since the July 2026 competitive update, Fieldgate has raised prices at Dreamscape, Heights of Harmony has announced upcoming freehold 2-storey townhomes, and sales activity is evident across several townhome collections in the comp set. This update documents the current competitive landscape and presents the full Phase 2 model pricing with market comparables alongside each product type.</p>
+  <div class="cover-meta">
+    <div>Prepared by<strong>Jeff &amp; Lorraine, Tanglewood</strong></div>
+    <div>Date<strong>September 2026</strong></div>
+    <div>Distribution<strong>Brian, Larry &amp; Shimon</strong></div>
+    <div>Follows<strong>July 2026 Competitive Update</strong></div>
+  </div>
+</div>
+
+<div class="lead-band">
+  <p>The North Oshawa competitive market has been largely stable since the previous update in July. Five of the six active builders held their price lists without change. The exception is Dreamscape by Fieldgate, which raised prices on both the 30' and 36' collections in August, a demand signal that narrows the gap between their range and Phase 2's suggested pricing. Against that backdrop, the case for opening Phase 2 isn't a matter of waiting for better conditions. The conditions are here. This report documents where each competitor stands today, presents the complete Phase 2 pricing with current market comparables alongside each lot width, and makes the argument for why now is the right moment for Medallion to bring Phase 2 to market.</p>
+</div>
+
+<div class="container">
+
+<div class="section">
+  <div class="section-label">Section A</div>
+  <h2>Market Context and What Has Changed</h2>
+
+  <h3>Where the Market Stands Right Now</h3>
+  <p>The North Oshawa new home market is operating in an environment shaped by genuine uncertainty. The global trade situation and its domestic ripple effects have created a level of caution that wasn't present six months ago. That said, <strong>the market is still transacting, and buyers who understand the current moment are moving.</strong> A meaningful share of those buyers are motivated specifically by the current HST rebate structure, treating this as an opportunity to get into a new home before conditions shift against them. The purchasers who qualify and commit now are buying at an effective price point that the next wave may not have access to.</p>
+
+  <p>The preconstruction market has found its floor. The trade environment creates two likely outcomes from here, and both point in the same direction. If material costs rise because of tariff pressure, construction cost inflation pushes new home prices higher regardless of demand. If builders pull back and wait, supply tightens and the market tilts toward sellers. <strong>Either way, the buyers who act within this window are the ones who capture today's pricing.</strong></p>
+
+  <p><strong>For Medallion, the same logic applies from the other direction.</strong> Construction costs are predictable today. Selling Phase 2 on a known cost basis is a material advantage over waiting through a period of rising input pressure. The opportunity to close that gap is available now.</p>
+
+  <div class="callout callout-navy">
+    <p><strong>The fundamentals are aligned.</strong> Phase 2 has competitive pricing, a superior product, and a buyer pool that's alert to this moment. A well-positioned launch speaks directly to that buyer. This is the context for everything in this report.</p>
+  </div>
+
+  <h3>The Dreamscape Price Move</h3>
+  <p>The most significant development in the comp set since the previous update is Fieldgate raising prices across Dreamscape's 30' and 36' collections. Every 30' model increased $20,000 gross, which works out to approximately <strong>$17,699 net</strong> after the rebate. The 36' collection saw a $15,000 gross increase, approximately <strong>$13,274 net</strong>. The 42' Elevation A prices held flat, with minor adjustments on select higher elevations only.</p>
+
+  <p>Fieldgate doesn't move prices unless the sales pace supports it. That decision is itself a data point. It also narrows the spread between Dreamscape's current pricing and the Phase 2 suggested range , which matters for the positioning story we lay out in Section B.</p>
+
+  <div class="callout callout-amber">
+    <p><strong>Fieldgate also updated their incentive packages alongside the increases.</strong> Buyers at the 30' width now receive a $10,000 decor credit plus central air and five appliances. The 36' and 42' packages carry a $15,000 decor credit with the same inclusions. These additions soften the effective sticker price for buyers, but the direction of pricing is clear.</p>
+  </div>
+
+  <h3>Why Opening Phase 2 Now Is the Right Call</h3>
+  <p>Dreamscape isn't simply another competitor in the North Oshawa market; it's the community situated directly adjacent to Tanglewood in the surrounding area. That proximity creates a specific set of dynamics worth examining carefully before any launch decision is made.</p>
+
+  <p>The instinct to wait for Dreamscape to sell out before opening Phase 2 is understandable. It's also the wrong call, in our view. Right now, with both communities in the market together, Tanglewood has something genuinely valuable: a live comparison. Buyers can visit both sites and see exactly what the price difference buys. Phase 2 delivers larger homes and a finished recreation room as part of the standard package. Dreamscape does offer decor credits and appliances as purchase incentives, which softens part of that picture, but incentives are temporary; a better-specified home is a permanent decision for the buyer. We haven't done a full side-by-side of both feature sheets yet, but the opportunity to position Phase 2 as the premium, thoughtfully finished product in this pairing is real. Realizing that opportunity likely means adding or upgrading select features and finishes before launch.</p>
+
+  <p>There's also a longer-term argument for opening Phase 2 now. If Tanglewood waits until Dreamscape finishes selling before launching, the surrounding area fills in with a large block of smaller, more compact homes before a single Phase 2 home is sold. Opening Phase 2 while Dreamscape is still actively selling changes that picture. The two communities build out together, the area develops a real mix of home sizes and price points, and Phase 2 isn't launching into a neighbourhood already shaped entirely by a more compact, standardized product. Selling into a balanced neighbourhood is a better position than selling into one that isn't. It protects Phase 2's pricing power and puts Tanglewood in a stronger spot for future releases when Fieldgate has long since moved on.</p>
+
+  <h3>Sales Activity and New Product in the Comp Set</h3>
+  <p>At Winchester Estates, sales activity is evident in the townhome collection based on changes to their available model offerings on the current price list. Heights of Harmony has announced plans to release freehold 2-storey townhomes this fall, adding a product type to their site that will compete directly in the freehold town segment. <strong>Heartwood Village, Homeward Hills, The Views by Jeffery Homes, and Heights of Harmony all held their price lists without change since the previous competitive update in July.</strong></p>
+
+  <p>The Heights of Harmony townhome announcement has a specific implication for Phase 2. Minto is making a public commitment to the freehold town market in North Oshawa. <strong>Phase 2's townhome collection has a clear opportunity to be in market before that product arrives.</strong> The window to be first in that segment is short.</p>
+</div>
+
+
+<div class="section">
+  <div class="section-label">Section B</div>
+  <h2>Tanglewood Phase 2: Suggested Pricing by Model</h2>
+
+  <p>The following tables present all Phase 2 models organized by product type, with suggested prices across all three elevations and current market comparables shown alongside each collection. All TW prices are net of the Ontario HST new home rebate. All square footage comparisons use above-grade square footage, consistent with how the comp set reports their homes. The finished recreation room is noted where relevant as a qualitative inclusion, but isn't used as the primary square footage comparison metric.</p>
+
+  <div class="callout callout-navy">
+    <p><strong>A note on elevation naming.</strong> The tables below reflect the proposed Phase 2 naming convention: Elevation A is vinyl (entry price), Elevation B is brick traditional (standard), and Elevation C is brick and stone (premium). Elevation B is highlighted as the primary benchmark and the basis for all competitive comparisons, since the proposed naming convention positions it as the community's standard offering. This naming convention is a suggested change for Phase 2 and hasn't been finalized.</p>
+  </div>
+
+  <div class="callout callout-amber" style="margin-bottom:24px;">
+    <p><strong>Phase 2 Sample Price Lists:</strong> Suggested pricing across all four collections has been prepared for review. <a href="https://drive.google.com/drive/folders/1978LExSiFfbzsDahw4vzJlIWh55A7Z1s" target="_blank" style="color:var(--navy);font-weight:bold;">View Price Lists &rarr;</a>&nbsp; <span style="font-size:12px;color:#666;">(Terrace Homes &bull; 30&rsquo; &bull; 36&rsquo; &bull; 40&rsquo; Collections)</span></p>
+  </div>
+
+  <h3 style="border-left:4px solid var(--gold);padding-left:14px;margin:32px 0 8px;">Townhomes &ndash; 20' Freehold</h3>
+  <p class="muted" style="font-size:13px;margin-bottom:18px;">Of the six active sites in this report, only Homeward Hills and Winchester offer two-storey freehold towns. Winchester's Heritage Frontsplit collection includes walk-out basements (&#9733;WO). Since all comp sites are all-brick, only our brick elevation price is shown.</p>
+
+  <table style="font-size:13px;">
+    <thead>
+      <tr>
+        <th style="width:110px;">Model</th>
+        <th style="width:50px;">Code</th>
+        <th style="width:130px;text-align:center;">Sq Ft<br>(AG + Bsmt = Total)</th>
+        <th style="width:110px;background:#C4922A;text-align:center;">Price &ndash; All Brick<br>(Elev B)</th>
+        <th>All-Brick Comp Sites | PPSF: TW vs Comp</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background:#2a3f55;">
+        <td colspan="5" style="color:#fff;font-family:Arial,sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:7px 14px;">20' Freehold Townhomes &ndash; vs Homeward Hills &amp; Winchester (All Brick)</td>
+      </tr>
+      <tr>
+        <td><strong>APPLEWOOD</strong></td>
+        <td class="muted">TL-1</td>
+        <td style="text-align:center;">1,481 AG +<br>288 bsmt<br>= <strong>1,769 total</strong></td>
+        <td style="background:#fdf3e3;text-align:center;font-weight:bold;">$699,990<br><span class="muted">$473/sqft AG</span></td>
+        <td style="font-size:12px;line-height:1.6;">HH 20' Town (all brick) $733,619 / 1,447 sqft AG | $473 vs $507/sqft AG<br>Win 20' Town (all brick) $699,900 / 1,813 sqft (per Win. footnote&#9398;) | TW: finished rec room; Win: landing only | $396 vs $386/sqft</td>
+      </tr>
+      <tr>
+        <td><strong>BLACKWOOD</strong></td>
+        <td class="muted">TL-2</td>
+        <td style="text-align:center;">1,597 AG +<br>351 bsmt<br>= <strong>1,948 total</strong></td>
+        <td style="background:#fdf3e3;text-align:center;font-weight:bold;">$719,990<br><span class="muted">$451/sqft AG</span></td>
+        <td style="font-size:12px;line-height:1.6;">HH 20' Town (all brick) $748,664 / 1,629 sqft AG | $451 vs $460/sqft AG<br>Win 20' Town (all brick) $714,900 / 1,908 sqft (per Win. footnote&#9398;) | TW: finished rec room; Win: landing only | $370 vs $375/sqft</td>
+      </tr>
+      <tr>
+        <td><strong>COTTONWOOD</strong></td>
+        <td class="muted">TL-3</td>
+        <td style="text-align:center;">1,752 AG +<br>396 bsmt<br>= <strong>2,148 total</strong></td>
+        <td style="background:#fdf3e3;text-align:center;font-weight:bold;">$749,990<br><span class="muted">$428/sqft AG</span></td>
+        <td style="font-size:12px;line-height:1.6;">HH 20' Town (all brick+stone) $761,938 / 1,736 sqft AG | $428 vs $439/sqft AG<br>Win 20' Town (all brick) &#9733;WO $749,900 / 2,013 sqft (per Win. footnote&#9398;) | TW: finished rec room; Win: landing only | $349 vs $373/sqft</td>
+      </tr>
+      <tr>
+        <td><strong>ROSEWOOD</strong></td>
+        <td class="muted">TL-4</td>
+        <td style="text-align:center;">1,853 AG +<br>389 bsmt<br>= <strong>2,242 total</strong></td>
+        <td style="background:#fdf3e3;text-align:center;font-weight:bold;">$779,990<br><span class="muted">$421/sqft AG</span></td>
+        <td style="font-size:12px;line-height:1.6;">HH 20' Town (all brick+stone) $761,938 / 1,736 sqft AG | $421 vs $439/sqft AG<br>Win 20' Town (all brick) &#9733;WO $769,900 / 2,140 sqft (per Win. footnote&#9398;) | TW: finished rec room; Win: landing only | $348 vs $360/sqft</td>
+      </tr>
+      <tr>
+        <td><strong>SILVERWOOD</strong></td>
+        <td class="muted">TL-5E</td>
+        <td style="text-align:center;">1,884 AG +<br>427 bsmt<br>= <strong>2,311 total</strong></td>
+        <td style="background:#fdf3e3;text-align:center;font-weight:bold;">$789,990<br><span class="muted">$419/sqft AG</span></td>
+        <td style="font-size:12px;line-height:1.6;">HH 20' Town (all brick+stone) $761,938 / 1,736 sqft AG | $419 vs $439/sqft AG<br>Win 20' Town (all brick) &#9733;WO $769,900 / 2,140 sqft (per Win. footnote&#9398;) | TW: finished rec room; Win: landing only | $342 vs $360/sqft</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="fn">&#9398; Winchester sqft figures include a minimal basement landing per their price list footnote. TW includes a finished recreation room; Winchester includes a landing only. &#9733;WO = walk-out basement. Pricing confirmed current as of September 2026; Homeward Hills and Winchester held their lists since July 2026.</p>
+
+  <p style="font-weight:bold;font-size:14px;margin:28px 0 6px;">Complete Suggested Price List &ndash; 20' Freehold Towns</p>
+  <p class="fn" style="margin-bottom:10px;">All prices net. Elevation A = vinyl (suggested new naming &ndash; entry price). Elevation B = brick (standard). Elevation C = brick+stone premium. Sqft includes above-grade area plus finished recreation room.</p>
+  <table style="font-size:13px;">
+    <thead>
+      <tr>
+        <th>Model</th>
+        <th>Code</th>
+        <th class="num">AG Sqft</th>
+        <th class="num">Total Sqft</th>
+        <th class="num">Elev A (Vinyl)</th>
+        <th class="num">Elev B (Brick)</th>
+        <th class="num">Elev C (Premium)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>APPLEWOOD</td><td class="muted">TL-1</td><td class="num">1,481</td><td class="num">1,769</td><td class="num">$689,990</td><td class="num">$699,990</td><td class="num">$719,990</td></tr>
+      <tr><td>BLACKWOOD</td><td class="muted">TL-2</td><td class="num">1,597</td><td class="num">1,948</td><td class="num">$709,990</td><td class="num">$719,990</td><td class="num">$739,990</td></tr>
+      <tr><td>COTTONWOOD</td><td class="muted">TL-3</td><td class="num">1,752</td><td class="num">2,148</td><td class="num">$739,990</td><td class="num">$749,990</td><td class="num">$769,990</td></tr>
+      <tr><td>ROSEWOOD</td><td class="muted">TL-4</td><td class="num">1,853</td><td class="num">2,242</td><td class="num">$769,990</td><td class="num">$779,990</td><td class="num">$799,990</td></tr>
+      <tr><td>SILVERWOOD</td><td class="muted">TL-5E</td><td class="num">1,884</td><td class="num">2,311</td><td class="num">$779,990</td><td class="num">$789,990</td><td class="num">$809,990</td></tr>
+    </tbody>
+  </table>
+  <p class="fn">Opening range: $689,990 (APPLEWOOD Elev A) to $809,990 (SILVERWOOD Elev C). All prices based on the suggested elevation naming convention.</p>
+  <p class="fn">&#9733; Minto Heights of Harmony offers Urban Towns at this location. As a stacked/attached product at a different price point, they are not directly comparable to our freehold 20' town offering and have been excluded from this section.</p>
+
+  <div class="callout callout-green">
+    <p><strong>Townhome Positioning:</strong> Our all-brick Elevation B matches both Homeward Hills and Winchester at the market entry price point, while our vinyl Elevation A opens below both. Buyers receive a finished recreation room included as standard. Heights of Harmony has announced upcoming freehold towns with no pricing released yet.</p>
+  </div>
+
+  <div style="border-top:3px solid var(--gold);margin:52px 0 0;"></div>
+  <h3 style="border-left:4px solid var(--gold);padding-left:14px;margin:32px 0 8px;">30' Single Detached</h3>
+  <p class="muted" style="font-size:13px;margin-bottom:18px;">Winchester, Heartwood Village, Heights of Harmony (Minto), and Dreamscape all offer 30' product. Homeward Hills' entry is at 32'; Jeffery Homes doesn't offer a 30' lot. Dreamscape prices reflect the August 2026 increase (+$17,699 net on all 30' models).</p>
+
+  <table style="font-size:13px;">
+    <thead>
+      <tr>
+        <th style="width:110px;">Model</th>
+        <th style="width:50px;">Code</th>
+        <th style="width:130px;text-align:center;">Sq Ft<br>(AG + Bsmt = Total)</th>
+        <th style="width:110px;background:#C4922A;text-align:center;">All Brick&#42;<br>(Elev B)</th>
+        <th>Comp (brick) | PPSF: TW vs Comp</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background:#2a3f55;">
+        <td colspan="5" style="color:#fff;font-family:Arial,sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:7px 14px;">30' Singles &ndash; vs Winchester | Heartwood Village | Minto HOH | Dreamscape by Fieldgate</td>
+      </tr>
+      <tr>
+        <td><strong>ASHWOOD</strong></td>
+        <td class="muted">30-1</td>
+        <td style="text-align:center;">1,646 AG +<br>348 bsmt<br>= <strong>1,994 total</strong></td>
+        <td style="background:#fdf3e3;text-align:center;font-weight:bold;">$789,990<br><span class="muted">$480/sqft AG</span></td>
+        <td style="font-size:12px;line-height:1.7;"><strong>Winchester</strong> 30' (brick+stucco) | 1,991 sqft (per Win. footnote&#9398;) | $835,900 | TW: finished rec room; Win: landing only | $396 vs $420/sqft (total finished)<br><strong>Heartwood</strong> 30' (brick+stone) | 1,901 sqft AG | $857,513 | $480 vs $451/sqft AG<br><strong>Minto</strong> 30' (brick+stone, single garage) | 1,710 sqft AG | $879,558 | $480 vs $514/sqft AG<br><strong>Dreamscape</strong> 30' (brick) | 2,117 sqft AG | $813,265 net&#42;&#42; | TW: rec room incl.; Dreamscape: unfinished bsmt | $396 vs $384/sqft (total vs AG)</td>
+      </tr>
+      <tr>
+        <td><strong>ELMWOOD</strong></td>
+        <td class="muted">30-2</td>
+        <td style="text-align:center;">1,876 AG +<br>400 bsmt<br>= <strong>2,276 total</strong></td>
+        <td style="background:#fdf3e3;text-align:center;font-weight:bold;">$799,990<br><span class="muted">$426/sqft AG</span></td>
+        <td style="font-size:12px;line-height:1.7;"><strong>Winchester</strong> 30' (brick+stucco) | 2,179 sqft (per Win. footnote&#9398;) | $899,900 | TW: finished rec room; Win: landing only | $352 vs $413/sqft (total finished)<br><strong>Heartwood</strong> 30' (brick+stone) | 1,901 sqft AG | $857,513 | $426 vs $451/sqft AG<br><strong>Minto</strong> 30' (brick+stone, single garage) | 1,710 sqft AG | $879,558 | $426 vs $514/sqft AG<br><strong>Dreamscape</strong> 30' (brick) | 1,979 sqft AG | $817,690 net&#42;&#42; | TW: rec room incl.; Dreamscape: unfinished bsmt | $352 vs $413/sqft (total vs AG)</td>
+      </tr>
+      <tr>
+        <td><strong>PINEWOOD</strong></td>
+        <td class="muted">30-3</td>
+        <td style="text-align:center;">2,004 AG +<br>418 bsmt<br>= <strong>2,422 total</strong></td>
+        <td style="background:#fdf3e3;text-align:center;font-weight:bold;">$839,990<br><span class="muted">$419/sqft AG</span></td>
+        <td style="font-size:12px;line-height:1.7;"><strong>Winchester</strong> 30' (all brick) | 2,393 sqft (per Win. footnote&#9398;) | $959,900 | TW: finished rec room; Win: landing only | $347 vs $401/sqft (total finished)<br><strong>Heartwood</strong> 30' (brick+stone) | 2,008 sqft AG | $870,787 | $419 vs $434/sqft AG<br><strong>Heartwood</strong> 30' (brick+stone) | 2,102 sqft AG | $884,061 | $419 vs $421/sqft AG<br><strong>Heartwood</strong> 30' (brick+stone) | 2,205 sqft AG | $901,761 | $419 vs $409/sqft AG<br><strong>Dreamscape</strong> 30' (brick) | 2,117 sqft AG | $813,265 net&#42;&#42; | TW: rec room incl.; Dreamscape: unfinished bsmt | $347 vs $384/sqft (total vs AG)</td>
+      </tr>
+      <tr>
+        <td><strong>REDWOOD</strong></td>
+        <td class="muted">30-4</td>
+        <td style="text-align:center;">2,140 AG +<br>410 bsmt<br>= <strong>2,550 total</strong></td>
+        <td style="background:#fdf3e3;text-align:center;font-weight:bold;">$869,990<br><span class="muted">$407/sqft AG</span></td>
+        <td style="font-size:12px;line-height:1.7;"><strong>Winchester</strong> 30' (brick+stucco) | 2,115 sqft (per Win. footnote&#9398;) | $889,900 | TW: finished rec room; Win: landing only | $341 vs $421/sqft (total finished)<br><strong>Winchester</strong> 30' (all brick) | 2,393 sqft (per Win. footnote&#9398;) | $959,900 | TW: finished rec room; Win: landing only | $341 vs $401/sqft (total finished)<br><strong>Heartwood</strong> 30' (brick+stone) | 2,205 sqft AG | $901,761 | $407 vs $409/sqft AG<br><strong>Dreamscape</strong> 30' (brick) | 2,117 sqft AG | $813,265 net&#42;&#42; | TW: rec room incl.; Dreamscape: unfinished bsmt | $341 vs $384/sqft (total vs AG)</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="fn">&#9398; Winchester sqft figures include a minimal basement landing per their price list footnote; TW includes a finished recreation room. &#42; "All Brick" reflects the suggested elevation renaming used throughout this report: Elev A = Vinyl (entry), Elev B = All Brick (standard), Elev C = Brick + Stone (premium). &#42;&#42; Dreamscape prices include 13% HST; net-of-rebate figures shown, updated to reflect the August 2026 increase (+$17,699 net on all 30' models). All non-Dreamscape pricing confirmed current as of September 2026; Winchester, Heartwood Village, and Heights of Harmony held their lists since July 2026.</p>
+
+  <p style="font-weight:bold;font-size:14px;margin:28px 0 6px;">Complete Suggested Price List &ndash; 30' Single Detached</p>
+  <p class="fn" style="margin-bottom:10px;">All prices net. Elevation A = vinyl (entry). Elevation B = brick (standard). Elevation C = brick+stone premium. Sqft includes above-grade area plus finished recreation room.</p>
+  <table style="font-size:13px;">
+    <thead>
+      <tr>
+        <th>Model</th>
+        <th>Code</th>
+        <th class="num">AG Sqft</th>
+        <th class="num">Total Sqft</th>
+        <th class="num">Elev A (Vinyl)</th>
+        <th class="num">Elev B (Brick)</th>
+        <th class="num">Elev C (Premium)</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>ASHWOOD</td><td class="muted">30-1</td><td class="num">1,646</td><td class="num">1,994</td><td class="num">$779,990</td><td class="num">$789,990</td><td class="num">$809,990</td><td></td></tr>
+      <tr><td>ELMWOOD</td><td class="muted">30-2</td><td class="num">1,876</td><td class="num">2,276</td><td class="num">$789,990</td><td class="num">$799,990</td><td class="num">$819,990</td><td></td></tr>
+      <tr><td>PINEWOOD</td><td class="muted">30-3</td><td class="num">2,004</td><td class="num">2,422</td><td class="num">$829,990</td><td class="num">$839,990</td><td class="num">$859,990</td><td></td></tr>
+      <tr><td>REDWOOD</td><td class="muted">30-4</td><td class="num">2,140</td><td class="num">2,550</td><td class="num">$859,990</td><td class="num">$869,990</td><td class="num">$889,990</td><td class="muted">&#9733; 12' main floor ceiling</td></tr>
+    </tbody>
+  </table>
+  <p class="fn">Opening range: $779,990 (ASHWOOD Elev A) to $889,990 (REDWOOD Elev C). &#9733; REDWOOD features a 12' main floor ceiling height.</p>
+
+  <div class="callout callout-green">
+    <p><strong>30' Positioning:</strong> Full brick at Elevation B, with a finished recreation room included as standard. Winchester and Dreamscape offer overlapping 30' product; Heartwood and Minto both open above our benchmark models on price. On a total finished sqft basis, Tanglewood delivers stronger value than all four competitors from ELMWOOD onward, with the finished recreation room as a differentiator no competitor matches at this price point.</p>
+  </div>
+
+  <div style="border-top:3px solid var(--gold);margin:52px 0 0;"></div>
+  <h3 style="border-left:4px solid var(--gold);padding-left:14px;margin:32px 0 8px;">36' Single Detached</h3>
+  <p class="muted" style="font-size:13px;margin-bottom:18px;">Comparable 36' products: Homeward Hills (36' lot, double car garage) | Heartwood Village (36' lot, double car garage) | Minto HOH (36' lot, double car garage) | Jeffery Homes The Views (36'/40' product, double car garage) | Dreamscape by Fieldgate (36' lot, double car garage, net&#42;&#42;) | Winchester: no 36' product.</p>
+
+  <table style="font-size:13px;">
+    <thead>
+      <tr>
+        <th style="width:110px;">Model</th>
+        <th style="width:50px;">Code</th>
+        <th style="width:130px;text-align:center;">Sq Ft<br>(AG + Bsmt = Total)</th>
+        <th style="width:110px;background:#C4922A;text-align:center;">All Brick&#42;<br>(Elev B)</th>
+        <th>Comp (brick) | PPSF: TW vs Comp</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background:#2a3f55;">
+        <td colspan="5" style="color:#fff;font-family:Arial,sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:7px 14px;">36' Singles &ndash; vs Homeward Hills | Heartwood Village | Minto HOH | Jeffery Homes The Views | Dreamscape by Fieldgate</td>
+      </tr>
+      <tr>
+        <td><strong>BALSAWOOD</strong></td>
+        <td class="muted">36-1</td>
+        <td style="text-align:center;">1,944 AG +<br>411 bsmt<br>= <strong>2,355 total</strong></td>
+        <td style="background:#fdf3e3;text-align:center;font-weight:bold;">$959,990<br><span class="muted">$494/sqft AG</span></td>
+        <td style="font-size:12px;line-height:1.7;"><strong>HH</strong> 36' (brick+stone) | 1,964 sqft AG | $1,003,531 | $494 vs $511/sqft AG<br><strong>Heartwood</strong> 36' (brick+stone) | 2,152 sqft AG | $972,557 | $494 vs $452/sqft AG<br><strong>Jeffery Homes</strong> 36' Elev A (vinyl) | 1,969 sqft AG | $906,186 | $494 vs $460/sqft AG<br><strong>Minto</strong> 36' (brick+stone) | 2,307 sqft AG | $1,053,900 | $494 vs $457/sqft AG<br><strong>Dreamscape</strong> 36' (brick) | 2,032 sqft AG | $848,664 net&#42;&#42; | TW: rec room incl.; Dreamscape: unfinished bsmt | $408 vs $418/sqft (total vs AG)</td>
+      </tr>
+      <tr>
+        <td><strong>CEDARWOOD</strong></td>
+        <td class="muted">36-2</td>
+        <td style="text-align:center;">2,101 AG +<br>427 bsmt<br>= <strong>2,528 total</strong></td>
+        <td style="background:#fdf3e3;text-align:center;font-weight:bold;">$999,990<br><span class="muted">$476/sqft AG</span></td>
+        <td style="font-size:12px;line-height:1.7;"><strong>HH</strong> 36' (brick+stone) | 2,277 sqft AG | $1,039,814 | $476 vs $457/sqft AG<br><strong>Heartwood</strong> 36' (brick+stone) | 2,262 sqft AG | $990,256 | $476 vs $438/sqft AG<br><strong>Jeffery Homes</strong> 36' Elev A (vinyl) | 2,154 sqft AG | $968,133 | $476 vs $449/sqft AG<br><strong>Minto</strong> 36' (brick+stone) | 2,307 sqft AG | $1,053,900 | $476 vs $457/sqft AG<br><strong>Dreamscape</strong> 36' (brick) | 2,243 sqft AG | $892,911 net&#42;&#42; | TW: rec room incl.; Dreamscape: unfinished bsmt | $396 vs $398/sqft (total vs AG)</td>
+      </tr>
+      <tr>
+        <td><strong>CREEKWOOD</strong></td>
+        <td class="muted">36-3</td>
+        <td style="text-align:center;">2,304 AG +<br>428 bsmt<br>= <strong>2,732 total</strong></td>
+        <td style="background:#fdf3e3;text-align:center;font-weight:bold;">$1,039,990<br><span class="muted">$451/sqft AG</span></td>
+        <td style="font-size:12px;line-height:1.7;"><strong>HH</strong> 36' (brick+stone) | 2,473 sqft AG | $1,062,823 | $451 vs $430/sqft AG<br><strong>Heartwood</strong> 36' (brick+stone) | 2,384 sqft AG | $1,003,990 | $451 vs $421/sqft AG<br><strong>Jeffery Homes</strong> 36' Elev A (vinyl) | 2,398 sqft AG | $1,053,990 | $451 vs $440/sqft AG<br><strong>Minto</strong> 36' (brick+stone) | 2,307 sqft AG | $1,053,900 | $451 vs $457/sqft AG<br><strong>Dreamscape</strong> 36' (brick) | 2,243 sqft AG | $892,911 net&#42;&#42; | TW: rec room incl.; Dreamscape: unfinished bsmt | $381 vs $398/sqft (total vs AG)</td>
+      </tr>
+      <tr>
+        <td><strong>EASTWOOD</strong></td>
+        <td class="muted">36-4</td>
+        <td style="text-align:center;">2,395 AG +<br>403 bsmt<br>= <strong>2,798 total</strong></td>
+        <td style="background:#fdf3e3;text-align:center;font-weight:bold;">$1,049,990<br><span class="muted">$438/sqft AG</span></td>
+        <td style="font-size:12px;line-height:1.7;"><strong>HH</strong> 36' (brick+stone) | 2,473 sqft AG | $1,062,823 | $438 vs $430/sqft AG<br><strong>Heartwood</strong> 36' (brick+stone) | 2,384 sqft AG | $1,003,990 | $438 vs $421/sqft AG<br><strong>Jeffery Homes</strong> 36' Elev A (vinyl) | 2,589 sqft AG | $1,108,990 | $438 vs $428/sqft AG<br><strong>Minto</strong> 36' (brick+stone) | 2,556 sqft AG | $1,143,900 | $438 vs $448/sqft AG<br><strong>Dreamscape</strong> 36' (brick) | 2,243 sqft AG | $892,911 net&#42;&#42; | TW: rec room incl.; Dreamscape: unfinished bsmt | $375 vs $398/sqft (total vs AG)</td>
+      </tr>
+      <tr>
+        <td><strong>GREENWOOD</strong></td>
+        <td class="muted">36-5</td>
+        <td style="text-align:center;">2,557 AG +<br>437 bsmt<br>= <strong>2,994 total</strong></td>
+        <td style="background:#fdf3e3;text-align:center;font-weight:bold;">$1,079,990<br><span class="muted">$422/sqft AG</span></td>
+        <td style="font-size:12px;line-height:1.7;"><strong>HH</strong> 36' (brick+stone) | 2,568 sqft AG | $1,074,327 | $422 vs $418/sqft AG<br><strong>Heartwood</strong> 36' (brick+stone) | 2,548 sqft AG | $1,023,990 | $422 vs $402/sqft AG<br><strong>Jeffery Homes</strong> 36' Elev A (vinyl) | 2,589 sqft AG | $1,108,990 | $422 vs $428/sqft AG<br><strong>Minto</strong> 36' (brick+stone) | 2,556 sqft AG | $1,143,900 | $422 vs $448/sqft AG<br><span class="muted">Dreamscape: no comparable at this size</span></td>
+      </tr>
+      <tr>
+        <td><strong>HONEYWOOD</strong></td>
+        <td class="muted">36-6</td>
+        <td style="text-align:center;">2,685 AG +<br>441 bsmt<br>= <strong>3,126 total</strong></td>
+        <td style="background:#fdf3e3;text-align:center;font-weight:bold;">$1,064,990<br><span class="muted">$397/sqft AG</span></td>
+        <td style="font-size:12px;line-height:1.7;"><strong>HH</strong> 36' (brick+stone) | 2,568 sqft AG | $1,074,327 | $397 vs $418/sqft AG<br><strong>Heartwood</strong> 36' (brick+stone) | 2,680 sqft AG | $1,048,990 | $397 vs $391/sqft AG<br><strong>Jeffery Homes</strong> 36' Elev A (vinyl) | 2,862 sqft AG | $1,193,990 | $397 vs $417/sqft AG<br><strong>Minto</strong> 36' (brick+stone) | 2,556 sqft AG | $1,143,900 | $397 vs $448/sqft AG<br><span class="muted">Dreamscape: no comparable at this size</span></td>
+      </tr>
+      <tr>
+        <td><strong>LAKEWOOD</strong></td>
+        <td class="muted">36-7</td>
+        <td style="text-align:center;">2,894 AG +<br>410 bsmt<br>= <strong>3,304 total</strong></td>
+        <td style="background:#fdf3e3;text-align:center;font-weight:bold;">$1,169,990<br><span class="muted">$404/sqft AG</span></td>
+        <td style="font-size:12px;line-height:1.7;"><strong>HH</strong> 36' (brick+stone) | 2,568 sqft AG | $1,074,327 | $404 vs $418/sqft AG<br><strong>Heartwood</strong> 36' (brick+stone) | 2,764 sqft AG | $1,063,990 | $404 vs $385/sqft AG<br><strong>Jeffery Homes</strong> 36' Elev A (vinyl) | 2,862 sqft AG | $1,193,990 | $404 vs $417/sqft AG<br><strong>Minto</strong> 36' (brick+stone) | 2,843 sqft AG | $1,233,900 | $404 vs $434/sqft AG<br><span class="muted">Dreamscape: no comparable at this size</span></td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="fn">&#42; "All Brick" reflects the suggested elevation renaming used throughout this report: Elev A = Vinyl (entry), Elev B = All Brick (standard), Elev C = Brick + Stone (premium). &#42;&#42; Dreamscape prices include 13% HST; net-of-rebate figures shown, updated to reflect the August 2026 increase (+$13,274 net on all 36' models). Dreamscape sqft is above-grade only; TW sqft includes finished recreation room. All non-Dreamscape pricing confirmed current as of September 2026; Homeward Hills, Heartwood Village, Heights of Harmony, and Jeffery Homes held their lists since July 2026. Jeffery Homes doesn't offer a pure brick elevation; Elev A (vinyl) used for consistent comparison.</p>
+
+  <p style="font-weight:bold;font-size:14px;margin:28px 0 6px;">Complete Suggested Price List &ndash; 36' Single Detached</p>
+  <p class="fn" style="margin-bottom:10px;">All prices net. Elevation A = vinyl (entry). Elevation B = brick (standard). Elevation C = brick+stone premium. Sqft includes above-grade area plus finished recreation room.</p>
+  <table style="font-size:13px;">
+    <thead>
+      <tr>
+        <th>Model</th>
+        <th>Code</th>
+        <th class="num">AG Sqft</th>
+        <th class="num">Total Sqft</th>
+        <th class="num">Elev A (Vinyl)</th>
+        <th class="num">Elev B (Brick)</th>
+        <th class="num">Elev C (Premium)</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>BALSAWOOD</td><td class="muted">36-1</td><td class="num">1,944</td><td class="num">2,355</td><td class="num">$949,990</td><td class="num">$959,990</td><td class="num">$979,990</td><td></td></tr>
+      <tr><td>CEDARWOOD</td><td class="muted">36-2</td><td class="num">2,101</td><td class="num">2,528</td><td class="num">$989,990</td><td class="num">$999,990</td><td class="num">$1,019,990</td><td></td></tr>
+      <tr><td>CREEKWOOD</td><td class="muted">36-3</td><td class="num">2,304</td><td class="num">2,732</td><td class="num">$1,029,990</td><td class="num">$1,039,990</td><td class="num">$1,059,990</td><td class="muted">&#9733; 12' main floor ceiling</td></tr>
+      <tr><td>EASTWOOD</td><td class="muted">36-4</td><td class="num">2,395</td><td class="num">2,798</td><td class="num">$1,039,990</td><td class="num">$1,049,990</td><td class="num">$1,069,990</td><td></td></tr>
+      <tr><td>GREENWOOD</td><td class="muted">36-5</td><td class="num">2,557</td><td class="num">2,994</td><td class="num">$1,069,990</td><td class="num">$1,079,990</td><td class="num">$1,099,990</td><td class="muted">&#9733; 12' main floor ceiling</td></tr>
+      <tr><td>HONEYWOOD</td><td class="muted">36-6</td><td class="num">2,685</td><td class="num">3,126</td><td class="num">$1,054,990</td><td class="num">$1,064,990</td><td class="num">$1,084,990</td><td class="muted">&#8224; See note</td></tr>
+      <tr><td>LAKEWOOD</td><td class="muted">36-7</td><td class="num">2,894</td><td class="num">3,304</td><td class="num">$1,159,990</td><td class="num">$1,169,990</td><td class="num">$1,189,990</td><td class="muted">&#9733; 12' main floor ceiling</td></tr>
+    </tbody>
+  </table>
+  <p class="fn">Opening range: $949,990 (BALSAWOOD Elev A) to $1,189,990 (LAKEWOOD Elev C). &#9733; Models with 12' main floor ceiling are priced at a $15,000 premium vs. comparable standard-ceiling models. &#8224; HONEYWOOD and GREENWOOD appear inverted because GREENWOOD carries the 12' ceiling premium over a larger-footprint HONEYWOOD.</p>
+
+  <div class="callout callout-green">
+    <p><strong>36' Positioning:</strong> Full brick at Elevation B, finished recreation room included standard. Homeward Hills, Heartwood, and Minto all open above our benchmark models on price. Jeffery Homes competes in the mid-range with 10' main floor ceilings standard on unfinished basements. Dreamscape's 36' lineup opens below our entry range on an unfinished basement basis; the finished recreation room narrows the value gap on an effective square footage basis. LAKEWOOD at 2,894 square feet above grade is the largest home on a 36' lot in North Oshawa.</p>
+  </div>
+
+  <div style="border-top:3px solid var(--gold);margin:52px 0 0;"></div>
+  <h3 style="border-left:4px solid var(--gold);padding-left:14px;margin:32px 0 8px;">40' Single Detached</h3>
+  <p class="muted" style="font-size:13px;margin-bottom:18px;">Comparable 40' products: Homeward Hills (40' lot, double car garage, unfinished basement) | Heartwood Village (40' lot, double car garage, unfinished basement) | Jeffery Homes The Views (40' lot, double car garage, unfinished basement, 9' basement ceilings standard) | Dreamscape by Fieldgate (42' lot, double car garage, unfinished basement, net&#42;&#42;) | Winchester: no 40' product. Minto: no 40' released.</p>
+
+  <div class="callout callout-navy"><p><strong>Sqft methodology:</strong> HH, Heartwood, Jeffery Homes, and Dreamscape by Fieldgate sqft figures are <strong>above-grade only</strong>. Tanglewood AG sqft is used for direct comparison throughout. Note: Jeffery Homes includes 10' main floor / 9' second floor / 9' basement ceilings standard throughout, on unfinished basements. Dreamscape by Fieldgate lots are 42' wide (vs. Tanglewood's 40'). The homes are size-comparable but the lot widths differ.</p></div>
+  <div class="callout callout-amber"><p>All comps use Elevation B (brick) as the benchmark under the proposed Phase 2 naming convention. Elevation A (vinyl) = &minus;$10,000 / Elevation C (brick+stone) = +$20,000. Exception: Jeffery Homes has no pure brick elevation, so Elev A (vinyl) is used for all JH comps for consistent comparison.</p></div>
+
+  <table style="font-size:13px;">
+    <thead>
+      <tr>
+        <th style="width:110px;">Model</th>
+        <th style="width:50px;">Code</th>
+        <th style="width:130px;text-align:center;">Sq Ft<br>(AG + Bsmt = Total)</th>
+        <th style="width:110px;background:#C4922A;text-align:center;">All Brick&#42;<br>(Elev B)</th>
+        <th>Comp (brick) | PPSF: TW vs Comp</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background:#2a3f55;"><td colspan="5" style="color:#fff;font-family:Arial,sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:7px 14px;">40' Singles &ndash; vs HH | Heartwood Village | Jeffery Homes The Views | Dreamscape by Fieldgate (42' lot)</td></tr>
+      <tr>
+        <td><strong>BIRCHWOOD</strong></td><td class="muted">40-1</td>
+        <td style="text-align:center;">2,505 AG +<br>326 bsmt<br>= <strong>2,831 total</strong></td>
+        <td style="background:#fdf3e3;text-align:center;font-weight:bold;">$1,084,990<br><span class="muted">$433/sqft AG</span></td>
+        <td style="font-size:12px;line-height:1.7;"><strong>HH</strong> 40' (brick+stone) | 2,516 sqft AG | $1,115,920 | $433 vs $443/sqft AG<br><strong>Heartwood</strong> 40' (brick+stone) | 2,595 sqft AG | $1,118,990 | $433 vs $431/sqft AG<br><strong>Jeffery Homes</strong> 40' Elev A (vinyl) | 2,646 sqft AG | $1,243,990 | $433 vs $470/sqft AG<br><strong>Dreamscape</strong> 42' (brick) | 2,547 sqft AG | $978,990 net&#42;&#42; | TW: rec room incl.; Dreamscape: unfinished bsmt | $433 vs $384/sqft AG</td>
+      </tr>
+      <tr>
+        <td><strong>CHERRYWOOD</strong></td><td class="muted">40-2</td>
+        <td style="text-align:center;">2,694 AG +<br>416 bsmt<br>= <strong>3,110 total</strong></td>
+        <td style="background:#fdf3e3;text-align:center;font-weight:bold;">$1,109,990<br><span class="muted">$412/sqft AG</span></td>
+        <td style="font-size:12px;line-height:1.7;"><strong>HH</strong> 40' (brick+stone) | 2,516 sqft AG | $1,115,920 | $412 vs $443/sqft AG<br><strong>Heartwood</strong> 40' (brick+stone) | 2,705 sqft AG | $1,138,990 | $412 vs $421/sqft AG<br><strong>Jeffery Homes</strong> 40' Elev A (vinyl) | 2,646 sqft AG | $1,243,990 | $412 vs $470/sqft AG<br><strong>Dreamscape</strong> 42' (brick) | 3,012 sqft AG | $1,078,990 net&#42;&#42; | TW: rec room incl.; Dreamscape: unfinished bsmt | $412 vs $358/sqft AG</td>
+      </tr>
+      <tr>
+        <td><strong>MAPLEWOOD</strong></td><td class="muted">40-3</td>
+        <td style="text-align:center;">2,773 AG +<br>420 bsmt<br>= <strong>3,193 total</strong></td>
+        <td style="background:#fdf3e3;text-align:center;font-weight:bold;">$1,139,990<br><span class="muted">$411/sqft AG</span></td>
+        <td style="font-size:12px;line-height:1.7;"><strong>HH</strong> 40' (brick+stone) | 3,044 sqft AG | $1,162,823 | $411 vs $382/sqft AG<br><strong>Heartwood</strong> 40' (brick+stone) | 2,839 sqft AG | $1,165,990 | $411 vs $411/sqft AG<br><strong>Jeffery Homes</strong> 40' Elev A (vinyl) | 2,646 sqft AG | $1,243,990 | $411 vs $470/sqft AG<br><strong>Dreamscape</strong> 42' (brick) | 3,126 sqft AG | $1,093,990 net&#42;&#42; | TW: rec room incl.; Dreamscape: unfinished bsmt | $411 vs $350/sqft AG</td>
+      </tr>
+      <tr>
+        <td><strong>NOBLEWOOD</strong></td><td class="muted">40-4</td>
+        <td style="text-align:center;">2,885 AG +<br>399 bsmt<br>= <strong>3,284 total</strong></td>
+        <td style="background:#fdf3e3;text-align:center;font-weight:bold;">$1,124,990<br><span class="muted">$390/sqft AG</span></td>
+        <td style="font-size:12px;line-height:1.7;"><strong>HH</strong> 40' (brick+stone) | 3,044 sqft AG | $1,162,823 | $390 vs $382/sqft AG<br><strong>Heartwood</strong> 40' (brick+stone) | 2,839 sqft AG | $1,165,990 | $390 vs $411/sqft AG<br><strong>Heartwood</strong> 40' (brick+stone) | 3,018 sqft AG | $1,196,990 | $390 vs $396/sqft AG<br><strong>Jeffery Homes</strong> 40' Elev A (vinyl) | 2,813 sqft AG | $1,293,990 | $390 vs $460/sqft AG<br><strong>Dreamscape</strong> 42' (brick) | 2,864 sqft AG | $1,043,990 net&#42;&#42; | TW: rec room incl.; Dreamscape: unfinished bsmt | $390 vs $365/sqft AG</td>
+      </tr>
+      <tr>
+        <td><strong>OAKWOOD</strong></td><td class="muted">40-5</td>
+        <td style="text-align:center;">3,141 AG +<br>415 bsmt<br>= <strong>3,556 total</strong></td>
+        <td style="background:#fdf3e3;text-align:center;font-weight:bold;">$1,189,990<br><span class="muted">$379/sqft AG</span></td>
+        <td style="font-size:12px;line-height:1.7;"><strong>HH</strong> 40' (brick+stone) | 3,128 sqft AG | $1,180,522 | $379 vs $377/sqft AG<br><strong>Heartwood</strong> 40' (brick+stone) | 3,018 sqft AG | $1,196,990 | $379 vs $397/sqft AG<br><strong>Heartwood</strong> 40' (brick+stone) | 3,126 sqft AG | $1,218,990 | $379 vs $390/sqft AG<br><strong>Jeffery Homes</strong> 40' Elev A (vinyl) | 3,039 sqft AG | $1,373,990 | $379 vs $452/sqft AG<br><strong>Dreamscape</strong> 42' (brick) | 3,126 sqft AG | $1,093,990 net&#42;&#42; | TW: rec room incl.; Dreamscape: unfinished bsmt | $379 vs $350/sqft AG</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="fn">&#42; "All Brick" reflects the suggested elevation renaming: Elev A = Vinyl (entry), Elev B = All Brick (standard), Elev C = Brick + Stone (premium). &#42;&#42; Dreamscape prices include 13% HST; net-of-rebate figures shown. Dreamscape 42' pricing unchanged since July 2026. Dreamscape sqft is above-grade only; TW sqft includes finished recreation room. Jeffery Homes doesn't offer a pure brick elevation; Elev A (vinyl) used for consistent comparison. All non-Dreamscape pricing confirmed current as of September 2026; Homeward Hills, Heartwood Village, and Jeffery Homes held their lists since July 2026.</p>
+
+  <p style="font-weight:bold;font-size:14px;margin:28px 0 6px;">Complete Suggested Price List &ndash; 40' Single Detached</p>
+  <p class="fn" style="margin-bottom:10px;">All prices net. Elev A = vinyl entry. Elev B = brick standard. Elev C = brick+stone premium (+$20,000). Sqft includes above-grade plus finished recreation room. All elevations based on suggested Phase 2 naming convention.</p>
+  <table style="font-size:13px;">
+    <thead>
+      <tr>
+        <th>Model</th><th>Code</th><th class="num">AG Sqft</th><th class="num">Total Sqft</th>
+        <th class="num">Elev A (Vinyl)</th><th class="num">Elev B (Brick)</th><th class="num">Elev C (Premium)</th><th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>BIRCHWOOD</td><td class="muted">40-1</td><td class="num">2,505</td><td class="num">2,831</td><td class="num">$1,074,990</td><td class="num">$1,084,990</td><td class="num">$1,104,990</td><td></td></tr>
+      <tr><td>CHERRYWOOD</td><td class="muted">40-2</td><td class="num">2,694</td><td class="num">3,110</td><td class="num">$1,099,990</td><td class="num">$1,109,990</td><td class="num">$1,129,990</td><td></td></tr>
+      <tr><td>MAPLEWOOD</td><td class="muted">40-3</td><td class="num">2,773</td><td class="num">3,193</td><td class="num">$1,129,990</td><td class="num">$1,139,990</td><td class="num">$1,159,990</td><td class="muted">&#9733; 12' main floor ceiling</td></tr>
+      <tr><td>NOBLEWOOD</td><td class="muted">40-4</td><td class="num">2,885</td><td class="num">3,284</td><td class="num">$1,114,990</td><td class="num">$1,124,990</td><td class="num">$1,144,990</td><td class="muted">&#8224; See note</td></tr>
+      <tr><td>OAKWOOD</td><td class="muted">40-5</td><td class="num">3,141</td><td class="num">3,556</td><td class="num">$1,179,990</td><td class="num">$1,189,990</td><td class="num">$1,209,990</td><td class="muted">&#9733; 12' main floor ceiling</td></tr>
+    </tbody>
+  </table>
+  <p class="fn">Opening range: $1,074,990 (BIRCHWOOD Elev A) to $1,209,990 (OAKWOOD Elev C). &#9733; Models with 12' main floor ceiling are priced at a $15,000 premium vs. comparable standard-ceiling models. &#8224; NOBLEWOOD and MAPLEWOOD appear inverted because MAPLEWOOD carries the 12' ceiling premium over a larger-footprint NOBLEWOOD.</p>
+  <p class="fn">&#42;&#42;Dreamscape by Fieldgate prices include HST. Net shown after partial HST rebate.</p>
+
+  <div class="callout callout-green">
+    <p><strong>40' Positioning:</strong> Full brick at Elevation B, finished recreation room included standard. Homeward Hills and Heartwood both open above our benchmark models on absolute price. Jeffery Homes is the only other 40' builder in this market; their lineup opens higher and climbs well above ours, reflecting 10' main floor, 9' second floor, and 9' basement ceilings standard throughout, on unfinished basements. Dreamscape by Fieldgate's 42' product enters below our range and carries a lower above-grade PPSF across every model; their lots are wider (42' vs. 40') and their basements are unfinished, with the finished recreation room as Tanglewood's meaningful differentiator. Where two of our models are similar in square footage but carry different price points, ceiling height is the only variable and the price structure makes that relationship transparent to buyers.</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Price &amp; PPSF Analysis</div>
+  <h2>Price &amp; PPSF Comparison by Lot Width</h2>
+
+  <div class="callout" style="border-left:4px solid #8a6010;background:#fff8e1;padding:18px 24px;border-radius:4px;margin-bottom:24px;">
+    <p>Each chart groups all competing models alongside the Tanglewood model they are closest to in square footage. Price (Elev B, net) is labeled above each Tanglewood bar; PPSF is shown just below. Hover any competitor bar for their price and PPSF. Dreamscape prices reflect the August 2026 increase.</p>
+  </div>
+
+  <div style="background:#f7f1e6;border-radius:8px;padding:20px 24px;margin-bottom:16px;">
+    <p style="font-family:Arial,sans-serif;font-size:11px;font-weight:bold;letter-spacing:1.5px;text-transform:uppercase;color:#333;margin-bottom:16px;">TOWNS &mdash; 20' FREEHOLD</p>
+    <div style="position:relative;height:300px;"><canvas id="chartTowns"></canvas></div>
+  </div>
+
+  <div style="background:#eeeeea;border-radius:8px;padding:20px 24px;margin-bottom:16px;">
+    <p style="font-family:Arial,sans-serif;font-size:11px;font-weight:bold;letter-spacing:1.5px;text-transform:uppercase;color:#333;margin-bottom:16px;">30' SINGLE DETACHED</p>
+    <div style="position:relative;height:320px;"><canvas id="chart30"></canvas></div>
+  </div>
+
+  <div style="background:#f7f1e6;border-radius:8px;padding:20px 24px;margin-bottom:16px;">
+    <p style="font-family:Arial,sans-serif;font-size:11px;font-weight:bold;letter-spacing:1.5px;text-transform:uppercase;color:#333;margin-bottom:16px;">36' SINGLE DETACHED &mdash; BALSAWOOD TO EASTWOOD</p>
+    <div style="position:relative;height:340px;"><canvas id="chart36a"></canvas></div>
+  </div>
+
+  <div style="background:#f7f1e6;border-radius:8px;padding:20px 24px;margin-bottom:16px;">
+    <p style="font-family:Arial,sans-serif;font-size:11px;font-weight:bold;letter-spacing:1.5px;text-transform:uppercase;color:#333;margin-bottom:16px;">36' SINGLE DETACHED &mdash; GREENWOOD TO LAKEWOOD</p>
+    <div style="position:relative;height:300px;"><canvas id="chart36b"></canvas></div>
+  </div>
+
+  <div style="background:#eeeeea;border-radius:8px;padding:20px 24px;margin-bottom:16px;">
+    <p style="font-family:Arial,sans-serif;font-size:11px;font-weight:bold;letter-spacing:1.5px;text-transform:uppercase;color:#333;margin-bottom:16px;">40' SINGLE DETACHED</p>
+    <div style="position:relative;height:340px;"><canvas id="chart40"></canvas></div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script>
+  (function(){
+    const C={tw:'#162d4a',hh:'#C06040',win:'#7355A0',hw:'#D47030',jh:'#4a9975',minto:'#5b82c7',drmsc:'#9e8060'};
+    function fmt(v){if(!v)return'';return v>=1e6?'$'+(v/1e6).toFixed(2).replace(/\.?0+$/,'')+'M':'$'+Math.round(v/1e3)+'K';}
+    // bars: [label, priceData[], color, ppsfData[]]
+    function mkChart(id,labels,bars){
+      const el=document.getElementById(id);if(!el)return;
+      const ds=bars.map(b=>({label:b[0],data:b[1],backgroundColor:b[2],categoryPercentage:0.82,barPercentage:0.88,_ppsf:b[3]||[]}));
+      const prices=bars.flatMap(b=>b[1].filter(v=>v!=null));
+      const yMin=Math.floor((Math.min(...prices)-50000)/10000)*10000;
+      const yMax=Math.ceil((Math.max(...prices)+100000)/10000)*10000;
+      new Chart(el,{type:'bar',data:{labels,datasets:ds},
+        plugins:[{id:'lbl',afterDatasetsDraw(chart){
+          const cx=chart.ctx;
+          chart.data.datasets.forEach((d,di)=>{
+            if(d.label!=='Tanglewood') return;
+            const meta=chart.getDatasetMeta(di);
+            meta.data.forEach((bar,i)=>{
+              const v=d.data[i];if(!v)return;
+              const pp=d._ppsf[i];
+              cx.save();
+              cx.font='bold 10px Arial';cx.fillStyle='#162d4a';cx.textAlign='center';
+              cx.fillText(fmt(v),bar.x,bar.y-14);
+              if(pp){cx.font='9px Arial';cx.fillText('$'+pp+'/sf',bar.x,bar.y-3);}
+              cx.restore();
+            });
+          });
+        }}],
+        options:{responsive:true,maintainAspectRatio:false,
+          plugins:{
+            legend:{position:'top',labels:{font:{size:10},boxWidth:10,padding:10}},
+            tooltip:{callbacks:{label(c){const pp=c.dataset._ppsf&&c.dataset._ppsf[c.dataIndex];return c.dataset.label+': '+fmt(c.raw)+(pp?' | $'+pp+'/sf':'');}}}
+          },
+          scales:{
+            x:{ticks:{font:{size:10},maxRotation:0,minRotation:0}},
+            y:{min:yMin,max:yMax,ticks:{callback:v=>fmt(v),font:{size:9}},grid:{color:'rgba(0,0,0,0.06)'}}
+          }
+        }
+      });
+    }
+    mkChart('chartTowns',['APPLEWOOD','BLACKWOOD','COTTONWOOD','ROSEWOOD','SILVERWOOD'],
+      [['Tanglewood',[699990,719990,749990,779990,789990],C.tw,[473,451,428,421,419]],
+       ['Homeward Hills',[733619,748664,761938,761938,761938],C.hh,[507,460,439,439,439]],
+       ['Winchester',[699900,714900,749900,769900,769900],C.win,[386,375,373,360,360]]]);
+    mkChart('chart30',['ASHWOOD','ELMWOOD','PINEWOOD','REDWOOD'],
+      [['Tanglewood',[789990,799990,839990,869990],C.tw,[480,426,419,407]],
+       ['Winchester',[835900,899900,959900,889900],C.win,[420,413,401,421]],
+       ['Heartwood',[857513,857513,870787,901761],C.hw,[451,451,434,409]],
+       ['Minto',[879558,879558,null,null],C.minto,[514,514,null,null]],
+       ['Dreamscape',[813265,817690,813265,813265],C.drmsc,[384,413,384,384]]]);
+    mkChart('chart36a',['BALSAWOOD','CEDARWOOD','CREEKWOOD','EASTWOOD'],
+      [['Tanglewood',[959990,999990,1039990,1049990],C.tw,[494,476,451,438]],
+       ['Homeward Hills',[1003531,1039814,1062823,1062823],C.hh,[511,457,430,430]],
+       ['Heartwood',[972557,990256,1003990,1003990],C.hw,[452,438,421,421]],
+       ['Jeffery Homes',[906186,968133,1053990,1108990],C.jh,[460,449,440,428]],
+       ['Minto',[1053900,1053900,1053900,1143900],C.minto,[457,457,457,448]],
+       ['Dreamscape',[848664,892911,892911,892911],C.drmsc,[418,398,398,398]]]);
+    mkChart('chart36b',['GREENWOOD','HONEYWOOD','LAKEWOOD'],
+      [['Tanglewood',[1079990,1064990,1169990],C.tw,[422,397,404]],
+       ['Homeward Hills',[1074327,1074327,1074327],C.hh,[418,418,418]],
+       ['Heartwood',[1023990,1048990,1063990],C.hw,[402,391,385]],
+       ['Jeffery Homes',[1108990,1193990,1193990],C.jh,[428,417,417]],
+       ['Minto',[1143900,1143900,1233900],C.minto,[448,448,434]]]);
+    mkChart('chart40',['BIRCHWOOD','CHERRYWOOD','MAPLEWOOD','NOBLEWOOD','OAKWOOD'],
+      [['Tanglewood',[1084990,1109990,1139990,1124990,1189990],C.tw,[433,412,411,390,379]],
+       ['Homeward Hills',[1115920,1115920,1162823,1162823,1180522],C.hh,[443,443,382,382,377]],
+       ['Heartwood',[1118990,1138990,1165990,1165990,1196990],C.hw,[431,421,411,411,397]],
+       ['Jeffery Homes',[1243990,1243990,1243990,1293990,1373990],C.jh,[470,470,470,460,452]],
+       ['Dreamscape',[978990,1078990,1093990,1043990,1093990],C.drmsc,[384,358,350,365,350]]]);
+  })();
+  </script>
+</div>
+
+
+<div class="section">
+  <div class="section-label">Section C</div>
+  <h2>North Oshawa Comp Set: Current Status</h2>
+
+  <p>All six active communities are within a short drive of one another and compete for the same buyer pool. The table below summarizes each builder's current standing. Floor plans and price lists for all sites are organized in the Tanglewood Google Drive; each builder's folder link is included below.</p>
+
+  <table class="builder-summary-table">
+    <thead>
+      <tr>
+        <th>Builder / Community</th>
+        <th>Products</th>
+        <th>Price Range (Net)</th>
+        <th>Status</th>
+        <th>Closing</th>
+        <th>Drive</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Fieldgate<br><span class="builder-note">Dreamscape</span></td>
+        <td>30' / 36' / 42'</td>
+        <td>$813K &ndash; $1.18M*</td>
+        <td><span class="s-up">Increased Aug 2026</span></td>
+        <td>VIP / Not yet public</td>
+        <td><a href="https://drive.google.com/drive/folders/1sBA6Dzm8UMYP4DCcK-gUTYaYpcpFgFWp" target="_blank" style="color:var(--gold-deep);">Dreamscape</a></td>
+      </tr>
+      <tr>
+        <td>Sorbara Group<br><span class="builder-note">Homeward Hills</span></td>
+        <td>Town / 32' / 36' / 40'</td>
+        <td>$699K &ndash; $1.19M</td>
+        <td><span class="s-stable">Stable since Jul 2026</span></td>
+        <td>2027 &ndash; 2028</td>
+        <td><a href="https://drive.google.com/drive/folders/1DHM_SKY8r-2FNlMaLiWhPLjwJZI5wwPd" target="_blank" style="color:var(--gold-deep);">Homeward Hills</a></td>
+      </tr>
+      <tr>
+        <td>Menkes Developments<br><span class="builder-note">Winchester Estates</span></td>
+        <td>Town / 30'</td>
+        <td>$699K &ndash; $960K</td>
+        <td><span class="s-watch">Sales activity evident (towns)</span></td>
+        <td>Q3 2027</td>
+        <td><a href="https://drive.google.com/drive/folders/1kpcHirzFdFInUjvibxW_-SGdUTb4qGkM" target="_blank" style="color:var(--gold-deep);">Winchester</a></td>
+      </tr>
+      <tr>
+        <td>Laurelcrest Homes<br><span class="builder-note">Heartwood Village</span></td>
+        <td>30' / 36' / 40'</td>
+        <td>$844K &ndash; $1.19M</td>
+        <td><span class="s-stable">Stable since May 2026</span><br><span class="builder-note">Towns: sold out, no further release</span></td>
+        <td>Oct &ndash; Dec 2027</td>
+        <td><a href="https://drive.google.com/drive/folders/1dmdYEQ9FBaXWZK7gOg7S6yi9AR2WpJIf" target="_blank" style="color:var(--gold-deep);">Heartwood Village</a></td>
+      </tr>
+      <tr>
+        <td>Minto Communities<br><span class="builder-note">Heights of Harmony East</span></td>
+        <td>30' / 32' / 36'<br><span class="builder-note">Urban Towns (stacked); Freehold Towns announced</span></td>
+        <td>$773K &ndash; $1.23M</td>
+        <td><span class="s-stable">Stable since Jul 2026</span><br><span class="s-watch">Freehold towns coming this fall</span></td>
+        <td>Fall 2027</td>
+        <td><a href="https://drive.google.com/drive/folders/1r56mUICHmd2eEq-o-trPqdiJfaVSXIqN" target="_blank" style="color:var(--gold-deep);">HOH East</a></td>
+      </tr>
+      <tr>
+        <td>Jeffery Homes<br><span class="builder-note">The Views</span></td>
+        <td>36' / 40'</td>
+        <td>$906K &ndash; $1.39M</td>
+        <td><span class="s-stable">Stable since Aug 2026</span><br><span class="builder-note">Incentive: $70K decor on 36', $20K on 40' (limited)</span></td>
+        <td>Phase 2</td>
+        <td><a href="https://drive.google.com/drive/folders/1EJJyFWiNbKVugZhuK9yAWP8QMAjMilLa" target="_blank" style="color:var(--gold-deep);">The Views</a></td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="fn">* Dreamscape prices include 13% HST. Net-of-rebate figures shown throughout this report. Jeffery Homes' significant incentive on the 36' product ($70,000 decor credit) suggests softening demand at the upper end of that range.</p>
+
+  <div class="callout callout-navy">
+    <p><strong>What this table tells us.</strong> Five of six builders held their lists. The one move was Dreamscape going higher, not lower. Heartwood Village's townhome product is sold out with no new release announced. Winchester has sales activity in their towns. Jeffery Homes is offering significant incentives. Taken together, the market isn't retreating; it's consolidating, and the product that's generating the most momentum in the town segment is already being absorbed.</p>
+  </div>
+
+  <p style="font-weight:bold;font-size:14px;margin:28px 0 6px;">Previous Reports</p>
+  <table style="font-size:13px;">
+    <thead><tr><th>Report</th><th>Description</th><th>Link</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Phase 2 Pre-Launch Briefing</strong></td>
+        <td>August 2026: Full Phase 2 model analysis, pricing rationale, and market positioning</td>
+        <td><a href="https://jeffrey7651.github.io/tanglewood-phase2-briefing/" target="_blank" style="color:var(--gold-deep);">View Report</a></td>
+      </tr>
+      <tr>
+        <td><strong>Phase 2 Differentiation Strategy</strong></td>
+        <td>August 2026: Product strategy and competitive gap analysis</td>
+        <td><a href="https://jeffrey7651.github.io/tanglewood-differentiation-strategy/" target="_blank" style="color:var(--gold-deep);">View Report</a></td>
+      </tr>
+      <tr>
+        <td><strong>Phase 2 Sample Price Lists</strong></td>
+        <td>September 2026: Suggested pricing for all four collections (Terrace Homes, 30&rsquo;, 36&rsquo;, 40&rsquo;)</td>
+        <td><a href="https://drive.google.com/drive/folders/1978LExSiFfbzsDahw4vzJlIWh55A7Z1s" target="_blank" style="color:var(--gold-deep);">View Price Lists</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section">
+  <div class="section-label">Section D</div>
+  <h2>Features and Inclusions: Where Tanglewood Stands</h2>
+
+  <p>Price comparisons establish competitive positioning on paper. Features and inclusions determine whether buyers choosing between communities feel the difference the moment they walk in. This section documents how Tanglewood's standard inclusions compare to the comp set, identifies where Phase 2 has clear advantages, and flags the gaps that could affect how buyers perceive value relative to competing homes.</p>
+
+  <p>All data is drawn from each builder's current published standard feature sheet. Items marked as unconfirmed are pending verification and will be updated as part of the ongoing monthly competitive review process.</p>
+
+  <h3>Standard Feature Comparison</h3>
+
+  <table style="font-size:12px;" class="comp-table">
+    <thead>
+      <tr>
+        <th style="width:165px;">Feature</th>
+        <th style="text-align:center;background:#C4922A;width:95px;">Tanglewood</th>
+        <th style="text-align:center;width:95px;">Homeward Hills<br><span style="font-weight:normal;font-size:10px;opacity:0.8;">Sorbara</span></th>
+        <th style="text-align:center;width:95px;">Heartwood<br><span style="font-weight:normal;font-size:10px;opacity:0.8;">Laurelcrest</span></th>
+        <th style="text-align:center;width:90px;">Winchester<br><span style="font-weight:normal;font-size:10px;opacity:0.8;">Menkes</span></th>
+        <th style="text-align:center;width:90px;">HOH East<br><span style="font-weight:normal;font-size:10px;opacity:0.8;">Minto</span></th>
+        <th style="text-align:center;width:90px;">The Views<br><span style="font-weight:normal;font-size:10px;opacity:0.8;">Jeffery Homes</span></th>
+        <th style="text-align:center;width:90px;">Dreamscape<br><span style="font-weight:normal;font-size:10px;opacity:0.8;">Fieldgate</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Smooth ceilings</strong></td>
+        <td style="text-align:center;background:#ffebee;color:#c62828;font-weight:bold;">No</td>
+        <td style="text-align:center;background:#e8f5e9;color:#2e7d32;">Yes</td>
+        <td style="text-align:center;background:#fff8e1;color:#e65100;font-size:10.5px;">Unconfirmed</td>
+        <td style="text-align:center;background:#e8f5e9;color:#2e7d32;">Yes</td>
+        <td style="text-align:center;background:#e8f5e9;color:#2e7d32;">Yes</td>
+        <td style="text-align:center;background:#e8f5e9;color:#2e7d32;">Yes &ndash; full house</td>
+        <td style="text-align:center;background:#fff8e1;color:#e65100;font-size:10.5px;">Unconfirmed</td>
+      </tr>
+      <tr>
+        <td><strong>Central A/C (standard)</strong></td>
+        <td style="text-align:center;background:#e8f5e9;color:#2e7d32;font-weight:bold;">Yes</td>
+        <td style="text-align:center;background:#e8f5e9;color:#2e7d32;">Yes</td>
+        <td style="text-align:center;background:#fff8e1;color:#e65100;font-size:10.5px;">Unconfirmed</td>
+        <td style="text-align:center;background:#e8f5e9;color:#2e7d32;">Yes</td>
+        <td style="text-align:center;background:#ffebee;color:#c62828;font-weight:bold;">No</td>
+        <td style="text-align:center;background:#e8f5e9;color:#2e7d32;">Yes</td>
+        <td style="text-align:center;background:#fff8e1;color:#e65100;font-size:10.5px;">Incentive only</td>
+      </tr>
+      <tr>
+        <td><strong>Interlock driveway</strong></td>
+        <td style="text-align:center;background:#e8f5e9;color:#2e7d32;font-weight:bold;">Yes</td>
+        <td style="text-align:center;background:#ffebee;color:#c62828;">Asphalt</td>
+        <td style="text-align:center;background:#ffebee;color:#c62828;">Asphalt</td>
+        <td style="text-align:center;background:#ffebee;color:#c62828;">Asphalt</td>
+        <td style="text-align:center;background:#ffebee;color:#c62828;">Asphalt</td>
+        <td style="text-align:center;background:#ffebee;color:#c62828;">Asphalt</td>
+        <td style="text-align:center;background:#ffebee;color:#c62828;">Asphalt</td>
+      </tr>
+      <tr>
+        <td><strong>Finished basement / rec room</strong></td>
+        <td style="text-align:center;background:#e8f5e9;color:#2e7d32;font-weight:bold;">Yes (partial)</td>
+        <td style="text-align:center;background:#ffebee;color:#c62828;">No</td>
+        <td style="text-align:center;background:#ffebee;color:#c62828;">No</td>
+        <td style="text-align:center;background:#ffebee;color:#c62828;">Landing only</td>
+        <td style="text-align:center;background:#ffebee;color:#c62828;">No</td>
+        <td style="text-align:center;background:#ffebee;color:#c62828;">No</td>
+        <td style="text-align:center;background:#ffebee;color:#c62828;">No (unfinished)</td>
+      </tr>
+      <tr>
+        <td><strong>Frameless glass shower (master)</strong></td>
+        <td style="text-align:center;background:#e8f5e9;color:#2e7d32;font-weight:bold;">Yes</td>
+        <td style="text-align:center;background:#ffebee;color:#c62828;">No (framed)</td>
+        <td style="text-align:center;background:#ffebee;color:#c62828;">No</td>
+        <td style="text-align:center;background:#ffebee;color:#c62828;">No</td>
+        <td style="text-align:center;background:#ffebee;color:#c62828;">No</td>
+        <td style="text-align:center;background:#e8f5e9;color:#2e7d32;">Yes</td>
+        <td style="text-align:center;background:#ffebee;color:#c62828;">No</td>
+      </tr>
+      <tr>
+        <td><strong>Gas fireplace (standard)</strong></td>
+        <td style="text-align:center;background:#ffebee;color:#c62828;font-weight:bold;">No</td>
+        <td style="text-align:center;background:#e8f5e9;color:#2e7d32;">Yes</td>
+        <td style="text-align:center;background:#fff8e1;color:#e65100;font-size:10.5px;">Unconfirmed</td>
+        <td style="text-align:center;background:#ffebee;color:#c62828;">No</td>
+        <td style="text-align:center;background:#ffebee;color:#c62828;">No</td>
+        <td style="text-align:center;background:#e8f5e9;color:#2e7d32;">Yes</td>
+        <td style="text-align:center;background:#ffebee;color:#c62828;">No</td>
+      </tr>
+      <tr>
+        <td><strong>Main floor ceiling height</strong></td>
+        <td style="text-align:center;background:#e8eef5;font-weight:bold;">9' (12' select)</td>
+        <td style="text-align:center;">9'</td>
+        <td style="text-align:center;">9'</td>
+        <td style="text-align:center;">9'</td>
+        <td style="text-align:center;">9'</td>
+        <td style="text-align:center;background:#e8f5e9;color:#2e7d32;">10' main / 9' upper</td>
+        <td style="text-align:center;">9' / 10' (36' models)</td>
+      </tr>
+      <tr>
+        <td><strong>Basement ceiling height</strong></td>
+        <td style="text-align:center;background:#e8eef5;font-weight:bold;">N/A (partial finish)</td>
+        <td style="text-align:center;">8'</td>
+        <td style="text-align:center;">8'</td>
+        <td style="text-align:center;">N/A (landing)</td>
+        <td style="text-align:center;">8'</td>
+        <td style="text-align:center;background:#e8f5e9;color:#2e7d32;">9'</td>
+        <td style="text-align:center;color:#999;font-size:10.5px;">Unfinished</td>
+      </tr>
+      <tr>
+        <td><strong>EV charger rough-in</strong></td>
+        <td style="text-align:center;background:#fff8e1;color:#e65100;font-weight:bold;font-size:10.5px;">Unconfirmed</td>
+        <td style="text-align:center;background:#fff8e1;color:#e65100;font-size:10.5px;">Unconfirmed</td>
+        <td style="text-align:center;background:#fff8e1;color:#e65100;font-size:10.5px;">Unconfirmed</td>
+        <td style="text-align:center;background:#e8f5e9;color:#2e7d32;">Yes</td>
+        <td style="text-align:center;background:#e8f5e9;color:#2e7d32;">Yes</td>
+        <td style="text-align:center;background:#e8f5e9;color:#2e7d32;">Yes</td>
+        <td style="text-align:center;background:#e8f5e9;color:#2e7d32;">Yes</td>
+      </tr>
+      <tr>
+        <td><strong>Pot lights (standard rooms)</strong></td>
+        <td style="text-align:center;background:#fff8e1;color:#e65100;font-weight:bold;font-size:10.5px;">Unconfirmed</td>
+        <td style="text-align:center;background:#fff8e1;color:#e65100;font-size:10.5px;">Unconfirmed</td>
+        <td style="text-align:center;background:#fff8e1;color:#e65100;font-size:10.5px;">Unconfirmed</td>
+        <td style="text-align:center;background:#e8f5e9;color:#2e7d32;">Yes</td>
+        <td style="text-align:center;background:#e8f5e9;color:#2e7d32;">Yes</td>
+        <td style="text-align:center;background:#e8f5e9;color:#2e7d32;">Yes (extensive)</td>
+        <td style="text-align:center;background:#e8f5e9;color:#2e7d32;">Yes</td>
+      </tr>
+      <tr>
+        <td><strong>Quartz kitchen countertops</strong></td>
+        <td style="text-align:center;background:#e8f5e9;color:#2e7d32;font-weight:bold;">Yes</td>
+        <td style="text-align:center;background:#e8f5e9;color:#2e7d32;">Yes</td>
+        <td style="text-align:center;background:#e8f5e9;color:#2e7d32;">Yes</td>
+        <td style="text-align:center;background:#e8f5e9;color:#2e7d32;">Yes</td>
+        <td style="text-align:center;background:#fff8e1;color:#e65100;font-size:10.5px;">Unconfirmed</td>
+        <td style="text-align:center;background:#e8f5e9;color:#2e7d32;">Yes</td>
+        <td style="text-align:center;background:#e8f5e9;color:#2e7d32;">Yes</td>
+      </tr>
+      <tr>
+        <td><strong>Realtor commission</strong></td>
+        <td style="text-align:center;background:#e8eef5;font-weight:bold;">3%</td>
+        <td style="text-align:center;">3%</td>
+        <td style="text-align:center;background:#e8f5e9;color:#2e7d32;">4%</td>
+        <td style="text-align:center;background:#fff8e1;color:#e65100;font-size:10.5px;">Unconfirmed</td>
+        <td style="text-align:center;background:#fff8e1;color:#e65100;font-size:10.5px;">Unconfirmed</td>
+        <td style="text-align:center;background:#e8f5e9;color:#2e7d32;">4% (Fri/Sat/Sun)</td>
+        <td style="text-align:center;background:#fff8e1;color:#e65100;font-size:10.5px;">Unconfirmed</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="fn">Green = included / advantage. Red = not included / gap. Amber = unconfirmed, pending source verification. All data from builder standard feature sheets as of September 2026. Unconfirmed items flagged for site-visit verification ahead of the next monthly update.</p>
+
+  <div class="callout callout-green">
+    <p><strong>Where Tanglewood is ahead.</strong> Three advantages stand out clearly across the full comp set. The interlock driveway: every single competitor delivers asphalt. Interlock at Tanglewood is standard, not a premium option, and it is the first thing a buyer sees when they arrive at the lot. The partially finished recreation room: no competitor includes any form of finished basement space as standard. Winchester delivers a landing only. Every other builder hands over raw, unfinished basement square footage. The frameless glass shower: only The Views by Jeffery Homes matches this. The rest of the comp set delivers framed shower surrounds or curtain tracks, which read as dated the moment a buyer has seen frameless at our model. On the mechanical side, Tanglewood includes central air conditioning as standard. Minto's Heights of Harmony East does not include A/C at all, and Dreamscape offers it as part of a purchase incentive rather than a base inclusion.</p>
+  </div>
+
+  <div class="callout callout-amber">
+    <p><strong>Where Tanglewood has gaps to address before launch.</strong> The most consequential gap is smooth ceilings. Tanglewood is the only builder in the North Oshawa comp set confirmed not to include smooth ceilings as standard. Homeward Hills, Winchester, Minto, and The Views all include them. A buyer who visits multiple sites will notice textured ceilings the moment they walk into a Tanglewood model, and that first impression is difficult to recover from through pricing alone. The second gap is the gas fireplace: Homeward Hills and The Views both include a gas fireplace as standard, and it is a feature buyers ask about when they do not see it elsewhere. Pot lights and EV charger rough-in are both unconfirmed for Tanglewood; if neither is included, they represent additional gaps relative to Winchester, Minto, The Views, and Dreamscape, all of which include both. Addressing smooth ceilings before launch would have the highest return of any single feature addition. Pot lights and EV charger rough-in are low-cost adds that complete the package. A gas fireplace is the most premium of the four gaps and could be positioned as a select-model or lot-premium inclusion rather than a base standard.</p>
+  </div>
+
+  <div class="callout callout-navy">
+    <p><strong>The Views as the premium benchmark.</strong> Jeffery Homes is the highest-specified builder in the comp set. Standard inclusions at The Views include 10' main floor ceilings, 9' second floor and basement ceilings, full-house smooth ceilings, frameless glass shower, gas fireplace, extensive pot lights, and EV charger rough-in. They are also offering a $70,000 decor credit on their 36' product, which is a significant demand signal. Their pricing opens higher than Tanglewood at every lot width and climbs well above ours at the top of the range. The specification gap between The Views and Tanglewood makes the clearest case for addressing Phase 2's feature list before launch. The price premium Tanglewood commands over most of the comp set needs to be backed by substance visible to the buyer. The interlock driveway and finished recreation room are real differentiators. Smooth ceilings, frameless shower, and pot lights would make that story complete.</p>
+  </div>
+</div>
+
+</div>
+
+<div style="background:var(--dark);border-top:4px solid var(--gold);padding:36px 48px;">
+  <div style="max-width:960px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;">
+    <div>
+      <p style="font-family:Arial,sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">Prepared By</p>
+      <p style="font-family:'Georgia',serif;font-size:17px;color:#fff;margin:0;">Jeffrey &amp; Lorraine</p>
+      <p style="font-family:Arial,sans-serif;font-size:11px;color:#aaa;letter-spacing:1px;text-transform:uppercase;margin-top:3px;">Tanglewood Sales Team</p>
+    </div>
+    <div style="text-align:center;">
+      <p style="font-family:Arial,sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">Report Date</p>
+      <p style="font-family:'Georgia',serif;font-size:15px;color:#fff;margin:0;">September 2026</p>
+      <p style="font-family:Arial,sans-serif;font-size:11px;color:#aaa;letter-spacing:1px;text-transform:uppercase;margin-top:3px;">Follows July 2026 Competitive Update</p>
+    </div>
+    <div style="text-align:right;">
+      <p style="font-family:Arial,sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">Distribution</p>
+      <p style="font-family:'Georgia',serif;font-size:15px;color:#fff;margin:0;">Brian, Larry &amp; Shimon</p>
+      <p style="font-family:Arial,sans-serif;font-size:11px;color:#aaa;letter-spacing:1px;text-transform:uppercase;margin-top:3px;">Medallion Developments</p>
+    </div>
+  </div>
+  <div style="max-width:960px;margin:24px auto 0;padding-top:20px;border-top:1px solid rgba(255,255,255,0.1);text-align:center;">
+    <p style="font-family:Arial,sans-serif;font-size:11px;color:#666;letter-spacing:0.5px;">This report is prepared for internal use by Medallion Developments and is confidential to its intended recipients. Pricing suggestions represent the professional opinion of the Tanglewood Sales Team and do not constitute a binding offer or commitment.</p>
+  </div>
+</div>
+
+</body>
+</html>
