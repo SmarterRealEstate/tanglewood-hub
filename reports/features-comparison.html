@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tanglewood -- Features, Inclusions &amp; Incentives: North Oshawa Comp Set</title>
+<style>
+  :root {
+    --navy: #162d4a;
+    --gold: #C4922A;
+    --gold-light: #f0d080;
+    --gold-deep: #a07020;
+    --dark: #0d1f32;
+    --green: #2e7d32;
+    --green-bg: #e8f5e9;
+    --red: #c62828;
+    --red-bg: #ffebee;
+    --amber-bg: #fff8e1;
+    --amber: #f57f17;
+    --text: #1a1a1a;
+    --muted: #555;
+    --border: #d0d0d0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: var(--text); background: #f5f5f5; }
+
+  .report-header { background: var(--navy); border-bottom: 4px solid var(--gold); padding: 36px 48px 28px; }
+  .report-header-inner { max-width: 1100px; margin: 0 auto; }
+  .report-logo { margin-bottom: 20px; }
+  .report-logo img { height: 80px; display: block; }
+  .report-eyebrow { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+  .report-title { font-family: Georgia, serif; font-size: 28px; color: #fff; font-weight: normal; line-height: 1.25; margin-bottom: 8px; }
+  .report-subtitle { font-family: Georgia, serif; font-size: 15px; color: rgba(255,255,255,0.65); font-weight: normal; }
+  .meta-bar { max-width: 1100px; margin: 18px auto 0; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.12); display: flex; gap: 28px; flex-wrap: wrap; align-items: center; }
+  .meta-chip { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+  .meta-chip strong { color: var(--gold-light); font-weight: 600; }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 36px 24px 60px; }
+
+  .intro { background: #fff; border-left: 4px solid var(--navy); border-radius: 0 4px 4px 0; padding: 22px 28px; margin-bottom: 32px; line-height: 1.65; color: var(--muted); }
+  .intro p + p { margin-top: 10px; }
+
+  .legend { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 24px; font-size: 12px; color: var(--muted); align-items: center; }
+  .legend-item { display: flex; align-items: center; gap: 7px; }
+  .legend-swatch { width: 14px; height: 14px; border-radius: 3px; border: 1px solid rgba(0,0,0,0.1); flex-shrink: 0; }
+
+  .section-heading { font-family: Georgia, serif; font-size: 18px; color: var(--navy); font-weight: normal; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid var(--gold); }
+
+  .table-wrap { overflow-x: auto; background: #fff; border-radius: 4px; border: 1px solid var(--border); margin-bottom: 36px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+
+  table.feat { border-collapse: collapse; width: 100%; min-width: 940px; font-size: 12px; }
+
+  table.feat thead th {
+    background: var(--navy); color: #fff; padding: 12px 10px;
+    text-align: center; font-size: 11px; letter-spacing: 0.3px; font-weight: 600;
+    border-right: 1px solid rgba(255,255,255,0.1); vertical-align: bottom; line-height: 1.3;
+  }
+  table.feat thead th:first-child { text-align: left; width: 165px; padding-left: 14px; }
+  table.feat thead th.tw-col { background: var(--gold); color: #fff; width: 108px; }
+  table.feat thead .builder-sub { display: block; font-size: 9px; font-weight: normal; opacity: 0.72; margin-top: 3px; }
+
+  table.feat tbody tr.section-row td {
+    background: var(--navy) !important;
+    color: var(--gold-light);
+    font-size: 9px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700;
+    padding: 8px 14px; border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-right: none !important; text-align: left !important;
+  }
+
+  table.feat tbody tr:not(.section-row):nth-child(even) td { background-color: #fafafa; }
+  table.feat tbody tr:not(.section-row):nth-child(even) td.tw-cell { background-color: #fef9ee; }
+  table.feat tbody tr:not(.section-row):hover td { background-color: #f0f4f8; }
+  table.feat tbody tr:not(.section-row):hover td.tw-cell { background-color: #fdefc5; }
+
+  table.feat tbody td {
+    padding: 10px 10px; border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border); text-align: center;
+    vertical-align: middle; line-height: 1.35;
+  }
+  table.feat tbody td:first-child {
+    text-align: left; padding-left: 14px; font-weight: 600;
+    color: var(--navy); background: #f8f9fb !important;
+    border-right: 2px solid var(--border); font-size: 11px;
+  }
+  table.feat tbody td.tw-cell {
+    background: #fef3d6; border-right: 2px solid var(--gold); font-weight: 600;
+  }
+
+  td.cell-yes { background: var(--green-bg) !important; color: var(--green); font-weight: 600; }
+  td.cell-no  { background: var(--red-bg) !important; color: var(--red); font-weight: 600; }
+  td.cell-partial { background: var(--amber-bg) !important; color: var(--amber); }
+  td.tw-cell.cell-yes { background: #c8e6c9 !important; }
+  td.tw-cell.cell-no  { background: #ffcdd2 !important; }
+  td.tw-cell.cell-partial { background: #fff3cd !important; }
+
+  .callouts { display: flex; flex-direction: column; gap: 16px; margin-bottom: 36px; }
+  .callout { border-radius: 0 4px 4px 0; padding: 22px 28px; line-height: 1.65; font-size: 13px; }
+  .callout h4 { font-family: Georgia, serif; font-size: 15px; font-weight: normal; margin-bottom: 12px; padding-bottom: 10px; }
+  .callout p { color: var(--muted); margin-bottom: 8px; }
+  .callout ul { color: var(--muted); padding-left: 18px; }
+  .callout ul li { margin-bottom: 7px; }
+  .callout-green { background: var(--green-bg); border-left: 4px solid var(--green); }
+  .callout-green h4 { color: var(--green); border-bottom: 1px solid #c8e6c9; }
+  .callout-amber { background: var(--amber-bg); border-left: 4px solid var(--amber); }
+  .callout-amber h4 { color: var(--amber); border-bottom: 1px solid #ffe082; }
+  .callout-navy { background: #edf1f6; border-left: 4px solid var(--navy); }
+  .callout-navy h4 { color: var(--navy); border-bottom: 1px solid #c9d5e2; }
+
+  /* Buyer Priorities Section */
+  .priorities-intro { background: #fff; border-left: 4px solid var(--gold); border-radius: 0 4px 4px 0; padding: 20px 28px; margin-bottom: 24px; font-size: 13px; color: var(--muted); line-height: 1.7; }
+  .priorities-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 24px; }
+  .priority-col { background: #fff; border: 1px solid var(--border); border-radius: 4px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.05); }
+  .priority-col-header { background: var(--navy); color: var(--gold-light); padding: 13px 18px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; }
+  .priority-item { padding: 14px 18px; border-bottom: 1px solid var(--border); }
+  .priority-item:last-child { border-bottom: none; }
+  .priority-item-title { font-weight: 700; color: var(--navy); font-size: 12px; margin-bottom: 4px; }
+  .priority-item-desc { font-size: 11px; color: var(--muted); line-height: 1.55; }
+  .priority-item-note { font-size: 10px; color: var(--green); margin-top: 5px; font-style: italic; }
+  .source-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-bottom: 36px; }
+  .source-card { background: #fff; border: 1px solid var(--border); border-top: 2px solid var(--muted); border-radius: 0 0 4px 4px; padding: 13px 16px; text-decoration: none; display: block; transition: border-color 0.15s; }
+  .source-card:hover { border-top-color: var(--navy); }
+  .source-card-label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #999; margin-bottom: 4px; }
+  .source-card-title { font-size: 12px; color: var(--navy); line-height: 1.35; font-weight: 600; }
+  .source-card-sub { font-size: 10px; color: #888; margin-top: 3px; }
+
+  .context-note {
+    background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--gold);
+    border-radius: 0 4px 4px 0; padding: 18px 24px; margin-bottom: 36px;
+    font-size: 13px; color: var(--muted); line-height: 1.65;
+  }
+  .context-note strong { color: var(--navy); }
+
+  .data-note { font-size: 11px; color: #888; line-height: 1.6; background: #fff; border: 1px solid var(--border); border-radius: 4px; padding: 16px 20px; margin-bottom: 36px; }
+  .data-note strong { color: var(--muted); }
+
+  /* Related Resources */
+  .resources-section { margin-bottom: 40px; }
+  .resources-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+  .resource-card {
+    background: #fff; border: 1px solid var(--border); border-radius: 4px;
+    padding: 16px 18px; text-decoration: none; display: block;
+    transition: border-color 0.15s; border-top: 3px solid var(--navy);
+  }
+  .resource-card:hover { border-color: var(--gold); border-top-color: var(--gold); }
+  .resource-card-label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 5px; }
+  .resource-card-title { font-family: Georgia, serif; font-size: 14px; color: var(--navy); line-height: 1.3; }
+  .resource-card-sub { font-size: 11px; color: #888; margin-top: 4px; }
+
+  .report-footer { background: var(--dark); border-top: 4px solid var(--gold); padding: 32px 48px; }
+  .report-footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+  .footer-col { text-align: left; }
+  .footer-col.center { text-align: center; }
+  .footer-col.right { text-align: right; }
+  .footer-label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+  .footer-value { font-family: Georgia, serif; font-size: 14px; color: #fff; }
+  .footer-sub { font-size: 10px; color: #888; letter-spacing: 1px; text-transform: uppercase; margin-top: 2px; }
+  .footer-disclaimer { max-width: 1100px; margin: 20px auto 0; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 10px; color: #555; text-align: center; line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<div class="report-header">
+  <div class="report-header-inner">
+    <div class="report-logo"><img src="https://smarterrealestate.github.io/tanglewood-hub/assets/tanglewood-logo-transparent.png" alt="Tanglewood by Medallion Developments"></div>
+    <p class="report-eyebrow">Tanglewood Phase 2 &mdash; Competitive Intelligence</p>
+    <h1 class="report-title">Features, Inclusions &amp; Incentives: North Oshawa Comp Set</h1>
+    <p class="report-subtitle">Standard inclusions, active incentive programs, and co-op commissions benchmarked across competing communities</p>
+    <div class="meta-bar">
+      <span class="meta-chip"><strong>Market Area:</strong> North Oshawa</span>
+      <span class="meta-chip"><strong>Last Verified:</strong> September 2026</span>
+      <span class="meta-chip"><strong>Builders Tracked:</strong> 6 active communities</span>
+      <span class="meta-chip"><strong>Source:</strong> Published feature sheets, broker portals, confirmed incentive programs</span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="intro">
+    <p>This tracker benchmarks Tanglewood Phase 2 against the active North Oshawa comp set across three areas: current builder incentive programs, standard feature inclusions, and broker co-op commissions. Data is drawn from each builder's published feature sheet, active incentive programs, and broker portal materials as of the date shown above. Where a feature is offered through an active incentive program, it is treated as effectively included.</p>
+    <p>The intent is an honest picture of where the product stands today, where it has room to strengthen, and where existing advantages support pricing rationale.</p>
+    <p>Incentive programs can change frequently and will be re-verified periodically.</p>
+  </div>
+
+  <div class="legend">
+    <span style="font-size:11px;font-weight:600;color:var(--navy);margin-right:4px;">Legend:</span>
+    <div class="legend-item"><div class="legend-swatch" style="background:var(--green-bg);border-color:var(--green);"></div> Included / Offered</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:var(--red-bg);border-color:var(--red);"></div> Not included / Gap</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:var(--amber-bg);border-color:var(--amber);"></div> Partial / Unconfirmed / Model-dependent</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:#fff;border-color:#ccc;"></div> Standard / Market-neutral</div>
+  </div>
+
+  <h2 class="section-heading">Comp Set Overview</h2>
+
+  <div class="table-wrap">
+    <table class="feat">
+      <thead>
+        <tr>
+          <th>Feature / Incentive</th>
+          <th class="tw-col">Tanglewood<span class="builder-sub">Medallion</span></th>
+          <th>Homeward Hills<span class="builder-sub">Sorbara</span></th>
+          <th>Heartwood Village<span class="builder-sub">Laurelcrest</span></th>
+          <th>Winchester Estates<span class="builder-sub">Menkes</span></th>
+          <th>HOH East<span class="builder-sub">Minto</span></th>
+          <th>The Views<span class="builder-sub">Jeffery Homes</span></th>
+          <th>Dreamscape<span class="builder-sub">Fieldgate</span></th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr class="section-row"><td colspan="8">Current Incentive Programs &amp; Builder Promotions</td></tr>
+
+        <tr>
+          <td>Appliance Package</td>
+          <td class="tw-cell cell-partial">3 appliances (B/I oven, microwave &amp; cooktop)</td>
+          <td class="cell-yes">5 appliances (fridge, stove, DW, OTR micro, W/D)</td>
+          <td class="cell-no">None (rough-in only)</td>
+          <td class="cell-yes">6 appliances (fridge, stove, DW, hood fan, W/D)</td>
+          <td class="cell-no">None (220V outlet only)</td>
+          <td class="cell-no">None (rough-in only)</td>
+          <td class="cell-yes">5 appliances (standard package)</td>
+        </tr>
+
+        <tr>
+          <td>Decor / Design Centre Credit</td>
+          <td class="tw-cell cell-no">None listed</td>
+          <td class="cell-partial">Not confirmed</td>
+          <td class="cell-partial">Not confirmed</td>
+          <td class="cell-partial">Not confirmed</td>
+          <td class="cell-yes">Up to $37K (or finished basement &mdash; purchaser's choice)</td>
+          <td class="cell-yes">$10K (36') / $20K (40')</td>
+          <td class="cell-yes">Up to $10K (with accelerated deposit structure)</td>
+        </tr>
+
+        <tr>
+          <td>Cash Reduction / Price Discount</td>
+          <td class="tw-cell cell-no">None</td>
+          <td class="cell-partial">Not confirmed</td>
+          <td class="cell-yes">$15K off (30') / $40K off (40') &mdash; verify current offer</td>
+          <td class="cell-partial">Not confirmed</td>
+          <td class="cell-yes">Reduced lot premium available (in lieu of design credit)</td>
+          <td class="cell-partial">Not confirmed</td>
+          <td class="cell-partial">Not confirmed</td>
+        </tr>
+
+        <tr>
+          <td>Development Charge Cap</td>
+          <td class="tw-cell cell-yes">$3,950 all-in closing cap</td>
+          <td class="cell-partial">Not confirmed</td>
+          <td class="cell-partial">Not confirmed</td>
+          <td class="cell-yes">$7,500 DC cap</td>
+          <td class="cell-yes">$0 DCs (limited time)</td>
+          <td class="cell-partial">Not confirmed</td>
+          <td class="cell-partial">Not listed</td>
+        </tr>
+
+        <tr>
+          <td>Free Assignment</td>
+          <td class="tw-cell cell-no">No</td>
+          <td class="cell-partial">Not confirmed</td>
+          <td class="cell-partial">Not confirmed</td>
+          <td class="cell-yes">Yes (admin &amp; legal fees apply)</td>
+          <td class="cell-partial">Not confirmed</td>
+          <td class="cell-partial">Not confirmed</td>
+          <td class="cell-yes">Yes ($1,500 legal + $1,500 admin)</td>
+        </tr>
+
+        <tr class="section-row"><td colspan="8">Standard Feature Inclusions</td></tr>
+
+        <tr>
+          <td>Smooth Ceilings</td>
+          <td class="tw-cell cell-no">No</td>
+          <td class="cell-yes">Main floor + 2nd floor hallway</td>
+          <td class="cell-yes">Main floor (36'/40'); limited (30')</td>
+          <td class="cell-yes">Main floor</td>
+          <td class="cell-yes">Main floor</td>
+          <td class="cell-yes">Full house &mdash; all models</td>
+          <td class="cell-yes">Main floor</td>
+        </tr>
+
+        <tr>
+          <td>Central A/C</td>
+          <td class="tw-cell cell-yes">Yes</td>
+          <td class="cell-yes">Yes</td>
+          <td class="cell-partial">Not confirmed</td>
+          <td class="cell-yes">Yes</td>
+          <td class="cell-no">No (ducting only)</td>
+          <td class="cell-yes">Yes</td>
+          <td class="cell-yes">Yes</td>
+        </tr>
+
+        <tr>
+          <td>Driveway</td>
+          <td class="tw-cell cell-yes">Interlock</td>
+          <td class="cell-partial">Not confirmed</td>
+          <td class="cell-yes">Asphalt</td>
+          <td class="cell-yes">Asphalt</td>
+          <td class="cell-yes">Asphalt</td>
+          <td class="cell-yes">Asphalt</td>
+          <td class="cell-yes">Asphalt</td>
+        </tr>
+
+        <tr>
+          <td>Basement Finish</td>
+          <td class="tw-cell cell-yes">Partially finished rec room (base price)</td>
+          <td class="cell-partial">Finished basement (upgrade &mdash; cost unconfirmed)</td>
+          <td class="cell-no">Unfinished</td>
+          <td class="cell-no">Unfinished (rough-in included)</td>
+          <td class="cell-partial">Unfinished; finished basement available as incentive option</td>
+          <td class="cell-no">Unfinished (9' ceiling)</td>
+          <td class="cell-partial">Unfinished; optional +$30K (washroom details unconfirmed)</td>
+        </tr>
+
+        <tr>
+          <td>Glass Shower (Ensuite)</td>
+          <td class="tw-cell cell-yes">Yes</td>
+          <td class="cell-yes">Yes &mdash; rain shower</td>
+          <td class="cell-yes">Yes &mdash; framed</td>
+          <td class="cell-yes">Yes &mdash; framed</td>
+          <td class="cell-yes">Yes &mdash; framed</td>
+          <td class="cell-yes">Yes</td>
+          <td class="cell-yes">Yes &mdash; framed</td>
+        </tr>
+
+        <tr>
+          <td>Fireplace</td>
+          <td class="tw-cell cell-yes">Yes (electric or gas by model)</td>
+          <td class="cell-partial">Not confirmed</td>
+          <td class="cell-partial">Not confirmed</td>
+          <td class="cell-yes">Yes &mdash; gas</td>
+          <td class="cell-yes">Yes &mdash; electric (36')</td>
+          <td class="cell-yes">Yes &mdash; gas</td>
+          <td class="cell-yes">Yes &mdash; electric</td>
+        </tr>
+
+        <tr>
+          <td>Main Floor Ceiling Height</td>
+          <td class="tw-cell cell-yes">9' standard / 12' select</td>
+          <td>9'</td>
+          <td>9'</td>
+          <td>9'</td>
+          <td>9'</td>
+          <td class="cell-yes">9' (36') / 10' (40')</td>
+          <td>9'</td>
+        </tr>
+
+        <tr>
+          <td>Second Floor Ceiling Height</td>
+          <td class="tw-cell cell-partial">8'</td>
+          <td class="cell-yes">9'</td>
+          <td class="cell-yes">9'</td>
+          <td class="cell-partial">8'</td>
+          <td class="cell-partial">8'</td>
+          <td class="cell-yes">8' (36') / 9' (40')</td>
+          <td class="cell-yes">9'</td>
+        </tr>
+
+        <tr>
+          <td>Basement Ceiling Height</td>
+          <td class="tw-cell cell-no">7'2"</td>
+          <td class="cell-partial">Not confirmed</td>
+          <td class="cell-partial">Not confirmed</td>
+          <td class="cell-yes">8'</td>
+          <td class="cell-partial">Not confirmed</td>
+          <td class="cell-yes">9' &mdash; all models</td>
+          <td class="cell-partial">Not confirmed</td>
+        </tr>
+
+        <tr>
+          <td>EV Charger Rough-In</td>
+          <td class="tw-cell cell-no">No</td>
+          <td class="cell-partial">Not confirmed</td>
+          <td class="cell-partial">Not confirmed</td>
+          <td class="cell-yes">Yes &mdash; conduit to garage</td>
+          <td class="cell-partial">Not confirmed</td>
+          <td class="cell-partial">Not confirmed</td>
+          <td class="cell-yes">Yes</td>
+        </tr>
+
+        <tr>
+          <td>Smart Home / Technology</td>
+          <td class="tw-cell cell-no">Not offered</td>
+          <td class="cell-partial">Not confirmed</td>
+          <td class="cell-partial">Not confirmed</td>
+          <td class="cell-partial">Not confirmed</td>
+          <td class="cell-partial">Not confirmed</td>
+          <td class="cell-yes">Video doorbell, HD camera, WiFi mesh, ethernet, USB-C outlets, 8-port switch</td>
+          <td class="cell-yes">Qolsys wireless security system (monitored)</td>
+        </tr>
+
+        <tr>
+          <td>Pot Lights</td>
+          <td class="tw-cell cell-yes">Yes &mdash; 10, main floor</td>
+          <td class="cell-partial">Not confirmed</td>
+          <td class="cell-partial">Not confirmed</td>
+          <td class="cell-partial">Not confirmed</td>
+          <td class="cell-yes">Exterior/soffit included</td>
+          <td class="cell-yes">Exterior included</td>
+          <td class="cell-partial">Not confirmed</td>
+        </tr>
+
+        <tr>
+          <td>Kitchen Countertop</td>
+          <td class="tw-cell cell-partial">Granite</td>
+          <td class="cell-yes">Quartz</td>
+          <td class="cell-yes">Granite</td>
+          <td class="cell-yes">Quartz</td>
+          <td class="cell-yes">Quartz (Level 2)</td>
+          <td class="cell-yes">Quartz</td>
+          <td class="cell-no">Laminate</td>
+        </tr>
+
+        <tr>
+          <td>Bathroom Countertop</td>
+          <td class="tw-cell cell-no">Laminate (powder room: pedestal)</td>
+          <td class="cell-yes">Quartz in primary ensuite</td>
+          <td class="cell-no">Laminate</td>
+          <td class="cell-yes">Cultured marble vanity</td>
+          <td class="cell-yes">Quartz (primary); laminate (main bath)</td>
+          <td class="cell-no">Laminate (powder room: pedestal)</td>
+          <td class="cell-no">Laminate</td>
+        </tr>
+
+        <tr class="section-row"><td colspan="8">Broker Information</td></tr>
+
+        <tr>
+          <td>Co-op Commission</td>
+          <td class="tw-cell cell-no">Not confirmed</td>
+          <td class="cell-yes">3%</td>
+          <td class="cell-yes">3%</td>
+          <td class="cell-yes">3%</td>
+          <td class="cell-yes">2.5%</td>
+          <td class="cell-yes">3%</td>
+          <td class="cell-yes">3% (net HST)</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <h2 class="section-heading">Analysis Summary</h2>
+
+  <div class="context-note">
+    <strong>Note on context:</strong> This comparison is preliminary work to inform decisions on inclusions, incentives, and pricing positioning. The audience is the Tanglewood sales team and Medallion; the goal is an honest internal picture, not a polished buyer narrative.
+  </div>
+
+  <div class="callouts">
+
+    <div class="callout callout-green">
+      <h4>Where Tanglewood Is Ahead</h4>
+      <ul>
+        <li><strong>Interlock driveway</strong> &mdash; confirmed as the only builder in the comp set. Every competitor with a verified driveway spec uses asphalt; this is visible and felt immediately on arrival.</li>
+        <li><strong>Partially finished rec room included in base price</strong> &mdash; no competitor includes any basement finish in their standard price. Some are offering it as an incentive option (Minto, Dreamscape), which signals real cost in the buyer's mind; TW delivers it without the trade-off.</li>
+        <li><strong>$3,950 all-in closing cap</strong> &mdash; provides cost certainty at close; one of the more buyer-friendly closing structures in the comp set.</li>
+        <li><strong>Central A/C included</strong> &mdash; Minto HOH East is the only competitor that does not include it; TW's inclusion is a clear advantage over that community.</li>
+        <li><strong>12' main floor ceilings on select models</strong> &mdash; a Medallion Signature differentiator. No competitor in the comp set offers this at any price point.</li>
+      </ul>
+    </div>
+
+    <div class="callout callout-amber">
+      <h4>Where Tanglewood Has Gaps</h4>
+      <ul>
+        <li><strong>Smooth ceilings</strong> &mdash; the highest-impact gap. Tanglewood is the only builder in the comp set confirmed not to include them. Every other community includes smooth ceilings on at minimum the main floor, and The Views includes them full-house on all models. Buyers visiting multiple sites will notice this immediately.</li>
+        <li><strong>Appliance package</strong> &mdash; cooking only (3 appliances). Homeward Hills, Winchester, and Dreamscape are delivering 5 to 6 full appliances. This is a direct comparison point buyers will raise on every visit.</li>
+        <li><strong>Countertops &mdash; kitchen and bathroom</strong> &mdash; granite in the kitchen is solid quality, but quartz has become the expected standard for this price range. More importantly, TW offers laminate in all bathrooms with no stone in the primary ensuite; several competitors include quartz or cultured marble in the ensuite as standard. This is a gap that will matter to buyers comparing finishing levels.</li>
+        <li><strong>No confirmed incentive program</strong> &mdash; most active competitors are running $10,000 to $40,000 in buyer-facing value. Phase 2's incentive structure should be defined before launch to remain competitive.</li>
+        <li><strong>EV charger rough-in not offered</strong> &mdash; Winchester and Dreamscape include it; increasingly a baseline expectation in this price range.</li>
+        <li><strong>Free assignment not available</strong> &mdash; Winchester and Dreamscape both offer it; a factor for investor purchasers.</li>
+        <li><strong>Second floor and basement ceiling heights</strong> &mdash; 8' on the second floor (four competitors offer 9') and 7'2" in the basement (Winchester is 8', The Views is 9'). The partially finished rec room partially offsets the basement comparison, but buyers will still notice the height.</li>
+      </ul>
+    </div>
+
+    <div class="callout callout-navy">
+      <h4>The Premium Benchmark: The Views</h4>
+      <p>Jeffery Homes sets the highest interior specification standard in the comp set. Full-house smooth ceilings on all models, 9' ceilings on the second floor and in the basement (unique in the market), 10' main floor on 40' lots, gas fireplace, and glass shower are all standard. They are offering $10,000 to $20,000 in decor credits depending on lot width, and their co-op commission is at the market standard of 3%.</p>
+      <p>Pricing at The Views opens above Tanglewood at every lot width and extends significantly higher at the top of the range. The specification they carry justifies the premium in the buyer's experience. This is the community buyers doing their homework will use as the comparison benchmark.</p>
+    </div>
+
+  </div>
+
+  <div class="data-note">
+    <strong>Data sourcing:</strong> Feature data is from published builder feature sheets and incentive programs: Winchester Estates (Menkes/Pivot, Jan 2025 incentive program); Heartwood Village (Laurelcrest, May 2026 voucher &mdash; verify current offer); Minto HOH East (Apr 2026 incentive flyer); The Views (Jeffery Homes, Apr 2026 commission flyer and price list); Dreamscape (Fieldgate, Jul 2026 accelerated deposit flyer); Homeward Hills (Sorbara, Sep 2026 broker portal). Co-op commissions are sourced from broker operations records. All data is subject to change; re-verify monthly before use in any advisory or reporting capacity.
+  </div>
+
+  <h2 class="section-heading">What Buyers Are Asking For in 2026</h2>
+
+  <div class="priorities-intro">
+    The features comparison above reflects where Phase 2 stands today against active competition. Equally useful is what the broader market is telling us buyers expect in their next home. The following categories represent the most consistently cited buyer priorities in current market research.
+  </div>
+
+  <div class="priorities-grid">
+
+    <div class="priority-col">
+      <div class="priority-col-header">Top 5 Tech Features</div>
+      <div class="priority-item">
+        <div class="priority-item-title">Smart Thermostat</div>
+        <div class="priority-item-desc">AI-powered climate control that learns household routines is cited as the top expected smart home inclusion in 2026 surveys.</div>
+      </div>
+      <div class="priority-item">
+        <div class="priority-item-title">Video Doorbell + Outdoor Camera</div>
+        <div class="priority-item-desc">Remote monitoring and real-time alerts have moved from premium upgrade to standard buyer expectation.</div>
+        <div class="priority-item-note">The Views includes this as standard.</div>
+      </div>
+      <div class="priority-item">
+        <div class="priority-item-title">Smart Lighting Controls</div>
+        <div class="priority-item-desc">Automated and app-controlled lighting ranked as the most in-demand individual tech feature in current buyer surveys.</div>
+      </div>
+      <div class="priority-item">
+        <div class="priority-item-title">Integrated Security System</div>
+        <div class="priority-item-desc">Smart locks, sensors, and app-controlled monitoring are expected to be pre-installed rather than buyer-sourced.</div>
+        <div class="priority-item-note">Dreamscape includes the Qolsys wireless system as standard.</div>
+      </div>
+      <div class="priority-item">
+        <div class="priority-item-title">Wired Connectivity</div>
+        <div class="priority-item-desc">Buyers expect a structured wiring backbone: ethernet cabling throughout and in-wall USB and USB-C charging outlets.</div>
+        <div class="priority-item-note">The Views includes ethernet cabling and USB-C outlets as standard.</div>
+      </div>
+    </div>
+
+    <div class="priority-col">
+      <div class="priority-col-header">Top 5 Upgrades &amp; Incentives</div>
+      <div class="priority-item">
+        <div class="priority-item-title">Full Appliance Package</div>
+        <div class="priority-item-desc">Buyers expect to move in with all appliances included; the package is the most common point of comparison at any new home site.</div>
+        <div class="priority-item-note">Homeward Hills, Winchester, and Dreamscape offer 5&ndash;6 appliances in their current programs.</div>
+      </div>
+      <div class="priority-item">
+        <div class="priority-item-title">Design Centre Credit</div>
+        <div class="priority-item-desc">Decor allowances now commonly run into the tens of thousands in the new construction market; buyers expect personalization dollars at signing.</div>
+        <div class="priority-item-note">Minto HOH East offers up to $37K; The Views offers $10K&ndash;$20K depending on lot width.</div>
+      </div>
+      <div class="priority-item">
+        <div class="priority-item-title">Development Charge Cap</div>
+        <div class="priority-item-desc">Buyers want certainty on closing costs; DC caps have become a standard ask at new home sites in this price range.</div>
+        <div class="priority-item-note">Winchester caps at $7,500; Minto is currently offering $0 DCs.</div>
+      </div>
+      <div class="priority-item">
+        <div class="priority-item-title">EV Charger Rough-In</div>
+        <div class="priority-item-desc">Buyers want infrastructure ready even without a current EV; increasingly described as a baseline expectation at this price point.</div>
+        <div class="priority-item-note">Winchester and Dreamscape include conduit to garage as standard.</div>
+      </div>
+      <div class="priority-item">
+        <div class="priority-item-title">Free Assignment</div>
+        <div class="priority-item-desc">Provides flexibility for life changes and is a key consideration for investor purchasers; increasingly expected in new construction.</div>
+        <div class="priority-item-note">Winchester and Dreamscape both offer assignment with admin and legal fees.</div>
+      </div>
+    </div>
+
+    <div class="priority-col">
+      <div class="priority-col-header">Top 5 Standard Features</div>
+      <div class="priority-item">
+        <div class="priority-item-title">Outdoor Living Space</div>
+        <div class="priority-item-desc">Ontario buyers consistently rank a covered deck or porch as a top priority; outdoor areas are viewed as an extension of the home itself.</div>
+        <div class="priority-item-note">Homeward Hills, Heartwood, and Minto HOH East include a pressure-treated deck where grade permits.</div>
+      </div>
+      <div class="priority-item">
+        <div class="priority-item-title">9' Ceilings Throughout</div>
+        <div class="priority-item-desc">"No one is requesting shorter ceilings" is how one 2026 home design report put it. Nine-foot second-floor ceilings are now a buyer expectation.</div>
+        <div class="priority-item-note">Four of six competitors in this comp set offer 9' on the second floor.</div>
+      </div>
+      <div class="priority-item">
+        <div class="priority-item-title">Finished Basement Option</div>
+        <div class="priority-item-desc">Ontario builders cite this as a consistently top-requested feature; a finished basement adds usable space for families without a post-close renovation.</div>
+        <div class="priority-item-note">Minto, Dreamscape, and Homeward Hills offer finished basement as an incentive or upgrade option.</div>
+      </div>
+      <div class="priority-item">
+        <div class="priority-item-title">Stone or Quartz Throughout</div>
+        <div class="priority-item-desc">Buyers expect consistent finish quality across the home; quartz in both kitchen and bathrooms is the standard expectation at this price range.</div>
+        <div class="priority-item-note">Several competitors include stone countertops in the primary ensuite as standard.</div>
+      </div>
+      <div class="priority-item">
+        <div class="priority-item-title">Energy Efficiency Certification</div>
+        <div class="priority-item-desc">Ontario buyers look for homes built to recognized standards; ENERGY STAR certification is cited as a key buyer confidence signal in 2026.</div>
+        <div class="priority-item-note">Homeward Hills is ENERGY STAR certified; Dreamscape includes HRV and dehumidifier as standard.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="source-cards">
+    <a class="source-card" href="https://www.sunlighthomes.ca/blog/7-features-home-buyers-are-looking-for-in-new-homes-in-2026/" target="_blank">
+      <div class="source-card-label">Research Source</div>
+      <div class="source-card-title">7 Features Home Buyers Are Looking for in New Homes in 2026</div>
+      <div class="source-card-sub">Sunlight Heritage Homes &mdash; Ontario, June 2026</div>
+    </a>
+    <a class="source-card" href="https://www.bezooyencontracting.ca/post/10-most-requested-custom-home-features-for-2026" target="_blank">
+      <div class="source-card-label">Research Source</div>
+      <div class="source-card-title">10 Most Requested Custom Home Features for 2026</div>
+      <div class="source-card-sub">Bezooyen Contracting &mdash; Canada, June 2026</div>
+    </a>
+    <a class="source-card" href="https://blog.thesperagroup.us/5-smart-home-features-buyers-expect-in-2026.html" target="_blank">
+      <div class="source-card-label">Research Source</div>
+      <div class="source-card-title">5 Smart Home Features Buyers Expect in 2026</div>
+      <div class="source-card-sub">The Spera Group &mdash; 2026</div>
+    </a>
+    <a class="source-card" href="https://mortgage-info.com/blog/new-construction-builder-incentives-2026" target="_blank">
+      <div class="source-card-label">Research Source</div>
+      <div class="source-card-title">New Construction Builder Incentives 2026</div>
+      <div class="source-card-sub">Mortgage Info &mdash; 2026</div>
+    </a>
+  </div>
+
+  <h2 class="section-heading">Related Resources</h2>
+  <div class="resources-section">
+    <div class="resources-grid">
+      <a class="resource-card" href="https://smarterrealestate.github.io/tanglewood-hub/reports/competitive-update-sep2026.html" target="_blank">
+        <p class="resource-card-label">Monthly Report</p>
+        <p class="resource-card-title">Competitive Update &mdash; September 2026</p>
+        <p class="resource-card-sub">Pricing, market context &amp; comp set status</p>
+      </a>
+      <a class="resource-card" href="https://jeffrey7651.github.io/tanglewood-phase2-briefing/" target="_blank">
+        <p class="resource-card-label">Strategy Report</p>
+        <p class="resource-card-title">Phase 2 Pre-Launch Briefing</p>
+        <p class="resource-card-sub">Market positioning &amp; product overview</p>
+      </a>
+      <a class="resource-card" href="https://jeffrey7651.github.io/tanglewood-differentiation-strategy/" target="_blank">
+        <p class="resource-card-label">Strategy Report</p>
+        <p class="resource-card-title">Phase 2 Differentiation Strategy</p>
+        <p class="resource-card-sub">Competitive positioning &amp; pricing rationale</p>
+      </a>
+      <a class="resource-card" href="https://drive.google.com/drive/folders/1978LExSiFfbzsDahw4vzJlIWh55A7Z1s" target="_blank">
+        <p class="resource-card-label">Pricing</p>
+        <p class="resource-card-title">Phase 2 Sample Price Lists</p>
+        <p class="resource-card-sub">Terrace Homes &bull; 30' &bull; 36' &bull; 40' Collections</p>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<div class="report-footer">
+  <div class="report-footer-inner">
+    <div class="footer-col">
+      <p class="footer-label">Prepared By</p>
+      <p class="footer-value">Jeffrey &amp; Lorraine</p>
+      <p class="footer-sub">Tanglewood Sales Team</p>
+    </div>
+    <div class="footer-col center">
+      <p class="footer-label">Last Verified</p>
+      <p class="footer-value">September 2026</p>
+      <p class="footer-sub">Updated Monthly</p>
+    </div>
+    <div class="footer-col right">
+      <p class="footer-label">Coverage</p>
+      <p class="footer-value">North Oshawa</p>
+      <p class="footer-sub">Active Comp Set Only</p>
+    </div>
+  </div>
+  <div class="footer-disclaimer">
+    This document is prepared for internal use and is confidential to its intended recipients. Feature data reflects published builder specifications and active incentive programs as of the date shown above and is subject to change. This tracker does not constitute a binding representation of any builder's offering.
+  </div>
+</div>
+
+</body>
+</html>
