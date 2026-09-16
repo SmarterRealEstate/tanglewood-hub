@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tanglewood Phase 2 — Terrace Home Pricing Analysis</title>
+<style>
+  :root {
+    --navy: #162d4a;
+    --gold: #C4922A;
+    --gold-light: #f0d080;
+    --gold-deep: #a07020;
+    --dark: #0d1f32;
+    --text: #1a1a1a;
+    --muted: #555;
+    --border: #d0d0d0;
+    --highlight: #fff8e8;
+    --same-price-bg: #fff3cd;
+    --same-price-border: #C4922A;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: var(--text); background: #f5f5f5; }
+
+  /* HEADER */
+  .report-header { background: var(--navy); border-bottom: 4px solid var(--gold); padding: 36px 48px 28px; }
+  .report-header-inner { max-width: 1100px; margin: 0 auto; }
+  .report-logo { margin-bottom: 20px; }
+  .report-logo img { height: 80px; display: block; }
+  .report-eyebrow { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+  .report-title { font-family: Georgia, serif; font-size: 28px; color: #fff; font-weight: normal; line-height: 1.25; margin-bottom: 8px; }
+  .report-subtitle { font-family: Georgia, serif; font-size: 15px; color: rgba(255,255,255,0.65); font-weight: normal; }
+  .meta-bar { max-width: 1100px; margin: 18px auto 0; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.12); display: flex; gap: 28px; flex-wrap: wrap; align-items: center; }
+  .meta-chip { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+  .meta-chip strong { color: var(--gold-light); font-weight: 600; }
+
+  /* BODY */
+  .container { max-width: 1100px; margin: 0 auto; padding: 36px 24px 60px; }
+
+  .intro { background: #fff; border-left: 4px solid var(--navy); border-radius: 0 4px 4px 0; padding: 22px 28px; margin-bottom: 32px; line-height: 1.7; color: var(--muted); }
+  .intro p + p { margin-top: 10px; }
+
+  .section-heading { font-family: Georgia, serif; font-size: 20px; color: var(--navy); font-weight: normal; margin-bottom: 6px; padding-bottom: 10px; border-bottom: 2px solid var(--gold); }
+  .section-subheading { font-size: 13px; color: var(--muted); margin-bottom: 18px; line-height: 1.55; }
+
+  .table-wrap { overflow-x: auto; background: #fff; border-radius: 4px; border: 1px solid var(--border); margin-bottom: 48px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+
+  /* COMPARISON TABLES */
+  table.comp { border-collapse: collapse; width: 100%; min-width: 780px; font-size: 13px; }
+
+  table.comp thead tr th {
+    background: var(--navy); color: #fff;
+    padding: 12px 14px; text-align: left;
+    font-size: 11px; letter-spacing: 0.5px; font-weight: 600; text-transform: uppercase;
+    border-right: 1px solid rgba(255,255,255,0.1); vertical-align: bottom; line-height: 1.35;
+    white-space: nowrap;
+  }
+  table.comp thead tr th.num { text-align: right; }
+
+  /* MODEL GROUP HEADER ROW */
+  table.comp tr.model-row td {
+    background: #f0f4f8;
+    font-weight: 700;
+    color: var(--navy);
+    padding: 11px 14px;
+    border-top: 2px solid var(--navy);
+    border-bottom: none;
+    font-size: 13px;
+    vertical-align: middle;
+  }
+  table.comp tr.model-row td.num { text-align: right; }
+
+  /* SQ FT ROW (italic, under model name) */
+  table.comp tr.sqft-row td {
+    background: #f0f4f8;
+    font-style: italic;
+    color: var(--muted);
+    padding: 3px 14px 10px;
+    border-top: none;
+    border-bottom: 1px solid var(--border);
+    font-size: 12px;
+    vertical-align: top;
+  }
+
+  /* COMP DATA ROWS */
+  table.comp tr.comp-row td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    border-right: 1px solid #ebebeb;
+    vertical-align: middle;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  table.comp tr.comp-row td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  table.comp tr.comp-row:nth-child(odd) td { background: #fff; }
+  table.comp tr.comp-row:nth-child(even) td { background: #fafafa; }
+
+  /* SAME PRICE HIGHLIGHT */
+  table.comp tr.comp-row.same-price td {
+    background: var(--same-price-bg) !important;
+    border-left: 3px solid var(--same-price-border);
+  }
+  table.comp tr.comp-row.same-price td.gap-col { color: var(--gold-deep); font-weight: 700; }
+
+  /* SQFT SUBROW inside comp rows */
+  table.comp tr.comp-sqft td {
+    padding: 2px 14px 10px;
+    border-bottom: 1px solid var(--border);
+    font-style: italic;
+    color: var(--muted);
+    font-size: 12px;
+  }
+  table.comp tr.comp-sqft:nth-child(odd) td { background: #fff; }
+  table.comp tr.comp-sqft:nth-child(even) td { background: #fafafa; }
+  table.comp tr.comp-sqft.same-price td { background: var(--same-price-bg) !important; }
+
+  /* TYPE BADGE */
+  .type-badge {
+    display: inline-block;
+    font-size: 10px; font-weight: 700;
+    padding: 2px 6px; border-radius: 3px;
+    letter-spacing: 0.5px; text-transform: uppercase;
+    background: var(--navy); color: #fff;
+    white-space: nowrap;
+  }
+  .type-badge.det30 { background: #1565c0; }
+  .type-badge.det36 { background: #2e7d32; }
+  .type-badge.det42 { background: #6a1b9a; }
+
+  /* FOOTER NOTE ROW */
+  table.comp tr.note-row td {
+    background: #f8f6f0;
+    border-top: 1px dashed var(--gold);
+    border-bottom: 2px solid var(--navy);
+    padding: 12px 16px;
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.65;
+    font-style: italic;
+  }
+  table.comp tr.note-row td strong { font-style: normal; color: var(--navy); }
+  table.comp tr.note-row td span.disclaimer { font-size: 11px; color: #888; display: block; margin-top: 5px; }
+
+  /* GAP COLUMN */
+  td.gap-col { font-weight: 600; color: #c62828; }
+
+  /* DISCLAIMER FOOTER */
+  .page-footer { max-width: 1100px; margin: 0 auto; padding: 0 24px 40px; font-size: 11px; color: #999; line-height: 1.6; border-top: 1px solid var(--border); padding-top: 20px; }
+
+  /* RELATED LINKS */
+  .related { background: var(--navy); border-radius: 4px; padding: 22px 28px; margin-bottom: 40px; }
+  .related-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+  .related-links { display: flex; gap: 16px; flex-wrap: wrap; }
+  .related-links a { color: var(--gold-light); font-size: 13px; text-decoration: none; border-bottom: 1px solid rgba(196,146,42,0.35); padding-bottom: 2px; }
+  .related-links a:hover { color: #fff; border-color: #fff; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="report-header">
+  <div class="report-header-inner">
+    <div class="report-logo">
+      <img src="https://smarterrealestate.github.io/tanglewood-hub/assets/tanglewood-logo-transparent.png" alt="Tanglewood by Medallion Developments">
+    </div>
+    <div class="report-eyebrow">Phase 2 — Internal Pricing Review</div>
+    <h1 class="report-title">Terrace Home Pricing Analysis</h1>
+    <p class="report-subtitle">North Oshawa Competitive Market Context</p>
+    <div class="meta-bar">
+      <div class="meta-chip">Market: <strong>North Oshawa</strong></div>
+      <div class="meta-chip">Product: <strong>Terrace Homes (TL-1 through TL-5)</strong></div>
+      <div class="meta-chip">Prices provided by: <strong>Brian/Medallion — September 15, 2026</strong></div>
+      <div class="meta-chip">Comp data: <strong>Active listings, Q3 2026</strong></div>
+    </div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="container">
+
+  <div class="intro">
+    <p>The following analysis uses pricing provided by Brian/Medallion on September 15, 2026 as the reference point for each Terrace Home model. Two lenses are applied: first, what a buyer can purchase in North Oshawa at each price point from direct competition; second, how Tanglewood's Terrace Home product compares to similar freehold townhome competition at those same prices.</p>
+    <p>All competitor prices are net HST and sourced from active price lists. Comparisons do not account for standard features, structural options, bonus upgrades, or incentive programs being offered at each site.</p>
+  </div>
+
+
+  <!-- ==================== TABLE 1 ==================== -->
+  <h2 class="section-heading">Table 1 — What a Buyer Can Purchase in North Oshawa at These Prices</h2>
+  <p class="section-subheading">At each Terrace Home price point, the following freehold detached homes are actively available in North Oshawa for the same or less. Product type (30', 36') is noted for each.</p>
+
+  <div class="table-wrap">
+  <table class="comp">
+    <thead>
+      <tr>
+        <th style="width:180px">TW Plan</th>
+        <th style="width:80px">Type</th>
+        <th>Builder / Model</th>
+        <th class="num" style="width:120px">Comp Price</th>
+        <th class="num" style="width:130px">Brian's Price</th>
+        <th class="num" style="width:100px">Gap</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <!-- APPLEWOOD TL-1 -->
+      <tr class="model-row">
+        <td>Applewood TL-1</td>
+        <td></td><td></td>
+        <td class="num">$789,990</td>
+        <td class="num"></td>
+        <td class="num"></td>
+      </tr>
+      <tr class="sqft-row">
+        <td>1,481 sq ft AG</td>
+        <td colspan="5"></td>
+      </tr>
+
+      <tr class="comp-row">
+        <td></td>
+        <td><span class="type-badge det36">36' Det.</span></td>
+        <td>Dreamscape — Cassini</td>
+        <td class="num">$751,319</td>
+        <td class="num">$789,990</td>
+        <td class="num gap-col">+$38,671</td>
+      </tr>
+      <tr class="comp-sqft">
+        <td></td><td></td>
+        <td><em>1,477 sq ft AG</em></td>
+        <td colspan="3"></td>
+      </tr>
+
+      <tr class="comp-row">
+        <td></td>
+        <td><span class="type-badge det30">30' Det.</span></td>
+        <td>Dreamscape — Helios</td>
+        <td class="num">$760,168</td>
+        <td class="num">$789,990</td>
+        <td class="num gap-col">+$29,822</td>
+      </tr>
+      <tr class="comp-sqft">
+        <td></td><td></td>
+        <td><em>1,847 sq ft AG</em></td>
+        <td colspan="3"></td>
+      </tr>
+
+      <tr class="comp-row">
+        <td></td>
+        <td><span class="type-badge det36">36' Det.</span></td>
+        <td>Dreamscape — Galileo</td>
+        <td class="num">$764,593</td>
+        <td class="num">$789,990</td>
+        <td class="num gap-col">+$25,397</td>
+      </tr>
+      <tr class="comp-sqft">
+        <td></td><td></td>
+        <td><em>1,607 sq ft AG</em></td>
+        <td colspan="3"></td>
+      </tr>
+
+      <tr class="comp-row">
+        <td></td>
+        <td><span class="type-badge det30">30' Det.</span></td>
+        <td>Minto Heights of Harmony — Langley 5</td>
+        <td class="num">$773,363</td>
+        <td class="num">$789,990</td>
+        <td class="num gap-col">+$16,627</td>
+      </tr>
+      <tr class="comp-sqft">
+        <td></td><td></td>
+        <td><em>1,527 sq ft AG</em></td>
+        <td colspan="3"></td>
+      </tr>
+
+      <tr class="comp-row">
+        <td></td>
+        <td><span class="type-badge det30">30' Det.</span></td>
+        <td>Dreamscape — Magellan</td>
+        <td class="num">$773,442</td>
+        <td class="num">$789,990</td>
+        <td class="num gap-col">+$16,548</td>
+      </tr>
+      <tr class="comp-sqft">
+        <td></td><td></td>
+        <td><em>1,991 sq ft AG</em></td>
+        <td colspan="3"></td>
+      </tr>
+
+      <tr class="comp-row">
+        <td></td>
+        <td><span class="type-badge det30">30' Det.</span></td>
+        <td>Minto Heights of Harmony — Langley 6</td>
+        <td class="num">$782,212</td>
+        <td class="num">$789,990</td>
+        <td class="num gap-col">+$7,778</td>
+      </tr>
+      <tr class="comp-sqft">
+        <td></td><td></td>
+        <td><em>1,527 sq ft AG</em></td>
+        <td colspan="3"></td>
+      </tr>
+
+      <tr class="comp-row same-price">
+        <td></td>
+        <td><span class="type-badge det30">30' Det.</span></td>
+        <td>Winchester Estates — Bel Air</td>
+        <td class="num">$789,900</td>
+        <td class="num">$789,990</td>
+        <td class="num gap-col">+$90</td>
+      </tr>
+      <tr class="comp-sqft same-price">
+        <td></td><td></td>
+        <td><em>1,702 sq ft AG — effectively the same price</em></td>
+        <td colspan="3"></td>
+      </tr>
+
+      <tr class="note-row">
+        <td colspan="6"><strong>7 freehold detached options</strong> — 30' and 36' singles — are available in North Oshawa at or below this price. My suggested price, based on a collaborative review across all competitor product types and prices, was <strong>$699,990</strong>.<span class="disclaimer">Comparisons do not take into account features, bonuses or discounts being offered/applied at competing sites.</span></td>
+      </tr>
+
+      <!-- BLACKWOOD TL-2 -->
+      <tr class="model-row">
+        <td>Blackwood TL-2</td>
+        <td></td><td></td>
+        <td class="num">$829,990</td>
+        <td class="num"></td>
+        <td class="num"></td>
+      </tr>
+      <tr class="sqft-row">
+        <td>1,597 sq ft AG</td>
+        <td colspan="5"></td>
+      </tr>
+
+      <tr class="comp-row">
+        <td></td>
+        <td><span class="type-badge det30">30' Det.</span></td>
+        <td>Dreamscape — Rosetta</td>
+        <td class="num">$795,566</td>
+        <td class="num">$829,990</td>
+        <td class="num gap-col">+$34,424</td>
+      </tr>
+      <tr class="comp-sqft">
+        <td></td><td></td>
+        <td><em>2,117 sq ft AG</em></td>
+        <td colspan="3"></td>
+      </tr>
+
+      <tr class="comp-row">
+        <td></td>
+        <td><span class="type-badge det30">30' Det.</span></td>
+        <td>Winchester Estates — Monte Carlo</td>
+        <td class="num">$799,900</td>
+        <td class="num">$829,990</td>
+        <td class="num gap-col">+$30,090</td>
+      </tr>
+      <tr class="comp-sqft">
+        <td></td><td></td>
+        <td><em>1,830 sq ft AG</em></td>
+        <td colspan="3"></td>
+      </tr>
+
+      <tr class="comp-row">
+        <td></td>
+        <td><span class="type-badge det30">30' Det.</span></td>
+        <td>Dreamscape — Solar</td>
+        <td class="num">$799,991</td>
+        <td class="num">$829,990</td>
+        <td class="num gap-col">+$29,999</td>
+      </tr>
+      <tr class="comp-sqft">
+        <td></td><td></td>
+        <td><em>1,979 sq ft AG</em></td>
+        <td colspan="3"></td>
+      </tr>
+
+      <tr class="comp-row">
+        <td></td>
+        <td><span class="type-badge det36">36' Det.</span></td>
+        <td>Dreamscape — Juno</td>
+        <td class="num">$804,416</td>
+        <td class="num">$829,990</td>
+        <td class="num gap-col">+$25,574</td>
+      </tr>
+      <tr class="comp-sqft">
+        <td></td><td></td>
+        <td><em>1,834 sq ft AG</em></td>
+        <td colspan="3"></td>
+      </tr>
+
+      <tr class="comp-row">
+        <td></td>
+        <td><span class="type-badge det30">30' Det.</span></td>
+        <td>Minto Heights of Harmony — Langley 6</td>
+        <td class="num">$808,761</td>
+        <td class="num">$829,990</td>
+        <td class="num gap-col">+$21,229</td>
+      </tr>
+      <tr class="comp-sqft">
+        <td></td><td></td>
+        <td><em>1,562 sq ft AG</em></td>
+        <td colspan="3"></td>
+      </tr>
+
+      <tr class="note-row">
+        <td colspan="6">The above reflects options <em>new</em> at this budget; all 7 detached options from TL-1 remain available as well. My suggested price was <strong>$719,990</strong>.<span class="disclaimer">Comparisons do not take into account features, bonuses or discounts being offered/applied at competing sites.</span></td>
+      </tr>
+
+      <!-- COTTONWOOD TL-3 -->
+      <tr class="model-row">
+        <td>Cottonwood TL-3</td>
+        <td></td><td></td>
+        <td class="num">$849,990</td>
+        <td class="num"></td>
+        <td class="num"></td>
+      </tr>
+      <tr class="sqft-row">
+        <td>1,752 sq ft AG</td>
+        <td colspan="5"></td>
+      </tr>
+
+      <tr class="comp-row">
+        <td></td>
+        <td><span class="type-badge det30">30' Det.</span></td>
+        <td>Winchester Estates — Silverado</td>
+        <td class="num">$835,900</td>
+        <td class="num">$849,990</td>
+        <td class="num gap-col">+$14,090</td>
+      </tr>
+      <tr class="comp-sqft">
+        <td></td><td></td>
+        <td><em>1,991 sq ft AG</em></td>
+        <td colspan="3"></td>
+      </tr>
+
+      <tr class="comp-row">
+        <td></td>
+        <td><span class="type-badge det36">36' Det.</span></td>
+        <td>Dreamscape — Kepler</td>
+        <td class="num">$839,814</td>
+        <td class="num">$849,990</td>
+        <td class="num gap-col">+$10,176</td>
+      </tr>
+      <tr class="comp-sqft">
+        <td></td><td></td>
+        <td><em>2,032 sq ft AG</em></td>
+        <td colspan="3"></td>
+      </tr>
+
+      <tr class="comp-row">
+        <td></td>
+        <td><span class="type-badge det30">30' Det.</span></td>
+        <td>Heartwood Village — Laurel</td>
+        <td class="num">$844,238</td>
+        <td class="num">$849,990</td>
+        <td class="num gap-col">+$5,752</td>
+      </tr>
+      <tr class="comp-sqft">
+        <td></td><td></td>
+        <td><em>1,901 sq ft AG</em></td>
+        <td colspan="3"></td>
+      </tr>
+
+      <tr class="note-row">
+        <td colspan="6">The above reflects options new at this budget; all prior options remain available. My suggested price was <strong>$749,990</strong>.<span class="disclaimer">Comparisons do not take into account features, bonuses or discounts being offered/applied at competing sites.</span></td>
+      </tr>
+
+      <!-- ROSEWOOD TL-4 -->
+      <tr class="model-row">
+        <td>Rosewood TL-4</td>
+        <td></td><td></td>
+        <td class="num">$879,990</td>
+        <td class="num"></td>
+        <td class="num"></td>
+      </tr>
+      <tr class="sqft-row">
+        <td>1,884 sq ft AG</td>
+        <td colspan="5"></td>
+      </tr>
+
+      <tr class="comp-row">
+        <td></td>
+        <td><span class="type-badge det30">30' Det.</span></td>
+        <td>Winchester Estates — Chevelle</td>
+        <td class="num">$859,900</td>
+        <td class="num">$879,990</td>
+        <td class="num gap-col">+$20,090</td>
+      </tr>
+      <tr class="comp-sqft">
+        <td></td><td></td>
+        <td><em>2,046 sq ft AG</em></td>
+        <td colspan="3"></td>
+      </tr>
+
+      <tr class="comp-row">
+        <td></td>
+        <td><span class="type-badge det30">30' Det.</span></td>
+        <td>Winchester Estates — Caprice Modified</td>
+        <td class="num">$859,900</td>
+        <td class="num">$879,990</td>
+        <td class="num gap-col">+$20,090</td>
+      </tr>
+      <tr class="comp-sqft">
+        <td></td><td></td>
+        <td><em>2,060 sq ft AG</em></td>
+        <td colspan="3"></td>
+      </tr>
+
+      <tr class="comp-row">
+        <td></td>
+        <td><span class="type-badge det30">30' Det.</span></td>
+        <td>Minto Heights of Harmony — Langley 1</td>
+        <td class="num">$861,858</td>
+        <td class="num">$879,990</td>
+        <td class="num gap-col">+$18,132</td>
+      </tr>
+      <tr class="comp-sqft">
+        <td></td><td></td>
+        <td><em>1,699 sq ft AG</em></td>
+        <td colspan="3"></td>
+      </tr>
+
+      <tr class="comp-row">
+        <td></td>
+        <td><span class="type-badge det30">30' Det.</span></td>
+        <td>Heartwood Village — Sumac</td>
+        <td class="num">$861,938</td>
+        <td class="num">$879,990</td>
+        <td class="num gap-col">+$18,052</td>
+      </tr>
+      <tr class="comp-sqft">
+        <td></td><td></td>
+        <td><em>2,015 sq ft AG</em></td>
+        <td colspan="3"></td>
+      </tr>
+
+      <tr class="comp-row">
+        <td></td>
+        <td><span class="type-badge det36">36' Det.</span></td>
+        <td>The Views at Britannia — Springview 3BR</td>
+        <td class="num">$861,938</td>
+        <td class="num">$879,990</td>
+        <td class="num gap-col">+$18,052</td>
+      </tr>
+      <tr class="comp-sqft">
+        <td></td><td></td>
+        <td><em>1,672 sq ft AG</em></td>
+        <td colspan="3"></td>
+      </tr>
+
+      <tr class="comp-row">
+        <td></td>
+        <td><span class="type-badge det30">30' Det.</span></td>
+        <td>Heartwood Village — Hazel</td>
+        <td class="num">$870,787</td>
+        <td class="num">$879,990</td>
+        <td class="num gap-col">+$9,203</td>
+      </tr>
+      <tr class="comp-sqft">
+        <td></td><td></td>
+        <td><em>2,102 sq ft AG</em></td>
+        <td colspan="3"></td>
+      </tr>
+
+      <tr class="comp-row">
+        <td></td>
+        <td><span class="type-badge det36">36' Det.</span></td>
+        <td>The Views at Britannia — Springview 4BR</td>
+        <td class="num">$870,788</td>
+        <td class="num">$879,990</td>
+        <td class="num gap-col">+$9,202</td>
+      </tr>
+      <tr class="comp-sqft">
+        <td></td><td></td>
+        <td><em>1,672 sq ft AG</em></td>
+        <td colspan="3"></td>
+      </tr>
+
+      <tr class="comp-row">
+        <td></td>
+        <td><span class="type-badge det36">36' Det.</span></td>
+        <td>Dreamscape — Mariner</td>
+        <td class="num">$875,212</td>
+        <td class="num">$879,990</td>
+        <td class="num gap-col">+$4,778</td>
+      </tr>
+      <tr class="comp-sqft">
+        <td></td><td></td>
+        <td><em>2,243 sq ft AG</em></td>
+        <td colspan="3"></td>
+      </tr>
+
+      <tr class="comp-row">
+        <td></td>
+        <td><span class="type-badge det36">36' Det.</span></td>
+        <td>Dreamscape — Kepler</td>
+        <td class="num">$875,212</td>
+        <td class="num">$879,990</td>
+        <td class="num gap-col">+$4,778</td>
+      </tr>
+      <tr class="comp-sqft">
+        <td></td><td></td>
+        <td><em>2,098 sq ft AG</em></td>
+        <td colspan="3"></td>
+      </tr>
+
+      <tr class="note-row">
+        <td colspan="6">At this price point, a buyer has 9 additional detached options within $20,000 of Brian's ask — in addition to everything available at the lower tiers. My suggested price was <strong>$779,990</strong>.<span class="disclaimer">Comparisons do not take into account features, bonuses or discounts being offered/applied at competing sites.</span></td>
+      </tr>
+
+      <!-- SILVERWOOD TL-5 -->
+      <tr class="model-row">
+        <td>Silverwood TL-5 (end)</td>
+        <td></td><td></td>
+        <td class="num">$889,990</td>
+        <td class="num"></td>
+        <td class="num"></td>
+      </tr>
+      <tr class="sqft-row">
+        <td>1,884 sq ft AG</td>
+        <td colspan="5"></td>
+      </tr>
+
+      <tr class="comp-row">
+        <td></td>
+        <td><span class="type-badge det30">30' Det.</span></td>
+        <td>Minto Heights of Harmony — Langley 1</td>
+        <td class="num">$888,407</td>
+        <td class="num">$889,990</td>
+        <td class="num gap-col">+$1,583</td>
+      </tr>
+      <tr class="comp-sqft">
+        <td></td><td></td>
+        <td><em>1,743 sq ft AG</em></td>
+        <td colspan="3"></td>
+      </tr>
+
+      <tr class="comp-row">
+        <td></td>
+        <td><span class="type-badge det30">30' Det.</span></td>
+        <td>Heartwood Village — Poplar</td>
+        <td class="num">$888,486</td>
+        <td class="num">$889,990</td>
+        <td class="num gap-col">+$1,504</td>
+      </tr>
+      <tr class="comp-sqft">
+        <td></td><td></td>
+        <td><em>2,217 sq ft AG</em></td>
+        <td colspan="3"></td>
+      </tr>
+
+      <tr class="comp-row">
+        <td></td>
+        <td><span class="type-badge det36">36' Det.</span></td>
+        <td>The Views at Britannia — Springview 3BR</td>
+        <td class="num">$888,487</td>
+        <td class="num">$889,990</td>
+        <td class="num gap-col">+$1,503</td>
+      </tr>
+      <tr class="comp-sqft">
+        <td></td><td></td>
+        <td><em>1,661 sq ft AG</em></td>
+        <td colspan="3"></td>
+      </tr>
+
+      <tr class="comp-row same-price">
+        <td></td>
+        <td><span class="type-badge det30">30' Det.</span></td>
+        <td>Winchester Estates — Regal</td>
+        <td class="num">$889,900</td>
+        <td class="num">$889,990</td>
+        <td class="num gap-col">+$90</td>
+      </tr>
+      <tr class="comp-sqft same-price">
+        <td></td><td></td>
+        <td><em>2,115 sq ft AG — effectively the same price</em></td>
+        <td colspan="3"></td>
+      </tr>
+
+      <tr class="note-row">
+        <td colspan="6">At the top of the range, a buyer can purchase a <strong>2,217 sq ft 30' detached</strong> or a <strong>2,115 sq ft 30' detached</strong> for essentially the same price as this end-unit townhome. My suggested price was <strong>$789,990</strong>.<span class="disclaimer">Comparisons do not take into account features, bonuses or discounts being offered/applied at competing sites.</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+  </div><!-- /table-wrap -->
+
+
+  <!-- ==================== TABLE 2 ==================== -->
+  <h2 class="section-heading">Table 2 — Freehold Town Competition at Each Price Point</h2>
+  <p class="section-subheading">How Tanglewood's Terrace Home product compares to similar freehold townhome offerings in North Oshawa. Only builders with active freehold town product in this market are included. ★WO denotes walkout basement models.</p>
+
+  <div class="table-wrap">
+  <table class="comp">
+    <thead>
+      <tr>
+        <th style="width:200px">TW Plan</th>
+        <th>Comparable Freehold Town</th>
+        <th class="num" style="width:120px">Comp Sq Ft AG</th>
+        <th class="num" style="width:120px">Comp Price</th>
+        <th class="num" style="width:130px">Brian's Price</th>
+        <th class="num" style="width:100px">Gap</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <!-- APPLEWOOD TL-1 -->
+      <tr class="model-row">
+        <td>Applewood TL-1</td>
+        <td>Not much at this size range — this is the smallest freehold town actively available in North Oshawa.</td>
+        <td class="num"></td>
+        <td class="num"></td>
+        <td class="num">$789,990</td>
+        <td class="num"></td>
+      </tr>
+      <tr class="sqft-row">
+        <td>1,481 sq ft AG</td>
+        <td colspan="5"></td>
+      </tr>
+
+      <tr class="comp-row">
+        <td></td>
+        <td>Homeward Hills — Skyview T2-1B2 (all brick)</td>
+        <td class="num">1,447</td>
+        <td class="num">$733,619</td>
+        <td class="num">$789,990</td>
+        <td class="num gap-col">+$56,371</td>
+      </tr>
+
+      <tr class="note-row">
+        <td colspan="6">My suggested price, based on a collaborative review across all competitor product types and prices, was <strong>$699,990</strong>.<span class="disclaimer">Comparisons do not take into account features, bonuses or discounts being offered/applied at competing sites.</span></td>
+      </tr>
+
+      <!-- BLACKWOOD TL-2 -->
+      <tr class="model-row">
+        <td>Blackwood TL-2</td>
+        <td>One relevant comp at this size — all brick.</td>
+        <td class="num"></td>
+        <td class="num"></td>
+        <td class="num">$829,990</td>
+        <td class="num"></td>
+      </tr>
+      <tr class="sqft-row">
+        <td>1,597 sq ft AG</td>
+        <td colspan="5"></td>
+      </tr>
+
+      <tr class="comp-row">
+        <td></td>
+        <td>Homeward Hills — Riverstone T3-1B2 (all brick)</td>
+        <td class="num">1,629</td>
+        <td class="num">$748,664</td>
+        <td class="num">$829,990</td>
+        <td class="num gap-col">+$81,326</td>
+      </tr>
+
+      <tr class="note-row">
+        <td colspan="6">My suggested price was <strong>$719,990</strong>.<span class="disclaimer">Comparisons do not take into account features, bonuses or discounts being offered/applied at competing sites.</span></td>
+      </tr>
+
+      <!-- COTTONWOOD TL-3 -->
+      <tr class="model-row">
+        <td>Cottonwood TL-3</td>
+        <td>Two comps. Winchester Carlyle is 261 sq ft larger with a walkout basement at $100,090 below Brian's price.</td>
+        <td class="num"></td>
+        <td class="num"></td>
+        <td class="num">$849,990</td>
+        <td class="num"></td>
+      </tr>
+      <tr class="sqft-row">
+        <td>1,752 sq ft AG</td>
+        <td colspan="5"></td>
+      </tr>
+
+      <tr class="comp-row">
+        <td></td>
+        <td>Homeward Hills — Clearwater B (all brick + stone)</td>
+        <td class="num">1,736</td>
+        <td class="num">$761,938</td>
+        <td class="num">$849,990</td>
+        <td class="num gap-col">+$88,052</td>
+      </tr>
+
+      <tr class="comp-row">
+        <td></td>
+        <td>Winchester Estates — Carlyle Heritage ★WO (all brick)</td>
+        <td class="num">2,013</td>
+        <td class="num">$749,900</td>
+        <td class="num">$849,990</td>
+        <td class="num gap-col">+$100,090</td>
+      </tr>
+
+      <tr class="note-row">
+        <td colspan="6">My suggested price was <strong>$749,990</strong>.<span class="disclaimer">Comparisons do not take into account features, bonuses or discounts being offered/applied at competing sites.</span></td>
+      </tr>
+
+      <!-- ROSEWOOD TL-4 -->
+      <tr class="model-row">
+        <td>Rosewood TL-4</td>
+        <td>Three comps. Winchester Wellington is nearly the same square footage at $130,090 less.</td>
+        <td class="num"></td>
+        <td class="num"></td>
+        <td class="num">$879,990</td>
+        <td class="num"></td>
+      </tr>
+      <tr class="sqft-row">
+        <td>1,884 sq ft AG</td>
+        <td colspan="5"></td>
+      </tr>
+
+      <tr class="comp-row">
+        <td></td>
+        <td>Homeward Hills — Clearwater 4BR (all brick + stone)</td>
+        <td class="num">1,837</td>
+        <td class="num">$775,212</td>
+        <td class="num">$879,990</td>
+        <td class="num gap-col">+$104,778</td>
+      </tr>
+
+      <tr class="comp-row">
+        <td></td>
+        <td>Winchester Estates — Wellington End</td>
+        <td class="num">1,869</td>
+        <td class="num">$749,900</td>
+        <td class="num">$879,990</td>
+        <td class="num gap-col">+$130,090</td>
+      </tr>
+
+      <tr class="comp-row">
+        <td></td>
+        <td>Winchester Estates — Oakwood Heritage ★WO</td>
+        <td class="num">2,140</td>
+        <td class="num">$769,900</td>
+        <td class="num">$879,990</td>
+        <td class="num gap-col">+$110,090</td>
+      </tr>
+
+      <tr class="note-row">
+        <td colspan="6">My suggested price was <strong>$779,990</strong>.<span class="disclaimer">Comparisons do not take into account features, bonuses or discounts being offered/applied at competing sites.</span></td>
+      </tr>
+
+      <!-- SILVERWOOD TL-5 -->
+      <tr class="model-row">
+        <td>Silverwood TL-5 (end)</td>
+        <td>Three comps, two with walkout basements. Oakwood and Astoria are larger end-unit towns at $90K–$120K less.</td>
+        <td class="num"></td>
+        <td class="num"></td>
+        <td class="num">$889,990</td>
+        <td class="num"></td>
+      </tr>
+      <tr class="sqft-row">
+        <td>1,884 sq ft AG</td>
+        <td colspan="5"></td>
+      </tr>
+
+      <tr class="comp-row">
+        <td></td>
+        <td>Homeward Hills — Clearwater 4BR (all brick + stone)</td>
+        <td class="num">1,837</td>
+        <td class="num">$775,212</td>
+        <td class="num">$889,990</td>
+        <td class="num gap-col">+$114,778</td>
+      </tr>
+
+      <tr class="comp-row">
+        <td></td>
+        <td>Winchester Estates — Oakwood Heritage ★WO</td>
+        <td class="num">2,140</td>
+        <td class="num">$769,900</td>
+        <td class="num">$889,990</td>
+        <td class="num gap-col">+$120,090</td>
+      </tr>
+
+      <tr class="comp-row">
+        <td></td>
+        <td>Winchester Estates — Astoria End ★WO</td>
+        <td class="num">2,139</td>
+        <td class="num">$799,900</td>
+        <td class="num">$889,990</td>
+        <td class="num gap-col">+$90,090</td>
+      </tr>
+
+      <tr class="note-row">
+        <td colspan="6">My suggested price was <strong>$789,990</strong>.<span class="disclaimer">Comparisons do not take into account features, bonuses or discounts being offered/applied at competing sites.</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+  </div><!-- /table-wrap -->
+
+  <!-- RELATED LINKS -->
+  <div class="related">
+    <div class="related-label">Related Resources</div>
+    <div class="related-links">
+      <a href="https://smarterrealestate.github.io/tanglewood-hub/reports/features-comparison.html">Tanglewood Features, Inclusions &amp; Incentives Comparison</a>
+      <a href="https://smarterrealestate.github.io/tanglewood-hub/reports/competitive-update-sep2026.html">September 2026 Competitive Update Report</a>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<div class="page-footer">
+  <p>All competitor prices are net HST and sourced from active price lists as of Q3 2026 (Tanglewood Competitive Intelligence Tracker). Prices provided by Brian/Medallion on September 15, 2026. This document is intended for internal use. Comparisons do not account for standard features, structural options, incentive programs, or discounts being offered at each competing site.</p>
+</div>
+
+</body>
+</html>
