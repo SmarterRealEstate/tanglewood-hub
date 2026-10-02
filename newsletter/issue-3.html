@@ -1163,6 +1163,9 @@
 .contest-tags span{background:var(--gold);color:var(--navy);font:800 10px/1 Inter,Arial,sans-serif;letter-spacing:2px;text-transform:uppercase;padding:6px 10px;border-radius:3px}
 .contest-tags span.alt{background:transparent;color:var(--gold);border:1px solid var(--gold)}
 .contest-btn{display:block;text-align:center;background:var(--gold);color:var(--navy)!important;font:800 13px Inter,Arial,sans-serif;letter-spacing:1px;text-transform:uppercase;padding:12px;border-radius:6px;text-decoration:none;margin-top:14px}
+.brief-link{color:inherit;text-decoration:none;border-bottom:1px solid transparent;transition:border-color .2s}
+.brief-link:hover{border-bottom-color:var(--gold)}
+.brief a.brief-link:not(b a){border-bottom:1px solid rgba(196,154,60,.6)}
 </style></head>
 <body>
 <!-- READING PROGRESS BAR -->
@@ -1231,10 +1234,10 @@
       </div>
       <aside class="briefs">
         <div class="np-label">Community Briefs</div>
-        <div class="brief"><b>Election Day, Oct. 26</b>Oshawa picks a new mayor this fall, with Mayor Dan Carter not running again. Council and school trustees are on the ballot too.</div>
-        <div class="brief"><b>Pumpkins up the road</b>Pick-your-own pumpkins run on select weekends at Linton's Farm Market on Raglan Road East through October 31.</div>
-        <div class="brief"><b>Minto towns in North Oshawa</b>Heights of Harmony freehold townhomes. Register for VIP prices and access in the New Home Market section.</div>
-        <div class="brief"><b>Porch contest is on</b>Send a photo of your fall porch by Oct. 25 for a chance at a $50 gift card to a local business. Details below.</div>
+        <div class="brief"><b><a class="brief-link" href="https://www.oshawa.ca/city-hall/elections/voters/" target="_blank" rel="noopener">Election Day, Oct. 26</a></b>Oshawa picks a new mayor this fall, with Mayor Dan Carter not running again. Council and school trustees are on the ballot too.</div>
+        <div class="brief"><b><a class="brief-link" href="https://lintonsfarmmarket.com/u-pick/" target="_blank" rel="noopener">Pumpkins up the road</a></b>Pick-your-own pumpkins run on select weekends at Linton's Farm Market on Raglan Road East through October 31.</div>
+        <div class="brief"><b><a class="brief-link" href="#newhome">Minto towns in North Oshawa</a></b>Heights of Harmony freehold townhomes. Register for VIP prices and access in the New Home Market section.</div>
+        <div class="brief"><b><a class="brief-link" href="#porch-contest">Porch contest is on</a></b>Send a photo of your fall porch by Oct. 25 for a chance at a $50 gift card to a local business. <a class="brief-link" href="#porch-contest">Details below.</a></div>
       </aside>
     </div>
   </div>
@@ -1267,7 +1270,7 @@
             </div>
           </div>
         </div>
-        <div class="contest contest-hl" style="margin-top:20px;">
+        <div class="contest contest-hl" id="porch-contest" style="margin-top:20px;scroll-margin-top:20px;">
         
         <div class="contest-body">
           <div class="contest-tags"><span>Contest</span><span class="alt">$50 Prize</span></div>
