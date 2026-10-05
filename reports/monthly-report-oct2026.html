@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tanglewood Monthly Report | October 2026</title>
+<style>
+:root{--navy:#162d4a;--dark:#12181f;--gold:#C4922A;--gold-deep:#8a6010;--text:#1a1a2e;--muted:#4a5570;--light-bg:#f0f6ff;--green:#2e7d32;--red:#c62828;--border:#b8cce0;--amber-bg:#fff8e1;--green-bg:#e8f5e9;--navy-bg:#e8eef5;--cream:#f7f1e6;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:Georgia,serif;background:#fff;color:var(--text);font-size:15px;line-height:1.75;}
+a{color:var(--gold-deep);}
+.cover{background:var(--dark);color:#fff;padding:52px 60px 44px;display:flex;flex-direction:column;min-height:88vh;position:relative;overflow:hidden;}
+.cover::after{content:'';position:absolute;bottom:0;left:0;right:0;height:6px;background:linear-gradient(90deg,var(--gold),#e8c547,var(--gold));}
+.cover-logo img{height:110px;display:block;margin-bottom:40px;}
+.cover-eyebrow{font-family:Arial,sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
+.cover h1{font-size:40px;font-weight:normal;line-height:1.2;margin-bottom:14px;max-width:680px;}
+.cover h1 span{color:var(--gold);}
+.cover-sub{font-size:17px;color:#aaa;font-style:italic;margin-bottom:20px;max-width:600px;}
+.cover-meta{display:flex;flex-wrap:wrap;gap:20px 44px;margin-top:auto;padding-top:32px;border-top:1px solid rgba(255,255,255,0.15);}
+.cover-meta div{font-family:Arial,sans-serif;font-size:11px;color:#999;letter-spacing:1px;text-transform:uppercase;}
+.cover-meta strong{display:block;font-family:Georgia,serif;color:#fff;font-size:14px;margin-top:4px;letter-spacing:0;text-transform:none;font-weight:normal;}
+.lead-band{background:var(--navy);border-bottom:4px solid var(--gold);padding:32px 48px;}
+.lead-band p+p{margin-top:16px;}
+.lead-band p.lead-src{font-family:Arial,sans-serif;font-size:11.5px;line-height:1.6;color:#9fb0c4;margin-top:22px;padding-top:14px;border-top:1px solid rgba(255,255,255,.15);}
+.lead-band p.lead-src a{color:#e8c547;}
+.lead-band p{font-size:15.5px;line-height:1.85;color:#dce6f0;max-width:880px;margin:0 auto;}
+.container{max-width:960px;margin:0 auto;padding:0 48px;}
+.section{padding:52px 0 44px;border-bottom:2px solid var(--navy);}
+.section:last-of-type{border-bottom:none;}
+.section-label{font-family:Arial,sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+h2{font-size:26px;font-weight:normal;color:var(--navy);margin-bottom:20px;line-height:1.25;}
+h3{font-size:18px;font-weight:normal;color:var(--navy);margin:32px 0 12px;border-left:3px solid var(--gold);padding-left:12px;}
+p{margin-bottom:14px;}
+.callout{background:var(--light-bg);border-left:4px solid var(--gold);padding:18px 24px;margin:22px 0;border-radius:0 4px 4px 0;}
+.callout p:last-child{margin-bottom:0;}
+.callout-navy{background:var(--navy-bg);border-left-color:var(--navy);}
+.fn{font-family:Arial,sans-serif;font-size:11px;color:var(--muted);font-style:italic;margin:8px 0 0;line-height:1.5;}
+/* KPI tiles */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:8px 0 28px;}
+.kpi{background:var(--cream);border-top:3px solid var(--gold);padding:18px 16px 16px;border-radius:0 0 6px 6px;}
+.kpi .num{font-size:30px;color:var(--navy);line-height:1.1;}
+.kpi .lbl{font-family:Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--gold-deep);margin-top:8px;font-weight:bold;}
+.kpi .sub{font-family:Arial,sans-serif;font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45;}
+/* town price band */
+.band-table{width:100%;border-collapse:collapse;font-size:13.5px;margin:12px 0 4px;}
+.band-table th{background:var(--navy);color:#fff;font-family:Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;font-weight:normal;text-align:left;padding:9px 14px;}
+.band-table td{padding:9px 14px;border-bottom:1px solid var(--border);}
+.band-table tr:nth-child(even) td{background:#f7fafd;}
+.band-table .num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;}
+.band-table tr.tw td{background:#fdf3e3;font-weight:bold;}
+/* changes list */
+.changes{list-style:none;margin:6px 0 0;}
+.changes li{padding:12px 0 12px 22px;border-bottom:1px solid var(--border);position:relative;}
+.changes li::before{content:'';position:absolute;left:0;top:21px;width:9px;height:9px;background:var(--gold);border-radius:50%;}
+.changes strong{color:var(--navy);}
+/* map */
+.map-wrap{background:var(--dark);border-radius:8px;padding:18px;margin:6px 0 10px;}
+.map-wrap svg{width:100%;height:auto;display:block;}
+.draft-note{background:var(--amber-bg);border:1px dashed #e0a800;color:#6b4e00;font-family:Arial,sans-serif;font-size:13px;padding:14px 18px;border-radius:6px;margin:30px 0 0;}
+.footer{text-align:center;font-family:Arial,sans-serif;font-size:12px;color:var(--muted);padding:30px 0 50px;}
+
+.cmp-wrap{overflow-x:auto;margin:14px 0 6px;border-radius:8px;box-shadow:0 2px 14px rgba(22,45,74,.10);}
+.cmp td{font-size:11.5px;}
+.cmp{width:100%;min-width:820px;table-layout:fixed;border-collapse:collapse;font-family:Arial,sans-serif;font-size:12px;background:#fff;}
+.cmp th,.cmp td{padding:9px 6px;border-bottom:1px solid #ece4d4;vertical-align:top;text-align:center;}
+.cmp thead th{background:var(--navy);color:#fff;font-family:Georgia,serif;font-weight:normal;font-size:13.5px;line-height:1.25;vertical-align:middle;}
+.cmp thead th span{display:block;font-family:Arial,sans-serif;font-size:9.5px;letter-spacing:1.2px;text-transform:uppercase;color:#e8c547;margin-top:3px;}
+.cmp thead th.twh{background:var(--dark);border:2px solid var(--gold);border-bottom:none;width:104px;}
+.cmp thead th.twh img{height:56px;display:block;margin:0 auto;}
+.cmp th.rowh{background:var(--cream);color:var(--navy);text-align:left;font-family:Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;font-weight:bold;width:76px;vertical-align:middle;}
+.cmp thead th.rowh{background:var(--cream);}
+.cmp td.twc{background:#fdf3e3;border-left:2px solid var(--gold);border-right:2px solid var(--gold);vertical-align:middle;}
+.cmp tbody tr:last-child td.twc{border-bottom:2px solid var(--gold);}
+.cmp tr.btnrow td,.cmp tr.btnrow th{border-bottom:none;}
+.twbtn{display:block;background:#C4A04A;color:#12181f;font-family:Arial,sans-serif;font-weight:bold;font-size:10px;letter-spacing:1.2px;text-transform:uppercase;padding:9px 4px;border-radius:5px;text-decoration:none;line-height:1.3;}
+.twbtn:hover{background:var(--gold);}
+.cmp .q{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--gold);color:var(--dark);font-family:Georgia,serif;font-size:20px;font-weight:bold;}
+.cmp td i{display:block;font-style:normal;font-family:Georgia,serif;font-size:15px;color:var(--navy);margin-top:3px;}
+.cmp td small{display:block;font-size:10.5px;color:var(--muted);margin-top:3px;line-height:1.35;}
+.cmp .na{color:#a3a9b5;font-style:italic;}
+.cmp i.so,.prow b.so{color:#a3a9b5;}
+.cmp col.c1{width:76px;}.cmp col.c2{width:104px;}
+.rgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:10px;}
+.rcard{display:flex;flex-direction:column;background:#fff;border:1px solid #ece4d4;border-radius:10px;overflow:hidden;text-decoration:none;box-shadow:0 2px 10px rgba(22,45,74,.08);}
+.rthumb{background:var(--dark);border-bottom:3px solid var(--gold);height:96px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;}
+.rdate{font-family:Arial,sans-serif;font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:#8693a6;font-weight:normal;}
+.rthumb img{height:48px;}
+.rinfo{padding:14px;display:flex;flex-direction:column;flex:1;}
+.rname{font-size:15px;color:var(--navy);line-height:1.3;}
+.rdesc{font-family:Arial,sans-serif;font-size:11.5px;color:var(--muted);margin:5px 0 12px;line-height:1.45;}
+.rbtn{margin-top:auto;text-align:center;background:#C4A04A;color:var(--dark);font-family:Arial,sans-serif;font-weight:bold;font-size:11px;letter-spacing:1.4px;text-transform:uppercase;padding:9px;border-radius:5px;}
+.footer-band{background:var(--dark);border-top:6px solid var(--gold);text-align:center;padding:40px 20px 46px;margin-top:20px;}
+.footer-band img{height:70px;display:block;margin:0 auto 14px;}
+.fb-name{font-size:16px;color:#fff;margin-bottom:8px;}
+.fb-contact{font-family:Arial,sans-serif;font-size:12.5px;color:#cfd8e3;line-height:1.7;}
+.fb-note{font-family:Arial,sans-serif;font-size:11px;color:#8693a6;margin-top:12px;font-style:italic;}
+.rs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:14px 0 6px;}
+.rs-card{background:#fff;border:1.5px solid #C4A04A;border-radius:8px;overflow:hidden;box-shadow:0 1px 8px rgba(22,45,74,.07);}
+.rs-img{position:relative;line-height:0;background:#2a3f55;}
+.rs-img img{width:100%;height:auto;display:block;}
+.rs-tag{position:absolute;top:0;left:0;line-height:1;font-family:Arial,sans-serif;font-size:8px;font-weight:bold;letter-spacing:1px;text-transform:uppercase;color:#fff;padding:4px 7px;border-radius:0 0 5px 0;}
+.rs-tw{position:absolute;top:0;right:0;line-height:1;font-family:Arial,sans-serif;font-size:7.5px;font-weight:bold;letter-spacing:1.2px;text-transform:uppercase;color:#12181f;background:#C4A04A;padding:4px 7px;border-radius:0 0 0 5px;}
+.rs-body{padding:9px 10px 10px;font-family:Arial,sans-serif;}
+.rs-addr{font-family:Georgia,serif;font-size:13px;color:var(--navy);font-weight:bold;line-height:1.2;}
+.rs-type{font-size:9.5px;color:var(--muted);margin:2px 0 5px;line-height:1.35;}
+.rs-price{font-family:Georgia,serif;font-size:17px;color:var(--text);font-weight:bold;margin-bottom:5px;}
+.rs-stats{display:flex;border-top:1px solid #ece4d4;border-bottom:1px solid #ece4d4;}
+.rs-stats div{flex:1;text-align:center;padding:4px 1px;border-left:1px solid #ece4d4;}
+.rs-stats div:first-child{border-left:none;}
+.rs-stats b{display:block;font-family:Georgia,serif;font-size:14px;color:var(--navy);}
+.rs-stats span{display:block;font-size:7px;letter-spacing:.6px;text-transform:uppercase;color:var(--muted);line-height:1.3;}
+.rs-flag{display:inline-block;font-family:Arial,sans-serif;font-size:9px;font-weight:bold;letter-spacing:.4px;color:#12181f;background:#f3e2b8;border-left:3px solid #C4922A;padding:3px 7px;margin:0 0 6px;border-radius:0 3px 3px 0;}
+.rs-meta{font-size:9.5px;color:var(--muted);margin-top:5px;line-height:1.4;}
+.rs-label{border-radius:8px;padding:18px 16px;display:flex;flex-direction:column;justify-content:center;align-self:stretch;color:#fff;}
+.rs-label.sold{background:#7a2a2f;}.rs-label.act{background:var(--navy);}
+.rs-l-eyebrow{font-family:Arial,sans-serif;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:#e8c547;font-weight:bold;}
+.rs-l-big{font-family:Georgia,serif;font-size:54px;line-height:1;margin:10px 0 6px;}
+.rs-l-title{font-family:Georgia,serif;font-size:17px;line-height:1.3;}
+.rs-l-sub{font-family:Arial,sans-serif;font-size:11px;color:#cfd8e3;margin-top:10px;font-style:italic;}
+@media (max-width:900px){.rs-grid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:600px){.rs-grid{grid-template-columns:1fr;}}
+.bgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin:18px 0 6px;}
+.bcard{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 2px 14px rgba(22,45,74,.10);display:flex;flex-direction:column;border:1px solid #ece4d4;}
+.bthumb{position:relative;height:150px;background:center/cover no-repeat #2a3f55;display:flex;align-items:center;justify-content:center;}
+.bribbon{position:absolute;left:0;right:0;bottom:0;background:rgba(196,146,42,.95);color:#12181f;font-family:Arial,sans-serif;font-weight:bold;font-size:12px;letter-spacing:2px;text-transform:uppercase;text-align:center;padding:7px 0;}
+.bthumb{overflow:hidden;}
+.blogo{background:center/contain no-repeat;max-width:80%;}
+.bviews{text-align:center;color:#fff;font-family:Georgia,serif;text-shadow:0 2px 6px rgba(0,0,0,.5);}
+.bviews span{display:block;font-size:34px;letter-spacing:8px;font-weight:bold;}
+.bviews small{font-family:Arial,sans-serif;font-size:10px;letter-spacing:3px;}
+.binfo{padding:18px 18px 20px;display:flex;flex-direction:column;flex:1;}
+.bname{font-size:20px;color:var(--navy);line-height:1.2;}
+.bbuilder{font-family:Arial,sans-serif;font-size:12px;color:var(--muted);margin:3px 0 10px;}
+.bsells{font-family:Arial,sans-serif;font-size:12.5px;line-height:1.5;color:var(--text);padding-left:16px;margin-bottom:12px;}
+.bsells li{margin-bottom:3px;}
+.bsells em{color:var(--muted);}
+.bstats{display:flex;gap:10px;margin-bottom:12px;}
+.bstats>div{flex:1;background:var(--cream);border-top:2px solid var(--gold);padding:8px 10px;border-radius:0 0 4px 4px;}
+.bnum{display:block;font-size:20px;color:var(--navy);line-height:1.1;}
+.blbl{display:block;font-family:Arial,sans-serif;font-size:9.5px;letter-spacing:.8px;text-transform:uppercase;color:var(--gold-deep);margin-top:3px;font-weight:bold;}
+.ptable{font-family:Arial,sans-serif;margin:4px 0 12px;border-top:2px solid var(--gold);}
+.phead{display:flex;justify-content:space-between;font-size:9.5px;letter-spacing:.8px;text-transform:uppercase;color:var(--gold-deep);font-weight:bold;padding:6px 0 4px;}
+.prow{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid #ece4d4;}
+.prow strong{display:block;font-size:12.5px;color:var(--navy);}
+.prow span{display:block;font-size:11.5px;color:var(--muted);}
+.prow em{font-style:italic;}
+.prow b{font-family:Georgia,serif;font-size:17px;color:var(--navy);font-weight:normal;white-space:nowrap;}
+.ctable-wrap{overflow-x:auto;margin:14px 0 6px;border-radius:8px;box-shadow:0 2px 14px rgba(22,45,74,.10);}
+.ctable{width:100%;min-width:820px;table-layout:fixed;border-collapse:collapse;font-family:Arial,sans-serif;font-size:11.5px;background:#fff;}
+.ctable thead th{background:var(--navy);color:#fff;padding:12px 6px 10px;vertical-align:bottom;font-weight:normal;}
+.ctable thead th.ctw{background:var(--dark);border-top:4px solid var(--gold);}
+.clogo{height:48px;display:flex;align-items:center;justify-content:center;margin-bottom:6px;}
+.clogo img{max-width:100%;object-fit:contain;}
+.cviews{font-family:Georgia,serif;font-size:20px;letter-spacing:5px;}
+.cname{font-size:12px;font-weight:bold;}
+.cbld{font-size:9.5px;letter-spacing:1px;text-transform:uppercase;color:#e8c547;margin-top:2px;}
+.ctable td,.ctable tbody th{padding:9px 5px;border-bottom:1px solid #ece4d4;text-align:center;vertical-align:middle;}
+.ctable tbody tr:nth-child(even) td{background:#fbf8f2;}
+.ctable .crowh{text-align:left;color:var(--navy);font-weight:bold;font-size:12px;background:var(--cream)!important;white-space:nowrap;width:88px;}
+.ctable td b{display:block;color:var(--navy);font-size:11.5px;}
+.ctable td span{display:block;font-family:Georgia,serif;font-size:15px;color:var(--navy);margin-top:2px;}
+.ctable td i{display:block;color:var(--muted);font-size:10.5px;margin-top:1px;}
+.ctable td .cna{font-family:Arial,sans-serif;font-size:11px;color:#a0a8b6;}
+.ctable td.ctw{background:#fdf3e3!important;border-left:2px solid var(--gold);border-right:2px solid var(--gold);}
+.cq{font-family:Georgia,serif!important;font-size:30px!important;color:var(--gold)!important;font-weight:bold;}
+.brow{font-family:Arial,sans-serif;font-size:12px;line-height:1.5;color:var(--muted);margin-bottom:7px;}
+.brow strong{color:var(--navy);}
+.bnote{font-family:Arial,sans-serif;font-size:10.5px;font-style:italic;color:var(--muted);margin-bottom:6px;}
+.bbtn{margin-top:auto;display:block;text-align:center;background:#C4A04A;color:var(--dark);font-family:Arial,sans-serif;font-weight:bold;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;padding:12px;border-radius:6px;text-decoration:none;}
+.bbtn:hover{background:var(--gold);}
+@media (max-width:900px){.bgrid{grid-template-columns:repeat(2,1fr);}.rgrid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:600px){.bgrid{grid-template-columns:1fr;}}
+@media (max-width:760px){
+ .cover{padding:36px 22px;min-height:auto;} .cover h1{font-size:30px;}
+ .lead-band{padding:24px 18px;} .container{padding:0 16px;}
+ .kpis{grid-template-columns:repeat(2,1fr);}
+ .band-table{font-size:12px;} .band-table th,.band-table td{padding:7px 8px;}
+ .map-wrap{padding:6px;}
+}
+@media print{.cover{min-height:auto;page-break-after:always;}.section{break-inside:avoid;}.draft-note{display:none;}}
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="cover-logo"><img src="https://smarterrealestate.github.io/tanglewood-hub/assets/tanglewood-logo-transparent.png" alt="Tanglewood by Medallion Developments"></div>
+  <div class="cover-eyebrow">Monthly Market Report</div>
+  <h1>North Oshawa New Home Market<br><span>October 2026</span></h1>
+  <p class="cover-sub">What the market did this month, where every competing site stands today, and what it means for Phase 2.</p>
+  <div class="cover-meta">
+    <div>Prepared by<strong>Jeff &amp; Lorraine, Tanglewood</strong></div>
+    <div>Date<strong>October 2026</strong></div>
+    <div>Distribution<strong>Brian, Larry &amp; Shimon</strong></div>
+    <div>Data verified<strong>October 5, 2026</strong></div>
+  </div>
+</div>
+
+<div class="lead-band">
+  <p>The biggest event in North Oshawa this month was Minto's launch of 20' freehold towns on October 3. By our count, 39 of 40 released lots sold in the first two days, priced from $596,000 to $703,000 after the HST rebate. Buyers are clearly in the market for freehold towns. The question for Phase 2 is the price point they are buying at. Every other builder held its price list and several are leaning harder on incentives. Dreamscape's and Heartwood Village's 30' collections have both sold out, with Heartwood's next 30' release coming soon, and Winchester by Menkes has sold out of several town models in its current release, which have been removed from its price list.</p>
+  <p><strong style="color:#fff;">New home buyers are back, and they are buying towns and smaller singles.</strong> GTA single-family new home sales in August, the most recent month reported, ran 47% above their 10-year average, and the HST rebate is the main reason. North Oshawa is following the same pattern: the units moving fastest are the lowest price points in each community.</p>
+  <p><strong style="color:#fff;">Investors are back at the table too.</strong> Under the 2026 Ontario Budget, homes bought as rental properties also qualify for the enhanced HST relief. Investors pay the HST at closing, then claim it back from the CRA once the home is leased to a tenant for at least 12 months.</p>
+  <p class="lead-src">Sources: <a href="https://www.globenewswire.com/news-release/2026/09/22/3366097/0/en/new-home-sales-in-the-gta-continue-their-positive-momentum-throughout-august.html" target="_blank" rel="noopener">BILD / Altus Group, GTA new home sales, August 2026 (released Sept 22)</a> &nbsp;|&nbsp; <a href="https://budget.ontario.ca/2026/chapter-1b-costs.html" target="_blank" rel="noopener">2026 Ontario Budget: Enhanced HST Relief on New Homes</a> &nbsp;|&nbsp; <a href="https://www.osler.com/en/insights/updates/ontarios-new-hst-rebate-key-details/" target="_blank" rel="noopener">Osler: Ontario's new HST rebate, key details</a></p>
+</div>
+
+<div class="container">
+
+<div class="section">
+  <div class="section-label">Section A</div>
+  <h2>Where Everyone Is Building</h2>
+  <p>Seven active new home communities sit within a few minutes of each other in North Oshawa. This is not a complete list of every builder in the area. These are the communities most comparable to Tanglewood, and they are the ones we use throughout our reports.</p>
+
+  <div class="map-wrap">
+  <svg viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Map of North Oshawa new home communities">
+    <defs>
+      <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.1" fill="#d9cdb4"/></pattern>
+      <filter id="sh" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000" flood-opacity=".35"/></filter>
+    </defs>
+    <rect x="0" y="0" width="1000" height="700" rx="6" fill="#f7f1e6"/>
+    <rect x="0" y="0" width="1000" height="700" rx="6" fill="url(#dots)"/>
+    <!-- study area tint -->
+    <rect x="362" y="122" width="400" height="250" fill="#eadfc8" opacity=".55"/>
+    <!-- Hwy 407 -->
+    <path d="M0,70 C250,52 520,46 1000,30" stroke="#162d4a" stroke-width="12" fill="none" stroke-linecap="round"/>
+    <path d="M0,70 C250,52 520,46 1000,30" stroke="#f7f1e6" stroke-width="3" fill="none" stroke-dasharray="14 10"/>
+    <g transform="translate(830,30)"><path d="M-22,-16 h44 v20 l-22,12 l-22,-12z" fill="#162d4a"/><text x="0" y="-1" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="12" fill="#fff">407</text></g>
+    <!-- east-west roads -->
+    <g stroke="#162d4a" stroke-width="6" stroke-linecap="round">
+      <line x1="0" y1="120" x2="1000" y2="120"/>
+      <line x1="0" y1="372" x2="1000" y2="372"/>
+      <line x1="0" y1="590" x2="1000" y2="590"/>
+    </g>
+    <line x1="300" y1="252" x2="900" y2="252" stroke="#7d8ea6" stroke-width="3"/>
+    <!-- north-south roads -->
+    <g stroke="#162d4a" stroke-width="6" stroke-linecap="round">
+      <line x1="110" y1="60" x2="110" y2="700"/>
+      <line x1="360" y1="56" x2="360" y2="700"/>
+      <line x1="640" y1="50" x2="640" y2="700"/>
+    </g>
+    <line x1="860" y1="120" x2="860" y2="700" stroke="#7d8ea6" stroke-width="3"/>
+    <!-- road labels -->
+    <g font-family="Arial" font-size="13" font-weight="bold" fill="#162d4a" letter-spacing=".5">
+      <text x="150" y="112">Winchester Rd E</text>
+      <text x="378" y="364">Conlin Rd E</text>
+      <text x="150" y="582">Taunton Rd E</text>
+      <text x="130" y="692" transform="rotate(-90 130 692)">Simcoe St N</text>
+      <text x="380" y="692" transform="rotate(-90 380 692)">Ritson Rd N</text>
+      <text x="660" y="692" transform="rotate(-90 660 692)">Harmony Rd N</text>
+    </g>
+    <g font-family="Arial" font-size="11" fill="#5d6e86">
+      <text x="880" y="692" transform="rotate(-90 880 692)">Grandview St N</text>
+      <text x="455" y="246">Britannia Ave</text>
+    </g>
+    <!-- compass -->
+    <g transform="translate(950,640)"><circle r="20" fill="none" stroke="#162d4a" stroke-width="2"/><path d="M0,-14 L6,6 L0,2 L-6,6z" fill="#162d4a"/><text y="40" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="12" fill="#162d4a">N</text></g>
+
+    <!-- leader lines -->
+    <g stroke="#8a6010" stroke-width="1.5" fill="none" stroke-dasharray="4 3"><line x1="395" y1="205" x2="338" y2="205"/><line x1="395" y1="345" x2="269" y2="345"/><line x1="608" y1="345" x2="468" y2="454"/><line x1="690" y1="305" x2="690" y2="454"/><line x1="615" y1="205" x2="722" y2="205"/><line x1="690" y1="140" x2="630" y2="124"/><line x1="765" y1="238" x2="791" y2="304"/></g>
+    <!-- pins -->
+    <g><rect x="648" y="226" width="92" height="140" rx="4" fill="#C4922A" fill-opacity=".28" stroke="#C4922A" stroke-width="2" stroke-dasharray="5 3"/><circle cx="395" cy="205" r="9" fill="#C4922A" stroke="#162d4a" stroke-width="3"/><circle cx="395" cy="345" r="9" fill="#C4922A" stroke="#162d4a" stroke-width="3"/><circle cx="608" cy="345" r="9" fill="#C4922A" stroke="#162d4a" stroke-width="3"/><circle cx="615" cy="205" r="9" fill="#C4922A" stroke="#162d4a" stroke-width="3"/><circle cx="690" cy="140" r="9" fill="#C4922A" stroke="#162d4a" stroke-width="3"/><circle cx="765" cy="238" r="9" fill="#C4922A" stroke="#162d4a" stroke-width="3"/><g transform="translate(690,305)"><circle r="17" fill="#162d4a" stroke="#C4922A" stroke-width="3"/><path d="M0,-10 L2.9,-3.1 L10,-3.1 L4.3,1.4 L6.5,8.5 L0,4.2 L-6.5,8.5 L-4.3,1.4 L-10,-3.1 L-2.9,-3.1z" fill="#e8c547"/></g>
+    </g>
+
+    <!-- logo badges -->
+    <g filter="url(#sh)" font-family="Arial">
+      <!-- Tanglewood (featured) -->
+      <g transform="translate(592,454)">
+        <rect width="200" height="92" rx="8" fill="#12181f" stroke="#C4922A" stroke-width="3"/>
+        <image href="https://smarterrealestate.github.io/tanglewood-hub/assets/tanglewood-logo-transparent.png" x="20" y="8" width="160" height="58" preserveAspectRatio="xMidYMid meet"/>
+        <text x="100" y="82" text-anchor="middle" font-size="10" letter-spacing="1.5" fill="#C4922A" font-weight="bold">MEDALLION</text>
+      </g>
+      <!-- Winchester -->
+      <g transform="translate(138,117)">
+        <rect width="200" height="92" rx="8" fill="#162d4a"/>
+        <image href="https://smarterrealestate.github.io/tanglewood-hub/assets/newsletter/precon/winchester-logo.png" x="60" y="6" width="80" height="62" preserveAspectRatio="xMidYMid meet" style="filter:brightness(0) invert(1)"/>
+        <text x="100" y="82" text-anchor="middle" font-size="10" letter-spacing="1.5" fill="#C4922A" font-weight="bold">MENKES</text>
+      </g>
+      <!-- Heartwood -->
+      <g transform="translate(69,304)">
+        <rect width="200" height="92" rx="8" fill="#162d4a"/>
+        <image href="https://laurelcresthomes.com/heartwood/wp-content/uploads/2023/10/Heartwood-logo-beige.png" x="20" y="10" width="160" height="54" preserveAspectRatio="xMidYMid meet"/>
+        <text x="100" y="82" text-anchor="middle" font-size="10" letter-spacing="1.5" fill="#C4922A" font-weight="bold">LAURELCREST</text>
+      </g>
+      <!-- Dreamscape -->
+      <g transform="translate(791,304)">
+        <rect width="200" height="92" rx="8" fill="#162d4a"/>
+        <image href="https://smarterrealestate.github.io/tanglewood-hub/assets/newsletter/precon/dreamscape-logo.png" x="18" y="16" width="164" height="42" preserveAspectRatio="xMidYMid meet"/>
+        <text x="100" y="82" text-anchor="middle" font-size="10" letter-spacing="1.5" fill="#C4922A" font-weight="bold">FIELDGATE</text>
+      </g>
+      <!-- The Views -->
+      <g transform="translate(722,117)">
+        <rect width="200" height="92" rx="8" fill="#162d4a"/>
+        <text x="100" y="44" text-anchor="middle" font-family="Georgia,serif" font-size="30" letter-spacing="6" fill="#fff">VIEWS</text>
+        <text x="100" y="60" text-anchor="middle" font-size="8.5" letter-spacing="2.5" fill="#cfd8e3">NORTH OSHAWA</text>
+        <text x="100" y="82" text-anchor="middle" font-size="10" letter-spacing="1.5" fill="#C4922A" font-weight="bold">JEFFERY HOMES</text>
+      </g>
+      <!-- Heights of Harmony -->
+      <g transform="translate(430,32)">
+        <rect width="200" height="92" rx="8" fill="#162d4a"/>
+        <image href="https://smarterrealestate.github.io/tanglewood-hub/assets/newsletter/precon/harmony-logo.png" x="30" y="6" width="140" height="62" preserveAspectRatio="xMidYMid meet"/>
+        <text x="100" y="82" text-anchor="middle" font-size="10" letter-spacing="1.5" fill="#C4922A" font-weight="bold">MINTO</text>
+      </g>
+      <!-- Homeward Hills -->
+      <g transform="translate(268,454)">
+        <rect width="200" height="92" rx="8" fill="#162d4a"/>
+        <image href="https://sorbara-bkt.s3.amazonaws.com/wp-content/uploads/2023/12/SRB_Homeward_Hills_logo_header_white-512x317.png" x="45" y="4" width="110" height="66" preserveAspectRatio="xMidYMid meet"/>
+        <text x="100" y="82" text-anchor="middle" font-size="10" letter-spacing="1.5" fill="#C4922A" font-weight="bold">SORBARA</text>
+      </g>
+    </g>
+  </svg>
+  </div>
+  <p class="fn">Locations are approximate and shown for orientation only. Map not to scale.</p>
+
+<h3>The Competition at a Glance</h3>
+<p>Prices are net of the HST rebate and exclude lot premiums. Average price per square foot is above grade, by product type, across all current models and elevations. Each button opens that builder's folder in our Google Drive, with current price lists, floor plans and feature sheets.</p>
+<div class="bgrid">
+<div class="bcard"><div class="bthumb" style="background-image:url('https://media.minto.com/slideshows/2847/original/Conlin%20streetscape_darkened.jpg');"><div class="blogo" style="background-image:url('https://smarterrealestate.github.io/tanglewood-hub/assets/newsletter/precon/harmony-logo.png');width:160px;height:56px;filter:drop-shadow(0 2px 8px rgba(0,0,0,.5));"></div></div><div class="binfo"><div class="bname">Heights of Harmony</div><div class="bbuilder">Minto Communities</div>
+<div class="ptable"><div class="phead"><span>Product</span><span>Avg $/sf AG</span></div><div class="prow"><div><strong>20' freehold towns</strong><span>$596K to $703K &middot; <em>Launched Oct 3</em></span></div><b>$364</b></div><div class="prow"><div><strong>30' singles</strong><span>$773K to $1.00M</span></div><b>$483</b></div><div class="prow"><div><strong>32' singles</strong><span>$950K to $1.03M</span></div><b>$453</b></div><div class="prow"><div><strong>36' singles</strong><span>$1.03M to $1.34M &middot; <em>Incl. Dual Key</em></span></div><b>$440</b></div><div class="prow"><div><strong>Back-to-back + urban towns</strong><span>$410K to $578K</span></div><b>$375</b></div></div><div class="brow"><strong>Co-op:</strong> 2.5%</div>
+<div class="brow"><strong>Basement:</strong> Unfinished; walk-out lots available</div>
+<div class="brow"><strong>Incentives:</strong> Singles: $30K to $37K design credit, finished basement or reduced lot premium; $0 development charges. Towns: $10K design credit, 5 appliances</div>
+<a class="bbtn" href="https://drive.google.com/drive/folders/1r56mUICHmd2eEq-o-trPqdiJfaVSXIqN" target="_blank" rel="noopener">Project Details</a></div></div>
+<div class="bcard"><div class="bthumb" style="background-image:url('https://fieldgatehomes.com/img/dreamscape/topBanner/DREAMSCAPE_banner.jpg');"><div class="blogo" style="background-image:url('https://smarterrealestate.github.io/tanglewood-hub/assets/newsletter/precon/dreamscape-logo.png');width:180px;height:42px;"></div></div><div class="binfo"><div class="bname">Dreamscape</div><div class="bbuilder">Fieldgate Homes</div>
+<div class="ptable"><div class="phead"><span>Product</span><span>Avg $/sf AG</span></div><div class="prow"><div><strong>36' singles</strong><span>$694K to $989K</span></div><b>$422</b></div><div class="prow"><div><strong>42' singles</strong><span>$904K to $1.14M</span></div><b>$374</b></div><div class="prow"><div><strong>30' singles</strong><span>Sold out (was $641K to $835K)</span></div><b class="so">$434</b></div></div><div class="brow"><strong>Co-op:</strong> 3%</div>
+<div class="brow"><strong>Basement:</strong> Unfinished; walk-out or walk-up +$30K</div>
+<div class="brow"><strong>Incentives:</strong> $15K décor credit + central A/C + 5 appliances; accelerated deposit adds up to $10K décor + free assignment</div>
+<a class="bbtn" href="https://drive.google.com/drive/folders/1sBA6Dzm8UMYP4DCcK-gUTYaYpcpFgFWp" target="_blank" rel="noopener">Project Details</a></div></div>
+<div class="bcard"><div class="bthumb" style="background-image:url('https://jefferyhomes.com/images/views-models-new/Horizon_A.jpg');"><div class="bviews"><span>VIEWS</span><small>NORTH OSHAWA</small></div></div><div class="binfo"><div class="bname">The Views</div><div class="bbuilder">Jeffery Homes</div>
+<div class="ptable"><div class="phead"><span>Product</span><span>Avg $/sf AG</span></div><div class="prow"><div><strong>36' singles</strong><span>$862K to $1.25M</span></div><b>$469</b></div><div class="prow"><div><strong>40' singles</strong><span>$977K to $1.39M &middot; <em>10' main floor</em></span></div><b>$513</b></div><div class="prow"><div><strong>Inventory homes</strong><span>$873K to $1.40M &middot; <em>One with a rental suite</em></span></div><b>$470</b></div></div><div class="brow"><strong>Co-op:</strong> 3%</div>
+<div class="brow"><strong>Basement:</strong> Unfinished, 9' ceiling; walk-out lots +$50K</div>
+<div class="brow"><strong>Incentives:</strong> $10K (36') or $20K (40') free décor upgrades</div>
+<a class="bbtn" href="https://drive.google.com/drive/folders/1EJJyFWiNbKVugZhuK9yAWP8QMAjMilLa" target="_blank" rel="noopener">Project Details</a></div></div>
+<div class="bcard"><div class="bthumb" style="background-image:url('https://sorbara-bkt.s3.amazonaws.com/wp-content/uploads/2023/11/Homeward-Hills-Google-Image-.jpg');"><div class="blogo" style="background-image:url('https://sorbara-bkt.s3.amazonaws.com/wp-content/uploads/2023/12/SRB_Homeward_Hills_logo_header_white-512x317.png');width:120px;height:74px;filter:drop-shadow(0 1px 3px rgba(0,0,0,.5));"></div></div><div class="binfo"><div class="bname">Homeward Hills</div><div class="bbuilder">Sorbara Group</div>
+<div class="ptable"><div class="phead"><span>Product</span><span>Avg $/sf AG</span></div><div class="prow"><div><strong>20' freehold towns</strong><span>$699K to $776K</span></div><b>$470</b></div><div class="prow"><div><strong>32' singles</strong><span>$915K to $1.02M</span></div><b>$495</b></div><div class="prow"><div><strong>36' singles</strong><span>$986K to $1.21M &middot; <em>Incl. multi-gen</em></span></div><b>$450</b></div><div class="prow"><div><strong>40' singles</strong><span>$1.10M to $1.20M</span></div><b>$398</b></div></div><div class="brow"><strong>Co-op:</strong> 3%</div>
+<div class="brow"><strong>Basement:</strong> Unfinished; finished basement optional</div>
+<div class="brow"><strong>Incentives:</strong> Standard: A/C + appliances, 9' ceilings on both floors, price guarantee</div>
+<a class="bbtn" href="https://drive.google.com/drive/folders/1DHM_SKY8r-2FNlMaLiWhPLjwJZI5wwPd" target="_blank" rel="noopener">Project Details</a></div></div>
+<div class="bcard"><div class="bthumb" style="background-image:url('https://smarterrealestate.github.io/winchester-estates/assets/hero.jpg');"><div class="blogo" style="background-image:url('https://smarterrealestate.github.io/tanglewood-hub/assets/newsletter/precon/winchester-logo.png');width:110px;height:110px;filter:brightness(0) invert(1) drop-shadow(0 1px 2px rgba(0,0,0,.5));"></div></div><div class="binfo"><div class="bname">Winchester Estates</div><div class="bbuilder">Menkes Developments</div>
+<div class="ptable"><div class="phead"><span>Product</span><span>Avg $/sf AG</span></div><div class="prow"><div><strong>20' freehold towns</strong><span>$700K to $800K &middot; <em>4 models left</em></span></div><b>$380</b></div><div class="prow"><div><strong>30' singles</strong><span>$790K to $980K</span></div><b>$425</b></div></div><div class="brow"><strong>Co-op:</strong> 3%</div>
+<div class="brow"><strong>Basement:</strong> Unfinished, 3-piece rough-in; walk-out towns available</div>
+<div class="brow"><strong>Incentives:</strong> 5 appliances, A/C, gas fireplace, quartz counters, development charges capped at $7,500, free assignment</div>
+<a class="bbtn" href="https://drive.google.com/drive/folders/1kpcHirzFdFInUjvibxW_-SGdUTb4qGkM" target="_blank" rel="noopener">Project Details</a></div></div>
+<div class="bcard"><div class="bthumb" style="background-image:url('https://laurelcresthomes.com/heartwood/wp-content/uploads/2026/04/Final-Detached-Streetscape-1138x487px.jpg');"><div class="bribbon">30's Coming Soon</div><div class="blogo" style="background-image:url('https://laurelcresthomes.com/heartwood/wp-content/uploads/2023/10/Heartwood-logo-beige.png');width:180px;height:46px;filter:drop-shadow(0 1px 3px rgba(0,0,0,.4));"></div></div><div class="binfo"><div class="bname">Heartwood Village</div><div class="bbuilder">Laurelcrest Homes</div>
+<div class="ptable"><div class="phead"><span>Product</span><span>Avg $/sf AG</span></div><div class="prow"><div><strong>36' singles</strong><span>$959K to $1.08M</span></div><b>$414</b></div><div class="prow"><div><strong>40' singles</strong><span>$1.10M to $1.23M</span></div><b>$410</b></div><div class="prow"><div><strong>30' singles</strong><span>Sold out (was $844K to $950K) &middot; <em>new release coming soon</em></span></div><b class="so">$415</b></div></div><div class="brow"><strong>Co-op:</strong> 3%</div>
+<div class="brow"><strong>Basement:</strong> Unfinished; 3-piece rough-in</div>
+<div class="brow"><strong>Incentives:</strong> $0 closing costs, $5K to $10K décor, 5 appliances, smart home package, development charges capped at $10,000</div>
+<a class="bbtn" href="https://drive.google.com/drive/folders/1dmdYEQ9FBaXWZK7gOg7S6yi9AR2WpJIf" target="_blank" rel="noopener">Project Details</a></div></div>
+</div>
+
+  <h3>Tanglewood vs. the Comp Set</h3>
+<p>Phase 2 terms are still to be set. This grid shows where every competitor sits today on the same measures, so each Tanglewood decision can be made against the full market. Prices are net of the HST rebate, before lot premiums; price per square foot is above grade.</p>
+<div class="cmp-wrap"><table class="cmp"><colgroup><col class="c1"><col class="c2"><col span="6"></colgroup><thead><tr>
+<th class="twh" colspan="2"><img src="https://smarterrealestate.github.io/tanglewood-hub/assets/tanglewood-logo-transparent.png" alt="Tanglewood"><span>Phase 2</span></th>
+<th>Heights of Harmony<span>Minto</span></th>
+<th>Dreamscape<span>Fieldgate</span></th>
+<th>The Views<span>Jeffery Homes</span></th>
+<th>Homeward Hills<span>Sorbara</span></th>
+<th>Winchester Estates<span>Menkes</span></th>
+<th>Heartwood Village<span>Laurelcrest</span></th>
+</tr></thead><tbody>
+<tr><th class="rowh">Towns</th><td class="twc"><span class="q">?</span></td><td>$596K to $703K<i>$364/sf</i></td><td><span class=na>Not offered</span></td><td><span class=na>Not offered</span></td><td>$699K to $776K<i>$470/sf</i></td><td>$700K to $800K<i>$380/sf</i></td><td><span class=na>Sold out</span></td></tr>
+<tr><th class="rowh">30' Singles</th><td class="twc"><span class="q">?</span></td><td>$773K to $1.00M<i>$483/sf</i><small>32': $950K to $1.03M, $453/sf</small></td><td><span class=na>Sold out</span><i class=so>$434/sf</i><small>Was $641K to $835K</small></td><td><span class=na>Not offered</span></td><td>$915K to $1.02M<i>$495/sf</i><small>32' lots</small></td><td>$790K to $980K<i>$425/sf</i></td><td><span class=na>Sold out</span><i class=so>$415/sf</i><small>Was $844K to $950K &middot; new release soon</small></td></tr>
+<tr><th class="rowh">36' Singles</th><td class="twc"><span class="q">?</span></td><td>$1.03M to $1.34M<i>$440/sf</i></td><td>$694K to $989K<i>$422/sf</i></td><td>$862K to $1.25M<i>$469/sf</i></td><td>$986K to $1.21M<i>$450/sf</i></td><td><span class=na>Not offered</span></td><td>$959K to $1.08M<i>$414/sf</i></td></tr>
+<tr><th class="rowh">40' Singles</th><td class="twc"><span class="q">?</span></td><td><span class=na>Not offered</span></td><td>$904K to $1.14M<i>$374/sf</i><small>42' lots</small></td><td>$977K to $1.39M<i>$513/sf</i></td><td>$1.10M to $1.20M<i>$398/sf</i></td><td><span class=na>Not offered</span></td><td>$1.10M to $1.23M<i>$410/sf</i></td></tr>
+
+<tr><th class="rowh">Co-op</th><td class="twc"><span class="q">?</span></td><td>2.5%</td><td>3%</td><td>3%</td><td>3%</td><td>3%</td><td>3%</td></tr>
+<tr class="btnrow"><th class="rowh"></th><td class="twc"><a class="twbtn" href="https://drive.google.com/drive/folders/1qgcqRRcs7OLr0oS1IalDpu1LxkKSjRgb" target="_blank" rel="noopener">Tanglewood Info</a></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div><p class="fn">Co-op rates as quoted by each builder, calculated on the purchase price net of HST. Sold-out price per square foot is from the last published price list. Minto back-to-back and urban towns not shown.</p>
+</div>
+
+
+
+<div class="section">
+  <div class="section-label">Tanglewood Resale</div>
+  <h2>What Phase 1 Homes Are Doing</h2>
+  <p>Three Tanglewood homes have sold this year and three are listed today. True days on market counts every listing a home has been through, not just the current one.</p>
+  <div class="rs-grid"><div class="rs-label sold"><span class="rs-l-eyebrow">Sold in 2026</span><span class="rs-l-big">3</span><span class="rs-l-title">Tanglewood homes sold this year</span><span class="rs-l-sub">None since July 29</span></div><div class="rs-card"><div class="rs-img"><img src="https://smarterrealestate.github.io/tanglewood-hub/assets/newsletter/listings/2143-hallandale.jpg" alt="2143 Hallandale St"><span class="rs-tag" style="background:#c62828;">Sold</span><span class="rs-tw">Tanglewood</span></div><div class="rs-body"><div class="rs-addr">2143 Hallandale St</div><div class="rs-type">Detached | 36' Lot | HONEYWOOD (36-6) Elev A | Lot 73</div><div class="rs-price">$1,050,000</div><div class="rs-stats"><div><b>14</b><span>Listed DOM</span></div><div><b>59</b><span>True DOM</span></div><div><b>96%</b><span>Of Ask</span></div></div><div class="rs-meta">Listed $1,099,000 | Sold Jun 19, 2026 | 5 bed / 4 bath</div></div></div><div class="rs-card"><div class="rs-img"><img src="https://smarterrealestate.github.io/tanglewood-hub/assets/newsletter/listings/1190-plymouth.jpg" alt="1190 Plymouth Dr"><span class="rs-tag" style="background:#c62828;">Sold</span><span class="rs-tw">Tanglewood</span></div><div class="rs-body"><div class="rs-addr">1190 Plymouth Dr</div><div class="rs-type">Detached | LAKEWOOD (36-7) Elev C</div><div class="rs-price">$1,100,000</div><div class="rs-stats"><div><b>78</b><span>Listed DOM</span></div><div><b>78</b><span>True DOM</span></div><div><b>80%</b><span>Of Original Ask</span></div></div><div class="rs-meta">Original ask $1,380,000 | Sold Jun 24, 2026 | 4 bed / 4 bath</div></div></div><div class="rs-card"><div class="rs-img"><img src="https://smarterrealestate.github.io/tanglewood-hub/assets/newsletter/listings/1144-wilmington.jpg" alt="1144 Wilmington Ave"><span class="rs-tag" style="background:#c62828;">Sold</span><span class="rs-tw">Tanglewood</span></div><div class="rs-body"><div class="rs-addr">1144 Wilmington Ave</div><div class="rs-type">Detached | 30' Lot | PINEWOOD (30-3) Elev A | Lot 113</div><div class="rs-flag">Legal 2-bed basement suite, separate entrance</div><div class="rs-price">$940,000</div><div class="rs-stats"><div><b>23</b><span>Listed DOM</span></div><div><b>23</b><span>True DOM</span></div><div><b>86%</b><span>Of Original Ask</span></div></div><div class="rs-meta">Original ask $1,098,000 | Sold Jul 29, 2026 | 4+2 bed / 4 bath</div></div></div><div class="rs-label act"><span class="rs-l-eyebrow">For sale now</span><span class="rs-l-big">3</span><span class="rs-l-title">Tanglewood homes currently listed</span><span class="rs-l-sub">181 true days on market, on average</span></div><div class="rs-card"><div class="rs-img"><img src="https://smarterrealestate.github.io/tanglewood-hub/assets/newsletter/listings/2144-hallandale.jpg" alt="2144 Hallandale St"><span class="rs-tag" style="background:#c62828;">$650K Drop</span><span class="rs-tw">Tanglewood</span></div><div class="rs-body"><div class="rs-addr">2144 Hallandale St</div><div class="rs-type">Detached | 36' Lot | CEDARWOOD (36-2) Elev A | Lot 107</div><div class="rs-price">$949,900</div><div class="rs-stats"><div><b>7</b><span>Listed DOM</span></div><div><b>301</b><span>True DOM</span></div><div><b>4 Bed</b><span>4 Bath</span></div></div><div class="rs-meta">First listed January 2025 at $1,599,999</div></div></div><div class="rs-card"><div class="rs-img"><img src="https://smarterrealestate.github.io/tanglewood-hub/assets/newsletter/listings/1195-rexton.jpg" alt="1195 Rexton Dr"><span class="rs-tag" style="background:#e8941a;">Price Cut</span><span class="rs-tw">Tanglewood</span></div><div class="rs-body"><div class="rs-addr">1195 Rexton Dr</div><div class="rs-type">Freehold Townhouse | 21' Lot | APPLEWOOD (TL-1) Elev B</div><div class="rs-price">$849,900</div><div class="rs-stats"><div><b>20</b><span>Listed DOM</span></div><div><b>163</b><span>True DOM</span></div><div><b>3+1</b><span>Bed / 3 Bath</span></div></div></div></div><div class="rs-card"><div class="rs-img"><img src="https://smarterrealestate.github.io/tanglewood-hub/assets/newsletter/listings/1186-rexton.jpg" alt="1186 Rexton Dr"><span class="rs-tag" style="background:#e8941a;">Relisted</span><span class="rs-tw">Tanglewood</span></div><div class="rs-body"><div class="rs-addr">1186 Rexton Dr</div><div class="rs-type">Detached | 30' Lot | PINEWOOD (30-3) Elev B | Lot 8</div><div class="rs-price">$929,800</div><div class="rs-stats"><div><b>20</b><span>Listed DOM</span></div><div><b>79</b><span>True DOM</span></div><div><b>4 Bed</b><span>3 Bath</span></div></div></div></div></div>
+  <p class="fn">Tanglewood Phase 1 homes only. Source: our MLS pull (TRREB/PropTx) and verified listing histories, as of September 30, 2026. No Tanglewood resale has sold since July 29.</p>
+</div>
+
+<div class="section">
+  <div class="section-label">Section B</div>
+  <h2>Our Read on the Market</h2>
+  <p>The market is finally starting to move. Buyers are back, and so are investors, who are taking advantage of the HST rebate and prices sitting at the bottom end of where they have been in years. What is moving is the smaller product. Minto's towns sold out in a weekend, and the 30' lots at both Dreamscape and Heartwood are gone.</p>
+  <p>The larger homes are a tougher sell, and in my opinion that comes down to who is buying them. Most of those buyers have a home to sell first. After the last few years, a lot of them are either nervous about selling into this market or don't have enough equity to make the move. Oshawa resale prices are back to roughly where they were in late 2021. In our own comp zone, the larger detached homes that sold this year took close to six months to sell and went for about 80% of their original asking price.</p>
+  <p class="fn">Oshawa resale: TRREB Market Watch via WealthNorth, July 2026. Comp zone figures: our MLS pull (TRREB/PropTx), Tanglewood comp zone, double-garage detached, January 1 to September 30, 2026 (average 178 days on market across all listings, 80% of original asking price).</p>
+</div>
+
+<div class="section">
+  <div class="section-label">Previous Reports</div>
+  <h2>The Full Picture</h2>
+  <div class="rgrid"><a class="rcard" href="https://jeffrey7651.github.io/tanglewood-phase2-briefing/" target="_blank" rel="noopener"><div class="rthumb"><img src="https://smarterrealestate.github.io/tanglewood-hub/assets/tanglewood-logo-transparent.png" alt=""><span class="rdate">July 2026</span></div><div class="rinfo"><div class="rname">Phase 2 Pre-Launch Briefing</div><div class="rdesc">Model analysis and pricing rationale</div><span class="rbtn">View Report</span></div></a><a class="rcard" href="https://jeffrey7651.github.io/tanglewood-differentiation-strategy/" target="_blank" rel="noopener"><div class="rthumb"><img src="https://smarterrealestate.github.io/tanglewood-hub/assets/tanglewood-logo-transparent.png" alt=""><span class="rdate">August 2026</span></div><div class="rinfo"><div class="rname">Phase 2 Differentiation Strategy</div><div class="rdesc">Product strategy and gap analysis</div><span class="rbtn">View Report</span></div></a><a class="rcard" href="https://drive.google.com/drive/folders/1978LExSiFfbzsDahw4vzJlIWh55A7Z1s" target="_blank" rel="noopener"><div class="rthumb"><img src="https://smarterrealestate.github.io/tanglewood-hub/assets/tanglewood-logo-transparent.png" alt=""><span class="rdate">September 2026</span></div><div class="rinfo"><div class="rname">Phase 2 Sample Price Lists</div><div class="rdesc">Suggested pricing for all four collections</div><span class="rbtn">View Report</span></div></a><a class="rcard" href="https://smarterrealestate.github.io/tanglewood-hub/reports/competitive-update-sep2026.html" target="_blank" rel="noopener"><div class="rthumb"><img src="https://smarterrealestate.github.io/tanglewood-hub/assets/tanglewood-logo-transparent.png" alt=""><span class="rdate">September 2026</span></div><div class="rinfo"><div class="rname">September Market Report</div><div class="rdesc">Competition, pricing and positioning by lot width</div><span class="rbtn">View Report</span></div></a><a class="rcard" href="https://smarterrealestate.github.io/tanglewood-hub/reports/features-comparison.html" target="_blank" rel="noopener"><div class="rthumb"><img src="https://smarterrealestate.github.io/tanglewood-hub/assets/tanglewood-logo-transparent.png" alt=""><span class="rdate">September 2026</span></div><div class="rinfo"><div class="rname">Features &amp; Inclusions Comparison</div><div class="rdesc">Standard features and incentives across the comp set</div><span class="rbtn">View Report</span></div></a></div>
+</div>
+</div>
+<div class="footer-band">
+  <img src="https://smarterrealestate.github.io/tanglewood-hub/assets/tanglewood-logo-transparent.png" alt="Tanglewood">
+  <div class="fb-name">Jeffrey &amp; Lorraine &nbsp;|&nbsp; Tanglewood Sales Team</div>
+  <div class="fb-contact">Tanglewood Presentation Centre &nbsp;&middot;&nbsp; 2095 Harmony Rd N, Oshawa &nbsp;&middot;&nbsp; 437-235-3813 &nbsp;&middot;&nbsp; tanglewoodsales@medallioncorp.com</div>
+  <div class="fb-note">Prepared for Medallion Developments. Competitor data verified from builder broker portals and sales offices, October 5, 2026.</div>
+</div>
+</body>
+</html>
